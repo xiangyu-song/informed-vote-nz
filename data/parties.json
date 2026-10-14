@@ -1,0 +1,25 @@
+{
+  "source": "https://elections.nz/democracy-in-nz/political-parties-in-new-zealand/register-of-political-parties",
+  "checked": "2026-10-15",
+  "note": "All 17 registered parties, names and websites as listed on the Electoral Commission's register.",
+  "in_policy_table": ["ACT", "Green", "Labour", "National", "NZ First", "Opportunity", "Te Pāti Māori", "Te Tai Tokerau Party"],
+  "parties": [
+    {"name": "ACT New Zealand", "short": "ACT", "url": "https://www.act.org.nz/"},
+    {"name": "Alliance Party of Aotearoa New Zealand", "url": "https://allianceparty.nz/"},
+    {"name": "Animal Justice Party Aotearoa New Zealand", "url": "https://animaljustice.org.nz"},
+    {"name": "Aotearoa Legalise Cannabis Party", "url": "https://www.alcp.org.nz/"},
+    {"name": "Conservative Party NZ", "url": "http://www.conservatives.nz"},
+    {"name": "Free Palestine", "url": "https://palfree.nz/"},
+    {"name": "New Zealand First Party", "short": "NZ First", "url": "https://www.nzfirst.nz"},
+    {"name": "New Zealand Labour Party", "short": "Labour", "url": "https://www.labour.org.nz/"},
+    {"name": "New Zealand Loyal", "url": "https://nzloyal.com/"},
+    {"name": "NZ Outdoors & Freedom Party", "url": "https://www.nzofp.co.nz"},
+    {"name": "Opportunity Party", "short": "Opportunity", "url": "https://www.opportunity.org.nz"},
+    {"name": "Te Pāti Māori", "short": "Te Pāti Māori", "url": "https://www.maoriparty.org.nz"},
+    {"name": "Te Tai Tokerau Party", "short": "Te Tai Tokerau Party", "url": "https://tetaitokerauparty.org.nz/"},
+    {"name": "The Green Party of Aotearoa New Zealand", "short": "Green", "url": "https://www.greens.org.nz/"},
+    {"name": "The New Zealand National Party", "short": "National", "url": "https://www.national.org.nz/"},
+    {"name": "Vision New Zealand", "url": "https://www.vision.org.nz/"},
+    {"name": "Women's Rights Party", "url": "https://womensrightsparty.nz/"}
+  ]
+}

@@ -20,7 +20,8 @@
     "National",
     "NZ First",
     "Opportunity",
-    "Te Pāti Māori"
+    "Te Pāti Māori",
+    "Te Tai Tokerau Party"
   ],
   "policy_pages": {
     "ACT": "https://www.act.org.nz/policies",
@@ -29,7 +30,8 @@
     "National": "https://www.national.org.nz/policies",
     "NZ First": "https://www.nzfirst.nz/policy",
     "Opportunity": "https://www.opportunity.org.nz/policy",
-    "Te Pāti Māori": "https://www.maoriparty.org.nz/policies"
+    "Te Pāti Māori": "https://www.maoriparty.org.nz/policies",
+    "Te Tai Tokerau Party": "https://tetaitokerauparty.org.nz/our-policies/"
   },
   "issues": [
     {
@@ -157,6 +159,26 @@
             "source_type": "Policy page",
             "url": "https://www.maoriparty.org.nz/cost_of_living"
           }
+        ],
+        "Te Tai Tokerau Party": [
+          {
+            "name": "Ōranga Whānau — “Clean Slate” & Universal Whānau Allowance",
+            "quote": "An immediate Amnesty on Whānau Debt — wiping all $2 billion of debt owed to MSD and IRD by low-income whānau",
+            "source_type": "Policy page",
+            "url": "https://tetaitokerauparty.org.nz/our-policies/"
+          },
+          {
+            "name": "Mana Māra Policy — Grassroots Food Autonomy & Cost-of-Living Security",
+            "quote": "Te Tai Tokerau Party will treat home food production not as a leisure hobby, but as vital regional infrastructure",
+            "source_type": "Policy page",
+            "url": "https://tetaitokerauparty.org.nz/our-policies/"
+          },
+          {
+            "name": "Kai Sovereignty Policy — Dismantling the Supermarket Duopoly",
+            "quote": "…must allocate a minimum of 30% of shelf space to locally grown, unprocessed food",
+            "source_type": "Policy page",
+            "url": "https://tetaitokerauparty.org.nz/our-policies/"
+          }
         ]
       }
     },
@@ -249,6 +271,14 @@
             "source_type": "Policy page",
             "url": "https://www.maoriparty.org.nz/disabilities"
           }
+        ],
+        "Te Tai Tokerau Party": [
+          {
+            "name": "Hauora Policy — Te Aka Motuhake (Independent Māori Commissioning Authority)",
+            "quote": "…an entirely autonomous, state-funded but fully iwi-governed health authority",
+            "source_type": "Policy page",
+            "url": "https://tetaitokerauparty.org.nz/our-policies/"
+          }
         ]
       }
     },
@@ -303,6 +333,14 @@
             "quote": "Build and support more public and affordable homes.",
             "source_type": "Policy page",
             "url": "https://www.maoriparty.org.nz/housing"
+          }
+        ],
+        "Te Tai Tokerau Party": [
+          {
+            "name": "Mana Taumaru — Local Build Policy (Eliminating Housing Deprivation)",
+            "quote": "…uses agricultural products from our industrial hemp industry to train local rangatahi",
+            "source_type": "Policy page",
+            "url": "https://tetaitokerauparty.org.nz/our-policies/"
           }
         ]
       }
@@ -382,6 +420,14 @@
             "quote": "Build Māori-led education authority and solutions.",
             "source_type": "Policy page",
             "url": "https://www.maoriparty.org.nz/education_training"
+          }
+        ],
+        "Te Tai Tokerau Party": [
+          {
+            "name": "Te Tiriti Re-education",
+            "quote": "Commitment to increased funding for Te Tiriti re-education, led by tangata whenua",
+            "source_type": "Policy page",
+            "url": "https://tetaitokerauparty.org.nz/our-policies/"
           }
         ]
       }
@@ -517,6 +563,26 @@
             "source_type": "Policy page",
             "url": "https://www.maoriparty.org.nz/freshwater_policy"
           }
+        ],
+        "Te Tai Tokerau Party": [
+          {
+            "name": "Mana Kaitiaki Policy — Kaitiaki Statutory Authority",
+            "quote": "Establish a national Kaitiaki Guardians Network funded by a $150M annual Crown appropriation.",
+            "source_type": "Policy page",
+            "url": "https://tetaitokerauparty.org.nz/our-policies/"
+          },
+          {
+            "name": "Hoki Whenua Mai Policy — “Land Back” for Climate Resilience",
+            "quote": "Create a Whenua Climate Restoration Fund to facilitate a compulsory first right of refusal for iwi…",
+            "source_type": "Policy page",
+            "url": "https://tetaitokerauparty.org.nz/our-policies/"
+          },
+          {
+            "name": "Oranga Marae Policy — Frontline Climate & Civil Defence Infrastructure",
+            "quote": "…funded high-capacity solar arrays and battery storage banks",
+            "source_type": "Policy page",
+            "url": "https://tetaitokerauparty.org.nz/our-policies/"
+          }
         ]
       }
     },
@@ -601,6 +667,20 @@
             "quote": "Build Māori-led justice authority and community solutions.",
             "source_type": "Policy page",
             "url": "https://www.maoriparty.org.nz/justice"
+          }
+        ],
+        "Te Tai Tokerau Party": [
+          {
+            "name": "Te Hokinga Mai — Prison Policy",
+            "quote": "Te Tai Tokerau Party will implement a Prison Sinking Lid Policy",
+            "source_type": "Policy page",
+            "url": "https://tetaitokerauparty.org.nz/our-policies/"
+          },
+          {
+            "name": "Māori Justice & Autonomous Policing Act",
+            "quote": "…legislate the direct transfer of regional youth justice votes into iwi-governed, marae-anchored authorities",
+            "source_type": "Policy page",
+            "url": "https://tetaitokerauparty.org.nz/our-policies/"
           }
         ]
       }
@@ -724,6 +804,26 @@
             "source_type": "Policy page",
             "url": "https://www.maoriparty.org.nz/economic_development"
           }
+        ],
+        "Te Tai Tokerau Party": [
+          {
+            "name": "Mahinga Whānau — Wealth Fund Policy",
+            "quote": "Establish a Crown–Iwi Investment Fund specifically for “Transition Infrastructure”",
+            "source_type": "Policy page",
+            "url": "https://tetaitokerauparty.org.nz/our-policies/"
+          },
+          {
+            "name": "Local Business Ruruhau Policy",
+            "quote": "…establish a network of high-specification Local Business Incubators across key regional hubs",
+            "source_type": "Policy page",
+            "url": "https://tetaitokerauparty.org.nz/our-policies/"
+          },
+          {
+            "name": "Kai Sovereignty Policy — “Community-First” Kai Procurement",
+            "quote": "Money spent by the state in our regions should stay in our regions.",
+            "source_type": "Policy page",
+            "url": "https://tetaitokerauparty.org.nz/our-policies/"
+          }
         ]
       }
     },
@@ -789,7 +889,8 @@
           }
         ],
         "Opportunity": [],
-        "Te Pāti Māori": []
+        "Te Pāti Māori": [],
+        "Te Tai Tokerau Party": []
       }
     },
     {
@@ -886,14 +987,32 @@
             "source_type": "Policy page",
             "url": "https://www.maoriparty.org.nz/te_reo_maori"
           }
+        ],
+        "Te Tai Tokerau Party": [
+          {
+            "name": "Entrenched Protection of He Whakaputanga & Te Tiriti o Waitangi",
+            "quote": "Advance a Tiriti-centred constitution.",
+            "source_type": "Policy page",
+            "url": "https://tetaitokerauparty.org.nz/our-policies/"
+          },
+          {
+            "name": "Waitangi Tribunal Funding & Powers",
+            "quote": "Te Tai Tokerau Party will increase and entrench funding to the Waitangi Tribunal",
+            "source_type": "Policy page",
+            "url": "https://tetaitokerauparty.org.nz/our-policies/"
+          },
+          {
+            "name": "“Hoki Whenua Mai” Statutory Trust Framework",
+            "quote": "…legislate a mandatory 20% redirection of all Crown revenues derived from conservation and public lands",
+            "source_type": "Policy page",
+            "url": "https://tetaitokerauparty.org.nz/our-policies/"
+          }
         ]
       }
     }
   ],
-  "all_parties_note": "Te Tai Tokerau Party has a sitting MP but no published policies were found (checked 15 Oct 2026); it is listed with all other parties on the ballot and re-checked at each update.",
   "recheck": [
-    "Te Pāti Māori justice page title includes '(Not live)'",
-    "Te Tai Tokerau Party published policies"
+    "Te Pāti Māori justice page title includes '(Not live)'"
   ],
-  "verification": "All 114 quotes checked word for word against the linked policy page on 15 Oct 2026; 20 corrected (mostly quotes first taken from party index pages, which often differ from the policy page itself)."
+  "verification": "All quotes checked word for word against the linked policy page on 15 Oct 2026; 20 corrected (mostly quotes first taken from party index pages, which differ from the policy pages themselves). Te Tai Tokerau Party added 15 Oct after its policy page was found on the Electoral Commission's party register; its 17 quotes checked word for word."
 }
