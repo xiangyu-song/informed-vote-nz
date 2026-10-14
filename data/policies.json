@@ -1,5 +1,18 @@
 {
-  "rules": "To appear in the policy table, a party must have a sitting MP or average 2% or more in recent nationwide polls, and must publish policies on its own website. Up to three policies per party per issue, taken in the order each party lists them and placed under the issue they best fit. Titles and summaries use the party's own wording. Parties shown in alphabetical order. Every party on the ballot is listed separately with a link to its website.",
+  "checked": "2026-10-15",
+  "display": {
+    "quote_label": "In their words:",
+    "not_covered": "Not covered on {party}'s 2026 policy pages (checked {date}).",
+    "party_order": "shuffled on each visit"
+  },
+  "how_we_chose": [
+    "Parties appear if they have a sitting MP or average 2% or more in recent nationwide polls, and publish policies on their own website.",
+    "For each issue we show up to three policies per party, taken in the order the party lists them on its own website. Each policy appears once, under the issue it fits best.",
+    "Each policy is shown as a direct quote from the party's own page, in quotation marks, with a link so you can read the full policy. Quotes are cut at about 20 words; '…' marks a cut, and [square brackets] mark words we added for clarity.",
+    "A tag shows the type of source: a policy page, the 2026 manifesto, a dated announcement, a long-term policy, or a petition.",
+    "Where a party's policy pages don't cover an issue, we say so. This doesn't mean the party has no view on it.",
+    "Party order is shuffled each time the page loads, so no party is always first."
+  ],
   "parties": [
     "ACT",
     "Green",
@@ -9,114 +22,158 @@
     "Opportunity",
     "Te Pāti Māori"
   ],
+  "policy_pages": {
+    "ACT": "https://www.act.org.nz/policies",
+    "Green": "https://www.greens.org.nz/policy_announcements",
+    "Labour": "https://www.labour.org.nz/our-policies/",
+    "National": "https://www.national.org.nz/policies",
+    "NZ First": "https://www.nzfirst.nz/policy",
+    "Opportunity": "https://www.opportunity.org.nz/policy",
+    "Te Pāti Māori": "https://www.maoriparty.org.nz/policies"
+  },
   "issues": [
     {
       "id": "cost-of-living-tax",
       "name": "Cost of living and tax",
-      "checked": "2026-10-15",
       "parties": {
         "ACT": [
           {
-            "title": "Abolish Labour's Rental Tax",
-            "summary": "ACT will reverse another of Labour's renters' taxes by ending loss ring-fencing.",
-            "url": "https://www.act.org.nz/abolish-labours-rental-tax"
+            "name": "Abolish Labour's Rental Tax",
+            "quote": "ACT will reverse another of Labour's renters' taxes by ending loss ring-fencing.",
+            "source_type": "Policy page",
+            "url": "https://www.act.org.nz/abolish-labours-rental-tax",
+            "verified": "2026-10-15"
           },
           {
-            "title": "No Tax on KiwiSaver Earnings",
-            "summary": "ACT will reward saving by letting you keep those earnings.",
-            "url": "https://www.act.org.nz/no-tax-on-kiwisaver-earnings"
+            "name": "No Tax on KiwiSaver Earnings",
+            "quote": "ACT will reward saving by letting you keep those earnings.",
+            "source_type": "Policy page",
+            "url": "https://www.act.org.nz/no-tax-on-kiwisaver-earnings",
+            "verified": "2026-10-15"
           },
           {
-            "title": "Open the Door to Supermarket Competition",
-            "summary": "ACT will make it easier for new supermarkets to open and grow, so shoppers have more places to take their business.",
-            "url": "https://www.act.org.nz/open-the-door-to-supermarket-competition"
+            "name": "Open the Door to Supermarket Competition",
+            "quote": "ACT will make it easier for new supermarkets to open and grow, so shoppers have more places to take their business.",
+            "source_type": "Policy page",
+            "url": "https://www.act.org.nz/open-the-door-to-supermarket-competition",
+            "verified": "2026-10-15"
           }
         ],
         "Green": [
           {
-            "title": "A tax system for all of us",
-            "summary": "The Green Party's tax plan will address inequality, tackle corporate greed, and tax income fairly. Includes a $10,000 tax-free threshold, a 2.5% tax on net assets over $10 million (family homes exempt), and a higher rate on income over $160,000.",
-            "url": "https://www.greens.org.nz/tax_system_for_all"
+            "name": "A tax system for all of us",
+            "quote": "The Green Party's tax plan will address inequality, tackle corporate greed, and tax income fairly.",
+            "source_type": "Policy page",
+            "url": "https://www.greens.org.nz/tax_system_for_all",
+            "verified": "2026-10-15"
           },
           {
-            "title": "Affordable food for all of us",
-            "summary": "Our policy will reform the food system so that everyone has easy and affordable access to good, nutritious kai.",
-            "url": "https://www.greens.org.nz/affordable_food_for_all_of_us"
+            "name": "Affordable food for all of us",
+            "quote": "Our policy will reform the food system so that everyone has easy and affordable access to good, nutritious kai.",
+            "source_type": "Policy page",
+            "url": "https://www.greens.org.nz/affordable_food_for_all_of_us",
+            "verified": "2026-10-15"
           },
           {
-            "title": "New bill to ban supermarket price gouging",
-            "summary": "A law to make it illegal to charge unreasonable prices for groceries.",
-            "url": "https://www.greens.org.nz/_new_bill_to_ban_supermarket_price_gouging"
+            "name": "New bill to ban supermarket price gouging",
+            "quote": "So, the Greens are introducing a law to make it illegal to charge unreasonable prices for groceries",
+            "source_type": "Announcement",
+            "url": "https://www.greens.org.nz/_new_bill_to_ban_supermarket_price_gouging",
+            "verified": "2026-10-15"
           }
         ],
         "Labour": [
           {
-            "title": "$20 Fare Cap",
-            "summary": "$20 a week is the most you'll pay to get around by bus or train under Labour. In place by 1 July 2027.",
-            "url": "https://www.labour.org.nz/farecap"
+            "name": "$20 Fare Cap",
+            "quote": "Weekly fare cap: $20 in Auckland, Wellington and Christchurch",
+            "source_type": "Policy page",
+            "url": "https://www.labour.org.nz/farecap",
+            "verified": "2026-10-15"
           },
           {
-            "title": "Capital Gains Tax",
-            "summary": "A simple, targeted 28% tax on profit from selling investment property after 1 July 2027.",
-            "url": "https://www.labour.org.nz/capitalgainstax"
+            "name": "Capital Gains Tax",
+            "quote": "A simple, targeted capital gains tax on commercial or residential property (excluding the family home or farm).",
+            "source_type": "Policy page",
+            "url": "https://www.labour.org.nz/capitalgainstax",
+            "verified": "2026-10-15"
           },
           {
-            "title": "Banning Price Gouging",
-            "summary": "Making it illegal for big companies to overcharge for essentials.",
-            "url": "https://www.labour.org.nz/banning-price-gouging"
+            "name": "Banning Price Gouging",
+            "quote": "Labour will make price gouging illegal, so big companies can't use their market power to overcharge you for the essentials.",
+            "source_type": "Policy page",
+            "url": "https://www.labour.org.nz/banning-price-gouging",
+            "verified": "2026-10-15"
           }
         ],
         "National": [
           {
-            "title": "No new taxes under National",
-            "summary": "No new taxes so you keep more of what you earn.",
-            "url": "https://www.national.org.nz/policies/no-new-taxes"
+            "name": "No new taxes under National",
+            "quote": "No new taxes means you can keep more of what you earn",
+            "source_type": "Policy page",
+            "url": "https://www.national.org.nz/policies/no-new-taxes",
+            "verified": "2026-10-15"
           },
           {
-            "title": "Keeping rates affordable",
-            "summary": "So families can keep more money in their pockets, with rates increases that are more affordable and predictable.",
-            "url": "https://www.national.org.nz/policies/rates-capping"
+            "name": "Keeping rates affordable",
+            "quote": "So families can keep more money in their pockets, with rates increases that are more affordable and predictable",
+            "source_type": "Policy page",
+            "url": "https://www.national.org.nz/policies/rates-capping",
+            "verified": "2026-10-15"
           },
           {
-            "title": "More grocery competition",
-            "summary": "National will pursue a separation of New World and PAK'nSAVE so they compete harder against each other for shoppers.",
-            "url": "https://www.national.org.nz/policies/grocery-competition"
+            "name": "More grocery competition",
+            "quote": "National will pursue a separation of New World and PAK'nSAVE",
+            "source_type": "Policy page",
+            "url": "https://www.national.org.nz/policies/grocery-competition",
+            "verified": "2026-10-15"
           }
         ],
         "NZ First": [
           {
-            "title": "Break up the Supermarket Duopoly",
-            "summary": "New Zealand First will introduce legislation to reform the system and break up Foodstuffs.",
-            "url": "https://www.nzfirst.nz/break_up_the_supermarket_duopoly"
+            "name": "Break up the Supermarket Duopoly",
+            "quote": "New Zealand First will introduce legislation to reform the system and break up Foodstuffs",
+            "source_type": "Policy page",
+            "url": "https://www.nzfirst.nz/break_up_the_supermarket_duopoly",
+            "verified": "2026-10-15"
           },
           {
-            "title": "Lowering Tax Rate for SMEs to 20%",
-            "summary": "Lowering the company tax rate for SMEs to 20%, from 28%, for firms with turnover under $30 million.",
-            "url": "https://www.nzfirst.nz/20_tax_rate_for_smes"
+            "name": "Lowering Tax Rate for SMEs to 20%",
+            "quote": "New Zealand First will campaign on lowering the company tax rate for SMEs to 20%",
+            "source_type": "Policy page",
+            "url": "https://www.nzfirst.nz/20_tax_rate_for_smes",
+            "verified": "2026-10-15"
           },
           {
-            "title": "Establishing a KiwiSaver Generation",
-            "summary": "KiwiSaver enrolment compulsory at birth, with an automatic immediate Crown contribution of $1000.",
-            "url": "https://www.nzfirst.nz/establishing_a_kiwisaver_generation"
+            "name": "Establishing a KiwiSaver Generation",
+            "quote": "KiwiSaver enrolment compulsory at birth and there will be an automatic immediate Crown contribution of $1000",
+            "source_type": "Policy page",
+            "url": "https://www.nzfirst.nz/establishing_a_kiwisaver_generation",
+            "verified": "2026-10-15"
           }
         ],
         "Opportunity": [
           {
-            "title": "Tax Reset",
-            "summary": "It's time for a tax reset that increases incomes, makes homes affordable and safeguards retirement. Includes a Citizen's Income of up to $370 a week for almost all adults, funded by a 1.75% Land Value Tax, phased in over a decade.",
-            "url": "https://www.opportunity.org.nz/tax-reset"
+            "name": "Tax Reset",
+            "quote": "It's time for a tax reset that increases incomes, makes homes affordable and safeguards retirement.",
+            "source_type": "Policy page",
+            "url": "https://www.opportunity.org.nz/tax-reset",
+            "verified": "2026-10-15"
           }
         ],
         "Te Pāti Māori": [
           {
-            "title": "Tax",
-            "summary": "Make sure the wealthiest pay their fair share. Use that revenue to fund housing, health, education and whānau support.",
-            "url": "https://www.maoriparty.org.nz/tax"
+            "name": "Tax",
+            "quote": "Make sure the wealthiest pay their fair share.",
+            "source_type": "Policy page",
+            "url": "https://www.maoriparty.org.nz/tax",
+            "verified": "2026-10-15"
           },
           {
-            "title": "Cost of living",
-            "summary": "Lift incomes so people can live with dignity. Strengthen welfare so whānau aren't punished for being poor.",
-            "url": "https://www.maoriparty.org.nz/cost_of_living"
+            "name": "Cost of living",
+            "quote": "Lift incomes so people can live with dignity.",
+            "source_type": "Policy page",
+            "url": "https://www.maoriparty.org.nz/cost_of_living",
+            "verified": "2026-10-15"
           }
         ]
       }
@@ -124,90 +181,103 @@
     {
       "id": "healthcare",
       "name": "Healthcare",
-      "checked": "2026-10-15",
       "parties": {
         "ACT": [
           {
-            "title": "A Starship for Cancer",
-            "summary": "ACT will support a world-class National Cancer Centre with campuses in Auckland and Christchurch.",
-            "url": "https://www.act.org.nz/a-starship-for-cancer"
+            "name": "A Starship for Cancer",
+            "quote": "ACT will support a world-class National Cancer Centre with campuses in Auckland and Christchurch.",
+            "source_type": "Policy page",
+            "url": "https://www.act.org.nz/a-starship-for-cancer",
+            "verified": "2026-10-15"
           },
           {
-            "title": "Let Pharmacies Do More",
-            "summary": "Widen what pharmacists can do and set clear rules for when a patient needs to see a doctor.",
-            "url": "https://www.act.org.nz/let-pharmacies-do-more"
+            "name": "Let Pharmacies Do More",
+            "quote": "ACT would widen that list [of what pharmacists can do] and set clear rules for when a patient needs to see a doctor.",
+            "source_type": "Policy page",
+            "url": "https://www.act.org.nz/let-pharmacies-do-more",
+            "verified": "2026-10-15"
           },
           {
-            "title": "Strengthening End of Life Choice",
-            "summary": "Implement all 25 recommendations from the Ministry of Health's statutory review of the End of Life Choice Act.",
-            "url": "https://www.act.org.nz/strengthening-end-of-life-choice"
+            "name": "Strengthening End of Life Choice",
+            "quote": "Implement all 25 recommendations from the Ministry of Health's statutory review of the End of Life Choice Act.",
+            "source_type": "Policy page",
+            "url": "https://www.act.org.nz/strengthening-end-of-life-choice",
+            "verified": "2026-10-15"
           }
         ],
         "Green": [
           {
-            "title": "Health (2026 manifesto)",
-            "summary": "Ensure public health care services are accessible for all with a focus on prevention and early screening.",
-            "url": "https://www.greens.org.nz/manifesto_2026_health"
-          },
-          {
-            "title": "Health (2026 manifesto)",
-            "summary": "Fund mobile health care and mental health care clinics, diagnostics services and dental vans for rural communities.",
-            "url": "https://www.greens.org.nz/manifesto_2026_health"
-          },
-          {
-            "title": "Health (2026 manifesto)",
-            "summary": "Work towards a publicly delivered, fully free provision of dental and primary care services.",
-            "url": "https://www.greens.org.nz/manifesto_2026_health"
+            "name": "Health",
+            "quote": "Ensure public health care services are accessible for all with a focus on prevention and early screening…",
+            "source_type": "2026 manifesto",
+            "url": "https://www.greens.org.nz/manifesto_2026_health",
+            "verified": "2026-10-15"
           }
         ],
         "Labour": [
           {
-            "title": "Free Doctor's Visits",
-            "summary": "Three free doctor's visits a year for everyone. Delivered with Labour's new Medicard.",
-            "url": "https://www.labour.org.nz/medicard"
+            "name": "Free Doctor's Visits",
+            "quote": "3 free doctor's visits a year for every New Zealander",
+            "source_type": "Policy page",
+            "url": "https://www.labour.org.nz/medicard",
+            "verified": "2026-10-15"
           },
           {
-            "title": "Free Prescriptions",
-            "summary": "Labour will remove the $5 fee on prescriptions to make them free for everyone. From 1 July 2027.",
-            "url": "https://www.labour.org.nz/prescriptions"
+            "name": "Free Prescriptions",
+            "quote": "Labour will remove the $5 fee on prescriptions to make them free for every New Zealander",
+            "source_type": "Policy page",
+            "url": "https://www.labour.org.nz/prescriptions",
+            "verified": "2026-10-15"
           },
           {
-            "title": "Free Maternity Scans",
-            "summary": "Labour will make maternity scans free, everywhere in New Zealand with the Medicard. From July 2028.",
-            "url": "https://www.labour.org.nz/maternityscans"
+            "name": "Free Maternity Scans",
+            "quote": "Labour will make maternity scans free everywhere in New Zealand with the Medicard.",
+            "source_type": "Policy page",
+            "url": "https://www.labour.org.nz/maternityscans",
+            "verified": "2026-10-15"
           }
         ],
         "National": [
           {
-            "title": "More medicines and earlier care",
-            "summary": "Delivering more medicines and earlier screening with no new taxes: a further $604 million for Pharmac's medicines budget, free bowel screening from age 50 by 2029, and free cervical screening for women aged 25 to 69 from March 2027.",
-            "url": "https://www.national.org.nz/policies/more-medicines-and-earlier-care"
+            "name": "More medicines and earlier care",
+            "quote": "Putting the health of Kiwis at home ahead of money sent overseas, delivering more medicines and earlier screening with no new taxes",
+            "source_type": "Policy page",
+            "url": "https://www.national.org.nz/policies/more-medicines-and-earlier-care",
+            "verified": "2026-10-15"
           }
         ],
         "NZ First": [
           {
-            "title": "The Plan to “Make NZ Healthy”",
-            "summary": "New Zealand First will shift the focus of healthcare from treating illness to preventing it, including cutting paperwork for family doctors and placing health coaches in primary care.",
-            "url": "https://www.nzfirst.nz/the_plan_to_make_nz_healthy"
+            "name": "The Plan to “Make NZ Healthy”",
+            "quote": "New Zealand First will shift the focus of healthcare from treating illness to preventing it.",
+            "source_type": "Policy page",
+            "url": "https://www.nzfirst.nz/the_plan_to_make_nz_healthy",
+            "verified": "2026-10-15"
           }
         ],
         "Opportunity": [
           {
-            "title": "Healthy People",
-            "summary": "A protected 10-year plan that properly funds health workers and focuses on preventing illness, raising health funding from 7.4% to 9% of GDP over the decade.",
-            "url": "https://www.opportunity.org.nz/healthy_people"
+            "name": "Healthy People",
+            "quote": "Opportunity will establish, and protect, a 10-year plan that properly funds our health workers…",
+            "source_type": "Policy page",
+            "url": "https://www.opportunity.org.nz/healthy_people",
+            "verified": "2026-10-15"
           }
         ],
         "Te Pāti Māori": [
           {
-            "title": "Health",
-            "summary": "Re-build and strengthen Māori-led health authority and solutions. Shift the system toward prevention and whānau wellbeing, not just crisis response.",
-            "url": "https://www.maoriparty.org.nz/health"
+            "name": "Health",
+            "quote": "Re-build and strengthen Māori-led health authority and solutions.",
+            "source_type": "Policy page",
+            "url": "https://www.maoriparty.org.nz/health",
+            "verified": "2026-10-15"
           },
           {
-            "title": "Disabilities",
-            "summary": "Support Māori-led disability services and decision-making. Make support easier to access and less degrading.",
-            "url": "https://www.maoriparty.org.nz/disabilities"
+            "name": "Disabilities",
+            "quote": "Support Māori-led disability services and decision-making.",
+            "source_type": "Policy page",
+            "url": "https://www.maoriparty.org.nz/disabilities",
+            "verified": "2026-10-15"
           }
         ]
       }
@@ -215,267 +285,302 @@
     {
       "id": "housing",
       "name": "Housing",
-      "checked": "2026-10-15",
       "parties": {
         "ACT": [],
         "Green": [
           {
-            "title": "Housing (2026 manifesto)",
-            "summary": "Build tens of thousands of new public homes, significantly increase accessible public housing stock, and fund more papakāinga on whenua Māori.",
-            "url": "https://www.greens.org.nz/manifesto_2026_housing"
-          },
-          {
-            "title": "Housing (2026 manifesto)",
-            "summary": "Make rents more affordable by limiting annual rent increases to no more than 2%.",
-            "url": "https://www.greens.org.nz/manifesto_2026_housing"
-          },
-          {
-            "title": "Housing (2026 manifesto)",
-            "summary": "Strengthen the Healthy Homes Standards and enforce them with an independently certified Rental Warrant of Fitness.",
-            "url": "https://www.greens.org.nz/manifesto_2026_housing"
+            "name": "Housing",
+            "quote": "Build tens of thousands of new public homes, significantly increase accessible public housing stock…",
+            "source_type": "2026 manifesto",
+            "url": "https://www.greens.org.nz/manifesto_2026_housing",
+            "verified": "2026-10-15"
           }
         ],
         "Labour": [
           {
-            "title": "Start Work Now",
-            "summary": "Labour will build the homes, improve the schools and repair the hospitals our communities need, including $2.9 billion of capital for Kāinga Ora to build more state houses.",
-            "url": "https://www.labour.org.nz/start-work-now"
+            "name": "Start Work Now",
+            "quote": "Labour will build the homes, improve the schools and repair the hospitals our communities need…",
+            "source_type": "Policy page",
+            "url": "https://www.labour.org.nz/start-work-now",
+            "verified": "2026-10-15"
           }
         ],
         "National": [
           {
-            "title": "Giving more Kiwis access to 5% first home deposits",
-            "summary": "Make it easier to get a house deposit through the First Home Loan scheme, by raising the income cap to $300,000 for all applicants.",
-            "url": "https://www.national.org.nz/policies/backing-first-home-buyers"
+            "name": "Giving more Kiwis access to 5% first home deposits",
+            "quote": "We will make it easier to get a house deposit through the First Home Loan scheme",
+            "source_type": "Policy page",
+            "url": "https://www.national.org.nz/policies/backing-first-home-buyers",
+            "verified": "2026-10-15"
           }
         ],
         "NZ First": [
           {
-            "title": "Changes to Fast-Track Residential Approvals",
-            "summary": "Changes to the fast-track regime to ensure housing developments do not create more problems than they solve, requiring essential infrastructure to be approved before housing.",
-            "url": "https://www.nzfirst.nz/changes_to_fast_track_residential_approvals"
+            "name": "Changes to Fast-Track Residential Approvals",
+            "quote": "The policy will bring a suite of changes to the current fast-track regime … to ensure housing developments do not create more problems than they solve.",
+            "source_type": "Policy page",
+            "url": "https://www.nzfirst.nz/changes_to_fast_track_residential_approvals",
+            "verified": "2026-10-15"
           }
         ],
         "Opportunity": [
           {
-            "title": "Affordable Housing",
-            "summary": "Our plan to permanently narrow the gap between wages and house prices, while building the healthy homes our communities need, including replacing over 1,000 planning zones with 10 nationally consistent ones.",
-            "url": "https://www.opportunity.org.nz/affordable_housing"
+            "name": "Affordable Housing",
+            "quote": "Our plan to permanently narrow the gap between wages and house prices, while building the healthy homes our communities need.",
+            "source_type": "Policy page",
+            "url": "https://www.opportunity.org.nz/affordable_housing",
+            "verified": "2026-10-15"
           }
         ],
         "Te Pāti Māori": [
           {
-            "title": "Housing",
-            "summary": "Build and support more public and affordable homes. Make it easier to build homes on Māori/ancestral land. Stop speculation and land-banking.",
-            "url": "https://www.maoriparty.org.nz/housing"
+            "name": "Housing",
+            "quote": "Build and support more public and affordable homes.",
+            "source_type": "Policy page",
+            "url": "https://www.maoriparty.org.nz/housing",
+            "verified": "2026-10-15"
           }
         ]
-      },
-      "notes": {
-        "ACT": {
-          "text": "No housing-specific policy is listed on ACT's policy pages (checked 15 Oct). ACT groups housing with infrastructure.",
-          "url": "https://www.act.org.nz/policies/infrastructure"
-        }
       }
     },
     {
       "id": "education",
       "name": "Education",
-      "checked": "2026-10-15",
       "parties": {
         "ACT": [
           {
-            "title": "Keeping Children Safe",
-            "summary": "One national card checked continuously for anyone, paid or unpaid, who works with children.",
-            "url": "https://www.act.org.nz/keeping-children-safe"
+            "name": "Keeping Children Safe",
+            "quote": "ACT will close that gap [between checks on people who work with children] with one national card checked continuously.",
+            "source_type": "Policy page",
+            "url": "https://www.act.org.nz/keeping-children-safe",
+            "verified": "2026-10-15"
           },
           {
-            "title": "Real Choice for Students",
-            "summary": "ACT will amend the regulations so universities must offer student services as a menu.",
-            "url": "https://www.act.org.nz/student_services_fee"
+            "name": "Real Choice for Students",
+            "quote": "ACT will amend the regulations so universities must offer student services as a menu.",
+            "source_type": "Policy page",
+            "url": "https://www.act.org.nz/student_services_fee",
+            "verified": "2026-10-15"
           },
           {
-            "title": "Affordable School Uniforms",
-            "summary": "Limit state schools to a maximum of three compulsory branded uniform items.",
-            "url": "https://www.act.org.nz/affordable-uniforms"
+            "name": "Affordable School Uniforms",
+            "quote": "Amend the Education and Training Act to limit state schools to a maximum of three compulsory branded uniform items.",
+            "source_type": "Policy page",
+            "url": "https://www.act.org.nz/affordable-uniforms",
+            "verified": "2026-10-15"
           }
         ],
         "Green": [
           {
-            "title": "Education (2026 manifesto)",
-            "summary": "Make early childhood education free and provide it as a public good like schooling.",
-            "url": "https://www.greens.org.nz/manifesto_2026_education"
-          },
-          {
-            "title": "Education (2026 manifesto)",
-            "summary": "Reset the Government's rushed and ideological curriculum and assessment reforms.",
-            "url": "https://www.greens.org.nz/manifesto_2026_education"
-          },
-          {
-            "title": "Education (2026 manifesto)",
-            "summary": "Expand the criteria for access to learning support.",
-            "url": "https://www.greens.org.nz/manifesto_2026_education"
+            "name": "Education",
+            "quote": "Make early childhood education free and provide it as a public good like schooling…",
+            "source_type": "2026 manifesto",
+            "url": "https://www.greens.org.nz/manifesto_2026_education",
+            "verified": "2026-10-15"
           }
         ],
         "Labour": [
           {
-            "title": "Cutting Student Debt",
-            "summary": "A 10% cut to eligible student loan balances, with small balances under $2,000 written off completely.",
-            "url": "https://www.labour.org.nz/cutting-student-debt"
+            "name": "Cutting Student Debt",
+            "quote": "A 10% cut to eligible student loan balances - now for existing borrowers, or after three years in NZ for future graduates.",
+            "source_type": "Policy page",
+            "url": "https://www.labour.org.nz/cutting-student-debt",
+            "verified": "2026-10-15"
           },
           {
-            "title": "Cutting Back-to-School Costs",
-            "summary": "Cheaper uniforms, healthy school lunches back from Term 1 2028, rural school buses restored, and lower transport costs.",
-            "url": "https://www.labour.org.nz/cutting-back-to-school-costs"
+            "name": "Cutting Back-to-School Costs",
+            "quote": "Cheaper uniforms. Better school lunches. School buses back on the road. Lower transport costs.",
+            "source_type": "Policy page",
+            "url": "https://www.labour.org.nz/cutting-back-to-school-costs",
+            "verified": "2026-10-15"
           }
         ],
         "National": [
           {
-            "title": "Teaching the basics brilliantly",
-            "summary": "A world-leading education system that raises achievement, including replacing NCEA from 2028 with new senior secondary qualifications and a Learning Support Coordinator in every school with Year 1–8 students.",
-            "url": "https://www.national.org.nz/policies/education-teaching-the-basics-brilliantly"
+            "name": "Teaching the basics brilliantly",
+            "quote": "National's vision is a world-leading education system that raises achievement and gives every young New Zealander…",
+            "source_type": "Policy page",
+            "url": "https://www.national.org.nz/policies/education-teaching-the-basics-brilliantly",
+            "verified": "2026-10-15"
           },
           {
-            "title": "Back Pocket Boost for Graduates",
-            "summary": "Reward young graduates who stay in New Zealand by cutting the student loan repayment rate from 12% to 10% from 1 April 2027, with tougher rules for overseas borrowers.",
-            "url": "https://www.national.org.nz/policies/boost-for-graduates"
+            "name": "Back Pocket Boost for Graduates",
+            "quote": "National's Back Pocket Boost for Graduates will reward young graduates who choose to stay in New Zealand",
+            "source_type": "Policy page",
+            "url": "https://www.national.org.nz/policies/boost-for-graduates",
+            "verified": "2026-10-15"
           }
         ],
         "NZ First": [],
         "Opportunity": [
           {
-            "title": "Future-fit Education",
-            "summary": "A 10-year cross-party plan for education, focussed on stability for students, with an Independent Curriculum and Assessment Council setting curriculum rather than politicians.",
-            "url": "https://www.opportunity.org.nz/future_fit_education"
+            "name": "Future-fit Education",
+            "quote": "Opportunity will establish a 10-year cross-party plan for education, focussed on stability for students,…",
+            "source_type": "Policy page",
+            "url": "https://www.opportunity.org.nz/future_fit_education",
+            "verified": "2026-10-15"
           }
         ],
         "Te Pāti Māori": [
           {
-            "title": "Education & Training",
-            "summary": "Build Māori-led education authority and solutions. Embed mātauranga Māori properly across learning. Remove barriers that block whānau from education and training.",
-            "url": "https://www.maoriparty.org.nz/education_training"
+            "name": "Education & Training",
+            "quote": "Build Māori-led education authority and solutions.",
+            "source_type": "Policy page",
+            "url": "https://www.maoriparty.org.nz/education_training",
+            "verified": "2026-10-15"
           }
         ]
-      },
-      "notes": {
-        "NZ First": {
-          "text": "No education policy is listed on NZ First's policy page (checked 15 Oct).",
-          "url": "https://www.nzfirst.nz/policy"
-        }
       }
     },
     {
       "id": "climate-energy-environment",
       "name": "Climate, energy and environment",
-      "checked": "2026-10-15",
       "parties": {
         "ACT": [
           {
-            "title": "Scrap Net Zero, Cut the Carbon Tax",
-            "summary": "Scrap the arbitrary net zero 2050 target and repeal the Zero Carbon Act.",
-            "url": "https://www.act.org.nz/scrap-net-zero-cut-the-carbon-tax"
+            "name": "Scrap Net Zero, Cut the Carbon Tax",
+            "quote": "Scrap the arbitrary net zero 2050 target and repeal the Zero Carbon Act.",
+            "source_type": "Policy page",
+            "url": "https://www.act.org.nz/scrap-net-zero-cut-the-carbon-tax",
+            "verified": "2026-10-15"
           },
           {
-            "title": "Abundant and Affordable Electricity",
-            "summary": "Let you choose who buys your power, and lift unnecessary limits on your solar so households can export more power where the network has room.",
-            "url": "https://www.act.org.nz/abundant-and-affordable-electricity"
+            "name": "Abundant and Affordable Electricity",
+            "quote": "Let you choose who buys your power. Households could sell to a different provider from the one they buy electricity from…",
+            "source_type": "Policy page",
+            "url": "https://www.act.org.nz/abundant-and-affordable-electricity",
+            "verified": "2026-10-15"
           },
           {
-            "title": "Scrap the Climate Change Commission",
-            "summary": "ACT will abolish the Commission and transfer its monitoring and reporting duties to the ministry that already measures emissions.",
-            "url": "https://www.act.org.nz/scrap-the-climate-change-commission"
+            "name": "Scrap the Climate Change Commission",
+            "quote": "ACT will abolish the Commission and transfer its monitoring and reporting duties…",
+            "source_type": "Policy page",
+            "url": "https://www.act.org.nz/scrap-the-climate-change-commission",
+            "verified": "2026-10-15"
           }
         ],
         "Green": [
           {
-            "title": "Power for all of us",
-            "summary": "Lower bills. Cleaner energy. Public ownership. Includes $200 million for community energy projects and $80 million for renewable energy for Māori housing.",
-            "url": "https://www.greens.org.nz/power_for_all_of_us"
+            "name": "Power for all of us",
+            "quote": "Our plan will fundamentally change our energy system in Aotearoa New Zealand.",
+            "source_type": "Policy page",
+            "url": "https://www.greens.org.nz/power_for_all_of_us",
+            "verified": "2026-10-15"
           },
           {
-            "title": "Fast, frequent, affordable public transport for all of us",
-            "summary": "Fast, frequent and affordable public transport that saves people time and money, including $2 adult bus and train fares and up to 150 new regional bus services.",
-            "url": "https://www.greens.org.nz/connect_aotearoa"
+            "name": "Fast, frequent, affordable public transport for all of us",
+            "quote": "Our plan will provide fast, frequent and affordable public transport that saves people time and money.",
+            "source_type": "Policy page",
+            "url": "https://www.greens.org.nz/connect_aotearoa",
+            "verified": "2026-10-15"
           },
           {
-            "title": "Drink, Swim, Fish",
-            "summary": "The Green Party will fix the rules so all of us can drink, swim, and fish in the places we love, with strong, science-based national standards for freshwater.",
-            "url": "https://www.greens.org.nz/drink_swim_fish"
+            "name": "Drink, Swim, Fish",
+            "quote": "The Green Party will fix the rules so all of us can drink, swim, and fish in the places we love.",
+            "source_type": "Policy page",
+            "url": "https://www.greens.org.nz/drink_swim_fish",
+            "verified": "2026-10-15"
           }
         ],
         "Labour": [
           {
-            "title": "SolarSaver",
-            "summary": "Removes the barrier that locks most families out of solar power: low-interest finance with nothing to pay upfront, a subsidy of up to $3,000 for low- and middle-income households, and a $30 million community battery fund.",
-            "url": "https://www.labour.org.nz/solarsaver"
+            "name": "SolarSaver",
+            "quote": "Labour's SolarSaver removes the barrier that locks most families out of solar power…",
+            "source_type": "Policy page",
+            "url": "https://www.labour.org.nz/solarsaver",
+            "verified": "2026-10-15"
           }
         ],
         "National": [
           {
-            "title": "Home Energy Fund",
-            "summary": "Help Kiwis become more energy independent and cut power bills, with long-term loans for solar, batteries, insulation and heat pumps repaid through rates, and rooftop solar without a consent.",
-            "url": "https://www.national.org.nz/policies/solar"
+            "name": "Home Energy Fund",
+            "quote": "We will help Kiwis become more energy independent and cut power bills",
+            "source_type": "Policy page",
+            "url": "https://www.national.org.nz/policies/solar",
+            "verified": "2026-10-15"
           },
           {
-            "title": "Affordable power Kiwis can rely on",
-            "summary": "A nine-point energy plan delivering more supply, more competition, and more choice for households and businesses, to help make power more affordable.",
-            "url": "https://www.national.org.nz/policies/electrify-nz-2"
+            "name": "Affordable power Kiwis can rely on",
+            "quote": "A re-elected National Government will build on our success this term with Electrify NZ 2.0, a nine-point plan",
+            "source_type": "Policy page",
+            "url": "https://www.national.org.nz/policies/electrify-nz-2",
+            "verified": "2026-10-15"
           },
           {
-            "title": "Hunting and Fishing",
-            "summary": "National will strengthen hunter-led conservation and protect access to the outdoors.",
-            "url": "https://www.national.org.nz/policies/hunting-and-fishing"
+            "name": "National backs South Island growth",
+            "quote": "National will complete and implement the replacement of the RMA, with more enabling rules for wind, solar and hydro development.",
+            "source_type": "Policy page",
+            "url": "https://www.national.org.nz/policies/hunters-and-anglers",
+            "verified": "2026-10-15"
           }
         ],
         "NZ First": [
           {
-            "title": "Breaking up the Gentailers",
-            "summary": "Breaking up the power companies so they can no longer control both the power and the price.",
-            "url": "https://www.nzfirst.nz/breaking_up_the_gentailers"
+            "name": "Breaking up the Gentailers",
+            "quote": "We will be breaking up the power companies so they can no longer control both the power and the price.",
+            "source_type": "Policy page",
+            "url": "https://www.nzfirst.nz/breaking_up_the_gentailers",
+            "verified": "2026-10-15"
           },
           {
-            "title": "Future Proofing our Fuel Security",
-            "summary": "An initial investment of $1 billion for a national survey of subsurface energy, geothermal and CO₂ storage sites.",
-            "url": "https://www.nzfirst.nz/future_proofing_our_fuel_security"
+            "name": "Future Proofing our Fuel Security",
+            "quote": "New Zealand First will be campaigning on an initial investment of $1 billion over the term of government…",
+            "source_type": "Policy page",
+            "url": "https://www.nzfirst.nz/future_proofing_our_fuel_security",
+            "verified": "2026-10-15"
           },
           {
-            "title": "We Will Withdraw From The Paris Accord",
-            "summary": "New Zealand First is saying we need to get out of the Paris Accord altogether.",
-            "url": "https://www.nzfirst.nz/withdraw_from_paris_accord"
+            "name": "We Will Withdraw From The Paris Accord",
+            "quote": "New Zealand First is saying we need to get out of the Paris Accord altogether",
+            "source_type": "Policy page",
+            "url": "https://www.nzfirst.nz/withdraw_from_paris_accord",
+            "verified": "2026-10-15"
           }
         ],
         "Opportunity": [
           {
-            "title": "Abundant Energy",
-            "summary": "A circuit breaker for an energy system that has been underfunded for decades, including a cross-party 30GW renewable capacity target for 2050.",
-            "url": "https://www.opportunity.org.nz/abundant-energy"
+            "name": "Abundant Energy",
+            "quote": "Abundant Energy is a circuit breaker for an energy system that has been underfunded for decades.",
+            "source_type": "Policy page",
+            "url": "https://www.opportunity.org.nz/abundant-energy",
+            "verified": "2026-10-15"
           },
           {
-            "title": "Climate Action",
-            "summary": "A $1 billion fund from ETS revenues to help industry move off coal and gas, and a $5 billion Climate Resilience Fund.",
-            "url": "https://www.opportunity.org.nz/climate_action"
+            "name": "Climate Action",
+            "quote": "The decisions we make today will shape our kid's lives tomorrow.",
+            "source_type": "Policy page",
+            "url": "https://www.opportunity.org.nz/climate_action",
+            "verified": "2026-10-15"
           },
           {
-            "title": "Healthy Land & Water",
-            "summary": "Restore our land, clean up our rivers and treat nature as critical national infrastructure.",
-            "url": "https://www.opportunity.org.nz/healthy_land"
+            "name": "Healthy Land & Water",
+            "quote": "Restore our land, clean up our rivers and treat nature as critical national infrastructure.",
+            "source_type": "Policy page",
+            "url": "https://www.opportunity.org.nz/healthy_land",
+            "verified": "2026-10-15"
           }
         ],
         "Te Pāti Māori": [
           {
-            "title": "Energy Sovereignty",
-            "summary": "Establish a $1 Billion Energy Sovereignty Fund and a National Independence Energy Plan.",
-            "url": "https://www.maoriparty.org.nz/energy_sovereignty"
+            "name": "Energy Sovereignty",
+            "quote": "Establish a $1 Billion Energy Sovereignty Fun[d]",
+            "source_type": "Policy page",
+            "url": "https://www.maoriparty.org.nz/energy_sovereignty",
+            "verified": "2026-10-15"
           },
           {
-            "title": "Climate",
-            "summary": "Protect whenua and moana from extractive industries (including banning seabed mining). Invest in climate resilience for communities most at risk.",
-            "url": "https://www.maoriparty.org.nz/climate"
+            "name": "Climate",
+            "quote": "Protect whenua and moana from extractive industries (including banning seabed mining).",
+            "source_type": "Policy page",
+            "url": "https://www.maoriparty.org.nz/climate",
+            "verified": "2026-10-15"
           },
           {
-            "title": "Freshwater Policy",
-            "summary": "Assert Māori rights and authority over freshwater. Stop decisions being made without Māori consent.",
-            "url": "https://www.maoriparty.org.nz/freshwater_policy"
+            "name": "Freshwater Policy",
+            "quote": "Assert Māori rights and authority over freshwater.",
+            "source_type": "Policy page",
+            "url": "https://www.maoriparty.org.nz/freshwater_policy",
+            "verified": "2026-10-15"
           }
         ]
       }
@@ -483,196 +588,234 @@
     {
       "id": "crime-justice",
       "name": "Crime and justice",
-      "checked": "2026-10-15",
       "parties": {
         "ACT": [
           {
-            "title": "Deport Serious Offenders",
-            "summary": "Ensure Resident Visa holders convicted of offences carrying sentences of 10 years or more can be deported, no matter how long they've been here.",
-            "url": "https://www.act.org.nz/deport"
+            "name": "Deport Serious Offenders",
+            "quote": "ACT will ensure Resident Visa holders convicted of offences carrying sentences of 10 years or more can be deported…",
+            "source_type": "Policy page",
+            "url": "https://www.act.org.nz/deport",
+            "verified": "2026-10-15"
           },
           {
-            "title": "Three Strikes for Burglary",
-            "summary": "ACT will create a new Three Strikes regime for burglary.",
-            "url": "https://www.act.org.nz/burglary"
+            "name": "Three Strikes for Burglary",
+            "quote": "ACT will create a new Three Strikes regime for burglary.",
+            "source_type": "Policy page",
+            "url": "https://www.act.org.nz/burglary",
+            "verified": "2026-10-15"
           },
           {
-            "title": "Stopping Coercion by Animal Abuse",
-            "summary": "Strengthen protections for pets used as instruments of coercion and control in family violence.",
-            "url": "https://www.act.org.nz/stopping-coercion"
+            "name": "Stopping Coercion by Animal Abuse",
+            "quote": "ACT will strengthen protections for pets used as instruments of coercion and control in family violence…",
+            "source_type": "Policy page",
+            "url": "https://www.act.org.nz/stopping-coercion",
+            "verified": "2026-10-15"
           }
         ],
         "Green": [
           {
-            "title": "Justice and Community Safety (2026 manifesto)",
-            "summary": "Resource evidence-based rehabilitation for anyone convicted of an offence.",
-            "url": "https://www.greens.org.nz/manifesto_2026_justice_and_community_safety"
-          },
-          {
-            "title": "Justice and Community Safety (2026 manifesto)",
-            "summary": "Expand Te Ao Mārama to all courts in Aotearoa.",
-            "url": "https://www.greens.org.nz/manifesto_2026_justice_and_community_safety"
-          },
-          {
-            "title": "Justice and Community Safety (2026 manifesto)",
-            "summary": "End military-style academies and raise the age of criminal responsibility.",
-            "url": "https://www.greens.org.nz/manifesto_2026_justice_and_community_safety"
+            "name": "Justice and Community Safety",
+            "quote": "Resource evidence-based rehabilitation for anyone convicted of an offence…",
+            "source_type": "2026 manifesto",
+            "url": "https://www.greens.org.nz/manifesto_2026_justice_and_community_safety",
+            "verified": "2026-10-15"
           }
         ],
         "Labour": [],
         "National": [
           {
-            "title": "Modernise Sexual Consent Laws",
-            "summary": "Modernise consent laws to require an explicit 'yes' rather than silence.",
-            "url": "https://www.national.org.nz/policies/consent-laws"
+            "name": "Modernise Sexual Consent Laws",
+            "quote": "We will modernise consent laws to require an explicit 'yes' rather than silence, ensuring clearer protection and understanding.",
+            "source_type": "Policy page",
+            "url": "https://www.national.org.nz/policies/consent-laws",
+            "verified": "2026-10-15"
           },
           {
-            "title": "Tougher Sentences for Sexual Offending",
-            "summary": "Real consequences for crime by removing good character assessments from sentencing for all sexual offences.",
-            "url": "https://www.national.org.nz/policies/tougher-sentences"
+            "name": "Tougher Sentences for Sexual Offending",
+            "quote": "We will ensure there are real consequences for crime by removing good character assessments from sentencing for all sexual…",
+            "source_type": "Policy page",
+            "url": "https://www.national.org.nz/policies/tougher-sentences",
+            "verified": "2026-10-15"
           },
           {
-            "title": "More Police on Auckland's buses and trains",
-            "summary": "A dedicated Auckland Transport Police Team, so you feel safe catching public transport.",
-            "url": "https://www.national.org.nz/policies/police-auckland-transport"
+            "name": "More Police on Auckland's buses and trains",
+            "quote": "National will ensure that safety measures grow with it by establishing a dedicated Auckland Transport Police Team…",
+            "source_type": "Policy page",
+            "url": "https://www.national.org.nz/policies/police-auckland-transport",
+            "verified": "2026-10-15"
           }
         ],
         "NZ First": [
           {
-            "title": "Ban Public Sales of Fireworks",
-            "summary": "New Zealand First will campaign on banning the public sale and use of fireworks across New Zealand.",
-            "url": "https://www.nzfirst.nz/ban_public_sales_of_fireworks"
+            "name": "Ban Public Sales of Fireworks",
+            "quote": "New Zealand First will campaign on banning the public sale and use of fireworks across New Zealand.",
+            "source_type": "Policy page",
+            "url": "https://www.nzfirst.nz/ban_public_sales_of_fireworks",
+            "verified": "2026-10-15"
           },
           {
-            "title": "All Gangs Should Be Terror Entities (petition)",
-            "summary": "New Zealand First calls for all gangs to be designated 'terrorist entities' under the Terrorism Suppression Act.",
-            "url": "https://www.nzfirst.nz/all-gangs-should-be-designated-terrorist-entities"
+            "name": "All Gangs Should Be Terror Entities",
+            "quote": "New Zealand First calls for all gangs to be designated 'terrorist entities' under the Terrorism Suppression Act 2022.",
+            "source_type": "Petition",
+            "url": "https://www.nzfirst.nz/all-gangs-should-be-designated-terrorist-entities",
+            "verified": "2026-10-15"
           }
         ],
         "Opportunity": [
           {
-            "title": "Smart On Crime",
-            "summary": "An evidence-based plan to make New Zealand safer: voluntary interventions as soon as risk factors are identified, and growing specialist courts.",
-            "url": "https://www.opportunity.org.nz/smart_on_crime"
+            "name": "Smart On Crime",
+            "quote": "An evidence-based plan to make New Zealand safer.",
+            "source_type": "Policy page",
+            "url": "https://www.opportunity.org.nz/smart_on_crime",
+            "verified": "2026-10-15"
           }
         ],
         "Te Pāti Māori": [
           {
-            "title": "Justice",
-            "summary": "Build Māori-led justice authority and community solutions. Reform laws that criminalise poverty and survival. Move away from mass imprisonment.",
-            "url": "https://www.maoriparty.org.nz/justice"
+            "name": "Justice",
+            "quote": "Build Māori-led justice authority and community solutions.",
+            "source_type": "Policy page",
+            "url": "https://www.maoriparty.org.nz/justice",
+            "verified": "2026-10-15"
           }
         ]
-      },
-      "notes": {
-        "Labour": {
-          "text": "No crime and justice policy is listed on Labour's policy page (checked 15 Oct).",
-          "url": "https://www.labour.org.nz/our-policies/"
-        }
       }
     },
     {
       "id": "economy-jobs",
       "name": "Economy and jobs",
-      "checked": "2026-10-15",
       "parties": {
         "ACT": [
           {
-            "title": "ACT's Fiscal Plan",
-            "summary": "Balances the books without new taxes and starts paying down debt, with debt $12.4 billion lower by 2031 and the NZ Super age rising to 67 by 2035.",
-            "url": "https://www.act.org.nz/fiscalplan"
+            "name": "ACT's Fiscal Plan",
+            "quote": "ACT's Fiscal Plan balances the books without new taxes and starts paying down debt.",
+            "source_type": "Policy page",
+            "url": "https://www.act.org.nz/fiscalplan",
+            "verified": "2026-10-15"
           },
           {
-            "title": "Local Tourism Dividend",
-            "summary": "Return $1 to a community for every commercial guest night it hosts.",
-            "url": "https://www.act.org.nz/local_tourism_dividend"
+            "name": "Local Tourism Dividend",
+            "quote": "ACT's Local Tourism Dividend will return $1 to a community for every commercial guest night it hosts.",
+            "source_type": "Policy page",
+            "url": "https://www.act.org.nz/local_tourism_dividend",
+            "verified": "2026-10-15"
           },
           {
-            "title": "Backing Small Business",
-            "summary": "So the people who build businesses and those who work for them can get ahead through their own effort.",
-            "url": "https://www.act.org.nz/backing-small-business"
+            "name": "Backing Small Business",
+            "quote": "This package goes further so the people who build businesses and those who work for them can get ahead",
+            "source_type": "Policy page",
+            "url": "https://www.act.org.nz/backing-small-business",
+            "verified": "2026-10-15"
           }
         ],
         "Green": [
           {
-            "title": "Good jobs for all of us",
-            "summary": "A plan to guarantee a job for every young person in Aotearoa, including 32,000 young people into local jobs through the Mayors Taskforce for Jobs.",
-            "url": "https://www.greens.org.nz/good_jobs_for_all_of_us"
+            "name": "Good jobs for all of us",
+            "quote": "We have a plan to guarantee a job for every young person in Aotearoa.",
+            "source_type": "Policy page",
+            "url": "https://www.greens.org.nz/good_jobs_for_all_of_us",
+            "verified": "2026-10-15"
           },
           {
-            "title": "Economic development plan",
-            "summary": "A plan to rebuild Aotearoa New Zealand and create 284,000 jobs over four years.",
-            "url": "https://www.greens.org.nz/greens_economic_development_plan_will_create_284_000_jobs"
+            "name": "Greens' economic development plan",
+            "quote": "The Green Party has today released its economic development plan to rebuild Aotearoa New Zealand and create 284,000 jobs",
+            "source_type": "Announcement",
+            "url": "https://www.greens.org.nz/greens_economic_development_plan_will_create_284_000_jobs",
+            "verified": "2026-10-15"
           },
           {
-            "title": "Plan for city centre vibrancy",
-            "summary": "A plan to get small businesses a fair deal.",
-            "url": "https://www.greens.org.nz/green_party_announce_plan_for_city_centre_vibrancy"
+            "name": "Plan for city centre vibrancy",
+            "quote": "The Green Party has today announced a plan to get small businesses a fair deal",
+            "source_type": "Announcement",
+            "url": "https://www.greens.org.nz/green_party_announce_plan_for_city_centre_vibrancy",
+            "verified": "2026-10-15"
           }
         ],
         "Labour": [
           {
-            "title": "New Zealand Future Fund",
-            "summary": "An independently governed New Zealand Future Fund to invest in infrastructure and innovative Kiwi businesses.",
-            "url": "https://www.labour.org.nz/futurefund"
+            "name": "New Zealand Future Fund",
+            "quote": "Labour will create an independently governed New Zealand Future Fund to invest in infrastructure and innovative Kiwi businesses.",
+            "source_type": "Policy page",
+            "url": "https://www.labour.org.nz/futurefund",
+            "verified": "2026-10-15"
           },
           {
-            "title": "Fiscal Plan",
-            "summary": "Balance the books, return to surplus by 2028/29, and reduce net debt to below 20% of GDP.",
-            "url": "https://www.labour.org.nz/fiscal-plan"
+            "name": "Fiscal Plan",
+            "quote": "Labour will bring net debt down below 20% of GDP over time.",
+            "source_type": "Policy page",
+            "url": "https://www.labour.org.nz/fiscal-plan",
+            "verified": "2026-10-15"
           },
           {
-            "title": "AI in New Zealand's Interests",
-            "summary": "Protect what matters, unlock our potential, and lead on our own terms with a new Office of AI.",
-            "url": "https://www.labour.org.nz/ai-for-new-zealand"
+            "name": "AI in New Zealand's Interests",
+            "quote": "protect what matters, unlock New Zealand's potential, and lead on our own terms",
+            "source_type": "Policy page",
+            "url": "https://www.labour.org.nz/ai-for-new-zealand",
+            "verified": "2026-10-15"
           }
         ],
         "National": [
           {
-            "title": "National's plan to secure New Zealand's future",
-            "summary": "A fiscal plan that prioritises bringing down debt and delivers surplus in 2028/29, with no new taxes.",
-            "url": "https://www.national.org.nz/policies/nationals-fiscal-plan"
+            "name": "National's plan to secure New Zealand's future",
+            "quote": "National will prioritise reducing debt, will deliver a surplus by 2028/29, and will introduce no new taxes.",
+            "source_type": "Policy page",
+            "url": "https://www.national.org.nz/policies/nationals-fiscal-plan",
+            "verified": "2026-10-15"
           },
           {
-            "title": "Building the Future: National's Economic Plan",
-            "summary": "So hardworking New Zealanders can keep more of what they earn, including replacing the RMA and debt below 40% of GDP over time.",
-            "url": "https://www.national.org.nz/policies/nationals-eco-plan"
+            "name": "Building the Future: National's Economic Plan",
+            "quote": "To ensure hardworking New Zealanders can keep more of what they earn, get ahead, and build a more secure future.",
+            "source_type": "Policy page",
+            "url": "https://www.national.org.nz/policies/nationals-eco-plan",
+            "verified": "2026-10-15"
           },
           {
-            "title": "National's plan to support Small Businesses",
-            "summary": "A 47-point plan to grow the economy, back small businesses, spend sensibly and reduce debt without new taxes to create jobs.",
-            "url": "https://www.national.org.nz/policies/47-point-plan-small-businesses"
+            "name": "National's plan to support Small Businesses",
+            "quote": "We will grow the economy, back small businesses, spend sensibly and reduce debt without new taxes to create jobs.",
+            "source_type": "Policy page",
+            "url": "https://www.national.org.nz/policies/47-point-plan-small-businesses",
+            "verified": "2026-10-15"
           }
         ],
         "NZ First": [
           {
-            "title": "Returning 50% of mining royalties to the regions",
-            "summary": "50% of any royalties gained from mining to be directly returned to the region from which it came.",
-            "url": "https://www.nzfirst.nz/returning_50_of_mining_royalties_to_the_regions"
+            "name": "Returning 50% of mining royalties to the regions",
+            "quote": "50% of any royalties gained from mining to be directly returned to the region from which it came",
+            "source_type": "Policy page",
+            "url": "https://www.nzfirst.nz/returning_50_of_mining_royalties_to_the_regions",
+            "verified": "2026-10-15"
           },
           {
-            "title": "Backing a New Zealand Owned Bank",
-            "summary": "A buy-back of the Bank of New Zealand from National Australia Bank.",
-            "url": "https://www.nzfirst.nz/backing_a_new_zealand_owned_bank"
+            "name": "Backing a New Zealand Owned Bank",
+            "quote": "New Zealand First will be proposing a buy-back of the Bank of New Zealand from National Australia Bank.",
+            "source_type": "Policy page",
+            "url": "https://www.nzfirst.nz/backing_a_new_zealand_owned_bank",
+            "verified": "2026-10-15"
           },
           {
-            "title": "The $100bn New Zealand Future Fund",
-            "summary": "A New Zealand Future Fund of up to $100 billion to invest solely in a multi-decade infrastructure build.",
-            "url": "https://www.nzfirst.nz/the_100bn_new_zealand_future_fund"
+            "name": "The $100bn New Zealand Future Fund",
+            "quote": "We will establish a “New Zealand Future Fund” of up to $100 Billion to invest solely in a multi-decade infrastructure build.",
+            "source_type": "Policy page",
+            "url": "https://www.nzfirst.nz/the_100bn_new_zealand_future_fund",
+            "verified": "2026-10-15"
           }
         ],
         "Opportunity": [
           {
-            "title": "Breakthrough Economy",
-            "summary": "Fund science, stand up for fairness and back small businesses, including a $600 million a year tax credit for technology adoption.",
-            "url": "https://www.opportunity.org.nz/breakthrough-economy"
+            "name": "Breakthrough Economy",
+            "quote": "Opportunity will fund science, stand up for fairness and back small businesses to take a generational leap forward.",
+            "source_type": "Policy page",
+            "url": "https://www.opportunity.org.nz/breakthrough-economy",
+            "verified": "2026-10-15"
           }
         ],
         "Te Pāti Māori": [
           {
-            "title": "Economic development",
-            "summary": "Build Māori-led institutions and funds that grow Māori enterprise. Support trade, innovation, and long-term Māori wealth building. Protect Māori data and knowledge.",
-            "url": "https://www.maoriparty.org.nz/economic_development"
+            "name": "Economic development",
+            "quote": "Build Māori-led institutions and funds that grow Māori enterprise.",
+            "source_type": "Policy page",
+            "url": "https://www.maoriparty.org.nz/economic_development",
+            "verified": "2026-10-15"
           }
         ]
       }
@@ -680,177 +823,191 @@
     {
       "id": "immigration",
       "name": "Immigration",
-      "checked": "2026-10-15",
       "parties": {
         "ACT": [
           {
-            "title": "Put 'Reside' Back in 'Resident'",
-            "summary": "ACT will put 'reside' back in 'resident', including removing the existing Permanent Resident Visa category.",
-            "url": "https://www.act.org.nz/put-‘reside’-back-in-‘resident’"
+            "name": "Put 'Reside' Back in 'Resident'",
+            "quote": "Remove the existing Permanent Resident Visa category.",
+            "source_type": "Policy page",
+            "url": "https://www.act.org.nz/put-‘reside’-back-in-‘resident’",
+            "verified": "2026-10-15"
           },
           {
-            "title": "A Fair Contribution for Infrastructure",
-            "summary": "ACT will add a $6-a-day infrastructure surcharge to temporary work visas.",
-            "url": "https://www.act.org.nz/fair-contribution"
+            "name": "A Fair Contribution for Infrastructure",
+            "quote": "ACT will add a $6-a-day infrastructure surcharge to temporary work visas.",
+            "source_type": "Policy page",
+            "url": "https://www.act.org.nz/fair-contribution",
+            "verified": "2026-10-15"
           }
         ],
         "Green": [
           {
-            "title": "Immigration Policy",
-            "summary": "Increase our refugee quota and the resources required to provide adequate refugee services.",
-            "url": "https://www.greens.org.nz/immigration_policy"
-          },
-          {
-            "title": "Immigration Policy",
-            "summary": "Advocate for a Pacific Passport to allow for free movement between the islands and Aotearoa.",
-            "url": "https://www.greens.org.nz/immigration_policy"
+            "name": "Immigration Policy",
+            "quote": "Increase our refugee quota and the resources required to provide adequate refugee services.",
+            "source_type": "Long-term policy",
+            "url": "https://www.greens.org.nz/immigration_policy",
+            "verified": "2026-10-15"
           }
         ],
         "Labour": [],
         "National": [
           {
-            "title": "National's plan to welcome more Kiwis home",
-            "summary": "Prioritising and expediting work and visitor visas for partners of New Zealand citizens, as part of five commitments in the first 100 days.",
-            "url": "https://www.national.org.nz/policies/welcome-kiwis-home"
+            "name": "National's plan to welcome more Kiwis home",
+            "quote": "National will legislate and direct five key commitments in its first 100 days aimed at encouraging young New Zealanders…",
+            "source_type": "Policy page",
+            "url": "https://www.national.org.nz/policies/welcome-kiwis-home",
+            "verified": "2026-10-15"
           },
           {
-            "title": "Making Trans-Tasman travel seamless",
-            "summary": "Work with Australia to trial seamless travel for Australian and New Zealand citizens.",
-            "url": "https://www.national.org.nz/policies/trans-tasman-travel"
+            "name": "Making Trans-Tasman travel seamless",
+            "quote": "a re-elected National Government will work with Australia to trial seamless travel for Australian and New Zealand citizens",
+            "source_type": "Policy page",
+            "url": "https://www.national.org.nz/policies/trans-tasman-travel",
+            "verified": "2026-10-15"
           }
         ],
         "NZ First": [
           {
-            "title": "Immigration Reform Policies",
-            "summary": "Sweeping changes to current immigration laws: only the children of citizens automatically entitled to citizenship at birth, and the qualifying period for citizenship doubled from five to ten years.",
-            "url": "https://www.nzfirst.nz/immigration_reform_policies"
+            "name": "Immigration Reform Policies",
+            "quote": "New Zealand First has today announced a number of campaign policies … will make sweeping changes to current immigration laws.",
+            "source_type": "Policy page",
+            "url": "https://www.nzfirst.nz/immigration_reform_policies",
+            "verified": "2026-10-15"
           },
           {
-            "title": "Scrapping Accredited Working Visa Model",
-            "summary": "End the Accredited Employer Work Visa and replace it with a shortage-led Skilled Work Visa.",
-            "url": "https://www.nzfirst.nz/scrapping_accredited_working_visa_model"
+            "name": "Scrapping Accredited Working Visa Model",
+            "quote": "New Zealand First will end the Accredited Employer Work Visa farce and replace it with a shortage-led Skilled Work Visa.",
+            "source_type": "Policy page",
+            "url": "https://www.nzfirst.nz/scrapping_accredited_working_visa_model",
+            "verified": "2026-10-15"
           },
           {
-            "title": "Citizen's Only Voting",
-            "summary": "Change electoral law so only citizens can vote.",
-            "url": "https://www.nzfirst.nz/citizens_only_voting"
+            "name": "Citizen's Only Voting",
+            "quote": "New Zealand First will restore the basic democratic principle…",
+            "source_type": "Policy page",
+            "url": "https://www.nzfirst.nz/citizens_only_voting",
+            "verified": "2026-10-15"
           }
         ],
         "Opportunity": [],
         "Te Pāti Māori": []
-      },
-      "notes": {
-        "Labour": {
-          "text": "No immigration policy is listed on Labour's policy page (checked 15 Oct).",
-          "url": "https://www.labour.org.nz/our-policies/"
-        },
-        "Opportunity": {
-          "text": "No immigration policy is listed on Opportunity's policy page (checked 15 Oct).",
-          "url": "https://www.opportunity.org.nz/policy"
-        },
-        "Te Pāti Māori": {
-          "text": "No immigration policy is listed on Te Pāti Māori's policy page (checked 15 Oct).",
-          "url": "https://www.maoriparty.org.nz/policies"
-        }
       }
     },
     {
-      "id": "maori-rights-treaty",
-      "name": "Māori rights and the Treaty of Waitangi",
-      "checked": "2026-10-15",
+      "id": "treaty",
+      "name": "Te Tiriti o Waitangi / Treaty of Waitangi",
       "parties": {
         "ACT": [
           {
-            "title": "Wind up the Waitangi Tribunal",
-            "summary": "Complete every eligible historical claim already before the Tribunal, end its jurisdiction over contemporary Crown policy, and disestablish it once all eligible historical claims are completed.",
-            "url": "https://www.act.org.nz/wind-up-the-waitangi-tribunal"
+            "name": "Wind up the Waitangi Tribunal",
+            "quote": "Amend the Treaty of Waitangi Act so the Tribunal is automatically disestablished once all eligible historical claims have been completed",
+            "source_type": "Policy page",
+            "url": "https://www.act.org.nz/wind-up-the-waitangi-tribunal",
+            "verified": "2026-10-15"
           },
           {
-            "title": "One Law for All. One Future Together.",
-            "summary": "One law for all means the same rights, the same duties, and the same protection under the law.",
-            "url": "https://www.act.org.nz/one-law-for-all"
+            "name": "One Law for All. One Future Together.",
+            "quote": "Stop courts using broad Treaty interpretations to impose obligations Parliament never actually legislated.",
+            "source_type": "Policy page",
+            "url": "https://www.act.org.nz/one-law-for-all",
+            "verified": "2026-10-15"
           }
         ],
         "Green": [
           {
-            "title": "Te Tiriti o Waitangi",
-            "summary": "Te Tiriti o Waitangi is the foundation for a just and thriving Aotearoa. The Green Party is committed to upholding Te Tiriti in everything we do.",
-            "url": "https://www.greens.org.nz/te_tiriti_o_waitangi"
+            "name": "Te Tiriti o Waitangi",
+            "quote": "The Green Party is committed to upholding Te Tiriti in everything we do, so no one is left behind.",
+            "source_type": "Policy page",
+            "url": "https://www.greens.org.nz/te_tiriti_o_waitangi",
+            "verified": "2026-10-15"
           },
           {
-            "title": "Te Waonui a Tāne",
-            "summary": "Recognise and resource marae as critical social and cultural infrastructure, with $2.44 billion in Crown funding for Te Rangatiratanga Trust.",
-            "url": "https://www.greens.org.nz/te_waonui_a_taane"
+            "name": "Te Waonui a Tāne",
+            "quote": "Our policy will recognise and resource marae as critical social and cultural infrastructure.",
+            "source_type": "Policy page",
+            "url": "https://www.greens.org.nz/te_waonui_a_taane",
+            "verified": "2026-10-15"
           },
           {
-            "title": "Ake, Ake, Ake: te reo Māori",
-            "summary": "An additional $50m per year towards te reo Māori initiatives.",
-            "url": "https://www.greens.org.nz/ake_ake_ake_green_party_commits_200m_to_the_future_of_te_reo_maori"
+            "name": "Ake, Ake, Ake: te reo Māori",
+            "quote": "A Green Party in Government will fund an additional $50m per year towards te reo Māori initiatives.",
+            "source_type": "Announcement",
+            "url": "https://www.greens.org.nz/ake_ake_ake_green_party_commits_200m_to_the_future_of_te_reo_maori",
+            "verified": "2026-10-15"
           }
         ],
         "Labour": [
           {
-            "title": "Backing Māori into Skilled Work",
-            "summary": "$21 million a year in Māori-led training that helps more whānau Māori gain skills and move into good, well-paid work.",
-            "url": "https://www.labour.org.nz/maori-trades-training"
+            "name": "Backing Māori into Skilled Work",
+            "quote": "Labour will invest $21 million a year in Māori-led training that helps more whānau Māori gain skills…",
+            "source_type": "Policy page",
+            "url": "https://www.labour.org.nz/maori-trades-training",
+            "verified": "2026-10-15"
           }
         ],
         "National": [],
         "NZ First": [
           {
-            "title": "Disestablish Auckland's 'Independent Maori Statutory Board'",
-            "summary": "Disestablish the unelected Auckland Council Independent Māori Statutory Board.",
-            "url": "https://www.nzfirst.nz/disestablish_auckland_s_independent_maori_statutory_board"
+            "name": "Disestablish Auckland's 'Independent Maori Statutory Board'",
+            "quote": "New Zealand First has announced a campaign policy to disestablish the unelected Auckland Council Independent Māori Statutory Board (IMSB).",
+            "source_type": "Policy page",
+            "url": "https://www.nzfirst.nz/disestablish_auckland_s_independent_maori_statutory_board",
+            "verified": "2026-10-15"
           },
           {
-            "title": "Referendum on Maori Seats",
-            "summary": "A referendum on the future of the Māori seats, so the public can decide if they are effective, relevant, and still needed.",
-            "url": "https://www.nzfirst.nz/referendum_on_maori_seats"
+            "name": "Referendum on Maori Seats",
+            "quote": "The time has come for a decision on the future of the Māori seats.",
+            "source_type": "Policy page",
+            "url": "https://www.nzfirst.nz/referendum_on_maori_seats",
+            "verified": "2026-10-15"
           },
           {
-            "title": "Ending the Waitangi Make-Work Industry",
-            "summary": "Legislation within the first 100 days to abolish the Waitangi Tribunal and replace it with a Treaty of Waitangi Completion Commission.",
-            "url": "https://www.nzfirst.nz/ending_the_waitangi_makework_industry"
+            "name": "Ending the Waitangi Make-Work Industry",
+            "quote": "New Zealand First will table legislation within the first 100 days after the next election to immediately abolish [the Waitangi Tribunal]…",
+            "source_type": "Policy page",
+            "url": "https://www.nzfirst.nz/ending_the_waitangi_makework_industry",
+            "verified": "2026-10-15"
           }
         ],
         "Opportunity": [
           {
-            "title": "Honouring Te Tiriti",
-            "summary": "Opportunity takes the responsibility of the Crown as a Treaty partner seriously: honour existing Treaty settlements, and restore the customary marine title settings that applied before the 2025 changes.",
-            "url": "https://www.opportunity.org.nz/honouring_te_tiriti"
+            "name": "Honouring Te Tiriti",
+            "quote": "Opportunity takes the responsibility of the Crown as a Treaty partner seriously.",
+            "source_type": "Policy page",
+            "url": "https://www.opportunity.org.nz/honouring_te_tiriti",
+            "verified": "2026-10-15"
           }
         ],
         "Te Pāti Māori": [
           {
-            "title": "Te Tiriti Entrenchment",
-            "summary": "Establish a Matike Mai Fund. Implement the United Nations Declaration on the Rights of Indigenous Peoples.",
-            "url": "https://www.maoriparty.org.nz/te_tiriti_entrenchment"
+            "name": "Te Tiriti Entrenchment",
+            "quote": "Establish a Matike Mai Fund",
+            "source_type": "Policy page",
+            "url": "https://www.maoriparty.org.nz/te_tiriti_entrenchment",
+            "verified": "2026-10-15"
           },
           {
-            "title": "Mana Motuhake",
-            "summary": "Commit to Te Tiriti-based constitutional change. Strengthen Māori political authority and governance structures.",
-            "url": "https://www.maoriparty.org.nz/mana_motuhake"
+            "name": "Mana Motuhake",
+            "quote": "Commit to Te Tiriti-based constitutional change.",
+            "source_type": "Policy page",
+            "url": "https://www.maoriparty.org.nz/mana_motuhake",
+            "verified": "2026-10-15"
           },
           {
-            "title": "Te Reo Māori",
-            "summary": "Strengthen te reo Māori and normalise it everywhere. Invest in te reo Māori learning pathways and community-led language revitalisation.",
-            "url": "https://www.maoriparty.org.nz/te_reo_maori"
+            "name": "Te Reo Māori",
+            "quote": "Strengthen te reo Māori and normalise it everywhere.",
+            "source_type": "Policy page",
+            "url": "https://www.maoriparty.org.nz/te_reo_maori",
+            "verified": "2026-10-15"
           }
         ]
-      },
-      "notes": {
-        "National": {
-          "text": "No policy on Māori rights or the Treaty of Waitangi is listed on National's policy page (checked 15 Oct).",
-          "url": "https://www.national.org.nz/policies"
-        }
       }
     }
   ],
-  "no_policy_text": "No published policy found on this issue (checked {date}).",
-  "rechecks": [
-    {
-      "party": "Te Tai Tokerau Party",
-      "reason": "Has a sitting MP but no published policies found (checked 15 Oct 2026). Shown in the all-parties list; re-check at each update and add to the table if policies are published."
-    }
-  ]
+  "all_parties_note": "Te Tai Tokerau Party has a sitting MP but no published policies were found (checked 15 Oct 2026); it is listed with all other parties on the ballot and re-checked at each update.",
+  "recheck": [
+    "Te Pāti Māori justice page title includes '(Not live)'",
+    "Te Tai Tokerau Party published policies"
+  ],
+  "verification": "Every quote checked against the linked page on 15 Oct 2026. Quotes taken from party index pages were replaced with text from the linked policy page itself."
 }
