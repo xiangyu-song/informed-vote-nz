@@ -570,6 +570,112 @@
           "url": "https://www.labour.org.nz/our-policies/"
         }
       }
+    },
+    {
+      "id": "economy-jobs",
+      "name": "Economy and jobs",
+      "checked": "2026-10-15",
+      "parties": {
+        "ACT": [
+          {
+            "title": "ACT's Fiscal Plan",
+            "summary": "Balances the books without new taxes and starts paying down debt, with debt $12.4 billion lower by 2031 and the NZ Super age rising to 67 by 2035.",
+            "url": "https://www.act.org.nz/fiscalplan"
+          },
+          {
+            "title": "Local Tourism Dividend",
+            "summary": "Return $1 to a community for every commercial guest night it hosts.",
+            "url": "https://www.act.org.nz/local_tourism_dividend"
+          },
+          {
+            "title": "Backing Small Business",
+            "summary": "So the people who build businesses and those who work for them can get ahead through their own effort.",
+            "url": "https://www.act.org.nz/backing-small-business"
+          }
+        ],
+        "Green": [
+          {
+            "title": "Good jobs for all of us",
+            "summary": "A plan to guarantee a job for every young person in Aotearoa, including 32,000 young people into local jobs through the Mayors Taskforce for Jobs.",
+            "url": "https://www.greens.org.nz/good_jobs_for_all_of_us"
+          },
+          {
+            "title": "Economic development plan",
+            "summary": "A plan to rebuild Aotearoa New Zealand and create 284,000 jobs over four years.",
+            "url": "https://www.greens.org.nz/greens_economic_development_plan_will_create_284_000_jobs"
+          },
+          {
+            "title": "Plan for city centre vibrancy",
+            "summary": "A plan to get small businesses a fair deal.",
+            "url": "https://www.greens.org.nz/green_party_announce_plan_for_city_centre_vibrancy"
+          }
+        ],
+        "Labour": [
+          {
+            "title": "New Zealand Future Fund",
+            "summary": "An independently governed New Zealand Future Fund to invest in infrastructure and innovative Kiwi businesses.",
+            "url": "https://www.labour.org.nz/futurefund"
+          },
+          {
+            "title": "Fiscal Plan",
+            "summary": "Balance the books, return to surplus by 2028/29, and reduce net debt to below 20% of GDP.",
+            "url": "https://www.labour.org.nz/fiscal-plan"
+          },
+          {
+            "title": "AI in New Zealand's Interests",
+            "summary": "Protect what matters, unlock our potential, and lead on our own terms with a new Office of AI.",
+            "url": "https://www.labour.org.nz/ai-for-new-zealand"
+          }
+        ],
+        "National": [
+          {
+            "title": "National's plan to secure New Zealand's future",
+            "summary": "A fiscal plan that prioritises bringing down debt and delivers surplus in 2028/29, with no new taxes.",
+            "url": "https://www.national.org.nz/policies/nationals-fiscal-plan"
+          },
+          {
+            "title": "Building the Future: National's Economic Plan",
+            "summary": "So hardworking New Zealanders can keep more of what they earn, including replacing the RMA and debt below 40% of GDP over time.",
+            "url": "https://www.national.org.nz/policies/nationals-eco-plan"
+          },
+          {
+            "title": "National's plan to support Small Businesses",
+            "summary": "A 47-point plan to grow the economy, back small businesses, spend sensibly and reduce debt without new taxes to create jobs.",
+            "url": "https://www.national.org.nz/policies/47-point-plan-small-businesses"
+          }
+        ],
+        "NZ First": [
+          {
+            "title": "Returning 50% of mining royalties to the regions",
+            "summary": "50% of any royalties gained from mining to be directly returned to the region from which it came.",
+            "url": "https://www.nzfirst.nz/returning_50_of_mining_royalties_to_the_regions"
+          },
+          {
+            "title": "Backing a New Zealand Owned Bank",
+            "summary": "A buy-back of the Bank of New Zealand from National Australia Bank.",
+            "url": "https://www.nzfirst.nz/backing_a_new_zealand_owned_bank"
+          },
+          {
+            "title": "The $100bn New Zealand Future Fund",
+            "summary": "A New Zealand Future Fund of up to $100 billion to invest solely in a multi-decade infrastructure build.",
+            "url": "https://www.nzfirst.nz/the_100bn_new_zealand_future_fund"
+          }
+        ],
+        "Opportunity": [
+          {
+            "title": "Breakthrough Economy",
+            "summary": "Fund science, stand up for fairness and back small businesses, including a $600 million a year tax credit for technology adoption.",
+            "url": "https://www.opportunity.org.nz/breakthrough-economy"
+          }
+        ],
+        "Te Pāti Māori": [
+          {
+            "title": "Economic development",
+            "summary": "Build Māori-led institutions and funds that grow Māori enterprise. Support trade, innovation, and long-term Māori wealth building. Protect Māori data and knowledge.",
+            "url": "https://www.maoriparty.org.nz/economic_development"
+          }
+        ]
+      }
     }
   ],
   "no_policy_text": "No published policy found on this issue (checked {date}).",
