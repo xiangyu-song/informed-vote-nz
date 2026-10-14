@@ -753,6 +753,97 @@
           "url": "https://www.maoriparty.org.nz/policies"
         }
       }
+    },
+    {
+      "id": "maori-rights-treaty",
+      "name": "Māori rights and the Treaty of Waitangi",
+      "checked": "2026-10-15",
+      "parties": {
+        "ACT": [
+          {
+            "title": "Wind up the Waitangi Tribunal",
+            "summary": "Complete every eligible historical claim already before the Tribunal, end its jurisdiction over contemporary Crown policy, and disestablish it once all eligible historical claims are completed.",
+            "url": "https://www.act.org.nz/wind-up-the-waitangi-tribunal"
+          },
+          {
+            "title": "One Law for All. One Future Together.",
+            "summary": "One law for all means the same rights, the same duties, and the same protection under the law.",
+            "url": "https://www.act.org.nz/one-law-for-all"
+          }
+        ],
+        "Green": [
+          {
+            "title": "Te Tiriti o Waitangi",
+            "summary": "Te Tiriti o Waitangi is the foundation for a just and thriving Aotearoa. The Green Party is committed to upholding Te Tiriti in everything we do.",
+            "url": "https://www.greens.org.nz/te_tiriti_o_waitangi"
+          },
+          {
+            "title": "Te Waonui a Tāne",
+            "summary": "Recognise and resource marae as critical social and cultural infrastructure, with $2.44 billion in Crown funding for Te Rangatiratanga Trust.",
+            "url": "https://www.greens.org.nz/te_waonui_a_taane"
+          },
+          {
+            "title": "Ake, Ake, Ake: te reo Māori",
+            "summary": "An additional $50m per year towards te reo Māori initiatives.",
+            "url": "https://www.greens.org.nz/ake_ake_ake_green_party_commits_200m_to_the_future_of_te_reo_maori"
+          }
+        ],
+        "Labour": [
+          {
+            "title": "Backing Māori into Skilled Work",
+            "summary": "$21 million a year in Māori-led training that helps more whānau Māori gain skills and move into good, well-paid work.",
+            "url": "https://www.labour.org.nz/maori-trades-training"
+          }
+        ],
+        "National": [],
+        "NZ First": [
+          {
+            "title": "Disestablish Auckland's 'Independent Maori Statutory Board'",
+            "summary": "Disestablish the unelected Auckland Council Independent Māori Statutory Board.",
+            "url": "https://www.nzfirst.nz/disestablish_auckland_s_independent_maori_statutory_board"
+          },
+          {
+            "title": "Referendum on Maori Seats",
+            "summary": "A referendum on the future of the Māori seats, so the public can decide if they are effective, relevant, and still needed.",
+            "url": "https://www.nzfirst.nz/referendum_on_maori_seats"
+          },
+          {
+            "title": "Ending the Waitangi Make-Work Industry",
+            "summary": "Legislation within the first 100 days to abolish the Waitangi Tribunal and replace it with a Treaty of Waitangi Completion Commission.",
+            "url": "https://www.nzfirst.nz/ending_the_waitangi_makework_industry"
+          }
+        ],
+        "Opportunity": [
+          {
+            "title": "Honouring Te Tiriti",
+            "summary": "Opportunity takes the responsibility of the Crown as a Treaty partner seriously: honour existing Treaty settlements, and restore the customary marine title settings that applied before the 2025 changes.",
+            "url": "https://www.opportunity.org.nz/honouring_te_tiriti"
+          }
+        ],
+        "Te Pāti Māori": [
+          {
+            "title": "Te Tiriti Entrenchment",
+            "summary": "Establish a Matike Mai Fund. Implement the United Nations Declaration on the Rights of Indigenous Peoples.",
+            "url": "https://www.maoriparty.org.nz/te_tiriti_entrenchment"
+          },
+          {
+            "title": "Mana Motuhake",
+            "summary": "Commit to Te Tiriti-based constitutional change. Strengthen Māori political authority and governance structures.",
+            "url": "https://www.maoriparty.org.nz/mana_motuhake"
+          },
+          {
+            "title": "Te Reo Māori",
+            "summary": "Strengthen te reo Māori and normalise it everywhere. Invest in te reo Māori learning pathways and community-led language revitalisation.",
+            "url": "https://www.maoriparty.org.nz/te_reo_maori"
+          }
+        ]
+      },
+      "notes": {
+        "National": {
+          "text": "No policy on Māori rights or the Treaty of Waitangi is listed on National's policy page (checked 15 Oct).",
+          "url": "https://www.national.org.nz/policies"
+        }
+      }
     }
   ],
   "no_policy_text": "No published policy found on this issue (checked {date}).",
