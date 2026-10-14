@@ -211,6 +211,72 @@
           }
         ]
       }
+    },
+    {
+      "id": "housing",
+      "name": "Housing",
+      "checked": "2026-10-15",
+      "parties": {
+        "ACT": [],
+        "Green": [
+          {
+            "title": "Housing (2026 manifesto)",
+            "summary": "Build tens of thousands of new public homes, significantly increase accessible public housing stock, and fund more papakāinga on whenua Māori.",
+            "url": "https://www.greens.org.nz/manifesto_2026_housing"
+          },
+          {
+            "title": "Housing (2026 manifesto)",
+            "summary": "Make rents more affordable by limiting annual rent increases to no more than 2%.",
+            "url": "https://www.greens.org.nz/manifesto_2026_housing"
+          },
+          {
+            "title": "Housing (2026 manifesto)",
+            "summary": "Strengthen the Healthy Homes Standards and enforce them with an independently certified Rental Warrant of Fitness.",
+            "url": "https://www.greens.org.nz/manifesto_2026_housing"
+          }
+        ],
+        "Labour": [
+          {
+            "title": "Start Work Now",
+            "summary": "Labour will build the homes, improve the schools and repair the hospitals our communities need, including $2.9 billion of capital for Kāinga Ora to build more state houses.",
+            "url": "https://www.labour.org.nz/start-work-now"
+          }
+        ],
+        "National": [
+          {
+            "title": "Giving more Kiwis access to 5% first home deposits",
+            "summary": "Make it easier to get a house deposit through the First Home Loan scheme, by raising the income cap to $300,000 for all applicants.",
+            "url": "https://www.national.org.nz/policies/backing-first-home-buyers"
+          }
+        ],
+        "NZ First": [
+          {
+            "title": "Changes to Fast-Track Residential Approvals",
+            "summary": "Changes to the fast-track regime to ensure housing developments do not create more problems than they solve, requiring essential infrastructure to be approved before housing.",
+            "url": "https://www.nzfirst.nz/changes_to_fast_track_residential_approvals"
+          }
+        ],
+        "Opportunity": [
+          {
+            "title": "Affordable Housing",
+            "summary": "Our plan to permanently narrow the gap between wages and house prices, while building the healthy homes our communities need, including replacing over 1,000 planning zones with 10 nationally consistent ones.",
+            "url": "https://www.opportunity.org.nz/affordable_housing"
+          }
+        ],
+        "Te Pāti Māori": [
+          {
+            "title": "Housing",
+            "summary": "Build and support more public and affordable homes. Make it easier to build homes on Māori/ancestral land. Stop speculation and land-banking.",
+            "url": "https://www.maoriparty.org.nz/housing"
+          }
+        ]
+      },
+      "notes": {
+        "ACT": {
+          "text": "No housing-specific policy is listed on ACT's policy pages (checked 15 Oct). ACT groups housing with infrastructure.",
+          "url": "https://www.act.org.nz/policies/infrastructure"
+        }
+      }
     }
   ],
   "no_policy_text": "No published policy found on this issue (checked {date}).",
