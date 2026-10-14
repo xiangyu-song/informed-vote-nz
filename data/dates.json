@@ -1,0 +1,13 @@
+{
+  "source": "https://vote.nz/2026-general-election/about/key-dates",
+  "source_alt": "https://elections.nz/media-and-news/2026/key-dates-for-2026-general-election",
+  "checked": "2026-10-15",
+  "dates": [
+    {"date": "2026-10-21", "label": "Overseas voting starts"},
+    {"date": "2026-10-25", "label": "Last day to enrol to vote"},
+    {"date": "2026-10-26", "label": "Advance voting starts"},
+    {"date": "2026-11-06", "label": "Election advertising must end"},
+    {"date": "2026-11-07", "label": "Election day: voting places open 9am–7pm. Preliminary results from 7pm at electionresults.govt.nz"},
+    {"date": "2026-11-27", "label": "Official results declared"}
+  ]
+}
