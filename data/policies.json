@@ -479,6 +479,97 @@
           }
         ]
       }
+    },
+    {
+      "id": "crime-justice",
+      "name": "Crime and justice",
+      "checked": "2026-10-15",
+      "parties": {
+        "ACT": [
+          {
+            "title": "Deport Serious Offenders",
+            "summary": "Ensure Resident Visa holders convicted of offences carrying sentences of 10 years or more can be deported, no matter how long they've been here.",
+            "url": "https://www.act.org.nz/deport"
+          },
+          {
+            "title": "Three Strikes for Burglary",
+            "summary": "ACT will create a new Three Strikes regime for burglary.",
+            "url": "https://www.act.org.nz/burglary"
+          },
+          {
+            "title": "Stopping Coercion by Animal Abuse",
+            "summary": "Strengthen protections for pets used as instruments of coercion and control in family violence.",
+            "url": "https://www.act.org.nz/stopping-coercion"
+          }
+        ],
+        "Green": [
+          {
+            "title": "Justice and Community Safety (2026 manifesto)",
+            "summary": "Resource evidence-based rehabilitation for anyone convicted of an offence.",
+            "url": "https://www.greens.org.nz/manifesto_2026_justice_and_community_safety"
+          },
+          {
+            "title": "Justice and Community Safety (2026 manifesto)",
+            "summary": "Expand Te Ao Mārama to all courts in Aotearoa.",
+            "url": "https://www.greens.org.nz/manifesto_2026_justice_and_community_safety"
+          },
+          {
+            "title": "Justice and Community Safety (2026 manifesto)",
+            "summary": "End military-style academies and raise the age of criminal responsibility.",
+            "url": "https://www.greens.org.nz/manifesto_2026_justice_and_community_safety"
+          }
+        ],
+        "Labour": [],
+        "National": [
+          {
+            "title": "Modernise Sexual Consent Laws",
+            "summary": "Modernise consent laws to require an explicit 'yes' rather than silence.",
+            "url": "https://www.national.org.nz/policies/consent-laws"
+          },
+          {
+            "title": "Tougher Sentences for Sexual Offending",
+            "summary": "Real consequences for crime by removing good character assessments from sentencing for all sexual offences.",
+            "url": "https://www.national.org.nz/policies/tougher-sentences"
+          },
+          {
+            "title": "More Police on Auckland's buses and trains",
+            "summary": "A dedicated Auckland Transport Police Team, so you feel safe catching public transport.",
+            "url": "https://www.national.org.nz/policies/police-auckland-transport"
+          }
+        ],
+        "NZ First": [
+          {
+            "title": "Ban Public Sales of Fireworks",
+            "summary": "New Zealand First will campaign on banning the public sale and use of fireworks across New Zealand.",
+            "url": "https://www.nzfirst.nz/ban_public_sales_of_fireworks"
+          },
+          {
+            "title": "All Gangs Should Be Terror Entities (petition)",
+            "summary": "New Zealand First calls for all gangs to be designated 'terrorist entities' under the Terrorism Suppression Act.",
+            "url": "https://www.nzfirst.nz/all-gangs-should-be-designated-terrorist-entities"
+          }
+        ],
+        "Opportunity": [
+          {
+            "title": "Smart On Crime",
+            "summary": "An evidence-based plan to make New Zealand safer: voluntary interventions as soon as risk factors are identified, and growing specialist courts.",
+            "url": "https://www.opportunity.org.nz/smart_on_crime"
+          }
+        ],
+        "Te Pāti Māori": [
+          {
+            "title": "Justice",
+            "summary": "Build Māori-led justice authority and community solutions. Reform laws that criminalise poverty and survival. Move away from mass imprisonment.",
+            "url": "https://www.maoriparty.org.nz/justice"
+          }
+        ]
+      },
+      "notes": {
+        "Labour": {
+          "text": "No crime and justice policy is listed on Labour's policy page (checked 15 Oct).",
+          "url": "https://www.labour.org.nz/our-policies/"
+        }
+      }
     }
   ],
   "no_policy_text": "No published policy found on this issue (checked {date}).",
