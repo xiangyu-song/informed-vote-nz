@@ -363,6 +363,122 @@
           "url": "https://www.nzfirst.nz/policy"
         }
       }
+    },
+    {
+      "id": "climate-energy-environment",
+      "name": "Climate, energy and environment",
+      "checked": "2026-10-15",
+      "parties": {
+        "ACT": [
+          {
+            "title": "Scrap Net Zero, Cut the Carbon Tax",
+            "summary": "Scrap the arbitrary net zero 2050 target and repeal the Zero Carbon Act.",
+            "url": "https://www.act.org.nz/scrap-net-zero-cut-the-carbon-tax"
+          },
+          {
+            "title": "Abundant and Affordable Electricity",
+            "summary": "Let you choose who buys your power, and lift unnecessary limits on your solar so households can export more power where the network has room.",
+            "url": "https://www.act.org.nz/abundant-and-affordable-electricity"
+          },
+          {
+            "title": "Scrap the Climate Change Commission",
+            "summary": "ACT will abolish the Commission and transfer its monitoring and reporting duties to the ministry that already measures emissions.",
+            "url": "https://www.act.org.nz/scrap-the-climate-change-commission"
+          }
+        ],
+        "Green": [
+          {
+            "title": "Power for all of us",
+            "summary": "Lower bills. Cleaner energy. Public ownership. Includes $200 million for community energy projects and $80 million for renewable energy for Māori housing.",
+            "url": "https://www.greens.org.nz/power_for_all_of_us"
+          },
+          {
+            "title": "Fast, frequent, affordable public transport for all of us",
+            "summary": "Fast, frequent and affordable public transport that saves people time and money, including $2 adult bus and train fares and up to 150 new regional bus services.",
+            "url": "https://www.greens.org.nz/connect_aotearoa"
+          },
+          {
+            "title": "Drink, Swim, Fish",
+            "summary": "The Green Party will fix the rules so all of us can drink, swim, and fish in the places we love, with strong, science-based national standards for freshwater.",
+            "url": "https://www.greens.org.nz/drink_swim_fish"
+          }
+        ],
+        "Labour": [
+          {
+            "title": "SolarSaver",
+            "summary": "Removes the barrier that locks most families out of solar power: low-interest finance with nothing to pay upfront, a subsidy of up to $3,000 for low- and middle-income households, and a $30 million community battery fund.",
+            "url": "https://www.labour.org.nz/solarsaver"
+          }
+        ],
+        "National": [
+          {
+            "title": "Home Energy Fund",
+            "summary": "Help Kiwis become more energy independent and cut power bills, with long-term loans for solar, batteries, insulation and heat pumps repaid through rates, and rooftop solar without a consent.",
+            "url": "https://www.national.org.nz/policies/solar"
+          },
+          {
+            "title": "Affordable power Kiwis can rely on",
+            "summary": "A nine-point energy plan delivering more supply, more competition, and more choice for households and businesses, to help make power more affordable.",
+            "url": "https://www.national.org.nz/policies/electrify-nz-2"
+          },
+          {
+            "title": "Hunting and Fishing",
+            "summary": "National will strengthen hunter-led conservation and protect access to the outdoors.",
+            "url": "https://www.national.org.nz/policies/hunting-and-fishing"
+          }
+        ],
+        "NZ First": [
+          {
+            "title": "Breaking up the Gentailers",
+            "summary": "Breaking up the power companies so they can no longer control both the power and the price.",
+            "url": "https://www.nzfirst.nz/breaking_up_the_gentailers"
+          },
+          {
+            "title": "Future Proofing our Fuel Security",
+            "summary": "An initial investment of $1 billion for a national survey of subsurface energy, geothermal and CO₂ storage sites.",
+            "url": "https://www.nzfirst.nz/future_proofing_our_fuel_security"
+          },
+          {
+            "title": "We Will Withdraw From The Paris Accord",
+            "summary": "New Zealand First is saying we need to get out of the Paris Accord altogether.",
+            "url": "https://www.nzfirst.nz/withdraw_from_paris_accord"
+          }
+        ],
+        "Opportunity": [
+          {
+            "title": "Abundant Energy",
+            "summary": "A circuit breaker for an energy system that has been underfunded for decades, including a cross-party 30GW renewable capacity target for 2050.",
+            "url": "https://www.opportunity.org.nz/abundant-energy"
+          },
+          {
+            "title": "Climate Action",
+            "summary": "A $1 billion fund from ETS revenues to help industry move off coal and gas, and a $5 billion Climate Resilience Fund.",
+            "url": "https://www.opportunity.org.nz/climate_action"
+          },
+          {
+            "title": "Healthy Land & Water",
+            "summary": "Restore our land, clean up our rivers and treat nature as critical national infrastructure.",
+            "url": "https://www.opportunity.org.nz/healthy_land"
+          }
+        ],
+        "Te Pāti Māori": [
+          {
+            "title": "Energy Sovereignty",
+            "summary": "Establish a $1 Billion Energy Sovereignty Fund and a National Independence Energy Plan.",
+            "url": "https://www.maoriparty.org.nz/energy_sovereignty"
+          },
+          {
+            "title": "Climate",
+            "summary": "Protect whenua and moana from extractive industries (including banning seabed mining). Invest in climate resilience for communities most at risk.",
+            "url": "https://www.maoriparty.org.nz/climate"
+          },
+          {
+            "title": "Freshwater Policy",
+            "summary": "Assert Māori rights and authority over freshwater. Stop decisions being made without Māori consent.",
+            "url": "https://www.maoriparty.org.nz/freshwater_policy"
+          }
+        ]
+      }
     }
   ],
   "no_policy_text": "No published policy found on this issue (checked {date}).",
