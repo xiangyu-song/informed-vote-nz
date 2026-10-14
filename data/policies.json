@@ -1,0 +1,47 @@
+{
+  "rules": "Up to three policies per party per issue, taken in the order each party lists them on its own website and placed under the issue they best fit. Titles and summaries use the party's own wording. Parties shown in alphabetical order.",
+  "parties": ["ACT", "Green", "Labour", "National", "NZ First", "Opportunity", "Te Pāti Māori", "Te Tai Tokerau Party"],
+  "issues": [
+    {
+      "id": "cost-of-living-tax",
+      "name": "Cost of living and tax",
+      "checked": "2026-10-15",
+      "parties": {
+        "ACT": [
+          {"title": "Abolish Labour's Rental Tax", "summary": "ACT will reverse another of Labour's renters' taxes by ending loss ring-fencing.", "url": "https://www.act.org.nz/abolish-labours-rental-tax"},
+          {"title": "No Tax on KiwiSaver Earnings", "summary": "ACT will reward saving by letting you keep those earnings.", "url": "https://www.act.org.nz/no-tax-on-kiwisaver-earnings"},
+          {"title": "Open the Door to Supermarket Competition", "summary": "ACT will make it easier for new supermarkets to open and grow, so shoppers have more places to take their business.", "url": "https://www.act.org.nz/open-the-door-to-supermarket-competition"}
+        ],
+        "Green": [
+          {"title": "A tax system for all of us", "summary": "The Green Party's tax plan will address inequality, tackle corporate greed, and tax income fairly. Includes a $10,000 tax-free threshold, a 2.5% tax on net assets over $10 million (family homes exempt), and a higher rate on income over $160,000.", "url": "https://www.greens.org.nz/tax_system_for_all"},
+          {"title": "Affordable food for all of us", "summary": "Our policy will reform the food system so that everyone has easy and affordable access to good, nutritious kai.", "url": "https://www.greens.org.nz/affordable_food_for_all_of_us"},
+          {"title": "New bill to ban supermarket price gouging", "summary": "A law to make it illegal to charge unreasonable prices for groceries.", "url": "https://www.greens.org.nz/_new_bill_to_ban_supermarket_price_gouging"}
+        ],
+        "Labour": [
+          {"title": "$20 Fare Cap", "summary": "$20 a week is the most you'll pay to get around by bus or train under Labour. In place by 1 July 2027.", "url": "https://www.labour.org.nz/farecap"},
+          {"title": "Capital Gains Tax", "summary": "A simple, targeted 28% tax on profit from selling investment property after 1 July 2027.", "url": "https://www.labour.org.nz/capitalgainstax"},
+          {"title": "Banning Price Gouging", "summary": "Making it illegal for big companies to overcharge for essentials.", "url": "https://www.labour.org.nz/banning-price-gouging"}
+        ],
+        "National": [
+          {"title": "No new taxes under National", "summary": "No new taxes so you keep more of what you earn.", "url": "https://www.national.org.nz/policies/no-new-taxes"},
+          {"title": "Keeping rates affordable", "summary": "So families can keep more money in their pockets, with rates increases that are more affordable and predictable.", "url": "https://www.national.org.nz/policies/rates-capping"},
+          {"title": "More grocery competition", "summary": "National will pursue a separation of New World and PAK'nSAVE so they compete harder against each other for shoppers.", "url": "https://www.national.org.nz/policies/grocery-competition"}
+        ],
+        "NZ First": [
+          {"title": "Break up the Supermarket Duopoly", "summary": "New Zealand First will introduce legislation to reform the system and break up Foodstuffs.", "url": "https://www.nzfirst.nz/break_up_the_supermarket_duopoly"},
+          {"title": "Lowering Tax Rate for SMEs to 20%", "summary": "Lowering the company tax rate for SMEs to 20%, from 28%, for firms with turnover under $30 million.", "url": "https://www.nzfirst.nz/20_tax_rate_for_smes"},
+          {"title": "Establishing a KiwiSaver Generation", "summary": "KiwiSaver enrolment compulsory at birth, with an automatic immediate Crown contribution of $1000.", "url": "https://www.nzfirst.nz/establishing_a_kiwisaver_generation"}
+        ],
+        "Opportunity": [
+          {"title": "Tax Reset", "summary": "It's time for a tax reset that increases incomes, makes homes affordable and safeguards retirement. Includes a Citizen's Income of up to $370 a week for almost all adults, funded by a 1.75% Land Value Tax, phased in over a decade.", "url": "https://www.opportunity.org.nz/tax-reset"}
+        ],
+        "Te Pāti Māori": [
+          {"title": "Tax", "summary": "Make sure the wealthiest pay their fair share. Use that revenue to fund housing, health, education and whānau support.", "url": "https://www.maoriparty.org.nz/tax"},
+          {"title": "Cost of living", "summary": "Lift incomes so people can live with dignity. Strengthen welfare so whānau aren't punished for being poor.", "url": "https://www.maoriparty.org.nz/cost_of_living"}
+        ],
+        "Te Tai Tokerau Party": []
+      }
+    }
+  ],
+  "no_policy_text": "No published policy found on this issue (checked {date})."
+}
