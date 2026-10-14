@@ -1,5 +1,5 @@
 {
-  "rules": "Up to three policies per party per issue, taken in the order each party lists them on its own website and placed under the issue they best fit. Titles and summaries use the party's own wording. Parties shown in alphabetical order.",
+  "rules": "To appear in the policy table, a party must have a sitting MP or average 2% or more in recent nationwide polls, and must publish policies on its own website. Up to three policies per party per issue, taken in the order each party lists them and placed under the issue they best fit. Titles and summaries use the party's own wording. Parties shown in alphabetical order. Every party on the ballot is listed separately with a link to its website.",
   "parties": [
     "ACT",
     "Green",
@@ -7,8 +7,7 @@
     "National",
     "NZ First",
     "Opportunity",
-    "Te Pāti Māori",
-    "Te Tai Tokerau Party"
+    "Te Pāti Māori"
   ],
   "issues": [
     {
@@ -119,8 +118,7 @@
             "summary": "Lift incomes so people can live with dignity. Strengthen welfare so whānau aren't punished for being poor.",
             "url": "https://www.maoriparty.org.nz/cost_of_living"
           }
-        ],
-        "Te Tai Tokerau Party": []
+        ]
       }
     },
     {
@@ -211,10 +209,15 @@
             "summary": "Support Māori-led disability services and decision-making. Make support easier to access and less degrading.",
             "url": "https://www.maoriparty.org.nz/disabilities"
           }
-        ],
-        "Te Tai Tokerau Party": []
+        ]
       }
     }
   ],
-  "no_policy_text": "No published policy found on this issue (checked {date})."
+  "no_policy_text": "No published policy found on this issue (checked {date}).",
+  "rechecks": [
+    {
+      "party": "Te Tai Tokerau Party",
+      "reason": "Has a sitting MP but no published policies found (checked 15 Oct 2026). Shown in the all-parties list; re-check at each update and add to the table if policies are published."
+    }
+  ]
 }
