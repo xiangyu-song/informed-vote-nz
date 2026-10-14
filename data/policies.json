@@ -277,6 +277,92 @@
           "url": "https://www.act.org.nz/policies/infrastructure"
         }
       }
+    },
+    {
+      "id": "education",
+      "name": "Education",
+      "checked": "2026-10-15",
+      "parties": {
+        "ACT": [
+          {
+            "title": "Keeping Children Safe",
+            "summary": "One national card checked continuously for anyone, paid or unpaid, who works with children.",
+            "url": "https://www.act.org.nz/keeping-children-safe"
+          },
+          {
+            "title": "Real Choice for Students",
+            "summary": "ACT will amend the regulations so universities must offer student services as a menu.",
+            "url": "https://www.act.org.nz/student_services_fee"
+          },
+          {
+            "title": "Affordable School Uniforms",
+            "summary": "Limit state schools to a maximum of three compulsory branded uniform items.",
+            "url": "https://www.act.org.nz/affordable-uniforms"
+          }
+        ],
+        "Green": [
+          {
+            "title": "Education (2026 manifesto)",
+            "summary": "Make early childhood education free and provide it as a public good like schooling.",
+            "url": "https://www.greens.org.nz/manifesto_2026_education"
+          },
+          {
+            "title": "Education (2026 manifesto)",
+            "summary": "Reset the Government's rushed and ideological curriculum and assessment reforms.",
+            "url": "https://www.greens.org.nz/manifesto_2026_education"
+          },
+          {
+            "title": "Education (2026 manifesto)",
+            "summary": "Expand the criteria for access to learning support.",
+            "url": "https://www.greens.org.nz/manifesto_2026_education"
+          }
+        ],
+        "Labour": [
+          {
+            "title": "Cutting Student Debt",
+            "summary": "A 10% cut to eligible student loan balances, with small balances under $2,000 written off completely.",
+            "url": "https://www.labour.org.nz/cutting-student-debt"
+          },
+          {
+            "title": "Cutting Back-to-School Costs",
+            "summary": "Cheaper uniforms, healthy school lunches back from Term 1 2028, rural school buses restored, and lower transport costs.",
+            "url": "https://www.labour.org.nz/cutting-back-to-school-costs"
+          }
+        ],
+        "National": [
+          {
+            "title": "Teaching the basics brilliantly",
+            "summary": "A world-leading education system that raises achievement, including replacing NCEA from 2028 with new senior secondary qualifications and a Learning Support Coordinator in every school with Year 1–8 students.",
+            "url": "https://www.national.org.nz/policies/education-teaching-the-basics-brilliantly"
+          },
+          {
+            "title": "Back Pocket Boost for Graduates",
+            "summary": "Reward young graduates who stay in New Zealand by cutting the student loan repayment rate from 12% to 10% from 1 April 2027, with tougher rules for overseas borrowers.",
+            "url": "https://www.national.org.nz/policies/boost-for-graduates"
+          }
+        ],
+        "NZ First": [],
+        "Opportunity": [
+          {
+            "title": "Future-fit Education",
+            "summary": "A 10-year cross-party plan for education, focussed on stability for students, with an Independent Curriculum and Assessment Council setting curriculum rather than politicians.",
+            "url": "https://www.opportunity.org.nz/future_fit_education"
+          }
+        ],
+        "Te Pāti Māori": [
+          {
+            "title": "Education & Training",
+            "summary": "Build Māori-led education authority and solutions. Embed mātauranga Māori properly across learning. Remove barriers that block whānau from education and training.",
+            "url": "https://www.maoriparty.org.nz/education_training"
+          }
+        ]
+      },
+      "notes": {
+        "NZ First": {
+          "text": "No education policy is listed on NZ First's policy page (checked 15 Oct).",
+          "url": "https://www.nzfirst.nz/policy"
+        }
+      }
     }
   ],
   "no_policy_text": "No published policy found on this issue (checked {date}).",
