@@ -676,6 +676,83 @@
           }
         ]
       }
+    },
+    {
+      "id": "immigration",
+      "name": "Immigration",
+      "checked": "2026-10-15",
+      "parties": {
+        "ACT": [
+          {
+            "title": "Put 'Reside' Back in 'Resident'",
+            "summary": "ACT will put 'reside' back in 'resident', including removing the existing Permanent Resident Visa category.",
+            "url": "https://www.act.org.nz/put-‘reside’-back-in-‘resident’"
+          },
+          {
+            "title": "A Fair Contribution for Infrastructure",
+            "summary": "ACT will add a $6-a-day infrastructure surcharge to temporary work visas.",
+            "url": "https://www.act.org.nz/fair-contribution"
+          }
+        ],
+        "Green": [
+          {
+            "title": "Immigration Policy",
+            "summary": "Increase our refugee quota and the resources required to provide adequate refugee services.",
+            "url": "https://www.greens.org.nz/immigration_policy"
+          },
+          {
+            "title": "Immigration Policy",
+            "summary": "Advocate for a Pacific Passport to allow for free movement between the islands and Aotearoa.",
+            "url": "https://www.greens.org.nz/immigration_policy"
+          }
+        ],
+        "Labour": [],
+        "National": [
+          {
+            "title": "National's plan to welcome more Kiwis home",
+            "summary": "Prioritising and expediting work and visitor visas for partners of New Zealand citizens, as part of five commitments in the first 100 days.",
+            "url": "https://www.national.org.nz/policies/welcome-kiwis-home"
+          },
+          {
+            "title": "Making Trans-Tasman travel seamless",
+            "summary": "Work with Australia to trial seamless travel for Australian and New Zealand citizens.",
+            "url": "https://www.national.org.nz/policies/trans-tasman-travel"
+          }
+        ],
+        "NZ First": [
+          {
+            "title": "Immigration Reform Policies",
+            "summary": "Sweeping changes to current immigration laws: only the children of citizens automatically entitled to citizenship at birth, and the qualifying period for citizenship doubled from five to ten years.",
+            "url": "https://www.nzfirst.nz/immigration_reform_policies"
+          },
+          {
+            "title": "Scrapping Accredited Working Visa Model",
+            "summary": "End the Accredited Employer Work Visa and replace it with a shortage-led Skilled Work Visa.",
+            "url": "https://www.nzfirst.nz/scrapping_accredited_working_visa_model"
+          },
+          {
+            "title": "Citizen's Only Voting",
+            "summary": "Change electoral law so only citizens can vote.",
+            "url": "https://www.nzfirst.nz/citizens_only_voting"
+          }
+        ],
+        "Opportunity": [],
+        "Te Pāti Māori": []
+      },
+      "notes": {
+        "Labour": {
+          "text": "No immigration policy is listed on Labour's policy page (checked 15 Oct).",
+          "url": "https://www.labour.org.nz/our-policies/"
+        },
+        "Opportunity": {
+          "text": "No immigration policy is listed on Opportunity's policy page (checked 15 Oct).",
+          "url": "https://www.opportunity.org.nz/policy"
+        },
+        "Te Pāti Māori": {
+          "text": "No immigration policy is listed on Te Pāti Māori's policy page (checked 15 Oct).",
+          "url": "https://www.maoriparty.org.nz/policies"
+        }
+      }
     }
   ],
   "no_policy_text": "No published policy found on this issue (checked {date}).",
