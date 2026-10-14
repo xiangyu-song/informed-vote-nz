@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NZ Election 2026 Guide</title>
+<meta name="description" content="A free, neutral guide to the 2026 New Zealand general election: key voting dates, polls, party policies in their own words, and debates.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="wrap top-inner">
+    <p class="site-name">NZ Election 2026 Guide</p>
+    <nav aria-label="Sections">
+      <a href="#dates">Dates</a>
+      <a href="#polls">Polls</a>
+      <a href="#policies">Policies</a>
+      <a href="#debates">Debates</a>
+      <a href="#parties">All parties</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section id="dates" class="hero wrap" aria-labelledby="hero-title">
+    <h1 id="hero-title"><span class="hero-day">Election day is Saturday 7&nbsp;November</span><span id="countdown" class="hero-count"></span></h1>
+    <p id="next-step" class="next-step"></p>
+    <ol id="timeline" class="timeline" aria-label="Key dates"></ol>
+    <p class="official">Enrol, check your details and find where to vote at <a href="https://vote.nz/">vote.nz</a>, the Electoral Commission's official site.</p>
+  </section>
+
+  <section id="polls" class="wrap block" aria-labelledby="polls-title">
+    <h2 id="polls-title">Polls</h2>
+    <p class="lede">Party vote in nationwide polls since August. Each dot is one poll; the line is the average of polls finishing in the previous 14 days. Polls are estimates and usually have a margin of error of about 3 points either way.</p>
+    <div id="poll-charts" class="multiples"></div>
+    <div id="poll-detail" class="poll-detail" aria-live="polite"></div>
+    <details class="more">
+      <summary>See every poll with its source</summary>
+      <div class="table-scroll"><table id="poll-table"></table></div>
+    </details>
+  </section>
+
+  <section id="policies" class="wrap block" aria-labelledby="policies-title">
+    <h2 id="policies-title">Policies, in each party's own words</h2>
+    <p class="lede">Pick an issue. Every policy is quoted directly from the party's website, with a link to read the full policy.</p>
+    <div id="issue-picker" class="issue-picker" role="tablist" aria-label="Issues"></div>
+    <div id="policy-list" class="policy-list"></div>
+    <details class="more" id="how-chosen">
+      <summary>How we chose these</summary>
+      <ul id="how-list"></ul>
+    </details>
+  </section>
+
+  <section id="debates" class="wrap block" aria-labelledby="debates-title">
+    <h2 id="debates-title">Debates</h2>
+    <p class="lede">Links go to the broadcaster or news site. Watch or read there.</p>
+    <ul id="debate-list" class="debate-list"></ul>
+  </section>
+
+  <section id="parties" class="wrap block" aria-labelledby="parties-title">
+    <h2 id="parties-title">Every party on the ballot</h2>
+    <p class="lede">All 17 registered parties, as listed on the <a href="https://elections.nz/democracy-in-nz/political-parties-in-new-zealand/register-of-political-parties">Electoral Commission's register</a>. Links go to each party's own website.</p>
+    <ul id="party-list" class="party-list"></ul>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p>This is an independent guide. It is not run by, or affiliated with, any political party or the Electoral Commission. For official information, go to <a href="https://vote.nz/">vote.nz</a>.</p>
+    <p id="updated"></p>
+  </div>
+</footer>
+
+<script src="assets/app.js"></script>
+</body>
+</html>
