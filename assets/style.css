@@ -233,3 +233,15 @@ th { font-weight: 600; color: var(--muted); }
 .tool-card p { margin: 0 0 0.75rem; }
 .tool-note { color: var(--muted); font-size: 0.92rem; padding: 0.6rem 0.8rem; background: var(--accent-soft); border-radius: var(--r-s); }
 .tool-go { padding: 0.5rem 1rem; margin-top: 0.25rem; }
+
+/* Your two votes */
+.ballots { display: grid; grid-template-columns: 1fr; gap: 0.8rem; margin-bottom: 1rem; }
+@media (min-width: 640px) { .ballots { grid-template-columns: 1fr 1fr; } }
+.ballot { background: var(--surface); border-radius: var(--r-l); padding: 1.1rem 1.2rem; box-shadow: 0 1px 0 var(--rule); border-top: 6px solid var(--accent); }
+.ballot h3 { margin: 0 0 0.4rem; font-size: 1.2rem; font-weight: 800; display: flex; align-items: center; gap: 0.5rem; }
+.ballot h3::before { content: ""; width: 1.1rem; height: 1.1rem; border-radius: 50%; border: 3px solid var(--accent); flex: none; }
+.ballot p { margin: 0; }
+.rules { background: var(--surface); border-radius: var(--r-l); padding: 1.1rem 1.2rem 0.6rem; box-shadow: 0 1px 0 var(--rule); }
+.rules h3 { margin: 0 0 0.4rem; font-size: 1.1rem; font-weight: 800; }
+.rules ul { margin: 0; padding-left: 1.2rem; }
+.rules li { margin: 0 0 0.6rem; }

@@ -179,6 +179,32 @@
         "url": "https://votecompass.tvnz.co.nz/",
         "supports": "The tool's address"
       }
+    ],
+    "votes": [
+      {
+        "title": "What is MMP?",
+        "publisher": "Electoral Commission",
+        "url": "https://elections.nz/democracy-in-nz/what-is-new-zealands-system-of-government/what-is-mmp/",
+        "supports": "The two votes, the 120 seats, the threshold, electorate and list MPs, coalitions and confidence and supply agreements"
+      },
+      {
+        "title": "Find your electorate for the 2026 General Election",
+        "publisher": "Electoral Commission (vote.nz)",
+        "url": "https://vote.nz/maps/find-your-electorate-2026",
+        "supports": "Finding your electorate by address"
+      },
+      {
+        "title": "North Island loses seat in 2026 election (Stats NZ electorate numbers)",
+        "publisher": "SunLive",
+        "url": "https://www.sunlive.co.nz/news/353620-north-island-loses-seat-in-2026-election.html",
+        "supports": "71 electorates in 2026: 64 general and 7 Māori"
+      },
+      {
+        "title": "530 candidates to contest New Zealand's 2026 General Election (11 Oct 2026)",
+        "publisher": "Siasat Daily",
+        "url": "https://www.siasat.com/530-candidates-to-contest-new-zealands-2026-general-election-3555840/",
+        "supports": "That the Electoral Commission publishes electorate candidates and party lists on vote.nz"
+      }
     ]
   },
   "methods": {
