@@ -176,6 +176,7 @@ th { font-weight: 600; color: var(--muted); }
 .pol-name { font-weight: 600; }
 .tag { display: inline-block; font-size: 0.72rem; color: var(--muted); background: var(--paper); border-radius: var(--r-s); padding: 0.05rem 0.45rem; margin-left: 0.35rem; vertical-align: 0.12em; white-space: nowrap; }
 .pol blockquote { margin: 0.4rem 0 0; padding: 0.55rem 0.8rem; background: var(--accent-soft); border-radius: var(--r-s) var(--r-m) var(--r-m) var(--r-m); }
+.pol blockquote.also { margin-top: 0.3rem; }
 .pol .say { color: var(--muted); font-size: 0.8rem; display: block; }
 .not-covered { color: var(--muted); margin: 0 0 1rem; padding: 0.6rem 0.8rem; border: 1.5px dashed var(--rule); border-radius: var(--r-m); }
 

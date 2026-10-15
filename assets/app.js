@@ -261,12 +261,17 @@
       }
       items.forEach(function (it) {
         var defBox = el("p", { "class": "term-def", hidden: "", "aria-live": "polite" });
-        var bq = el("blockquote", null, [el("span", { "class": "say", text: "In their words:" }), "“"]);
-        bq.appendChild(annotate(it.quote, defBox)); bq.appendChild(document.createTextNode("”"));
+        var quotes = el("div");
+        [it.quote].concat(it.more || []).forEach(function (q, n) {
+          var bq = el("blockquote", n ? { "class": "also" } : null, [el("span", { "class": "say", text: n ? "Also:" : "In their words:" }), "“"]);
+          bq.appendChild(annotate(q, defBox)); bq.appendChild(document.createTextNode("”"));
+          quotes.appendChild(bq);
+        });
+        quotes.appendChild(defBox);
         box.appendChild(el("div", { "class": "pol" }, [
           el("a", { "class": "pol-name", href: it.url, text: "“" + it.name + "”" }),
           el("span", { "class": "tag", text: it.source_type }),
-          el("div", null, [bq, defBox])
+          quotes
         ]));
       });
       return box;

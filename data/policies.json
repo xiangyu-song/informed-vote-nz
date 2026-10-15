@@ -7,7 +7,7 @@
   },
   "how_we_chose": [
     "Parties appear if they have a sitting MP or average 2% or more in recent nationwide polls, and publish policies on their own website.",
-    "For each topic we show up to three policies per party, taken in the order the party lists them on its own website. Each policy appears once, under the topic it fits best.",
+    "For each topic we show up to three quotes per party. Policies are taken in the order the party lists them on its own website. Where a party has fewer than three policies on a topic, we add further commitments from the same pages, in the order they appear, so parties with fewer but broader pages aren't limited to one line. Each policy appears once, under the topic it fits best.",
     "Each policy is shown as a direct quote from the party's own page, in quotation marks, with a link so you can read the full policy. Quotes are cut at about 20 words; '…' marks a cut, and [square brackets] mark words we added for clarity.",
     "A tag shows the type of source: a policy page, the 2026 manifesto, a dated announcement, a long-term policy, or a petition.",
     "Topic order: the four issues New Zealanders rated most important in the Ipsos Issues Monitor (July 2026) come first: cost of living, healthcare, the economy and housing. The rest are in alphabetical order.",
@@ -46,7 +46,11 @@
             "name": "Open the Door to Supermarket Competition",
             "quote": "ACT will make it easier for new supermarkets to open and grow, so shoppers have more places to take their business.",
             "source_type": "Policy page",
-            "url": "https://www.act.org.nz/open-the-door-to-supermarket-competition"
+            "url": "https://www.act.org.nz/open-the-door-to-supermarket-competition",
+            "more": [
+              "Create a one-stop consenting shop.",
+              "Make alcohol licensing faster and simpler."
+            ]
           }
         ],
         "Green": [
@@ -54,7 +58,10 @@
             "name": "Affordable food for all of us",
             "quote": "Our policy will reform the food system so that everyone has easy and affordable access to good, nutritious kai.",
             "source_type": "Policy page",
-            "url": "https://www.greens.org.nz/affordable_food_for_all_of_us"
+            "url": "https://www.greens.org.nz/affordable_food_for_all_of_us",
+            "more": [
+              "Require Woolworths and Foodstuffs to divest at least 120 stores and distribution centre capacity into public ownership."
+            ]
           },
           {
             "name": "New bill to ban supermarket price gouging",
@@ -88,7 +95,10 @@
             "name": "Keeping rates affordable",
             "quote": "So families can keep more money in their pockets, with rates increases that are more affordable and predictable",
             "source_type": "Policy page",
-            "url": "https://www.national.org.nz/policies/rates-capping"
+            "url": "https://www.national.org.nz/policies/rates-capping",
+            "more": [
+              "Keep annual rates increases within the target range of 2 to 4%"
+            ]
           },
           {
             "name": "More grocery competition",
@@ -102,7 +112,11 @@
             "name": "Break up the Supermarket Duopoly",
             "quote": "New Zealand First will introduce legislation to reform the system and break up Foodstuffs",
             "source_type": "Policy page",
-            "url": "https://www.nzfirst.nz/break_up_the_supermarket_duopoly"
+            "url": "https://www.nzfirst.nz/break_up_the_supermarket_duopoly",
+            "more": [
+              "Our policy will include tougher penalties, faster investigations, and real enforcement powers for the Commerce Commission…",
+              "The role of the current toothless Groceries Commissioner, belatedly established by Labour in 2023, will also be reformed…"
+            ]
           }
         ],
         "Opportunity": [],
@@ -111,7 +125,11 @@
             "name": "Cost of living",
             "quote": "Lift incomes so people can live with dignity.",
             "source_type": "Policy page",
-            "url": "https://www.maoriparty.org.nz/cost_of_living"
+            "url": "https://www.maoriparty.org.nz/cost_of_living",
+            "more": [
+              "Strengthen welfare so whānau aren’t punished for being poor.",
+              "Back practical cost-of-living relief (including transport affordability)."
+            ]
           }
         ],
         "Te Tai Tokerau Party": [
@@ -119,7 +137,10 @@
             "name": "Mana Māra Policy — Grassroots Food Autonomy & Cost-of-Living Security",
             "quote": "Te Tai Tokerau Party will treat home food production not as a leisure hobby, but as vital regional infrastructure",
             "source_type": "Policy page",
-            "url": "https://tetaitokerauparty.org.nz/our-policies/"
+            "url": "https://tetaitokerauparty.org.nz/our-policies/",
+            "more": [
+              "The Backyard Sovereignty Kit: a funded, standardised flat-pack kit…"
+            ]
           },
           {
             "name": "Kai Sovereignty Policy — Dismantling the Supermarket Duopoly",
@@ -159,7 +180,11 @@
             "name": "Health",
             "quote": "Ensure public health care services are accessible for all with a focus on prevention and early screening…",
             "source_type": "2026 manifesto",
-            "url": "https://www.greens.org.nz/manifesto_2026_health"
+            "url": "https://www.greens.org.nz/manifesto_2026_health",
+            "more": [
+              "Fund mobile health care and mental health care clinics, diagnostics services and dental vans to ensure rural communities…",
+              "Work towards a publicly delivered, fully free provision of dental and primary care services…"
+            ]
           }
         ],
         "Labour": [
@@ -187,7 +212,11 @@
             "name": "More medicines and earlier care",
             "quote": "Putting the health of Kiwis at home ahead of money sent overseas, delivering more medicines and earlier screening with no new taxes",
             "source_type": "Policy page",
-            "url": "https://www.national.org.nz/policies/more-medicines-and-earlier-care"
+            "url": "https://www.national.org.nz/policies/more-medicines-and-earlier-care",
+            "more": [
+              "Deliver a further $604 million uplift in Pharmac’s medicines budget",
+              "Turn responsible fiscal management into more medicines"
+            ]
           }
         ],
         "NZ First": [
@@ -195,7 +224,11 @@
             "name": "The Plan to “Make NZ Healthy”",
             "quote": "New Zealand First will shift the focus of healthcare from treating illness to preventing it.",
             "source_type": "Policy page",
-            "url": "https://www.nzfirst.nz/the_plan_to_make_nz_healthy"
+            "url": "https://www.nzfirst.nz/the_plan_to_make_nz_healthy",
+            "more": [
+              "Put prevention back at the heart of healthcare.",
+              "Have a strong focus on metabolic health, the key driver of chronic illness."
+            ]
           }
         ],
         "Opportunity": [
@@ -203,7 +236,11 @@
             "name": "Healthy People",
             "quote": "Opportunity will establish, and protect, a 10-year plan that properly funds our health workers…",
             "source_type": "Policy page",
-            "url": "https://www.opportunity.org.nz/healthy_people"
+            "url": "https://www.opportunity.org.nz/healthy_people",
+            "more": [
+              "This published, costed plan will detail the goals, milestones and investments Kiwis expect, and our health workers deserve.",
+              "…increase and maintain health funding from the current 7.4% of GDP to 9% of GDP"
+            ]
           }
         ],
         "Te Pāti Māori": [
@@ -211,7 +248,10 @@
             "name": "Health",
             "quote": "Re-build and strengthen Māori-led health authority and solutions.",
             "source_type": "Policy page",
-            "url": "https://www.maoriparty.org.nz/health"
+            "url": "https://www.maoriparty.org.nz/health",
+            "more": [
+              "Shift the system toward prevention and whānau wellbeing, not just crisis response."
+            ]
           },
           {
             "name": "Disabilities",
@@ -225,7 +265,11 @@
             "name": "Hauora Policy — Te Aka Motuhake (Independent Māori Commissioning Authority)",
             "quote": "…an entirely autonomous, state-funded but fully iwi-governed health authority",
             "source_type": "Policy page",
-            "url": "https://tetaitokerauparty.org.nz/our-policies/"
+            "url": "https://tetaitokerauparty.org.nz/our-policies/",
+            "more": [
+              "…reject the mainstreaming or dissolution of independent indigenous health structures",
+              "…full indigenous autonomy over clinical design, regional funding allocations, and provider licensing…"
+            ]
           }
         ]
       }
@@ -359,7 +403,11 @@
             "name": "Economic development",
             "quote": "Build Māori-led institutions and funds that grow Māori enterprise.",
             "source_type": "Policy page",
-            "url": "https://www.maoriparty.org.nz/economic_development"
+            "url": "https://www.maoriparty.org.nz/economic_development",
+            "more": [
+              "Support trade, innovation, and long-term Māori wealth building.",
+              "Protect Māori data and knowledge (data sovereignty)."
+            ]
           }
         ],
         "Te Tai Tokerau Party": [
@@ -394,7 +442,11 @@
             "name": "Housing",
             "quote": "Build tens of thousands of new public homes, significantly increase accessible public housing stock…",
             "source_type": "2026 manifesto",
-            "url": "https://www.greens.org.nz/manifesto_2026_housing"
+            "url": "https://www.greens.org.nz/manifesto_2026_housing",
+            "more": [
+              "Make rents more affordable by limiting annual rent increases to no more than 2%…",
+              "Strengthen the Healthy Homes Standards and enforce them with an independently certified Rental Warrant of Fitness."
+            ]
           }
         ],
         "Labour": [
@@ -402,7 +454,10 @@
             "name": "Start Work Now",
             "quote": "Labour will build the homes, improve the schools and repair the hospitals our communities need…",
             "source_type": "Policy page",
-            "url": "https://www.labour.org.nz/start-work-now"
+            "url": "https://www.labour.org.nz/start-work-now",
+            "more": [
+              "Kāinga Ora will get building again plus reliable funding for community housing providers"
+            ]
           }
         ],
         "National": [
@@ -410,7 +465,11 @@
             "name": "Giving more Kiwis access to 5% first home deposits",
             "quote": "We will make it easier to get a house deposit through the First Home Loan scheme",
             "source_type": "Policy page",
-            "url": "https://www.national.org.nz/policies/backing-first-home-buyers"
+            "url": "https://www.national.org.nz/policies/backing-first-home-buyers",
+            "more": [
+              "Widen access to 5 per cent deposit home loans",
+              "Apply the $300,000 income cap to all applicants…"
+            ]
           }
         ],
         "NZ First": [
@@ -418,7 +477,11 @@
             "name": "Changes to Fast-Track Residential Approvals",
             "quote": "The policy will bring a suite of changes to the current fast-track regime … to ensure housing developments do not create more problems than they solve.",
             "source_type": "Policy page",
-            "url": "https://www.nzfirst.nz/changes_to_fast_track_residential_approvals"
+            "url": "https://www.nzfirst.nz/changes_to_fast_track_residential_approvals",
+            "more": [
+              "New Zealand First will ensure any future fast-tracked housing developments are supported by the necessary infrastructure…",
+              "New Zealand First will require fast-track housing developers to detail what infrastructure they need…"
+            ]
           }
         ],
         "Opportunity": [
@@ -426,7 +489,11 @@
             "name": "Affordable Housing",
             "quote": "Our plan to permanently narrow the gap between wages and house prices, while building the healthy homes our communities need.",
             "source_type": "Policy page",
-            "url": "https://www.opportunity.org.nz/affordable_housing"
+            "url": "https://www.opportunity.org.nz/affordable_housing",
+            "more": [
+              "Replace the current maze with 10 simple, nationally consistent planning zones, cutting red tape while still protecting…",
+              "Create a national pre-approval system for proven prefabricated and modular building methods to cut council approval…"
+            ]
           }
         ],
         "Te Pāti Māori": [
@@ -434,7 +501,11 @@
             "name": "Housing",
             "quote": "Build and support more public and affordable homes.",
             "source_type": "Policy page",
-            "url": "https://www.maoriparty.org.nz/housing"
+            "url": "https://www.maoriparty.org.nz/housing",
+            "more": [
+              "Make it easier to build homes on Māori/ancestral land.",
+              "Stop speculation and land-banking (including action on vacant properties)."
+            ]
           }
         ],
         "Te Tai Tokerau Party": [
@@ -442,7 +513,11 @@
             "name": "Mana Taumaru — Local Build Policy (Eliminating Housing Deprivation)",
             "quote": "…uses agricultural products from our industrial hemp industry to train local rangatahi",
             "source_type": "Policy page",
-            "url": "https://tetaitokerauparty.org.nz/our-policies/"
+            "url": "https://tetaitokerauparty.org.nz/our-policies/",
+            "more": [
+              "…a fully funded, practical trade academy in Te Tai Tokerau employing young locals",
+              "…regional processing facilities mixing agricultural hemp hurd with local lime binders"
+            ]
           }
         ]
       }
@@ -496,7 +571,11 @@
             "name": "SolarSaver",
             "quote": "Labour's SolarSaver removes the barrier that locks most families out of solar power…",
             "source_type": "Policy page",
-            "url": "https://www.labour.org.nz/solarsaver"
+            "url": "https://www.labour.org.nz/solarsaver",
+            "more": [
+              "Nothing to pay upfront with two new Government-backed, long-term, low-interest finance options repaid from savings on…",
+              "No lock-in: Repay the loan early at any time"
+            ]
           }
         ],
         "National": [
@@ -630,7 +709,11 @@
             "name": "Justice and Community Safety",
             "quote": "Resource evidence-based rehabilitation for anyone convicted of an offence…",
             "source_type": "2026 manifesto",
-            "url": "https://www.greens.org.nz/manifesto_2026_justice_and_community_safety"
+            "url": "https://www.greens.org.nz/manifesto_2026_justice_and_community_safety",
+            "more": [
+              "Expand Te Ao Mārama to all courts in Aotearoa…",
+              "End military-style academies, raise the age of criminal responsibility…"
+            ]
           }
         ],
         "Labour": [],
@@ -659,7 +742,10 @@
             "name": "Ban Public Sales of Fireworks",
             "quote": "New Zealand First will campaign on banning the public sale and use of fireworks across New Zealand.",
             "source_type": "Policy page",
-            "url": "https://www.nzfirst.nz/ban_public_sales_of_fireworks"
+            "url": "https://www.nzfirst.nz/ban_public_sales_of_fireworks",
+            "more": [
+              "…ready to go - it will be tabled in parliament within the first hundred days of the next government."
+            ]
           },
           {
             "name": "All Gangs Should Be Terror Entities",
@@ -673,7 +759,11 @@
             "name": "Smart On Crime",
             "quote": "An evidence-based plan to make New Zealand safer",
             "source_type": "Policy page",
-            "url": "https://www.opportunity.org.nz/smart_on_crime"
+            "url": "https://www.opportunity.org.nz/smart_on_crime",
+            "more": [
+              "Offer voluntary interventions as soon as risk factors are identified, starting with a child’s very first Oranga Tamariki…",
+              "Grow specialist courts and expand programmes that work including the Young Adult List, Te Pae Oranga, the Alcohol and…"
+            ]
           }
         ],
         "Te Pāti Māori": [
@@ -681,7 +771,11 @@
             "name": "Justice",
             "quote": "Build Māori-led justice authority and community solutions.",
             "source_type": "Policy page",
-            "url": "https://www.maoriparty.org.nz/justice"
+            "url": "https://www.maoriparty.org.nz/justice",
+            "more": [
+              "Reform laws that criminalise poverty and survival.",
+              "Move away from mass imprisonment and toward long-term transformation."
+            ]
           }
         ],
         "Te Tai Tokerau Party": [
@@ -689,7 +783,10 @@
             "name": "Te Hokinga Mai — Prison Policy",
             "quote": "Te Tai Tokerau Party will implement a Prison Sinking Lid Policy",
             "source_type": "Policy page",
-            "url": "https://tetaitokerauparty.org.nz/our-policies/"
+            "url": "https://tetaitokerauparty.org.nz/our-policies/",
+            "more": [
+              "…diversion is not an escape from accountability — offenders enter mandatory, structured work collectives contributing to…"
+            ]
           },
           {
             "name": "Māori Justice & Autonomous Policing Act",
@@ -729,7 +826,11 @@
             "name": "Education",
             "quote": "Make early childhood education free and provide it as a public good like schooling…",
             "source_type": "2026 manifesto",
-            "url": "https://www.greens.org.nz/manifesto_2026_education"
+            "url": "https://www.greens.org.nz/manifesto_2026_education",
+            "more": [
+              "Reset the Government’s rushed and ideological curriculum and assessment reforms, reverting to the original direction…",
+              "Expand the criteria for access to learning support."
+            ]
           }
         ],
         "Labour": [
@@ -737,7 +838,10 @@
             "name": "Cutting Student Debt",
             "quote": "A 10% cut to eligible student loan balances - now for existing borrowers, or after three years in NZ for future graduates.",
             "source_type": "Policy page",
-            "url": "https://www.labour.org.nz/cutting-student-debt"
+            "url": "https://www.labour.org.nz/cutting-student-debt",
+            "more": [
+              "Already finished study and still repaying? Get the 10% cut on 1 April 2027"
+            ]
           },
           {
             "name": "Cutting Back-to-School Costs",
@@ -751,7 +855,10 @@
             "name": "Teaching the basics brilliantly",
             "quote": "National's vision is a world-leading education system that raises achievement and gives every young New Zealander…",
             "source_type": "Policy page",
-            "url": "https://www.national.org.nz/policies/education-teaching-the-basics-brilliantly"
+            "url": "https://www.national.org.nz/policies/education-teaching-the-basics-brilliantly",
+            "more": [
+              "Introduce a School Start Check for every child before they start school"
+            ]
           },
           {
             "name": "Back Pocket Boost for Graduates",
@@ -766,7 +873,10 @@
             "name": "Future-fit Education",
             "quote": "Opportunity will establish a 10-year cross-party plan for education, focussed on stability for students,…",
             "source_type": "Policy page",
-            "url": "https://www.opportunity.org.nz/future_fit_education"
+            "url": "https://www.opportunity.org.nz/future_fit_education",
+            "more": [
+              "Back teachers to teach well"
+            ]
           }
         ],
         "Te Pāti Māori": [
@@ -774,7 +884,11 @@
             "name": "Education & Training",
             "quote": "Build Māori-led education authority and solutions.",
             "source_type": "Policy page",
-            "url": "https://www.maoriparty.org.nz/education_training"
+            "url": "https://www.maoriparty.org.nz/education_training",
+            "more": [
+              "Embed mātauranga Māori properly across learning.",
+              "Remove barriers that block whānau from education and training."
+            ]
           }
         ],
         "Te Tai Tokerau Party": [
@@ -796,7 +910,10 @@
             "name": "Put 'Reside' Back in 'Resident'",
             "quote": "Remove the existing Permanent Resident Visa category.",
             "source_type": "Policy page",
-            "url": "https://www.act.org.nz/put-‘reside’-back-in-‘resident’"
+            "url": "https://www.act.org.nz/put-‘reside’-back-in-‘resident’",
+            "more": [
+              "Give all Resident Visa holders a five-year travel facility, replacing the current two-year initial travel condition."
+            ]
           },
           {
             "name": "A Fair Contribution for Infrastructure",
@@ -810,7 +927,11 @@
             "name": "Immigration Policy",
             "quote": "Increase our refugee quota and the resources required to provide adequate refugee services.",
             "source_type": "Long-term policy",
-            "url": "https://www.greens.org.nz/immigration_policy"
+            "url": "https://www.greens.org.nz/immigration_policy",
+            "more": [
+              "Actively support Māori aspirations for a Tiriti-based immigration system…",
+              "Advocate for a Pacific Passport to allow for free movement between the islands and Aotearoa."
+            ]
           }
         ],
         "Labour": [],
@@ -819,7 +940,10 @@
             "name": "National's plan to welcome more Kiwis home",
             "quote": "National will legislate and direct five key commitments in its first 100 days aimed at encouraging young New Zealanders…",
             "source_type": "Policy page",
-            "url": "https://www.national.org.nz/policies/welcome-kiwis-home"
+            "url": "https://www.national.org.nz/policies/welcome-kiwis-home",
+            "more": [
+              "Prioritising and expediting work and visitor visas for partners of New Zealand citizens"
+            ]
           },
           {
             "name": "Making Trans-Tasman travel seamless",
@@ -882,7 +1006,11 @@
             "name": "A tax system for all of us",
             "quote": "The Green Party's tax plan will address inequality, tackle corporate greed, and tax income fairly.",
             "source_type": "Policy page",
-            "url": "https://www.greens.org.nz/tax_system_for_all"
+            "url": "https://www.greens.org.nz/tax_system_for_all",
+            "more": [
+              "Introduce a 2.5 percent tax on the net assets of the super-rich above $10 million.",
+              "Implement a Capital Acquisitions Tax on assets and gifts received worth over $1 million, with family farms and family…"
+            ]
           }
         ],
         "Labour": [
@@ -896,7 +1024,10 @@
             "name": "Fiscal Plan",
             "quote": "Labour will bring net debt down below 20% of GDP over time.",
             "source_type": "Policy page",
-            "url": "https://www.labour.org.nz/fiscal-plan"
+            "url": "https://www.labour.org.nz/fiscal-plan",
+            "more": [
+              "Every election commitment is fully costed and fully funded, independently reviewed by Hall Chadwick"
+            ]
           }
         ],
         "National": [
@@ -932,7 +1063,11 @@
             "name": "Tax Reset",
             "quote": "It's time for a tax reset that increases incomes, makes homes affordable and safeguards retirement.",
             "source_type": "Policy page",
-            "url": "https://www.opportunity.org.nz/tax-reset"
+            "url": "https://www.opportunity.org.nz/tax-reset",
+            "more": [
+              "Cut services by removing the bureaucracy of the current benefit system - repurposing 2,000 Ministry of Social…",
+              "Grow the economy by delivering a tax cut to the 70% of Kiwis most likely to spend it, and unlocking capital for…"
+            ]
           }
         ],
         "Te Pāti Māori": [
@@ -940,7 +1075,10 @@
             "name": "Tax",
             "quote": "Make sure the wealthiest pay their fair share.",
             "source_type": "Policy page",
-            "url": "https://www.maoriparty.org.nz/tax"
+            "url": "https://www.maoriparty.org.nz/tax",
+            "more": [
+              "Use that revenue to fund housing, health, education and whānau support."
+            ]
           }
         ],
         "Te Tai Tokerau Party": []
@@ -955,7 +1093,10 @@
             "name": "Wind up the Waitangi Tribunal",
             "quote": "Amend the Treaty of Waitangi Act so the Tribunal is automatically disestablished once all eligible historical claims have been completed",
             "source_type": "Policy page",
-            "url": "https://www.act.org.nz/wind-up-the-waitangi-tribunal"
+            "url": "https://www.act.org.nz/wind-up-the-waitangi-tribunal",
+            "more": [
+              "Complete every eligible historical claim already before the Tribunal."
+            ]
           },
           {
             "name": "One Law for All. One Future Together.",
@@ -989,7 +1130,11 @@
             "name": "Backing Māori into Skilled Work",
             "quote": "Labour will invest $21 million a year in Māori-led training that helps more whānau Māori gain skills…",
             "source_type": "Policy page",
-            "url": "https://www.labour.org.nz/maori-trades-training"
+            "url": "https://www.labour.org.nz/maori-trades-training",
+            "more": [
+              "By Māori, for Māori. Māori providers backed to design and deliver training that works for their communities…",
+              "Skills that lead to jobs. Practical training linked to real jobs and recognised qualifications"
+            ]
           }
         ],
         "National": [],
@@ -1018,7 +1163,11 @@
             "name": "Honouring Te Tiriti",
             "quote": "Opportunity takes the responsibility of the Crown as a Treaty partner seriously.",
             "source_type": "Policy page",
-            "url": "https://www.opportunity.org.nz/honouring_te_tiriti"
+            "url": "https://www.opportunity.org.nz/honouring_te_tiriti",
+            "more": [
+              "Honour existing Treaty settlements, ensure Crown agencies give effect to the commitments they contain",
+              "Restore the customary marine title settings that applied before the 2025 changes"
+            ]
           }
         ],
         "Te Pāti Māori": [
@@ -1072,7 +1221,11 @@
             "name": "Welfare as a Hand Up, not a Way of Life",
             "quote": "ACT will allow for long-term arrangements for those with a genuine, enduring disability or health condition so support stays…",
             "source_type": "Policy page",
-            "url": "https://www.act.org.nz/welfare"
+            "url": "https://www.act.org.nz/welfare",
+            "more": [
+              "ACT will introduce electronic money management for Jobseeker Support Work Ready recipients who remain on a benefit for…",
+              "ACT will include carve-outs and modified arrangements where money management would risk safety or block access to…"
+            ]
           }
         ],
         "Green": [
@@ -1080,7 +1233,10 @@
             "name": "Income",
             "quote": "The Green Party will guarantee a decent income for all and pay for it with a fair tax system.",
             "source_type": "2026 manifesto",
-            "url": "https://www.greens.org.nz/manifesto_2026_income"
+            "url": "https://www.greens.org.nz/manifesto_2026_income",
+            "more": [
+              "Reform the Social Security Act to uphold the dignity of those who need support and ensure everyone has a secure income…"
+            ]
           },
           {
             "name": "Seniors",
@@ -1094,7 +1250,11 @@
             "name": "Strengthening KiwiSaver",
             "quote": "Labour will create more jobs and strengthen KiwiSaver, so New Zealanders can earn more, save more,…",
             "source_type": "Policy page",
-            "url": "https://www.labour.org.nz/strengthening-kiwisaver"
+            "url": "https://www.labour.org.nz/strengthening-kiwisaver",
+            "more": [
+              "Employer contributions become compulsory from 1 July 2028, including when an employee reduces or pauses their own…",
+              "Compulsory employer contributions rise to 6% by 2032"
+            ]
           }
         ],
         "National": [
@@ -1144,7 +1304,10 @@
             "name": "Ōranga Whānau — “Clean Slate” & Universal Whānau Allowance",
             "quote": "An immediate Amnesty on Whānau Debt — wiping all $2 billion of debt owed to MSD and IRD by low-income whānau",
             "source_type": "Policy page",
-            "url": "https://tetaitokerauparty.org.nz/our-policies/"
+            "url": "https://tetaitokerauparty.org.nz/our-policies/",
+            "more": [
+              "Remove all “relationship status” policing."
+            ]
           },
           {
             "name": "Mana Kaumātua Policy — Honour, Material Dignity & Intergenerational Integration",
