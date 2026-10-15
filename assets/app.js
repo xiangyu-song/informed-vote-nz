@@ -16,6 +16,12 @@
     (children || []).forEach(function (c) { if (c) n.appendChild(typeof c === "string" ? document.createTextNode(c) : c); });
     return n;
   }
+  function playIcon() {
+    var svg = svgEl("svg", { viewBox: "0 0 24 24", "aria-hidden": "true", "class": "play" });
+    svg.appendChild(svgEl("circle", { cx: 12, cy: 12, r: 11 }));
+    svg.appendChild(svgEl("path", { d: "M10 8l6 4-6 4z" }));
+    return svg;
+  }
   function svgEl(tag, attrs) {
     var n = document.createElementNS("http://www.w3.org/2000/svg", tag);
     Object.keys(attrs || {}).forEach(function (k) { n.setAttribute(k, attrs[k]); });
@@ -239,7 +245,10 @@
           el("a", { "class": "d-name", href: d.link, text: d.name }),
           isHeld ? el("span", { "class": "held-note", text: " (already held)" }) : null,
           el("span", { "class": "d-meta", text: d.host + ", on " + d.where }),
-          el("span", { "class": "d-meta", text: "Taking part: " + d.who })
+          el("span", { "class": "d-meta", text: "Taking part: " + d.who }),
+          d.video ? el("a", { "class": "d-video", href: d.video }, [
+            playIcon(), d.video_note || ("Watch the video on " + d.host)
+          ]) : (isHeld ? el("span", { "class": "d-meta d-novideo", text: "Replay link not confirmed yet. Check " + d.host + "'s website." }) : null)
         ])
       ]);
     }

@@ -218,3 +218,11 @@ th { font-weight: 600; color: var(--muted); }
 .mult-note[hidden] { display: none; }
 .mult .dot, .mult .avg { pointer-events: none; } /* taps on a dot reach its larger hit area */
 .mult .hit:focus:not(:focus-visible) { outline: none; }
+
+/* Debate replay links */
+.d-video { display: inline-flex; align-items: center; gap: 0.45rem; margin-top: 0.5rem; padding: 0.35rem 0.8rem 0.35rem 0.4rem; border-radius: 999px; background: var(--accent); color: var(--paper); font-weight: 600; font-size: 0.9rem; text-decoration: none; }
+.d-video:hover { text-decoration: underline; }
+.d-video .play { width: 1.4rem; height: 1.4rem; }
+.d-video .play circle { fill: var(--paper); }
+.d-video .play path { fill: var(--accent); }
+.d-novideo { font-style: italic; margin-top: 0.3rem; }
