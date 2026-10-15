@@ -104,6 +104,18 @@
         "publisher": "Ipsos New Zealand",
         "url": "https://www.ipsos.com/en-nz/ipsos-issues-monitor-july-2026",
         "supports": "The order of the first four topics (the issues New Zealanders rated most important)"
+      },
+      {
+        "title": "Policy.nz – NZ Election 2026",
+        "publisher": "Policy Limited",
+        "url": "https://policy.nz/2026",
+        "supports": "what Policy.nz offers and who runs it"
+      },
+      {
+        "title": "Policy.nz returns for the 2026 election (25 September 2026)",
+        "publisher": "Scoop",
+        "url": "https://www.scoop.co.nz/stories/PO2609/S00223/policynz-returns-for-the-2026-election.htm",
+        "supports": "plain, neutral summaries linked to sources, and coverage of elections since 2017"
       }
     ],
     "debates": [
