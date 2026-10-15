@@ -1,10 +1,14 @@
-/* NZ Election 2026 Guide — renders everything from the JSON files in /data.
+/* NZ Election 2026 at a Glance — renders everything from the JSON files in /data.
    No tracking, no cookies, no storage of personal data. */
 (function () {
   "use strict";
 
   var POLL_NAMES = { NAT: "National", LAB: "Labour", GRN: "Green", ACT: "ACT", NZF: "NZ First", TPM: "Te Pāti Māori", OPP: "Opportunity" };
   var DAY = 86400000;
+  // Neutral text badges in the site's own style (not party logos), identical for every party.
+  var CODES = { "ACT": "ACT", "Green": "GRN", "Labour": "LAB", "National": "NAT", "NZ First": "NZF", "Opportunity": "OPP", "Te Pāti Māori": "TPM", "Te Tai Tokerau Party": "TTT" };
+  function badge(name) { return CODES[name] ? el("span", { "class": "pcode", "aria-hidden": "true", text: CODES[name] }) : null; }
+  function nameWithBadge(cls, name, tag) { return el(tag || "span", { "class": cls }, [badge(name), name]); }
 
   function el(tag, attrs, children) {
     var n = document.createElement(tag);
@@ -108,7 +112,7 @@
     order.forEach(function (c) {
       var v = latest[c].v;
       summary.appendChild(el("div", { "class": "bar-row", role: "img", "aria-label": POLL_NAMES[c] + ": " + v.toFixed(1) + " percent" }, [
-        el("span", { "class": "bar-name", text: POLL_NAMES[c] }),
+        nameWithBadge("bar-name", POLL_NAMES[c]),
         el("span", { "class": "bar-track" }, [
           el("span", { "class": "bar-fill", style: "width:" + (v / sMax * 100).toFixed(2) + "%" }),
           el("span", { "class": "bar-thr", style: "left:" + (5 / sMax * 100) + "%" })
@@ -161,7 +165,7 @@
 
       wrap.appendChild(el("div", { "class": "mult" }, [
         el("div", { "class": "mult-head" }, [
-          el("span", { "class": "mult-name", text: POLL_NAMES[code] }),
+          nameWithBadge("mult-name", POLL_NAMES[code]),
           el("span", { "class": "mult-value", text: last.v.toFixed(1) + "%" })
         ]),
         svg
@@ -196,7 +200,7 @@
       list.innerHTML = "";
       partyOrder.forEach(function (party) {
         var items = issue.parties[party] || [];
-        var box = el("article", { "class": "party" }, [el("h3", { text: party })]);
+        var box = el("article", { "class": "party" }, [nameWithBadge("", party, "h3")]);
         if (!items.length) {
           box.appendChild(el("p", { "class": "not-covered" }, [
             "Not covered on ", el("a", { href: data.policy_pages[party], text: party + "'s 2026 policy pages" }),
@@ -249,7 +253,7 @@
     var list = document.getElementById("party-list");
     data.parties.forEach(function (p) {
       var inTable = p.short && data.in_policy_table.indexOf(p.short) > -1;
-      var a = el("a", { href: p.url, text: p.name });
+      var a = el("a", { href: p.url }, [badge(p.short), p.name]);
       if (inTable) a.className = "in-table";
       list.appendChild(el("li", null, [a]));
     });
