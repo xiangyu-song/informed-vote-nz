@@ -132,6 +132,24 @@
         "publisher": "TVNZ+",
         "url": "https://www.tvnz.co.nz/tvseries/1-news-kaupapa-maori-debate",
         "supports": "Where to watch the Kaupapa Māori Debate"
+      },
+      {
+        "title": "It's game on! The Press Kingmakers' Debate locked in for Oct 1",
+        "publisher": "Stuff",
+        "url": "https://www.stuff.co.nz/politics/361037765/its-game-press-kingmakers-debate-locked-oct-1",
+        "supports": "Date, time and livestream of the Kingmakers' Debate"
+      },
+      {
+        "title": "Luxon v Hipkins: Stuff's Leaders' Debate set for October 20",
+        "publisher": "Stuff",
+        "url": "https://www.stuff.co.nz/politics/361044506/two-leaders-debates-interactive-multichannel-election-night-special-stuff-group-launches-aotearoa",
+        "supports": "Date and participants of Stuff's Leaders' Debate"
+      },
+      {
+        "title": "Q+A The People's Debate (TVNZ+ page with date and time)",
+        "publisher": "TVNZ+",
+        "url": "https://www.tvnz.co.nz/tvseries/qa-the-peoples-debate",
+        "supports": "Date, time and format of the People's Debate"
       }
     ],
     "parties": [

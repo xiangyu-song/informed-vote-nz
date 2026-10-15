@@ -4,16 +4,17 @@
   "debates": [
     {
       "date": "2026-10-01",
-      "name": "Kingmakers debate",
+      "name": "The Press Kingmakers' Debate",
       "host": "Stuff",
       "where": "Stuff, The Post and The Press websites",
       "who": "Green, Opportunity, ACT, Te Pāti Māori, NZ First",
-      "link": "https://stoppress.co.nz/?p=175230",
+      "link": "https://www.stuff.co.nz/politics/361037765/its-game-press-kingmakers-debate-locked-oct-1",
       "watch": {
         "url": "https://www.stuff.co.nz/politics/361041319/missed-it-watch-stuffs-kingmakers-debate-full",
         "label": "Watch in full on Stuff",
         "checked": "page opened"
-      }
+      },
+      "time": "7.30pm"
     },
     {
       "date": "2026-10-06",
@@ -57,11 +58,11 @@
     },
     {
       "date": "2026-10-20",
-      "name": "Leaders' Debate",
+      "name": "Stuff Leaders' Debate",
       "host": "Stuff",
       "where": "Stuff, The Post and The Press websites",
       "who": "National (Christopher Luxon), Labour (Chris Hipkins)",
-      "link": "https://stoppress.co.nz/?p=175230",
+      "link": "https://www.stuff.co.nz/politics/361044506/two-leaders-debates-interactive-multichannel-election-night-special-stuff-group-launches-aotearoa",
       "watch": {
         "url": "https://www.stuff.co.nz/",
         "label": "Watch live on Stuff",
@@ -88,7 +89,7 @@
       "host": "TVNZ",
       "where": "TVNZ 1 and TVNZ+",
       "who": "Not yet announced",
-      "link": "https://www.1news.co.nz/2026/09/04/tvnz-unveils-election-campaign-coverage-new-vodcast-tame-and-tova/",
+      "link": "https://www.tvnz.co.nz/tvseries/1-news-kaupapa-maori-debate",
       "watch": {
         "url": "https://www.tvnz.co.nz/tvseries/1-news-kaupapa-maori-debate",
         "label": "Watch on TVNZ+",
@@ -98,15 +99,15 @@
     {
       "date": "2026-11-05",
       "time": "7pm",
-      "name": "Q+A People's Debate",
+      "name": "Q+A The People's Debate",
       "host": "TVNZ",
       "where": "TVNZ 1 and TVNZ+",
-      "who": "All parties meeting TVNZ's criteria, including National and Labour",
-      "link": "https://www.1news.co.nz/2026/09/04/tvnz-unveils-election-campaign-coverage-new-vodcast-tame-and-tova/",
+      "who": "Parties meeting TVNZ's criteria, including National and Labour; every question comes from the public",
+      "link": "https://www.tvnz.co.nz/tvseries/qa-the-peoples-debate",
       "watch": {
-        "url": "https://www.tvnz.co.nz/livetv/tvnz-1",
-        "label": "Watch live on TVNZ+",
-        "checked": "page opened"
+        "url": "https://www.tvnz.co.nz/tvseries/qa-the-peoples-debate",
+        "label": "Watch on TVNZ+",
+        "checked": "page opened 15 Oct: 'Watch live Thursday 5 November at 7pm'"
       }
     }
   ],
