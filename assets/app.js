@@ -194,7 +194,7 @@
     var newest = polls[polls.length - 1];
     summary.appendChild(el("p", { "class": "bar-foot" }, [
       el("span", { text: "Dashed line: 5% threshold" }),
-      el("span", null, ["Latest poll: ", el("a", { href: newest.source, text: newest.pollster }), ", ends " + fmtDate(newest.end, { weekday: undefined })])
+      el("span", null, ["Most recent poll in this average: ", el("a", { href: newest.source, text: newest.pollster }), ", ends " + fmtDate(newest.end, { weekday: undefined })])
     ]));
 
     order.forEach(function (code) {
