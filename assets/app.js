@@ -206,7 +206,10 @@
       partyOrder.forEach(function (party) {
         var items = issue.parties[party] || [];
         var box = el("article", { "class": "party" }, [el("h3", { text: party })]);
-        if (!items.length) {
+        var xref = issue.notes && issue.notes[party] && issue.notes[party].crossref ? issue.notes[party] : null;
+        if (!items.length && xref) {
+          box.appendChild(el("p", { "class": "not-covered" }, [xref.text + " ", el("a", { href: xref.url, text: "Read it on the party's site" }), "."]));
+        } else if (!items.length) {
           box.appendChild(el("p", { "class": "not-covered" }, [
             "Not covered on ", el("a", { href: data.policy_pages[party], text: party + "'s 2026 policy pages" }),
             " (checked " + fmtDate(data.checked, { weekday: undefined }) + ")."

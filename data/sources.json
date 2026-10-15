@@ -92,6 +92,12 @@
         "title": "Register of political parties (used to decide which parties appear)",
         "publisher": "Electoral Commission",
         "url": "https://elections.nz/democracy-in-nz/political-parties-in-new-zealand/register-of-political-parties"
+      },
+      {
+        "title": "Ipsos Issues Monitor, July 2026",
+        "publisher": "Ipsos New Zealand",
+        "url": "https://www.ipsos.com/en-nz/ipsos-issues-monitor-july-2026",
+        "supports": "The order of the first four topics (the issues New Zealanders rated most important)"
       }
     ],
     "debates": [

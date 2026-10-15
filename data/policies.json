@@ -7,10 +7,13 @@
   },
   "how_we_chose": [
     "Parties appear if they have a sitting MP or average 2% or more in recent nationwide polls, and publish policies on their own website.",
-    "For each issue we show up to three policies per party, taken in the order the party lists them on its own website. Each policy appears once, under the issue it fits best.",
+    "For each topic we show up to three policies per party, taken in the order the party lists them on its own website. Each policy appears once, under the topic it fits best.",
     "Each policy is shown as a direct quote from the party's own page, in quotation marks, with a link so you can read the full policy. Quotes are cut at about 20 words; '…' marks a cut, and [square brackets] mark words we added for clarity.",
     "A tag shows the type of source: a policy page, the 2026 manifesto, a dated announcement, a long-term policy, or a petition.",
-    "Where a party's policy pages don't cover an issue, we say so. This doesn't mean the party has no view on it.",
+    "Topic order: the four issues New Zealanders rated most important in the Ipsos Issues Monitor (July 2026) come first: cost of living, healthcare, the economy and housing. The rest are in alphabetical order.",
+    "Where topics meet: spending on one service (such as free doctor's visits) stays in that service's topic, and only overall budget plans (debt, surplus, overall spending) go under Tax and government spending. KiwiSaver and retirement savings go under Welfare and superannuation, unless the policy is a tax change. Policies aimed at Māori in a particular service stay in that service's topic; Te Tiriti o Waitangi covers the Treaty relationship itself, such as settlements, the Waitangi Tribunal, constitutional change, Māori representation and te reo. Energy bills go where the party frames them.",
+    "Where a party's policy pages don't cover a topic, we say so. This doesn't mean the party has no view on it.",
+    "Not covered on this site: foreign affairs, defence, agriculture and some social issues. See each party's own policy pages.",
     "Party order is shuffled each time the page loads, so no party is always first."
   ],
   "parties": [
@@ -35,22 +38,10 @@
   },
   "issues": [
     {
-      "id": "cost-of-living-tax",
-      "name": "Cost of living and tax",
+      "id": "cost-of-living",
+      "name": "Cost of living",
       "parties": {
         "ACT": [
-          {
-            "name": "Abolish Labour's Rental Tax",
-            "quote": "ACT will reverse another of Labour's renters' taxes by ending loss ring-fencing.",
-            "source_type": "Policy page",
-            "url": "https://www.act.org.nz/abolish-labours-rental-tax"
-          },
-          {
-            "name": "No Tax on KiwiSaver Earnings",
-            "quote": "ACT will reward saving by letting you keep those earnings.",
-            "source_type": "Policy page",
-            "url": "https://www.act.org.nz/no-tax-on-kiwisaver-earnings"
-          },
           {
             "name": "Open the Door to Supermarket Competition",
             "quote": "ACT will make it easier for new supermarkets to open and grow, so shoppers have more places to take their business.",
@@ -59,12 +50,6 @@
           }
         ],
         "Green": [
-          {
-            "name": "A tax system for all of us",
-            "quote": "The Green Party's tax plan will address inequality, tackle corporate greed, and tax income fairly.",
-            "source_type": "Policy page",
-            "url": "https://www.greens.org.nz/tax_system_for_all"
-          },
           {
             "name": "Affordable food for all of us",
             "quote": "Our policy will reform the food system so that everyone has easy and affordable access to good, nutritious kai.",
@@ -86,25 +71,19 @@
             "url": "https://www.labour.org.nz/farecap"
           },
           {
-            "name": "Capital Gains Tax",
-            "quote": "A simple, targeted capital gains tax on commercial or residential property (excluding the family home or farm).",
-            "source_type": "Policy page",
-            "url": "https://www.labour.org.nz/capitalgainstax"
-          },
-          {
             "name": "Banning Price Gouging",
             "quote": "Labour will make price gouging illegal, so big companies can't use their market power to overcharge you for the essentials.",
             "source_type": "Policy page",
             "url": "https://www.labour.org.nz/banning-price-gouging"
+          },
+          {
+            "name": "Fairer Grocery Prices",
+            "quote": "Labour will take tough action on the supermarket giants to get you a better deal at the checkout.",
+            "source_type": "Policy page",
+            "url": "https://www.labour.org.nz/fairer-grocery-prices"
           }
         ],
         "National": [
-          {
-            "name": "No new taxes under National",
-            "quote": "No new taxes means you can keep more of what you earn",
-            "source_type": "Policy page",
-            "url": "https://www.national.org.nz/policies/no-new-taxes"
-          },
           {
             "name": "Keeping rates affordable",
             "quote": "So families can keep more money in their pockets, with rates increases that are more affordable and predictable",
@@ -124,35 +103,10 @@
             "quote": "New Zealand First will introduce legislation to reform the system and break up Foodstuffs",
             "source_type": "Policy page",
             "url": "https://www.nzfirst.nz/break_up_the_supermarket_duopoly"
-          },
-          {
-            "name": "Lowering Tax Rate for SMEs to 20%",
-            "quote": "New Zealand First will campaign on lowering the company tax rate for SMEs to 20%",
-            "source_type": "Policy page",
-            "url": "https://www.nzfirst.nz/20_tax_rate_for_smes"
-          },
-          {
-            "name": "Establishing a KiwiSaver Generation",
-            "quote": "KiwiSaver enrolment compulsory at birth and there will be an automatic immediate Crown contribution of $1000",
-            "source_type": "Policy page",
-            "url": "https://www.nzfirst.nz/establishing_a_kiwisaver_generation"
           }
         ],
-        "Opportunity": [
-          {
-            "name": "Tax Reset",
-            "quote": "It's time for a tax reset that increases incomes, makes homes affordable and safeguards retirement.",
-            "source_type": "Policy page",
-            "url": "https://www.opportunity.org.nz/tax-reset"
-          }
-        ],
+        "Opportunity": [],
         "Te Pāti Māori": [
-          {
-            "name": "Tax",
-            "quote": "Make sure the wealthiest pay their fair share.",
-            "source_type": "Policy page",
-            "url": "https://www.maoriparty.org.nz/tax"
-          },
           {
             "name": "Cost of living",
             "quote": "Lift incomes so people can live with dignity.",
@@ -161,12 +115,6 @@
           }
         ],
         "Te Tai Tokerau Party": [
-          {
-            "name": "Ōranga Whānau — “Clean Slate” & Universal Whānau Allowance",
-            "quote": "An immediate Amnesty on Whānau Debt — wiping all $2 billion of debt owed to MSD and IRD by low-income whānau",
-            "source_type": "Policy page",
-            "url": "https://tetaitokerauparty.org.nz/our-policies/"
-          },
           {
             "name": "Mana Māra Policy — Grassroots Food Autonomy & Cost-of-Living Security",
             "quote": "Te Tai Tokerau Party will treat home food production not as a leisure hobby, but as vital regional infrastructure",
@@ -283,6 +231,160 @@
       }
     },
     {
+      "id": "economy-jobs-infrastructure",
+      "name": "Economy, jobs and infrastructure",
+      "parties": {
+        "ACT": [
+          {
+            "name": "Local Tourism Dividend",
+            "quote": "ACT's Local Tourism Dividend will return $1 to a community for every commercial guest night it hosts.",
+            "source_type": "Policy page",
+            "url": "https://www.act.org.nz/local_tourism_dividend"
+          },
+          {
+            "name": "Backing Small Business",
+            "quote": "This package goes further so the people who build businesses and those who work for them can get ahead",
+            "source_type": "Policy page",
+            "url": "https://www.act.org.nz/backing-small-business"
+          },
+          {
+            "name": "Keep New Zealand Moving",
+            "quote": "New Zealanders pay at the pump, through road-user charges, rates and tolls.",
+            "source_type": "Policy page",
+            "url": "https://www.act.org.nz/keep-new-zealand-moving"
+          }
+        ],
+        "Green": [
+          {
+            "name": "Good jobs for all of us",
+            "quote": "We have a plan to guarantee a job for every young person in Aotearoa.",
+            "source_type": "Policy page",
+            "url": "https://www.greens.org.nz/good_jobs_for_all_of_us"
+          },
+          {
+            "name": "Greens' economic development plan",
+            "quote": "The Green Party has today released its economic development plan to rebuild Aotearoa New Zealand and create 284,000 jobs",
+            "source_type": "Announcement",
+            "url": "https://www.greens.org.nz/greens_economic_development_plan_will_create_284_000_jobs"
+          },
+          {
+            "name": "Plan for city centre vibrancy",
+            "quote": "The Green Party has today announced a plan to get small businesses a fair deal",
+            "source_type": "Announcement",
+            "url": "https://www.greens.org.nz/green_party_announce_plan_for_city_centre_vibrancy"
+          }
+        ],
+        "Labour": [
+          {
+            "name": "New Zealand Future Fund",
+            "quote": "Labour will create an independently governed New Zealand Future Fund to invest in infrastructure and innovative Kiwi businesses.",
+            "source_type": "Policy page",
+            "url": "https://www.labour.org.nz/futurefund"
+          },
+          {
+            "name": "AI in New Zealand's Interests",
+            "quote": "protect what matters, unlock New Zealand's potential, and lead on our own terms",
+            "source_type": "Policy page",
+            "url": "https://www.labour.org.nz/ai-for-new-zealand"
+          },
+          {
+            "name": "Apprenticeship Boost",
+            "quote": "Labour will support more tradies and young people into work and to gain a qualification, so they can earn more.",
+            "source_type": "Policy page",
+            "url": "https://www.labour.org.nz/apprenticeshipboost"
+          }
+        ],
+        "National": [
+          {
+            "name": "Building the Future: National's Economic Plan",
+            "quote": "To ensure hardworking New Zealanders can keep more of what they earn, get ahead, and build a more secure future.",
+            "source_type": "Policy page",
+            "url": "https://www.national.org.nz/policies/nationals-eco-plan"
+          },
+          {
+            "name": "National's plan to support Small Businesses",
+            "quote": "We will grow the economy, back small businesses, spend sensibly and reduce debt without new taxes to create jobs.",
+            "source_type": "Policy page",
+            "url": "https://www.national.org.nz/policies/47-point-plan-small-businesses"
+          },
+          {
+            "name": "New Zealand's Next Billion Customers",
+            "quote": "National is committed to growing New Zealand's economy by helping Kiwi businesses sell more to the world.",
+            "source_type": "Policy page",
+            "url": "https://www.national.org.nz/policies/new-trade"
+          }
+        ],
+        "NZ First": [
+          {
+            "name": "Returning 50% of mining royalties to the regions",
+            "quote": "50% of any royalties gained from mining to be directly returned to the region from which it came",
+            "source_type": "Policy page",
+            "url": "https://www.nzfirst.nz/returning_50_of_mining_royalties_to_the_regions"
+          },
+          {
+            "name": "Backing a New Zealand Owned Bank",
+            "quote": "New Zealand First will be proposing a buy-back of the Bank of New Zealand from National Australia Bank.",
+            "source_type": "Policy page",
+            "url": "https://www.nzfirst.nz/backing_a_new_zealand_owned_bank"
+          },
+          {
+            "name": "The $100bn New Zealand Future Fund",
+            "quote": "We will establish a “New Zealand Future Fund” of up to $100 Billion to invest solely in a multi-decade infrastructure build…",
+            "source_type": "Policy page",
+            "url": "https://www.nzfirst.nz/the_100bn_new_zealand_future_fund"
+          }
+        ],
+        "Opportunity": [
+          {
+            "name": "Breakthrough Economy",
+            "quote": "Opportunity will fund science, stand up for fairness and back small businesses to take a generational leap forward.",
+            "source_type": "Policy page",
+            "url": "https://www.opportunity.org.nz/breakthrough-economy"
+          },
+          {
+            "name": "Digital Future",
+            "quote": "Shaping AI, before it shapes us.",
+            "source_type": "Policy page",
+            "url": "https://www.opportunity.org.nz/digital-future"
+          },
+          {
+            "name": "Inter-Generational Infrastructure",
+            "quote": "A hospital lasts fifty years. A government lasts three. Let’s plan for the hospital.",
+            "source_type": "Policy page",
+            "url": "https://www.opportunity.org.nz/intergenerational_infrastructure"
+          }
+        ],
+        "Te Pāti Māori": [
+          {
+            "name": "Economic development",
+            "quote": "Build Māori-led institutions and funds that grow Māori enterprise.",
+            "source_type": "Policy page",
+            "url": "https://www.maoriparty.org.nz/economic_development"
+          }
+        ],
+        "Te Tai Tokerau Party": [
+          {
+            "name": "Mahinga Whānau — Wealth Fund Policy",
+            "quote": "Establish a Crown–Iwi Investment Fund specifically for “Transition Infrastructure”",
+            "source_type": "Policy page",
+            "url": "https://tetaitokerauparty.org.nz/our-policies/"
+          },
+          {
+            "name": "Local Business Ruruhau Policy",
+            "quote": "…establish a network of high-specification Local Business Incubators across key regional hubs",
+            "source_type": "Policy page",
+            "url": "https://tetaitokerauparty.org.nz/our-policies/"
+          },
+          {
+            "name": "Kai Sovereignty Policy — “Community-First” Kai Procurement",
+            "quote": "Money spent by the state in our regions should stay in our regions.",
+            "source_type": "Policy page",
+            "url": "https://tetaitokerauparty.org.nz/our-policies/"
+          }
+        ]
+      }
+    },
+    {
       "id": "housing",
       "name": "Housing",
       "parties": {
@@ -339,93 +441,6 @@
           {
             "name": "Mana Taumaru — Local Build Policy (Eliminating Housing Deprivation)",
             "quote": "…uses agricultural products from our industrial hemp industry to train local rangatahi",
-            "source_type": "Policy page",
-            "url": "https://tetaitokerauparty.org.nz/our-policies/"
-          }
-        ]
-      }
-    },
-    {
-      "id": "education",
-      "name": "Education",
-      "parties": {
-        "ACT": [
-          {
-            "name": "Keeping Children Safe",
-            "quote": "ACT will close that gap [between checks on people who work with children] with one national card checked continuously.",
-            "source_type": "Policy page",
-            "url": "https://www.act.org.nz/keeping-children-safe"
-          },
-          {
-            "name": "Real Choice for Students",
-            "quote": "ACT will amend the regulations so universities must offer student services as a menu.",
-            "source_type": "Policy page",
-            "url": "https://www.act.org.nz/student_services_fee"
-          },
-          {
-            "name": "Affordable School Uniforms",
-            "quote": "Amend the Education and Training Act to limit state schools to a maximum of three compulsory branded uniform items.",
-            "source_type": "Policy page",
-            "url": "https://www.act.org.nz/affordable-uniforms"
-          }
-        ],
-        "Green": [
-          {
-            "name": "Education",
-            "quote": "Make early childhood education free and provide it as a public good like schooling…",
-            "source_type": "2026 manifesto",
-            "url": "https://www.greens.org.nz/manifesto_2026_education"
-          }
-        ],
-        "Labour": [
-          {
-            "name": "Cutting Student Debt",
-            "quote": "A 10% cut to eligible student loan balances - now for existing borrowers, or after three years in NZ for future graduates.",
-            "source_type": "Policy page",
-            "url": "https://www.labour.org.nz/cutting-student-debt"
-          },
-          {
-            "name": "Cutting Back-to-School Costs",
-            "quote": "Cheaper uniforms. Better school lunches. School buses back on the road. Lower transport costs.",
-            "source_type": "Policy page",
-            "url": "https://www.labour.org.nz/cutting-back-to-school-costs"
-          }
-        ],
-        "National": [
-          {
-            "name": "Teaching the basics brilliantly",
-            "quote": "National's vision is a world-leading education system that raises achievement and gives every young New Zealander…",
-            "source_type": "Policy page",
-            "url": "https://www.national.org.nz/policies/education-teaching-the-basics-brilliantly"
-          },
-          {
-            "name": "Back Pocket Boost for Graduates",
-            "quote": "National's Back Pocket Boost for Graduates will reward young graduates who choose to stay in New Zealand",
-            "source_type": "Policy page",
-            "url": "https://www.national.org.nz/policies/boost-for-graduates"
-          }
-        ],
-        "NZ First": [],
-        "Opportunity": [
-          {
-            "name": "Future-fit Education",
-            "quote": "Opportunity will establish a 10-year cross-party plan for education, focussed on stability for students,…",
-            "source_type": "Policy page",
-            "url": "https://www.opportunity.org.nz/future_fit_education"
-          }
-        ],
-        "Te Pāti Māori": [
-          {
-            "name": "Education & Training",
-            "quote": "Build Māori-led education authority and solutions.",
-            "source_type": "Policy page",
-            "url": "https://www.maoriparty.org.nz/education_training"
-          }
-        ],
-        "Te Tai Tokerau Party": [
-          {
-            "name": "Te Tiriti Re-education",
-            "quote": "Commitment to increased funding for Te Tiriti re-education, led by tangata whenua",
             "source_type": "Policy page",
             "url": "https://tetaitokerauparty.org.nz/our-policies/"
           }
@@ -686,141 +701,86 @@
       }
     },
     {
-      "id": "economy-jobs",
-      "name": "Economy and jobs",
+      "id": "education",
+      "name": "Education",
       "parties": {
         "ACT": [
           {
-            "name": "ACT's Fiscal Plan",
-            "quote": "ACT's Fiscal Plan balances the books without new taxes and starts paying down debt.",
+            "name": "Keeping Children Safe",
+            "quote": "ACT will close that gap [between checks on people who work with children] with one national card checked continuously.",
             "source_type": "Policy page",
-            "url": "https://www.act.org.nz/fiscalplan"
+            "url": "https://www.act.org.nz/keeping-children-safe"
           },
           {
-            "name": "Local Tourism Dividend",
-            "quote": "ACT's Local Tourism Dividend will return $1 to a community for every commercial guest night it hosts.",
+            "name": "Real Choice for Students",
+            "quote": "ACT will amend the regulations so universities must offer student services as a menu.",
             "source_type": "Policy page",
-            "url": "https://www.act.org.nz/local_tourism_dividend"
+            "url": "https://www.act.org.nz/student_services_fee"
           },
           {
-            "name": "Backing Small Business",
-            "quote": "This package goes further so the people who build businesses and those who work for them can get ahead",
+            "name": "Affordable School Uniforms",
+            "quote": "Amend the Education and Training Act to limit state schools to a maximum of three compulsory branded uniform items.",
             "source_type": "Policy page",
-            "url": "https://www.act.org.nz/backing-small-business"
+            "url": "https://www.act.org.nz/affordable-uniforms"
           }
         ],
         "Green": [
           {
-            "name": "Good jobs for all of us",
-            "quote": "We have a plan to guarantee a job for every young person in Aotearoa.",
-            "source_type": "Policy page",
-            "url": "https://www.greens.org.nz/good_jobs_for_all_of_us"
-          },
-          {
-            "name": "Greens' economic development plan",
-            "quote": "The Green Party has today released its economic development plan to rebuild Aotearoa New Zealand and create 284,000 jobs",
-            "source_type": "Announcement",
-            "url": "https://www.greens.org.nz/greens_economic_development_plan_will_create_284_000_jobs"
-          },
-          {
-            "name": "Plan for city centre vibrancy",
-            "quote": "The Green Party has today announced a plan to get small businesses a fair deal",
-            "source_type": "Announcement",
-            "url": "https://www.greens.org.nz/green_party_announce_plan_for_city_centre_vibrancy"
+            "name": "Education",
+            "quote": "Make early childhood education free and provide it as a public good like schooling…",
+            "source_type": "2026 manifesto",
+            "url": "https://www.greens.org.nz/manifesto_2026_education"
           }
         ],
         "Labour": [
           {
-            "name": "New Zealand Future Fund",
-            "quote": "Labour will create an independently governed New Zealand Future Fund to invest in infrastructure and innovative Kiwi businesses.",
+            "name": "Cutting Student Debt",
+            "quote": "A 10% cut to eligible student loan balances - now for existing borrowers, or after three years in NZ for future graduates.",
             "source_type": "Policy page",
-            "url": "https://www.labour.org.nz/futurefund"
+            "url": "https://www.labour.org.nz/cutting-student-debt"
           },
           {
-            "name": "Fiscal Plan",
-            "quote": "Labour will bring net debt down below 20% of GDP over time.",
+            "name": "Cutting Back-to-School Costs",
+            "quote": "Cheaper uniforms. Better school lunches. School buses back on the road. Lower transport costs.",
             "source_type": "Policy page",
-            "url": "https://www.labour.org.nz/fiscal-plan"
-          },
-          {
-            "name": "AI in New Zealand's Interests",
-            "quote": "protect what matters, unlock New Zealand's potential, and lead on our own terms",
-            "source_type": "Policy page",
-            "url": "https://www.labour.org.nz/ai-for-new-zealand"
+            "url": "https://www.labour.org.nz/cutting-back-to-school-costs"
           }
         ],
         "National": [
           {
-            "name": "National's plan to secure New Zealand's future",
-            "quote": "National will prioritise reducing debt, will deliver a surplus by 2028/29, and will introduce no new taxes.",
+            "name": "Teaching the basics brilliantly",
+            "quote": "National's vision is a world-leading education system that raises achievement and gives every young New Zealander…",
             "source_type": "Policy page",
-            "url": "https://www.national.org.nz/policies/nationals-fiscal-plan"
+            "url": "https://www.national.org.nz/policies/education-teaching-the-basics-brilliantly"
           },
           {
-            "name": "Building the Future: National's Economic Plan",
-            "quote": "To ensure hardworking New Zealanders can keep more of what they earn, get ahead, and build a more secure future.",
+            "name": "Back Pocket Boost for Graduates",
+            "quote": "National's Back Pocket Boost for Graduates will reward young graduates who choose to stay in New Zealand",
             "source_type": "Policy page",
-            "url": "https://www.national.org.nz/policies/nationals-eco-plan"
-          },
-          {
-            "name": "National's plan to support Small Businesses",
-            "quote": "We will grow the economy, back small businesses, spend sensibly and reduce debt without new taxes to create jobs.",
-            "source_type": "Policy page",
-            "url": "https://www.national.org.nz/policies/47-point-plan-small-businesses"
+            "url": "https://www.national.org.nz/policies/boost-for-graduates"
           }
         ],
-        "NZ First": [
-          {
-            "name": "Returning 50% of mining royalties to the regions",
-            "quote": "50% of any royalties gained from mining to be directly returned to the region from which it came",
-            "source_type": "Policy page",
-            "url": "https://www.nzfirst.nz/returning_50_of_mining_royalties_to_the_regions"
-          },
-          {
-            "name": "Backing a New Zealand Owned Bank",
-            "quote": "New Zealand First will be proposing a buy-back of the Bank of New Zealand from National Australia Bank.",
-            "source_type": "Policy page",
-            "url": "https://www.nzfirst.nz/backing_a_new_zealand_owned_bank"
-          },
-          {
-            "name": "The $100bn New Zealand Future Fund",
-            "quote": "We will establish a “New Zealand Future Fund” of up to $100 Billion to invest solely in a multi-decade infrastructure build…",
-            "source_type": "Policy page",
-            "url": "https://www.nzfirst.nz/the_100bn_new_zealand_future_fund"
-          }
-        ],
+        "NZ First": [],
         "Opportunity": [
           {
-            "name": "Breakthrough Economy",
-            "quote": "Opportunity will fund science, stand up for fairness and back small businesses to take a generational leap forward.",
+            "name": "Future-fit Education",
+            "quote": "Opportunity will establish a 10-year cross-party plan for education, focussed on stability for students,…",
             "source_type": "Policy page",
-            "url": "https://www.opportunity.org.nz/breakthrough-economy"
+            "url": "https://www.opportunity.org.nz/future_fit_education"
           }
         ],
         "Te Pāti Māori": [
           {
-            "name": "Economic development",
-            "quote": "Build Māori-led institutions and funds that grow Māori enterprise.",
+            "name": "Education & Training",
+            "quote": "Build Māori-led education authority and solutions.",
             "source_type": "Policy page",
-            "url": "https://www.maoriparty.org.nz/economic_development"
+            "url": "https://www.maoriparty.org.nz/education_training"
           }
         ],
         "Te Tai Tokerau Party": [
           {
-            "name": "Mahinga Whānau — Wealth Fund Policy",
-            "quote": "Establish a Crown–Iwi Investment Fund specifically for “Transition Infrastructure”",
-            "source_type": "Policy page",
-            "url": "https://tetaitokerauparty.org.nz/our-policies/"
-          },
-          {
-            "name": "Local Business Ruruhau Policy",
-            "quote": "…establish a network of high-specification Local Business Incubators across key regional hubs",
-            "source_type": "Policy page",
-            "url": "https://tetaitokerauparty.org.nz/our-policies/"
-          },
-          {
-            "name": "Kai Sovereignty Policy — “Community-First” Kai Procurement",
-            "quote": "Money spent by the state in our regions should stay in our regions.",
+            "name": "Te Tiriti Re-education",
+            "quote": "Commitment to increased funding for Te Tiriti re-education, led by tangata whenua",
             "source_type": "Policy page",
             "url": "https://tetaitokerauparty.org.nz/our-policies/"
           }
@@ -890,6 +850,99 @@
         ],
         "Opportunity": [],
         "Te Pāti Māori": [],
+        "Te Tai Tokerau Party": []
+      }
+    },
+    {
+      "id": "tax-spending",
+      "name": "Tax and government spending",
+      "parties": {
+        "ACT": [
+          {
+            "name": "Abolish Labour's Rental Tax",
+            "quote": "ACT will reverse another of Labour's renters' taxes by ending loss ring-fencing.",
+            "source_type": "Policy page",
+            "url": "https://www.act.org.nz/abolish-labours-rental-tax"
+          },
+          {
+            "name": "No Tax on KiwiSaver Earnings",
+            "quote": "ACT will reward saving by letting you keep those earnings.",
+            "source_type": "Policy page",
+            "url": "https://www.act.org.nz/no-tax-on-kiwisaver-earnings"
+          },
+          {
+            "name": "ACT's Fiscal Plan",
+            "quote": "ACT's Fiscal Plan balances the books without new taxes and starts paying down debt.",
+            "source_type": "Policy page",
+            "url": "https://www.act.org.nz/fiscalplan"
+          }
+        ],
+        "Green": [
+          {
+            "name": "A tax system for all of us",
+            "quote": "The Green Party's tax plan will address inequality, tackle corporate greed, and tax income fairly.",
+            "source_type": "Policy page",
+            "url": "https://www.greens.org.nz/tax_system_for_all"
+          }
+        ],
+        "Labour": [
+          {
+            "name": "Capital Gains Tax",
+            "quote": "A simple, targeted capital gains tax on commercial or residential property (excluding the family home or farm).",
+            "source_type": "Policy page",
+            "url": "https://www.labour.org.nz/capitalgainstax"
+          },
+          {
+            "name": "Fiscal Plan",
+            "quote": "Labour will bring net debt down below 20% of GDP over time.",
+            "source_type": "Policy page",
+            "url": "https://www.labour.org.nz/fiscal-plan"
+          }
+        ],
+        "National": [
+          {
+            "name": "No new taxes under National",
+            "quote": "No new taxes means you can keep more of what you earn",
+            "source_type": "Policy page",
+            "url": "https://www.national.org.nz/policies/no-new-taxes"
+          },
+          {
+            "name": "International Visitor Levy reset to keep taxes low",
+            "quote": "We're helping regions invest in the services they need to keep up with tourism growth",
+            "source_type": "Policy page",
+            "url": "https://www.national.org.nz/policies/international-visitor-levy"
+          },
+          {
+            "name": "National's Budget Responsibility Rules",
+            "quote": "A re-elected National Government will maintain three Budget Responsibility Rules…",
+            "source_type": "Policy page",
+            "url": "https://www.national.org.nz/policies/responsibility-rules"
+          }
+        ],
+        "NZ First": [
+          {
+            "name": "Lowering Tax Rate for SMEs to 20%",
+            "quote": "New Zealand First will campaign on lowering the company tax rate for SMEs to 20%",
+            "source_type": "Policy page",
+            "url": "https://www.nzfirst.nz/20_tax_rate_for_smes"
+          }
+        ],
+        "Opportunity": [
+          {
+            "name": "Tax Reset",
+            "quote": "It's time for a tax reset that increases incomes, makes homes affordable and safeguards retirement.",
+            "source_type": "Policy page",
+            "url": "https://www.opportunity.org.nz/tax-reset"
+          }
+        ],
+        "Te Pāti Māori": [
+          {
+            "name": "Tax",
+            "quote": "Make sure the wealthiest pay their fair share.",
+            "source_type": "Policy page",
+            "url": "https://www.maoriparty.org.nz/tax"
+          }
+        ],
         "Te Tai Tokerau Party": []
       }
     },
@@ -1009,10 +1062,115 @@
           }
         ]
       }
+    },
+    {
+      "id": "welfare-superannuation",
+      "name": "Welfare and superannuation",
+      "parties": {
+        "ACT": [
+          {
+            "name": "Welfare as a Hand Up, not a Way of Life",
+            "quote": "ACT will allow for long-term arrangements for those with a genuine, enduring disability or health condition so support stays…",
+            "source_type": "Policy page",
+            "url": "https://www.act.org.nz/welfare"
+          }
+        ],
+        "Green": [
+          {
+            "name": "Income",
+            "quote": "The Green Party will guarantee a decent income for all and pay for it with a fair tax system.",
+            "source_type": "2026 manifesto",
+            "url": "https://www.greens.org.nz/manifesto_2026_income"
+          },
+          {
+            "name": "Seniors",
+            "quote": "The Green Party will uphold the mana of seniors by prioritising the support that enables equitable and fulfilling lives.",
+            "source_type": "2026 manifesto",
+            "url": "https://www.greens.org.nz/manifesto_2026_seniors"
+          }
+        ],
+        "Labour": [
+          {
+            "name": "Strengthening KiwiSaver",
+            "quote": "Labour will create more jobs and strengthen KiwiSaver, so New Zealanders can earn more, save more,…",
+            "source_type": "Policy page",
+            "url": "https://www.labour.org.nz/strengthening-kiwisaver"
+          }
+        ],
+        "National": [
+          {
+            "name": "Modernising Paid Parental Leave",
+            "quote": "We will modernise Paid Parental Leave long-term, giving new mums and dads greater financial flexibility and support.",
+            "source_type": "Policy page",
+            "url": "https://www.national.org.nz/policies/paid-parental-leave"
+          },
+          {
+            "name": "Enhancing KiwiSaver for Everyone",
+            "quote": "Retire with more under our proposed KiwiSaver changes",
+            "source_type": "Policy page",
+            "url": "https://www.national.org.nz/policies/kiwisaver"
+          },
+          {
+            "name": "A firm, fair and affordable welfare system",
+            "quote": "We will prioritise employment within the welfare system while ensuring it remains fair, sustainable and affordable…",
+            "source_type": "Policy page",
+            "url": "https://www.national.org.nz/policies/walfare"
+          }
+        ],
+        "NZ First": [
+          {
+            "name": "Establishing a KiwiSaver Generation",
+            "quote": "KiwiSaver enrolment compulsory at birth and there will be an automatic immediate Crown contribution of $1000",
+            "source_type": "Policy page",
+            "url": "https://www.nzfirst.nz/establishing_a_kiwisaver_generation"
+          },
+          {
+            "name": "Increasing Working for Families and Minimum Wage",
+            "quote": "New Zealand First will campaign to introduce an uplift of the minimum wage every year for the next three years…",
+            "source_type": "Policy page",
+            "url": "https://www.nzfirst.nz/increasing_working_for_families_and_minimum_wage"
+          },
+          {
+            "name": "The ‘Kiwi Kids Grant’",
+            "quote": "New Zealand First will campaign on introducing a ‘Kiwi Kids Grant’ that will support New Zealand citizens raising the first…",
+            "source_type": "Policy page",
+            "url": "https://www.nzfirst.nz/the_kiwi_kids_grant"
+          }
+        ],
+        "Opportunity": [],
+        "Te Pāti Māori": [],
+        "Te Tai Tokerau Party": [
+          {
+            "name": "Ōranga Whānau — “Clean Slate” & Universal Whānau Allowance",
+            "quote": "An immediate Amnesty on Whānau Debt — wiping all $2 billion of debt owed to MSD and IRD by low-income whānau",
+            "source_type": "Policy page",
+            "url": "https://tetaitokerauparty.org.nz/our-policies/"
+          },
+          {
+            "name": "Mana Kaumātua Policy — Honour, Material Dignity & Intergenerational Integration",
+            "quote": "…re-establishes our elders at the absolute centre of community life",
+            "source_type": "Policy page",
+            "url": "https://tetaitokerauparty.org.nz/our-policies/"
+          }
+        ]
+      },
+      "notes": {
+        "Opportunity": {
+          "text": "Opportunity's Citizen's Income, which would replace most benefits, is part of its “Tax Reset”, shown under Tax and government spending.",
+          "url": "https://www.opportunity.org.nz/tax-reset",
+          "crossref": true
+        },
+        "Te Pāti Māori": {
+          "text": "Te Pāti Māori's welfare commitments are on its “Cost of living” page, shown under Cost of living.",
+          "url": "https://www.maoriparty.org.nz/cost_of_living",
+          "crossref": true
+        }
+      }
     }
   ],
   "recheck": [
     "Te Pāti Māori justice page title includes '(Not live)'"
   ],
-  "verification": "All quotes checked word for word against the linked policy page on 15 Oct 2026; 20 corrected (mostly quotes first taken from party index pages, which differ from the policy pages themselves). Te Tai Tokerau Party added 15 Oct after its policy page was found on the Electoral Commission's party register; its 17 quotes checked word for word."
+  "verification": "All quotes checked word for word against the linked policy page on 15 Oct 2026 (20 corrected in the first check). Topics restructured to 11 on 15 Oct; the 17 new quotes were also checked word for word.",
+  "topic_order_source": "https://www.ipsos.com/en-nz/ipsos-issues-monitor-july-2026"
 }
