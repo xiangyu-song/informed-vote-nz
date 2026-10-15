@@ -115,7 +115,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px soli
 h2 { font-size: clamp(1.7rem, 6vw, 2.4rem); line-height: 1.1; margin: 0 0 0.6rem; font-weight: 800; letter-spacing: -0.02em; display: flex; align-items: center; gap: 0.6rem; }
 h2::before {
   content: ""; flex: none; width: 0.85em; height: 0.85em; border-radius: 50%;
-  border: 0.12em solid var(--accent);
+  border: 0.2em solid var(--accent);
 }
 .sub { font-size: 1.15rem; margin: 2.25rem 0 0.25rem; font-weight: 800; }
 .lede { color: var(--muted); margin: 0 0 1.25rem; max-width: 38rem; }
@@ -196,9 +196,9 @@ th { font-weight: 600; color: var(--muted); }
 .party-list { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .party-list a { display: inline-block; padding: 0.45rem 0.85rem; border-radius: 999px; background: var(--surface); border: 1.5px solid var(--rule); text-decoration: none; color: var(--ink); font-size: 0.95rem; }
 .party-list a:hover { border-color: var(--accent); }
-.party-list a.in-table { border-color: var(--accent); }
+.party-list a.in-table { border: 3px solid var(--accent); padding: calc(0.45rem - 1.5px) calc(0.85rem - 1.5px); }
 .party-key { color: var(--muted); font-size: 0.9rem; margin-top: 1rem; }
-.party-key span { display: inline-block; width: 1.4rem; height: 0.9rem; border: 1.5px solid var(--accent); border-radius: 999px; vertical-align: -0.1em; margin-right: 0.3rem; }
+.party-key span { display: inline-block; width: 1.4rem; height: 0.9rem; border: 3px solid var(--accent); border-radius: 999px; vertical-align: -0.1em; margin-right: 0.3rem; }
 
 /* ---------- Footer ---------- */
 .foot { margin-top: 4rem; padding: 2rem 0 3rem; background: var(--night); color: var(--lilac); font-size: 0.9rem; }
