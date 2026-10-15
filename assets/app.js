@@ -162,18 +162,6 @@
     function sx(t) { return L + (t - x0) / (x1 - x0) * (W - L - R); }
     function sy(v) { return T + (1 - v / yMax) * (H - T - B); }
 
-    // Latest poll, shown first under the heading; ties listed alphabetically.
-    var lp = polls[polls.length - 1], lbox = document.getElementById("latest-poll");
-    if (lp && lbox) {
-      var res = Object.keys(POLL_NAMES).filter(function (c) { return lp[c] != null; })
-        .sort(function (a, b) { return lp[b] - lp[a] || POLL_NAMES[a].localeCompare(POLL_NAMES[b]); });
-      lbox.appendChild(el("p", { "class": "lp-head" }, [el("strong", { text: "Latest poll: " + lp.pollster }),
-        ", fieldwork " + lp.fieldwork + (lp.sample ? ", " + lp.sample.toLocaleString("en-NZ") + " people" : "") + ". " + (lp.commissioned_by || "") + (lp.commissioned_by ? "." : "")]));
-      var ul = el("ul", { "class": "lp-list" });
-      res.forEach(function (c) { ul.appendChild(el("li", null, [el("span", { text: POLL_NAMES[c] }), el("strong", { text: lp[c] + "%" })])); });
-      lbox.appendChild(ul);
-      lbox.appendChild(el("p", { "class": "lp-src" }, [el("a", { href: lp.source, text: "Read the poll release" })]));
-    }
     var codes = Object.keys(POLL_NAMES);
     function trailing(code) {
       var pts = polls.filter(function (p) { return p[code] !== null && p[code] !== undefined; });
@@ -206,7 +194,7 @@
     var newest = polls[polls.length - 1];
     summary.appendChild(el("p", { "class": "bar-foot" }, [
       el("span", { text: "Dashed line: 5% threshold" }),
-      el("span", { text: "Latest poll ends " + fmtDate(newest.end, { weekday: undefined }) })
+      el("span", null, ["Latest poll: ", el("a", { href: newest.source, text: newest.pollster }), ", ends " + fmtDate(newest.end, { weekday: undefined })])
     ]));
 
     order.forEach(function (code) {
