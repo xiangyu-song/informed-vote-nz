@@ -256,9 +256,30 @@
     list.insertAdjacentElement("afterend", el("p", { "class": "party-key", html: "<span></span>Outlined parties are in the policy table above." }));
   }
 
+  /* ---------- Sources for each section ---------- */
+  function renderSources(data) {
+    var where = { dates: document.querySelector(".dates-body"), polls: document.getElementById("polls"),
+      policies: document.getElementById("policies"), debates: document.getElementById("debates"), parties: document.getElementById("parties") };
+    Object.keys(data.sections).forEach(function (key) {
+      if (!where[key]) return;
+      var ol = el("ol");
+      data.sections[key].forEach(function (s) {
+        ol.appendChild(el("li", null, [
+          el("a", { href: s.url, text: s.title }), ", " + s.publisher + ".",
+          s.supports ? el("span", { "class": "src-for", text: " Used for: " + s.supports.charAt(0).toLowerCase() + s.supports.slice(1).replace(/\.$/, "") + "." }) : null
+        ]));
+      });
+      where[key].appendChild(el("aside", { "class": "sources", "aria-label": "Sources for this section" }, [
+        el("h3", { text: "Sources" }), ol,
+        data.methods && data.methods[key] ? el("p", { text: data.methods[key] }) : null,
+        el("p", { "class": "src-for", text: "Checked " + fmtDate(data.checked, { weekday: undefined }) + "." })
+      ]));
+    });
+  }
+
   Promise.all([
     getJSON("data/dates.json"), getJSON("data/polls.json"), getJSON("data/policies.json"),
-    getJSON("data/debates.json"), getJSON("data/parties.json"), getJSON("data/site.json")
+    getJSON("data/debates.json"), getJSON("data/parties.json"), getJSON("data/site.json"), getJSON("data/sources.json")
   ]).then(function (r) {
     partyOrder = shuffle(r[2].parties);
     renderDates(r[0]);
@@ -266,6 +287,7 @@
     renderPolicies(r[2]);
     renderDebates(r[3]);
     renderParties(r[4]);
+    renderSources(r[6]);
     var u = new Date(r[5].updated);
     document.getElementById("updated").textContent = "Last updated " + new Intl.DateTimeFormat("en-NZ", { timeZone: "Pacific/Auckland", dateStyle: "long", timeStyle: "short" }).format(u) + " (NZ time). Every poll figure and policy quote links to its source.";
   }).catch(function () {

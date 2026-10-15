@@ -1,0 +1,131 @@
+{
+  "checked": "2026-10-15",
+  "sections": {
+    "dates": [
+      {
+        "title": "Key dates for the 2026 General Election",
+        "publisher": "Electoral Commission (vote.nz)",
+        "url": "https://vote.nz/2026-general-election/about/key-dates",
+        "supports": "All dates on the timeline, voting hours on election day, and when results are released"
+      },
+      {
+        "title": "Key dates for 2026 General Election (media release, 21 January 2026)",
+        "publisher": "Electoral Commission",
+        "url": "https://elections.nz/media-and-news/2026/key-dates-for-2026-general-election",
+        "supports": "Cross-check of the same dates"
+      },
+      {
+        "title": "2026 General Election",
+        "publisher": "Electoral Commission (vote.nz)",
+        "url": "https://vote.nz/",
+        "supports": "Enrolment deadline (midnight, 25 October) and that you can't enrol once voting starts"
+      }
+    ],
+    "polls": [
+      {
+        "title": "Each poll's own release",
+        "publisher": "1News–Verian, Taxpayers' Union–Curia, Roy Morgan, RNZ–Reid Research",
+        "url": "#poll-table",
+        "supports": "Every poll figure; each poll links to its source in the table above"
+      },
+      {
+        "title": "What is MMP?",
+        "publisher": "Electoral Commission",
+        "url": "https://elections.nz/democracy-in-nz/what-is-new-zealands-system-of-government/what-is-mmp/",
+        "supports": "The 5% party-vote threshold, or winning an electorate seat"
+      },
+      {
+        "title": "RNZ–Reid Research poll, 24 Sep – 1 Oct 2026 (margin of error ±3.1 points)",
+        "publisher": "interest.co.nz",
+        "url": "https://www.interest.co.nz/public-policy/140557/national-slumps-259-rnz-reid-research-poll-labour-greens-and-opportunity-edge",
+        "supports": "Typical margin of error of about 3 points"
+      },
+      {
+        "title": "Taxpayers' Union–Curia poll, 1–5 Oct 2026 (maximum margin of error ±3.1%)",
+        "publisher": "interest.co.nz",
+        "url": "https://www.interest.co.nz/public-policy/140605/major-parties-under-30-while-nz-first-surges-giving-current-coalition-enough",
+        "supports": "Typical margin of error of about 3 points"
+      }
+    ],
+    "policies": [
+      {
+        "title": "ACT New Zealand policies",
+        "publisher": "ACT",
+        "url": "https://www.act.org.nz/policies"
+      },
+      {
+        "title": "2026 policy announcements and manifesto",
+        "publisher": "Green Party",
+        "url": "https://www.greens.org.nz/policy_announcements"
+      },
+      {
+        "title": "Our policies",
+        "publisher": "Labour Party",
+        "url": "https://www.labour.org.nz/our-policies/"
+      },
+      {
+        "title": "2026 Election Policy",
+        "publisher": "National Party",
+        "url": "https://www.national.org.nz/policies"
+      },
+      {
+        "title": "Our Policy",
+        "publisher": "New Zealand First",
+        "url": "https://www.nzfirst.nz/policy"
+      },
+      {
+        "title": "Policies",
+        "publisher": "The Opportunity Party",
+        "url": "https://www.opportunity.org.nz/policy"
+      },
+      {
+        "title": "Policies",
+        "publisher": "Te Pāti Māori",
+        "url": "https://www.maoriparty.org.nz/policies"
+      },
+      {
+        "title": "Our Policies",
+        "publisher": "Te Tai Tokerau Party",
+        "url": "https://tetaitokerauparty.org.nz/our-policies/"
+      },
+      {
+        "title": "Register of political parties (used to decide which parties appear)",
+        "publisher": "Electoral Commission",
+        "url": "https://elections.nz/democracy-in-nz/political-parties-in-new-zealand/register-of-political-parties"
+      }
+    ],
+    "debates": [
+      {
+        "title": "TVNZ unveils election campaign coverage (debate schedule)",
+        "publisher": "1News",
+        "url": "https://www.1news.co.nz/2026/09/04/tvnz-unveils-election-campaign-coverage-new-vodcast-tame-and-tova/"
+      },
+      {
+        "title": "Kingmakers to face off in TVNZ's Multi-Party Debate",
+        "publisher": "1News",
+        "url": "https://www.1news.co.nz/2026/10/13/kingmakers-to-face-off-in-tvnzs-multi-party-debate/"
+      },
+      {
+        "title": "NZME unveils its biggest-ever election coverage for 2026",
+        "publisher": "NZME",
+        "url": "https://www.nzme.co.nz/news/nzme-unveils-its-biggest-ever-election-coverage-for-2026"
+      },
+      {
+        "title": "Stuff, NZME and Sky unveil 2026 election coverage",
+        "publisher": "StopPress",
+        "url": "https://stoppress.co.nz/?p=175230"
+      }
+    ],
+    "parties": [
+      {
+        "title": "Register of political parties",
+        "publisher": "Electoral Commission",
+        "url": "https://elections.nz/democracy-in-nz/political-parties-in-new-zealand/register-of-political-parties",
+        "supports": "Party names and website addresses"
+      }
+    ]
+  },
+  "methods": {
+    "polls": "How the 14-day average is worked out: a simple average of every poll whose fieldwork finished in the 14 days up to and including each date. This is our own calculation from the figures in the poll table, not a pollster's."
+  }
+}

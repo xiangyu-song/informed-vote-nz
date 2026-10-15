@@ -205,3 +205,10 @@ th { font-weight: 600; color: var(--muted); }
 .foot a { color: #fff; }
 .error { color: var(--ink); background: var(--accent-soft); padding: 0.75rem 1rem; border-radius: var(--r-m); }
 
+
+/* Sources at the end of each section */
+.sources { margin: 1.75rem 0 0.5rem; padding: 0.9rem 1.1rem; border-radius: var(--r-m); border: 1.5px solid var(--rule); font-size: 0.85rem; color: var(--muted); }
+.sources h3 { margin: 0 0 0.4rem; font-size: 0.95rem; color: var(--ink); }
+.sources ol { margin: 0; padding-left: 1.2rem; }
+.sources li { margin: 0.3rem 0; }
+.sources p { margin: 0.5rem 0 0; }
