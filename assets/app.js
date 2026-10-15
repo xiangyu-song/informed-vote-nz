@@ -51,8 +51,40 @@
     var esc = keys.map(function (k) { return k.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); });
     GLOSS_RE = new RegExp("(^|[^\\p{L}])(" + esc.join("|") + ")(?![\\p{L}])", "giu");
   }
-  // Wrap glossary words in a quote with tap-to-explain buttons (same rule for every party).
-  function annotate(text, defBox) {
+  // One shared pop-up for glossary words: shows on hover or focus, and on tap for phones.
+  var tip = null, tipFor = null, hideTimer = null;
+  function hideTip() {
+    clearTimeout(hideTimer);
+    if (!tip) return;
+    tip.hidden = true;
+    if (tipFor) { tipFor.setAttribute("aria-expanded", "false"); tipFor.removeAttribute("aria-describedby"); tipFor = null; }
+  }
+  function laterHide() { clearTimeout(hideTimer); hideTimer = setTimeout(hideTip, 250); }
+  function showTip(b, t) {
+    clearTimeout(hideTimer);
+    if (!tip) {
+      tip = el("div", { "class": "tip", id: "term-tip", role: "tooltip", hidden: "" });
+      document.body.appendChild(tip);
+      tip.addEventListener("mouseenter", function () { clearTimeout(hideTimer); });
+      tip.addEventListener("mouseleave", laterHide);
+      document.addEventListener("click", function (e) { if (!e.target.closest(".term, .tip")) hideTip(); });
+      document.addEventListener("keydown", function (e) { if (e.key === "Escape") hideTip(); });
+      window.addEventListener("resize", hideTip);
+    }
+    if (tipFor && tipFor !== b) { tipFor.setAttribute("aria-expanded", "false"); tipFor.removeAttribute("aria-describedby"); }
+    tip.innerHTML = "";
+    tip.appendChild(el("strong", { text: t.term + ": " }));
+    tip.appendChild(document.createTextNode(t.def + " "));
+    tip.appendChild(el("a", { href: t.src, text: "Learn more" }));
+    tip.hidden = false;
+    tipFor = b; b.setAttribute("aria-expanded", "true"); b.setAttribute("aria-describedby", "term-tip");
+    var r = b.getBoundingClientRect(), vw = document.documentElement.clientWidth;
+    var left = Math.max(8, Math.min(r.left, vw - tip.offsetWidth - 8));
+    tip.style.left = (left + window.scrollX) + "px";
+    tip.style.top = (r.bottom + window.scrollY + 6) + "px";
+  }
+  // Wrap glossary words in a quote (same rule for every party).
+  function annotate(text) {
     var frag = document.createDocumentFragment();
     if (!GLOSS_RE) { frag.appendChild(document.createTextNode(text)); return frag; }
     var last = 0, seen = {}, m;
@@ -64,18 +96,11 @@
       frag.appendChild(document.createTextNode(text.slice(last, start)));
       (function (t, word) {
         var b = el("button", { type: "button", "class": "term", "aria-expanded": "false", text: word });
-        b.addEventListener("click", function () {
-          var open = b.getAttribute("aria-expanded") === "true";
-          defBox.innerHTML = "";
-          defBox.parentNode.querySelectorAll(".term").forEach(function (x) { x.setAttribute("aria-expanded", "false"); });
-          if (!open) {
-            b.setAttribute("aria-expanded", "true");
-            defBox.appendChild(el("strong", { text: t.term + ": " }));
-            defBox.appendChild(document.createTextNode(t.def + " "));
-            defBox.appendChild(el("a", { href: t.src, text: "Learn more" }));
-          }
-          defBox.hidden = open;
-        });
+        b.addEventListener("mouseenter", function () { showTip(b, t); });
+        b.addEventListener("mouseleave", laterHide);
+        b.addEventListener("focus", function () { showTip(b, t); });
+        b.addEventListener("blur", function (e) { if (!(e.relatedTarget && tip && tip.contains(e.relatedTarget))) laterHide(); });
+        b.addEventListener("click", function () { showTip(b, t); });
         frag.appendChild(b);
       })(t, word);
       last = start + word.length;
@@ -116,7 +141,7 @@
     });
     var ns = document.getElementById("next-step");
     if (today <= "2026-10-25") {
-      ns.innerHTML = "<strong>Check you're enrolled by Sunday 25 October.</strong> You can't enrol once voting starts. Check or update your details at <a href=\"https://vote.nz/\">vote.nz</a>.";
+      ns.innerHTML = "<strong>Check you're enrolled by Sunday 25 October.</strong> You can't enrol once voting starts. Enrol, check your details and find where to vote at <a href=\"https://vote.nz/\">vote.nz</a>, the Electoral Commission's official site.";
     } else if (today <= "2026-11-06") {
       ns.innerHTML = "<strong>Voting is open.</strong> You can vote early at any voting place until election day. Find one at <a href=\"https://vote.nz/\">vote.nz</a>.";
     } else if (today === "2026-11-07") {
@@ -260,14 +285,12 @@
         ]));
       }
       items.forEach(function (it) {
-        var defBox = el("p", { "class": "term-def", hidden: "", "aria-live": "polite" });
         var quotes = el("div");
         [it.quote].concat(it.more || []).forEach(function (q, n) {
           var bq = el("blockquote", n ? { "class": "also" } : null, [el("span", { "class": "say", text: n ? "Also:" : "In their words:" }), "“"]);
-          bq.appendChild(annotate(q, defBox)); bq.appendChild(document.createTextNode("”"));
+          bq.appendChild(annotate(q)); bq.appendChild(document.createTextNode("”"));
           quotes.appendChild(bq);
         });
-        quotes.appendChild(defBox);
         box.appendChild(el("div", { "class": "pol" }, [
           el("a", { "class": "pol-name", href: it.url, text: "“" + it.name + "”" }),
           el("span", { "class": "tag", text: it.source_type }),
@@ -375,10 +398,6 @@
   ]).then(function (r) {
     if (r[7]) {
       setGlossary(r[7]);
-      var gl = document.getElementById("glossary-list");
-      r[7].terms.slice().sort(function (a, b) { return a.term.localeCompare(b.term, "en-NZ"); }).forEach(function (t) {
-        gl.appendChild(el("li", null, [el("strong", { text: t.term }), ": " + t.def + " ", el("a", { href: t.src, text: "Learn more" })]));
-      });
     }
     partyOrder = shuffle(r[2].parties);
     renderDates(r[0]);
