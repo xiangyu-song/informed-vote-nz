@@ -226,3 +226,10 @@ th { font-weight: 600; color: var(--muted); }
 .d-video .play circle { fill: var(--paper); }
 .d-video .play path { fill: var(--accent); }
 .d-novideo { font-style: italic; margin-top: 0.3rem; }
+
+/* Compare your views */
+.tool-card { background: var(--surface); border-radius: var(--r-l); padding: 1.2rem 1.25rem; box-shadow: 0 1px 0 var(--rule); }
+.tool-card h3 { margin: 0 0 0.5rem; font-size: 1.2rem; font-weight: 800; }
+.tool-card p { margin: 0 0 0.75rem; }
+.tool-note { color: var(--muted); font-size: 0.92rem; padding: 0.6rem 0.8rem; background: var(--accent-soft); border-radius: var(--r-s); }
+.tool-go { padding: 0.5rem 1rem; margin-top: 0.25rem; }

@@ -159,6 +159,20 @@
         "url": "https://elections.nz/democracy-in-nz/political-parties-in-new-zealand/register-of-political-parties",
         "supports": "Party names and website addresses"
       }
+    ],
+    "compare": [
+      {
+        "title": "Vote Compass 2026: Compare your views with party policies",
+        "publisher": "1News",
+        "url": "https://www.1news.co.nz/2026/10/04/vote-compass-2026-compare-your-views-with-party-policies/",
+        "supports": "What Vote Compass is, how it works, who built it, how party positions were set, and its limits"
+      },
+      {
+        "title": "Vote Compass – 2026 New Zealand General Election",
+        "publisher": "TVNZ (1News.co.nz/VoteCompass forwards here)",
+        "url": "https://votecompass.tvnz.co.nz/",
+        "supports": "The tool's address"
+      }
     ]
   },
   "methods": {

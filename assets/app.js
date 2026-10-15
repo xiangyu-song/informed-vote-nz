@@ -269,7 +269,7 @@
   /* ---------- Sources for each section ---------- */
   function renderSources(data) {
     var where = { dates: document.querySelector(".dates-body"), polls: document.getElementById("polls"),
-      policies: document.getElementById("policies"), debates: document.getElementById("debates"), parties: document.getElementById("parties") };
+      policies: document.getElementById("policies"), compare: document.getElementById("compare"), debates: document.getElementById("debates"), parties: document.getElementById("parties") };
     Object.keys(data.sections).forEach(function (key) {
       if (!where[key]) return;
       var ol = el("ol");
