@@ -1,0 +1,48 @@
+{
+  "checked": "2026-10-15",
+  "rules": [
+    "Statements are what each party's leader or a senior spokesperson has said publicly about working with other parties after the election, quoted as reported by news media, with a link to the report.",
+    "We quote the part about who they will or won't work with. Reasons and descriptions of other parties are cut, marked '…'; the full quote is in the linked report.",
+    "Positions can change during the campaign, and not every party has been asked about every other party. The date shows when each statement was made or reported."
+  ],
+  "parties": {
+    "National": [
+      {"on": "On ACT and NZ First", "quote": "we're open to working with them again post an election", "who": "Christopher Luxon, leader", "date": "2026-01-21", "outlet": "1News", "url": "https://www.1news.co.nz/2026/01/21/game-on-as-pm-luxon-reveals-2026-election-date/"},
+      {"on": "On Labour", "quote": "We will not be working with Labour…", "who": "Christopher Luxon, leader", "date": "2026-01-21", "outlet": "1News", "url": "https://www.1news.co.nz/2026/01/21/game-on-as-pm-luxon-reveals-2026-election-date/"},
+      {"on": "On the Greens", "quote": "We're not going to be working with the Greens.", "who": "Christopher Luxon, leader", "date": "2026-01-21", "outlet": "1News", "url": "https://www.1news.co.nz/2026/01/21/game-on-as-pm-luxon-reveals-2026-election-date/"},
+      {"on": "On Te Pāti Māori", "quote": "We won't be working with Te Pāti Māori…", "who": "Christopher Luxon, leader", "date": "2026-01-21", "outlet": "1News", "url": "https://www.1news.co.nz/2026/01/21/game-on-as-pm-luxon-reveals-2026-election-date/"},
+      {"on": "On Opportunity", "quote": "…we ain't doing business with you", "who": "Christopher Luxon, leader", "date": "2026-07-27", "outlet": "1News", "url": "https://www.1news.co.nz/2026/07/27/luxon-appears-to-rule-out-national-working-with-opportunity-party/"}
+    ],
+    "Labour": [
+      {"on": "On the Greens, after appearing together at Waitangi", "quote": "you can work constructively with people, still have disagreements…", "who": "Chris Hipkins, leader", "date": "2026-02-03", "outlet": "RNZ, via Otago Daily Times", "url": "https://www.odt.co.nz/news/national/labour-and-greens-united-waitangi-rnz"},
+      {"on": "On NZ First", "quote": "Winston Peters has ruled us out. I'm happy to rule him out. It's clearly not going to happen.", "who": "Chris Hipkins, leader", "date": "2026-08-10", "outlet": "RNZ, via Otago Daily Times", "url": "https://www.odt.co.nz/news/national/labour-leader-rules-out-working-with-nz-first-jpsaz952"},
+      {"on": "On ACT", "quote": "Well, it won't be ACT", "who": "Kieran McAnulty, campaign chair", "date": "2026-06-28", "outlet": "1News", "url": "https://www.1news.co.nz/2026/06/28/labour-wont-work-with-act-but-nz-first-highly-unlikely-mcanulty/"},
+      {"on": "On Te Pāti Māori", "quote": "Probably won't be Te Pāti Māori either…", "who": "Kieran McAnulty, campaign chair", "date": "2026-06-28", "outlet": "1News", "url": "https://www.1news.co.nz/2026/06/28/labour-wont-work-with-act-but-nz-first-highly-unlikely-mcanulty/"},
+      {"on": "On Opportunity", "quote": "But we haven't said that we're not willing to work with them.", "who": "Kieran McAnulty, campaign chair", "date": "2026-06-28", "outlet": "1News", "url": "https://www.1news.co.nz/2026/06/28/labour-wont-work-with-act-but-nz-first-highly-unlikely-mcanulty/"}
+    ],
+    "Green": [
+      {"on": "On National", "quote": "We are not interested in reinstalling Christopher Luxon as Prime Minister", "who": "Chlöe Swarbrick, co-leader", "date": "2026-10-13", "outlet": "1News", "url": "https://www.1news.co.nz/2026/10/14/you-poor-thing-six-big-moments-from-the-multi-party-debate/"},
+      {"on": "On changing the government", "quote": "there are only two political parties asking for your party vote who are committed to changing the government", "who": "Chlöe Swarbrick, co-leader", "date": "2026-09-29", "outlet": "Farmers Weekly", "url": "https://www.farmersweekly.co.nz/politics/greens-and-act-weigh-up-opportunity-after-latest-poll/"}
+    ],
+    "ACT": [
+      {"on": "On working with other parties", "quote": "we don't mind who we need to work with, notwithstanding there's a few that are non-starters.", "who": "David Seymour, leader", "date": "2026-09-29", "outlet": "Farmers Weekly", "url": "https://www.farmersweekly.co.nz/politics/greens-and-act-weigh-up-opportunity-after-latest-poll/"},
+      {"on": "On Opportunity", "quote": "very hard to know what you're getting with them", "who": "David Seymour, leader", "date": "2026-09-29", "outlet": "Farmers Weekly", "url": "https://www.farmersweekly.co.nz/politics/greens-and-act-weigh-up-opportunity-after-latest-poll/"}
+    ],
+    "NZ First": [
+      {"on": "On Labour", "quote": "No, we won't do a deal with Labour or their … mates.", "who": "Winston Peters, leader", "date": "2026-04-30", "outlet": "Newstalk ZB, via The Spinoff", "url": "https://thespinoff.co.nz/politics/29-04-2026/winston-peters-has-had-it-with-your-stupid-question-full-blocs-ahead-for-november"}
+    ],
+    "Te Pāti Māori": [
+      {"on": "On Labour and the Greens", "quote": "We have begun serious and constructive conversations with the Labour Party and the Green Party", "who": "Rawiri Waititi, co-leader", "date": "2025-11-10", "outlet": "interest.co.nz", "url": "https://www.interest.co.nz/public-policy/136087/te-pāti-māori-co-leaders-say-they-will-work-deliver-government-led-them-labour"},
+      {"on": "On the next government", "quote": "Our people on the streets and in the polls have told us they want a government led by our three parties at the helm.", "who": "Rawiri Waititi, co-leader", "date": "2025-11-10", "outlet": "interest.co.nz", "url": "https://www.interest.co.nz/public-policy/136087/te-pāti-māori-co-leaders-say-they-will-work-deliver-government-led-them-labour"},
+      {"on": "On NZ First", "quote": "Obviously there's some things that I could never agree with New Zealand First on … But on certain kaupapa, you have to work together", "who": "Debbie Ngarewa-Packer, co-leader", "date": "2026-01-24", "outlet": "interest.co.nz", "url": "https://www.interest.co.nz/public-policy/136914/te-p%C4%81ti-m%C4%81ori-greens-labour-and-nz-first-could-work-together-te-p%C4%81ti-m%C4%81ori-co"}
+    ],
+    "Opportunity": [
+      {"on": "On Labour and National", "quote": "The reality is that it's going to be either Labour or National... so we are going to have to find a way to work with them.", "who": "Qiulae Wong, leader", "date": "2026-08-13", "outlet": "1News", "url": "https://www.1news.co.nz/2026/08/13/opportunity-party-leader-on-poll-surge-working-with-winston-peters/"},
+      {"on": "On talks after the election", "quote": "I think we have to get around the table and see how the votes fall", "who": "Qiulae Wong, leader", "date": "2026-10-13", "outlet": "1News", "url": "https://www.1news.co.nz/2026/10/14/you-poor-thing-six-big-moments-from-the-multi-party-debate/"}
+    ],
+    "Te Tai Tokerau Party": [
+      {"on": "On taking a call from the Prime Minister to help form a government", "quote": "Imagine having Te Tai Tokerau at that table", "who": "Mariameno Kapa-Kingi, leader", "date": "2026-05-11", "outlet": "1News", "url": "https://www.1news.co.nz/2026/05/12/kapa-kingi-talks-plan-for-new-party-after-te-pati-maori-split/"},
+      {"on": "On other parties", "reported": "1News reported she \"would not rule anyone out, suggesting she would let the people of Te Tai Tokerau guide her.\"", "who": "Mariameno Kapa-Kingi, leader", "date": "2026-05-12", "outlet": "1News", "url": "https://www.1news.co.nz/2026/05/12/kapa-kingi-talks-plan-for-new-party-after-te-pati-maori-split/"}
+    ]
+  }
+}

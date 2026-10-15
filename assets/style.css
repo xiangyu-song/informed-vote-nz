@@ -178,7 +178,6 @@ th { font-weight: 600; color: var(--muted); }
 .tag { display: inline-block; font-size: 0.72rem; color: var(--muted); background: var(--paper); border-radius: var(--r-s); padding: 0.05rem 0.45rem; margin-left: 0.35rem; vertical-align: 0.12em; white-space: nowrap; }
 .pol blockquote { margin: 0.4rem 0 0; padding: 0.55rem 0.8rem; background: var(--accent-soft); border-radius: var(--r-s) var(--r-m) var(--r-m) var(--r-m); }
 .pol blockquote.also { margin-top: 0.3rem; }
-.pol .say { color: var(--muted); font-size: 0.8rem; display: block; }
 .not-covered { color: var(--muted); margin: 0 0 1rem; padding: 0.6rem 0.8rem; border: 1.5px dashed var(--rule); border-radius: var(--r-m); }
 
 /* ---------- Debates ---------- */
@@ -270,3 +269,10 @@ td.who { white-space: normal; min-width: 14rem; text-align: left; color: var(--m
 @media (max-width: 719px) { .issue-picker button { padding-left: 0.75rem; padding-right: 0.75rem; font-size: 0.9rem; } }
 @media (max-width: 719px) { .bar-foot { flex-direction: column; gap: 0.2rem; } }
 .bar-foot a { white-space: nowrap; }
+
+/* Working together */
+.co-item + .co-item { margin-top: 0.9rem; padding-top: 0.9rem; border-top: 1px solid var(--rule); }
+.co-on { margin: 0 0 0.3rem; font-size: 0.85rem; font-weight: 600; color: var(--muted); }
+.co-item blockquote { margin: 0; padding: 0.55rem 0.8rem; background: var(--accent-soft); border-radius: var(--r-s) var(--r-m) var(--r-m) var(--r-m); }
+.co-reported { margin: 0; padding: 0.55rem 0.8rem; border: 1.5px dashed var(--rule); border-radius: var(--r-m); }
+.co-src { margin: 0.35rem 0 0; font-size: 0.85rem; color: var(--muted); }

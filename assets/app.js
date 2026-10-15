@@ -287,7 +287,7 @@
       items.forEach(function (it) {
         var quotes = el("div");
         [it.quote].concat(it.more || []).forEach(function (q, n) {
-          var bq = el("blockquote", n ? { "class": "also" } : null, [el("span", { "class": "say", text: n ? "Also:" : "In their words:" }), "“"]);
+          var bq = el("blockquote", n ? { "class": "also" } : null, ["“"]);
           bq.appendChild(annotate(q)); bq.appendChild(document.createTextNode("”"));
           quotes.appendChild(bq);
         });
@@ -359,6 +359,27 @@
     held.forEach(function (d) { list.appendChild(item(d, true)); });
   }
 
+  /* ---------- Working together ---------- */
+  function renderCoalition(data) {
+    var list = document.getElementById("coalition-list");
+    partyOrder.forEach(function (party) {
+      var items = data.parties[party] || [];
+      var card = el("article", { "class": "party" }, [el("h3", { text: party })]);
+      if (!items.length) card.appendChild(el("p", { "class": "not-covered", text: "No public statement found (checked " + fmtDate(data.checked, { weekday: undefined }) + ")." }));
+      items.forEach(function (it) {
+        var src = el("p", { "class": "co-src" }, [it.who + ", " + fmtDate(it.date, { weekday: undefined }) + (it.date.slice(0, 4) !== "2026" ? " " + it.date.slice(0, 4) : "") + ". ", el("a", { href: it.url, text: it.outlet })]);
+        card.appendChild(el("div", { "class": "co-item" }, [
+          el("p", { "class": "co-on", text: it.on }),
+          it.quote ? el("blockquote", { text: "\u201c" + it.quote + "\u201d" }) : el("p", { "class": "co-reported", text: it.reported }),
+          src
+        ]));
+      });
+      list.appendChild(card);
+    });
+    var how = document.getElementById("coalition-how");
+    data.rules.forEach(function (r) { how.appendChild(el("li", { text: r })); });
+  }
+
   /* ---------- All parties ---------- */
   function renderParties(data) {
     var list = document.getElementById("party-list");
@@ -394,7 +415,7 @@
 
   Promise.all([
     getJSON("data/dates.json"), getJSON("data/polls.json"), getJSON("data/policies.json"),
-    getJSON("data/debates.json"), getJSON("data/parties.json"), getJSON("data/site.json"), getJSON("data/sources.json"), getJSON("data/glossary.json").catch(function () { return null; })
+    getJSON("data/debates.json"), getJSON("data/parties.json"), getJSON("data/site.json"), getJSON("data/sources.json"), getJSON("data/glossary.json").catch(function () { return null; }), getJSON("data/coalition.json").catch(function () { return null; })
   ]).then(function (r) {
     if (r[7]) {
       setGlossary(r[7]);
@@ -402,6 +423,7 @@
     partyOrder = shuffle(r[2].parties);
     renderDates(r[0]);
     try { renderPolls(r[1]); } catch (e) { fail(document.getElementById("poll-charts"), "polls"); }
+    if (r[8]) renderCoalition(r[8]);
     renderPolicies(r[2]);
     renderDebates(r[3]);
     renderParties(r[4]);
