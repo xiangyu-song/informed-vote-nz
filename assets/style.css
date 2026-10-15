@@ -150,7 +150,7 @@ details.more li { margin: 0.45rem 0; }
 .mult .thr { stroke: var(--threshold); stroke-dasharray: 3 3; stroke-width: 1; }
 .mult .thr-label, .mult .axis { fill: var(--muted); font-size: 11px; font-family: inherit; }
 .mult .base { stroke: var(--rule); stroke-width: 1; }
-.poll-detail { min-height: 1.5rem; margin-top: 1rem; color: var(--muted); }
+.poll-detail { margin: -0.5rem 0 1rem; color: var(--muted); max-width: 38rem; }
 .poll-detail strong { color: var(--ink); }
 .table-scroll { overflow-x: auto; background: var(--surface); border-radius: var(--r-m); }
 table { border-collapse: collapse; font-size: 0.85rem; font-variant-numeric: tabular-nums; width: 100%; }
@@ -212,3 +212,9 @@ th { font-weight: 600; color: var(--muted); }
 .sources ol { margin: 0; padding-left: 1.2rem; }
 .sources li { margin: 0.3rem 0; }
 .sources p { margin: 0.5rem 0 0; }
+
+/* Poll details appear inside the chart card that was tapped */
+.mult-note { margin: 0.5rem 0 0.3rem; padding: 0.55rem 0.75rem; background: var(--accent-soft); border-radius: var(--r-s); font-size: 0.9rem; color: var(--ink); }
+.mult-note[hidden] { display: none; }
+.mult .dot, .mult .avg { pointer-events: none; } /* taps on a dot reach its larger hit area */
+.mult .hit:focus:not(:focus-visible) { outline: none; }

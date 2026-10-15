@@ -139,6 +139,7 @@
       });
       var d = avg.map(function (a, i) { return (i ? "L" : "M") + sx(a.t).toFixed(1) + "," + sy(a.v).toFixed(1); }).join("");
       svg.appendChild(svgEl("path", { "class": "avg", d: d }));
+      var note = el("p", { "class": "mult-note", "aria-live": "polite", hidden: "" });
       pts.forEach(function (p) {
         var cx = sx(toDate(p.end)), cy = sy(p[code]);
         var hit = svgEl("circle", { "class": "hit", cx: cx, cy: cy, r: 10, tabindex: 0, role: "button",
@@ -147,8 +148,9 @@
         function show() {
           wrap.querySelectorAll(".dot.on").forEach(function (n) { n.classList.remove("on"); });
           dot.classList.add("on");
-          detail.innerHTML = "";
-          detail.appendChild(el("span", null, [
+          wrap.querySelectorAll(".mult-note").forEach(function (n) { n.hidden = true; n.innerHTML = ""; });
+          note.hidden = false;
+          note.appendChild(el("span", null, [
             el("strong", { text: POLL_NAMES[code] + " " + p[code] + "%" }),
             " in the " + p.pollster + " poll, " + p.fieldwork + (p.sample ? " (" + p.sample.toLocaleString("en-NZ") + " people). " : ". "),
             el("a", { href: p.source, text: "Source" })
@@ -164,10 +166,11 @@
           el("span", { "class": "mult-name", text: POLL_NAMES[code] }),
           el("span", { "class": "mult-value", text: last.v.toFixed(1) + "%" })
         ]),
-        svg
+        svg,
+        note
       ]));
     });
-    detail.textContent = "Tap a dot to see that poll and its source. The dashed line is the 5% party-vote threshold; a party also gets list seats if it wins an electorate.";
+    detail.textContent = "Tap any dot to see that poll and its source just below the chart. The dashed line is the 5% party-vote threshold; a party also gets list seats if it wins an electorate.";
     wrap.insertAdjacentElement("afterend", el("p", { "class": "lede", text: "Te Tai Tokerau Party isn't reported separately in most polls, so it has no chart." }));
 
     var table = document.getElementById("poll-table");
