@@ -247,3 +247,15 @@ th { font-weight: 600; color: var(--muted); }
 .rules li { margin: 0 0 0.6rem; }
 
 td.who { white-space: normal; min-width: 14rem; text-align: left; color: var(--muted); }
+
+/* Start here */
+.start { margin: 0 0 2rem; }
+.start-title { font-size: 1.15rem; margin: 0 0 0.25rem; }
+.start-title::before { display: none; }
+.start-intro { color: var(--muted); margin: 0 0 0.75rem; font-size: 0.95rem; }
+.start ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+@media (min-width: 720px) { .start ul { grid-template-columns: repeat(3, 1fr); } }
+.start a { display: block; height: 100%; padding: 0.7rem 0.8rem; background: var(--surface); border-radius: var(--r-m); box-shadow: 0 1px 0 var(--rule); text-decoration: none; color: var(--ink); border: 1.5px solid transparent; }
+.start a:hover { border-color: var(--accent); }
+.start strong { display: block; color: var(--accent); font-weight: 800; }
+.start span { display: block; font-size: 0.85rem; color: var(--muted); line-height: 1.35; margin-top: 0.15rem; }
