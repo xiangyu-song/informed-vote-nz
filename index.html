@@ -15,7 +15,7 @@
 
 <header class="top">
   <div class="wrap top-inner">
-    <p class="site-name">NZ Election 2026 Guide</p>
+    <p class="site-name"><svg class="mark" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M7 12.5l3.2 3.2L17 8.8"/></svg>NZ Election 2026 Guide</p>
     <nav aria-label="Sections">
       <a href="#dates">Dates</a>
       <a href="#polls">Polls</a>
@@ -27,8 +27,14 @@
 </header>
 
 <main id="main">
-  <section id="dates" class="hero wrap" aria-labelledby="hero-title">
-    <h1 id="hero-title"><span class="hero-day">Election day is Saturday 7&nbsp;November</span><span id="countdown" class="hero-count"></span></h1>
+  <section id="dates" class="hero" aria-labelledby="hero-title">
+    <div class="wrap hero-inner">
+      <h1 id="hero-title"><span class="hero-date">7 November</span><span class="hero-day">is election day, a Saturday.</span><span id="countdown" class="hero-count"></span></h1>
+      <svg class="hero-tick" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="50"/><path d="M34 62l17 17 36-38"/></svg>
+    </div>
+  </section>
+
+  <section class="wrap dates-body" aria-label="Key dates">
     <p id="next-step" class="next-step"></p>
     <ol id="timeline" class="timeline" aria-label="Key dates"></ol>
     <p class="official">Enrol, check your details and find where to vote at <a href="https://vote.nz/">vote.nz</a>, the Electoral Commission's official site.</p>
@@ -36,7 +42,10 @@
 
   <section id="polls" class="wrap block" aria-labelledby="polls-title">
     <h2 id="polls-title">Polls</h2>
-    <p class="lede">Party vote in nationwide polls since August. Each dot is one poll; the line is the average of polls finishing in the previous 14 days. Polls are estimates and usually have a margin of error of about 3 points either way.</p>
+    <p class="lede">Average party vote across nationwide polls finishing in the last 14 days. Polls are estimates and usually have a margin of error of about 3 points either way.</p>
+    <div id="poll-summary" class="poll-summary"></div>
+    <h3 class="sub">How each party has moved since August</h3>
+    <p class="lede">Each dot is one poll; the line is the 14-day average. All charts use the same scale.</p>
     <div id="poll-charts" class="multiples"></div>
     <div id="poll-detail" class="poll-detail" aria-live="polite"></div>
     <details class="more">

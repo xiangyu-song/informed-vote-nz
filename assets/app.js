@@ -90,17 +90,41 @@
     function sy(v) { return T + (1 - v / yMax) * (H - T - B); }
 
     var codes = Object.keys(POLL_NAMES);
-    var order = partyOrder.map(function (name) { return codes.filter(function (c) { return POLL_NAMES[c] === name; })[0]; }).filter(Boolean);
+    function trailing(code) {
+      var pts = polls.filter(function (p) { return p[code] !== null && p[code] !== undefined; });
+      return pts.map(function (p) {
+        var t = toDate(p.end);
+        var win = pts.filter(function (q) { var u = toDate(q.end); return u <= t && u > t - 14 * DAY; });
+        return { t: t, v: win.reduce(function (s, q) { return s + q[code]; }, 0) / win.length, n: win.length };
+      });
+    }
+    var latest = {};
+    codes.forEach(function (c) { var a = trailing(c); latest[c] = a[a.length - 1]; });
+    // Data order: highest current average first.
+    var order = codes.slice().sort(function (a, b) { return latest[b].v - latest[a].v; });
+
+    var summary = document.getElementById("poll-summary");
+    var sMax = 40;
+    order.forEach(function (c) {
+      var v = latest[c].v;
+      summary.appendChild(el("div", { "class": "bar-row", role: "img", "aria-label": POLL_NAMES[c] + ": " + v.toFixed(1) + " percent" }, [
+        el("span", { "class": "bar-name", text: POLL_NAMES[c] }),
+        el("span", { "class": "bar-track" }, [
+          el("span", { "class": "bar-fill", style: "width:" + (v / sMax * 100).toFixed(2) + "%" }),
+          el("span", { "class": "bar-thr", style: "left:" + (5 / sMax * 100) + "%" })
+        ]),
+        el("span", { "class": "bar-val", text: v.toFixed(1) + "%" })
+      ]));
+    });
+    var newest = polls[polls.length - 1];
+    summary.appendChild(el("p", { "class": "bar-foot" }, [
+      el("span", { text: "Dashed line: 5% threshold" }),
+      el("span", { text: "Latest poll ends " + fmtDate(newest.end, { weekday: undefined }) })
+    ]));
 
     order.forEach(function (code) {
       var pts = polls.filter(function (p) { return p[code] !== null && p[code] !== undefined; });
-      // Trailing 14-day average at each poll's end date.
-      var avg = pts.map(function (p) {
-        var t = toDate(p.end);
-        var win = pts.filter(function (q) { var u = toDate(q.end); return u <= t && u > t - 14 * DAY; });
-        var m = win.reduce(function (s, q) { return s + q[code]; }, 0) / win.length;
-        return { t: t, v: m, n: win.length };
-      });
+      var avg = trailing(code); // 14-day average at each poll's end date
       var last = avg[avg.length - 1];
 
       var svg = svgEl("svg", { viewBox: "0 0 " + W + " " + H, role: "img", "aria-label": POLL_NAMES[code] + " party vote in polls since August. Latest 14-day average " + last.v.toFixed(1) + " percent." });
@@ -138,12 +162,12 @@
       wrap.appendChild(el("div", { "class": "mult" }, [
         el("div", { "class": "mult-head" }, [
           el("span", { "class": "mult-name", text: POLL_NAMES[code] }),
-          el("span", { "class": "mult-value", html: last.v.toFixed(1) + "% <small>14-day average</small>" })
+          el("span", { "class": "mult-value", text: last.v.toFixed(1) + "%" })
         ]),
         svg
       ]));
     });
-    detail.textContent = "Tap a dot to see that poll and its source. The dashed line is the 5% party-vote threshold: a party also gets list seats if it wins an electorate.";
+    detail.textContent = "Tap a dot to see that poll and its source. The dashed line is the 5% party-vote threshold; a party also gets list seats if it wins an electorate.";
     wrap.insertAdjacentElement("afterend", el("p", { "class": "lede", text: "Te Tai Tokerau Party isn't reported separately in most polls, so it has no chart." }));
 
     var table = document.getElementById("poll-table");
@@ -203,11 +227,17 @@
     var upcoming = data.debates.filter(function (d) { return d.date >= today; });
     var held = data.debates.filter(function (d) { return d.date < today; }).reverse();
     function item(d, isHeld) {
+      var dt = new Date(toDate(d.date));
+      var mon = new Intl.DateTimeFormat("en-NZ", { timeZone: "UTC", month: "short" }).format(dt);
       return el("li", { "class": isHeld ? "held" : "" }, [
-        el("span", { "class": "d-when", text: fmtDate(d.date) + (d.time ? ", " + d.time : "") + (isHeld ? " (held)" : "") }),
-        el("a", { href: d.link, text: d.name }),
-        el("span", { "class": "d-meta", text: d.host + ", on " + d.where }),
-        el("span", { "class": "d-meta", text: "Taking part: " + d.who })
+        el("span", { "class": "cal", "aria-hidden": "true" }, [el("span", { "class": "cal-m", text: mon }), el("span", { "class": "cal-d", text: String(dt.getUTCDate()) })]),
+        el("div", null, [
+          el("span", { "class": "d-meta", text: fmtDate(d.date) + (d.time ? ", " + d.time : "") }),
+          el("a", { "class": "d-name", href: d.link, text: d.name }),
+          isHeld ? el("span", { "class": "held-note", text: " (already held)" }) : null,
+          el("span", { "class": "d-meta", text: d.host + ", on " + d.where }),
+          el("span", { "class": "d-meta", text: "Taking part: " + d.who })
+        ])
       ]);
     }
     upcoming.forEach(function (d) { list.appendChild(item(d, false)); });
@@ -218,10 +248,12 @@
   function renderParties(data) {
     var list = document.getElementById("party-list");
     data.parties.forEach(function (p) {
-      var li = el("li", null, [el("a", { href: p.url, text: p.name })]);
-      if (p.short && data.in_policy_table.indexOf(p.short) > -1) li.appendChild(el("span", { "class": "in-table", text: " (in the policy table)" }));
-      list.appendChild(li);
+      var inTable = p.short && data.in_policy_table.indexOf(p.short) > -1;
+      var a = el("a", { href: p.url, text: p.name });
+      if (inTable) a.className = "in-table";
+      list.appendChild(el("li", null, [a]));
     });
+    list.insertAdjacentElement("afterend", el("p", { "class": "party-key", html: "<span></span>Outlined parties are in the policy table above." }));
   }
 
   Promise.all([
