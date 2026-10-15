@@ -1,4 +1,4 @@
-# NZ Election 2026 at a Glance
+# Informed Vote NZ: Election 2026
 
 Free, neutral, phone-friendly information on the 2026 New Zealand general election: key voting dates, polls, party policies in each party's own words, and debates.
 

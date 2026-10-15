@@ -1,4 +1,4 @@
-/* NZ Election 2026 at a Glance — renders everything from the JSON files in /data.
+/* Informed Vote NZ — renders everything from the JSON files in /data.
    No tracking, no cookies, no storage of personal data. */
 (function () {
   "use strict";
