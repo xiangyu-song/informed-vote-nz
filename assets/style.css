@@ -59,6 +59,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px soli
 .site-name { margin: 0; font-weight: 800; font-size: 0.95rem; display: flex; align-items: center; gap: 0.45rem; color: #fff; }
 .mark { width: 1.3rem; height: 1.3rem; fill: none; stroke: var(--lilac); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .top nav { display: flex; gap: 0.15rem; overflow-x: auto; scrollbar-width: none; margin: 0 -8px; }
+@media (max-width: 719px) { html { scroll-padding-top: 8.5rem; } .top nav { flex-wrap: wrap; overflow: visible; gap: 0.1rem 0; } .top nav a { padding: 0.3rem 0.5rem; font-size: 0.88rem; } }
 .top nav a { padding: 0.35rem 0.55rem; text-decoration: none; color: var(--lilac); white-space: nowrap; border-radius: 999px; font-size: 0.9rem; }
 .top nav a:hover { background: var(--night-2); color: #fff; }
 
@@ -208,8 +209,12 @@ th { font-weight: 600; color: var(--muted); }
 
 
 /* Sources at the end of each section */
-.sources { margin: 1.75rem 0 0.5rem; padding: 0.9rem 1.1rem; border-radius: var(--r-m); border: 1.5px solid var(--rule); font-size: 0.85rem; color: var(--muted); }
-.sources h3 { margin: 0 0 0.4rem; font-size: 0.95rem; color: var(--ink); }
+.sources { margin: 1.5rem 0 0.5rem; padding: 0.7rem 1.1rem; border-radius: var(--r-m); border: 1.5px solid var(--rule); font-size: 0.85rem; color: var(--muted); }
+.sources summary { cursor: pointer; font-weight: 600; font-size: 0.95rem; color: var(--accent); list-style: none; display: flex; align-items: center; gap: 0.4rem; }
+.sources summary::-webkit-details-marker { display: none; }
+.sources summary::before { content: ""; width: 0.45em; height: 0.45em; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(-45deg); transition: transform 0.15s; }
+.sources[open] summary::before { transform: rotate(45deg); }
+.sources[open] summary { margin-bottom: 0.4rem; }
 .sources ol { margin: 0; padding-left: 1.2rem; }
 .sources li { margin: 0.3rem 0; }
 .sources p { margin: 0.5rem 0 0; }

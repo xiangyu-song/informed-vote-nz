@@ -384,8 +384,8 @@
           s.supports ? el("span", { "class": "src-for", text: " Used for: " + s.supports.charAt(0).toLowerCase() + s.supports.slice(1).replace(/\.$/, "") + "." }) : null
         ]));
       });
-      where[key].appendChild(el("aside", { "class": "sources", "aria-label": "Sources for this section" }, [
-        el("h3", { text: "Sources" }), ol,
+      where[key].appendChild(el("details", { "class": "sources" }, [
+        el("summary", { text: "Sources (" + data.sections[key].length + ")" }), ol,
         data.methods && data.methods[key] ? el("p", { text: data.methods[key] }) : null,
         el("p", { "class": "src-for", text: "Checked " + fmtDate(data.checked, { weekday: undefined }) + "." })
       ]));
