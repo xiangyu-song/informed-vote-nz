@@ -245,3 +245,5 @@ th { font-weight: 600; color: var(--muted); }
 .rules h3 { margin: 0 0 0.4rem; font-size: 1.1rem; font-weight: 800; }
 .rules ul { margin: 0; padding-left: 1.2rem; }
 .rules li { margin: 0 0 0.6rem; }
+
+td.who { white-space: normal; min-width: 14rem; text-align: left; color: var(--muted); }

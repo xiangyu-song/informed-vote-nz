@@ -101,7 +101,9 @@
       return pts.map(function (p) {
         var t = toDate(p.end);
         var win = pts.filter(function (q) { var u = toDate(q.end); return u <= t && u > t - 14 * DAY; });
-        return { t: t, v: win.reduce(function (s, q) { return s + q[code]; }, 0) / win.length, n: win.length };
+        // Weighted by sample size (1,000 assumed if a poll doesn't report one).
+        var w = win.reduce(function (s, q) { return s + (q.sample || 1000); }, 0);
+        return { t: t, v: win.reduce(function (s, q) { return s + q[code] * (q.sample || 1000); }, 0) / w, n: win.length };
       });
     }
     var latest = {};
@@ -158,7 +160,7 @@
           note.hidden = false;
           note.appendChild(el("span", null, [
             el("strong", { text: POLL_NAMES[code] + " " + p[code] + "%" }),
-            " in the " + p.pollster + " poll, " + p.fieldwork + (p.sample ? " (" + p.sample.toLocaleString("en-NZ") + " people). " : ". "),
+            " in the " + p.pollster + " poll, " + p.fieldwork + (p.sample ? " (" + p.sample.toLocaleString("en-NZ") + " people). " : ". ") + (p.commissioned_by ? p.commissioned_by + ". " : ""),
             el("a", { href: p.source, text: "Source" })
           ]));
         }
@@ -180,15 +182,18 @@
     wrap.insertAdjacentElement("afterend", el("p", { "class": "lede", text: "Te Tai Tokerau Party isn't reported separately in most polls, so it has no chart." }));
 
     var table = document.getElementById("poll-table");
-    var head = el("tr", null, [el("th", { text: "Poll" }), el("th", { text: "Fieldwork" })].concat(order.map(function (c) { return el("th", { text: POLL_NAMES[c] }); })));
+    var head = el("tr", null, [el("th", { text: "Poll" }), el("th", { text: "Fieldwork" }), el("th", { text: "Commissioned by" })].concat(order.map(function (c) { return el("th", { text: POLL_NAMES[c] }); })));
     table.appendChild(el("thead", null, [head]));
     var body = el("tbody");
     polls.slice().reverse().forEach(function (p) {
-      body.appendChild(el("tr", null, [el("td", null, [el("a", { href: p.source, text: p.pollster })]), el("td", { text: p.fieldwork })]
+      body.appendChild(el("tr", null, [el("td", null, [el("a", { href: p.source, text: p.pollster })]), el("td", { text: p.fieldwork }), el("td", { "class": "who", text: p.commissioned_by || "" })]
         .concat(order.map(function (c) { return el("td", { text: p[c] === null || p[c] === undefined ? "–" : String(p[c]) }); }))));
     });
     table.appendChild(body);
     table.appendChild(el("caption", { "class": "lede", text: "Figures as reported by each pollster. – means not reported separately." }));
+    var tbl = table.parentNode;
+    if (data.average_method) tbl.insertAdjacentElement("afterend", el("p", { "class": "lede", text: data.average_method + " Roy Morgan's fieldwork runs over about four weeks, so it is placed at the date fieldwork ended." }));
+    if (data.not_included) tbl.insertAdjacentElement("afterend", el("p", { "class": "lede", text: data.not_included }));
   }
 
   /* ---------- Policies ---------- */
