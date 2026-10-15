@@ -2,7 +2,7 @@
 
 Free, neutral, phone-friendly information on the 2026 New Zealand general election: key voting dates, polls, party policies in each party's own words, and debates.
 
-Live site: https://xiangyu-song.github.io/nz-election-2026/
+Live site: https://xiangyu-song.github.io/informed-vote-nz/
 
 - Every poll figure and policy quote links to its source.
 - Policies are quoted word for word from each party's own website.
