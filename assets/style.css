@@ -205,14 +205,3 @@ th { font-weight: 600; color: var(--muted); }
 .foot a { color: #fff; }
 .error { color: var(--ink); background: var(--accent-soft); padding: 0.75rem 1rem; border-radius: var(--r-m); }
 
-/* Party badges: same shape, size and colour for every party */
-.pcode {
-  display: inline-flex; align-items: center; justify-content: center; flex: none;
-  min-width: 3.4em; height: 1.9em; padding: 0 0.45em; margin-right: 0.55em; border-radius: 999px;
-  border: 1.5px solid var(--accent); color: var(--accent); background: var(--surface);
-  font-size: 0.62em; font-weight: 800; letter-spacing: 0.02em; vertical-align: middle;
-}
-.bar-name, .mult-name { display: inline-flex; align-items: center; }
-.party h3 { display: flex; align-items: center; }
-.party h3 .pcode { font-size: 0.6em; }
-.party-list a .pcode { font-size: 0.6em; margin-right: 0.4em; }
