@@ -243,46 +243,68 @@
     var picker = document.getElementById("issue-picker");
     var list = document.getElementById("policy-list");
     var how = document.getElementById("how-list");
+    var modeTopic = document.getElementById("mode-topic"), modeParty = document.getElementById("mode-party");
     data.how_we_chose.forEach(function (t) { how.appendChild(el("li", { text: t })); });
     how.appendChild(el("li", { text: data.verification }));
 
-    function show(issue, btn) {
+    // One party's entries for one topic: identical for every party.
+    function fillBox(box, issue, party) {
+      var items = issue.parties[party] || [];
+      var xref = issue.notes && issue.notes[party] && issue.notes[party].crossref ? issue.notes[party] : null;
+      if (!items.length && xref) {
+        box.appendChild(el("p", { "class": "not-covered" }, [xref.text + " ", el("a", { href: xref.url, text: "Read it on the party's site" }), "."]));
+      } else if (!items.length) {
+        box.appendChild(el("p", { "class": "not-covered" }, [
+          "Not covered on ", el("a", { href: data.policy_pages[party], text: party + "'s 2026 policy pages" }),
+          " (checked " + fmtDate(data.checked, { weekday: undefined }) + ")."
+        ]));
+      }
+      items.forEach(function (it) {
+        var defBox = el("p", { "class": "term-def", hidden: "", "aria-live": "polite" });
+        var bq = el("blockquote", null, [el("span", { "class": "say", text: "In their words:" }), "“"]);
+        bq.appendChild(annotate(it.quote, defBox)); bq.appendChild(document.createTextNode("”"));
+        box.appendChild(el("div", { "class": "pol" }, [
+          el("a", { "class": "pol-name", href: it.url, text: "“" + it.name + "”" }),
+          el("span", { "class": "tag", text: it.source_type }),
+          el("div", null, [bq, defBox])
+        ]));
+      });
+      return box;
+    }
+    function select(btn) {
       picker.querySelectorAll("button").forEach(function (b) { b.setAttribute("aria-selected", "false"); });
       btn.setAttribute("aria-selected", "true");
       list.innerHTML = "";
+    }
+    function showTopic(issue, btn) {
+      select(btn);
       partyOrder.forEach(function (party) {
-        var items = issue.parties[party] || [];
-        var box = el("article", { "class": "party" }, [el("h3", { text: party })]);
-        var xref = issue.notes && issue.notes[party] && issue.notes[party].crossref ? issue.notes[party] : null;
-        if (!items.length && xref) {
-          box.appendChild(el("p", { "class": "not-covered" }, [xref.text + " ", el("a", { href: xref.url, text: "Read it on the party's site" }), "."]));
-        } else if (!items.length) {
-          box.appendChild(el("p", { "class": "not-covered" }, [
-            "Not covered on ", el("a", { href: data.policy_pages[party], text: party + "'s 2026 policy pages" }),
-            " (checked " + fmtDate(data.checked, { weekday: undefined }) + ")."
-          ]));
-        }
-        items.forEach(function (it) {
-          box.appendChild(el("div", { "class": "pol" }, [
-            el("a", { "class": "pol-name", href: it.url, text: "“" + it.name + "”" }),
-            el("span", { "class": "tag", text: it.source_type }),
-            (function () {
-              var defBox = el("p", { "class": "term-def", hidden: "", "aria-live": "polite" });
-              var bq = el("blockquote", null, [el("span", { "class": "say", text: "In their words:" }), "“"]);
-              bq.appendChild(annotate(it.quote, defBox)); bq.appendChild(document.createTextNode("”"));
-              return el("div", null, [bq, defBox]);
-            })()
-          ]));
-        });
-        list.appendChild(box);
+        list.appendChild(fillBox(el("article", { "class": "party" }, [el("h3", { text: party })]), issue, party));
       });
     }
-    data.issues.forEach(function (issue, i) {
-      var b = el("button", { type: "button", role: "tab", "aria-selected": "false", text: issue.name });
-      b.addEventListener("click", function () { show(issue, b); });
-      picker.appendChild(b);
-      if (i === 0) show(issue, b);
-    });
+    function showParty(party, btn) {
+      select(btn);
+      data.issues.forEach(function (issue) {
+        list.appendChild(fillBox(el("article", { "class": "party" }, [el("h3", { text: issue.name })]), issue, party));
+      });
+    }
+    function buildPicker(mode) {
+      picker.innerHTML = "";
+      modeTopic.setAttribute("aria-pressed", mode === "topic" ? "true" : "false");
+      modeParty.setAttribute("aria-pressed", mode === "party" ? "true" : "false");
+      picker.setAttribute("aria-label", mode === "topic" ? "Topics" : "Parties");
+      var items = mode === "topic" ? data.issues : partyOrder;
+      items.forEach(function (x, i) {
+        var label = mode === "topic" ? x.name : x;
+        var b = el("button", { type: "button", role: "tab", "aria-selected": "false", text: label });
+        b.addEventListener("click", function () { mode === "topic" ? showTopic(x, b) : showParty(x, b); });
+        picker.appendChild(b);
+        if (i === 0) { mode === "topic" ? showTopic(x, b) : showParty(x, b); }
+      });
+    }
+    modeTopic.addEventListener("click", function () { buildPicker("topic"); });
+    modeParty.addEventListener("click", function () { buildPicker("party"); });
+    buildPicker("topic");
   }
 
   /* ---------- Debates ---------- */

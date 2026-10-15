@@ -95,8 +95,13 @@
 
   <section id="policies" class="wrap block" aria-labelledby="policies-title">
     <h2 id="policies-title">Policies, in each party's own words</h2>
-    <p class="lede">Pick a topic. Every policy is quoted directly from the party's website, with a link to read the full policy. Tap a dotted-underlined word for a plain explanation. Parties appear in a random order that changes each time the page loads.</p>
-    <div id="issue-picker" class="issue-picker" role="tablist" aria-label="Issues"></div>
+    <p class="lede">Pick a topic to compare parties side by side, or switch to Party to see everything one party says. Every policy is quoted directly from the party's website, with a link to read the full policy. Tap a dotted-underlined word for a plain explanation. Parties appear in a random order that changes each time the page loads.</p>
+    <div class="mode" role="group" aria-label="View policies by">
+      <span class="mode-label">View by</span>
+      <button type="button" id="mode-topic" aria-pressed="true">Topic</button>
+      <button type="button" id="mode-party" aria-pressed="false">Party</button>
+    </div>
+    <div id="issue-picker" class="issue-picker" role="tablist" aria-label="Topics"></div>
     <div id="policy-list" class="policy-list"></div>
     <details class="more" id="glossary">
       <summary>Words explained</summary>
