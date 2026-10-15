@@ -41,6 +41,48 @@
   function fmtDate(iso, opts) {
     return new Intl.DateTimeFormat("en-NZ", Object.assign({ timeZone: "UTC", weekday: "long", day: "numeric", month: "long" }, opts || {})).format(new Date(toDate(iso)));
   }
+  var GLOSS_RE = null, GLOSS_MAP = {};
+  function setGlossary(g) {
+    var keys = [];
+    g.terms.forEach(function (t) {
+      [t.term].concat(t.aliases || []).forEach(function (k) { GLOSS_MAP[k.toLowerCase()] = t; keys.push(k); });
+    });
+    keys.sort(function (a, b) { return b.length - a.length; });
+    var esc = keys.map(function (k) { return k.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); });
+    GLOSS_RE = new RegExp("(^|[^\\p{L}])(" + esc.join("|") + ")(?![\\p{L}])", "giu");
+  }
+  // Wrap glossary words in a quote with tap-to-explain buttons (same rule for every party).
+  function annotate(text, defBox) {
+    var frag = document.createDocumentFragment();
+    if (!GLOSS_RE) { frag.appendChild(document.createTextNode(text)); return frag; }
+    var last = 0, seen = {}, m;
+    GLOSS_RE.lastIndex = 0;
+    while ((m = GLOSS_RE.exec(text))) {
+      var word = m[2], start = m.index + m[1].length, t = GLOSS_MAP[word.toLowerCase()];
+      if (!t || seen[t.term]) continue;
+      seen[t.term] = true;
+      frag.appendChild(document.createTextNode(text.slice(last, start)));
+      (function (t, word) {
+        var b = el("button", { type: "button", "class": "term", "aria-expanded": "false", text: word });
+        b.addEventListener("click", function () {
+          var open = b.getAttribute("aria-expanded") === "true";
+          defBox.innerHTML = "";
+          defBox.parentNode.querySelectorAll(".term").forEach(function (x) { x.setAttribute("aria-expanded", "false"); });
+          if (!open) {
+            b.setAttribute("aria-expanded", "true");
+            defBox.appendChild(el("strong", { text: t.term + ": " }));
+            defBox.appendChild(document.createTextNode(t.def + " "));
+            defBox.appendChild(el("a", { href: t.src, text: "Learn more" }));
+          }
+          defBox.hidden = open;
+        });
+        frag.appendChild(b);
+      })(t, word);
+      last = start + word.length;
+    }
+    frag.appendChild(document.createTextNode(text.slice(last)));
+    return frag;
+  }
   function getJSON(path) { return fetch(path, { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error(path); return r.json(); }); }
   function fail(container, what) {
     container.appendChild(el("p", { "class": "error", text: "The " + what + " couldn't load. Refresh the page to try again." }));
@@ -224,7 +266,12 @@
           box.appendChild(el("div", { "class": "pol" }, [
             el("a", { "class": "pol-name", href: it.url, text: "“" + it.name + "”" }),
             el("span", { "class": "tag", text: it.source_type }),
-            el("blockquote", null, [el("span", { "class": "say", text: "In their words:" }), "“" + it.quote + "”"])
+            (function () {
+              var defBox = el("p", { "class": "term-def", hidden: "", "aria-live": "polite" });
+              var bq = el("blockquote", null, [el("span", { "class": "say", text: "In their words:" }), "“"]);
+              bq.appendChild(annotate(it.quote, defBox)); bq.appendChild(document.createTextNode("”"));
+              return el("div", null, [bq, defBox]);
+            })()
           ]));
         });
         list.appendChild(box);
@@ -297,8 +344,15 @@
 
   Promise.all([
     getJSON("data/dates.json"), getJSON("data/polls.json"), getJSON("data/policies.json"),
-    getJSON("data/debates.json"), getJSON("data/parties.json"), getJSON("data/site.json"), getJSON("data/sources.json")
+    getJSON("data/debates.json"), getJSON("data/parties.json"), getJSON("data/site.json"), getJSON("data/sources.json"), getJSON("data/glossary.json").catch(function () { return null; })
   ]).then(function (r) {
+    if (r[7]) {
+      setGlossary(r[7]);
+      var gl = document.getElementById("glossary-list");
+      r[7].terms.slice().sort(function (a, b) { return a.term.localeCompare(b.term, "en-NZ"); }).forEach(function (t) {
+        gl.appendChild(el("li", null, [el("strong", { text: t.term }), ": " + t.def + " ", el("a", { href: t.src, text: "Learn more" })]));
+      });
+    }
     partyOrder = shuffle(r[2].parties);
     renderDates(r[0]);
     try { renderPolls(r[1]); } catch (e) { fail(document.getElementById("poll-charts"), "polls"); }
