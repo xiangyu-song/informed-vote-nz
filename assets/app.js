@@ -246,9 +246,7 @@
           isHeld ? el("span", { "class": "held-note", text: " (already held)" }) : null,
           el("span", { "class": "d-meta", text: d.host + ", on " + d.where }),
           el("span", { "class": "d-meta", text: "Taking part: " + d.who }),
-          d.video ? el("a", { "class": "d-video", href: d.video }, [
-            playIcon(), d.video_note || ("Watch the video on " + d.host)
-          ]) : (isHeld ? el("span", { "class": "d-meta d-novideo", text: "Replay link not confirmed yet. Check " + d.host + "'s website." }) : null)
+          d.watch ? el("a", { "class": "d-video", href: d.watch.url }, [playIcon(), d.watch.label]) : null
         ])
       ]);
     }

@@ -8,7 +8,12 @@
       "host": "Stuff",
       "where": "Stuff, The Post and The Press websites",
       "who": "Green, Opportunity, ACT, Te Pāti Māori, NZ First",
-      "link": "https://stoppress.co.nz/?p=175230"
+      "link": "https://stoppress.co.nz/?p=175230",
+      "watch": {
+        "url": "https://www.stuff.co.nz/politics/361041319/missed-it-watch-stuffs-kingmakers-debate-full",
+        "label": "Watch in full on Stuff",
+        "checked": "page opened"
+      }
     },
     {
       "date": "2026-10-06",
@@ -17,8 +22,11 @@
       "where": "TVNZ 1 and TVNZ+",
       "who": "National (Christopher Luxon), Labour (Chris Hipkins)",
       "link": "https://www.1news.co.nz/2026/10/06/leaders-debate-luxon-hipkins-square-off-a-month-out-from-election/",
-      "video": "https://www.1news.co.nz/2026/10/06/watch-again-tvnz-leaders-debate-chris-hipkins-v-christopher-luxon/",
-      "video_note": "Watch again on TVNZ+"
+      "watch": {
+        "url": "https://www.tvnz.co.nz/tvseries/1-news-leaders-debate",
+        "label": "Watch again on TVNZ+",
+        "checked": "page opened"
+      }
     },
     {
       "date": "2026-10-13",
@@ -27,7 +35,12 @@
       "host": "TVNZ",
       "where": "TVNZ 1, TVNZ+ and 1News.co.nz",
       "who": "ACT, Green, NZ First, Te Pāti Māori, Opportunity",
-      "link": "https://www.1news.co.nz/2026/10/13/kingmakers-to-face-off-in-tvnzs-multi-party-debate/"
+      "link": "https://www.1news.co.nz/2026/10/13/kingmakers-to-face-off-in-tvnzs-multi-party-debate/",
+      "watch": {
+        "url": "https://www.1news.co.nz/2026/10/13/full-video-tvnz-multi-party-debate-peters-swarbrick-wong-waititi-and-seymour/",
+        "label": "Watch again (1News)",
+        "checked": "page opened"
+      }
     },
     {
       "date": "2026-10-14",
@@ -35,7 +48,12 @@
       "host": "NZ Herald / NZME",
       "where": "NZ Herald app, website and YouTube; simulcast on Newstalk ZB",
       "who": "National (Christopher Luxon), Labour (Chris Hipkins)",
-      "link": "https://www.nzme.co.nz/news/nzme-unveils-its-biggest-ever-election-coverage-for-2026"
+      "link": "https://www.nzme.co.nz/news/nzme-unveils-its-biggest-ever-election-coverage-for-2026",
+      "watch": {
+        "url": "https://www.nzherald.co.nz/nz/politics/election-2026-herald-leaders-debate-christopher-luxon-v-chris-hipkins/UFX3BMPUKNG7FOKGLKLW5JMVTU/",
+        "label": "Watch on NZ Herald",
+        "checked": "search result only; site blocks automated checks"
+      }
     },
     {
       "date": "2026-10-20",
@@ -43,7 +61,12 @@
       "host": "Stuff",
       "where": "Stuff, The Post and The Press websites",
       "who": "National (Christopher Luxon), Labour (Chris Hipkins)",
-      "link": "https://stoppress.co.nz/?p=175230"
+      "link": "https://stoppress.co.nz/?p=175230",
+      "watch": {
+        "url": "https://www.stuff.co.nz/",
+        "label": "Watch live on Stuff",
+        "checked": "page opened"
+      }
     },
     {
       "date": "2026-10-21",
@@ -51,7 +74,12 @@
       "host": "NZ Herald / NZME",
       "where": "NZ Herald app, website and YouTube",
       "who": "Leaders of parties likely to be in coalition talks (not yet named)",
-      "link": "https://www.nzme.co.nz/news/nzme-unveils-its-biggest-ever-election-coverage-for-2026"
+      "link": "https://www.nzme.co.nz/news/nzme-unveils-its-biggest-ever-election-coverage-for-2026",
+      "watch": {
+        "url": "https://www.nzherald.co.nz/promotions/the-new-zealand-herald-debate-series/DJBGX6TQLFGAVJKQY5V7XPVI2U/",
+        "label": "Where to watch on NZ Herald",
+        "checked": "search result only; site blocks automated checks"
+      }
     },
     {
       "date": "2026-10-29",
@@ -60,7 +88,12 @@
       "host": "TVNZ",
       "where": "TVNZ 1 and TVNZ+",
       "who": "Not yet announced",
-      "link": "https://www.1news.co.nz/2026/09/04/tvnz-unveils-election-campaign-coverage-new-vodcast-tame-and-tova/"
+      "link": "https://www.1news.co.nz/2026/09/04/tvnz-unveils-election-campaign-coverage-new-vodcast-tame-and-tova/",
+      "watch": {
+        "url": "https://www.tvnz.co.nz/tvseries/1-news-kaupapa-maori-debate",
+        "label": "Watch on TVNZ+",
+        "checked": "page opened"
+      }
     },
     {
       "date": "2026-11-05",
@@ -69,9 +102,14 @@
       "host": "TVNZ",
       "where": "TVNZ 1 and TVNZ+",
       "who": "All parties meeting TVNZ's criteria, including National and Labour",
-      "link": "https://www.1news.co.nz/2026/09/04/tvnz-unveils-election-campaign-coverage-new-vodcast-tame-and-tova/"
+      "link": "https://www.1news.co.nz/2026/09/04/tvnz-unveils-election-campaign-coverage-new-vodcast-tame-and-tova/",
+      "watch": {
+        "url": "https://www.tvnz.co.nz/livetv/tvnz-1",
+        "label": "Watch live on TVNZ+",
+        "checked": "page opened"
+      }
     }
   ],
   "to_check": "Other outlets (RNZ, Whakaata Māori, regional debates); Te Tai Tokerau Party participation",
-  "video_rule": "Video links go to the broadcaster's own replay page; videos are never embedded or copied. A replay link is added only once it has been checked."
+  "video_rule": "Watch links go to the broadcaster's own page; videos are never embedded or copied. TVNZ+ may ask you to sign in with a free account."
 }
