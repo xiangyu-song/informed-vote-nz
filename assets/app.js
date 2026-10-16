@@ -577,36 +577,11 @@
       var names = codes.filter(function (c) { return picked[c] && seats[c]; }).map(function (c) { return NAMES[c]; });
       var verdict = !names.length ? "" : sum >= need ? "Together: " + sum + " seats, enough to govern (" + need + " needed)." : "Together: " + sum + " seats, " + (need - sum) + " short of the " + need + " needed.";
       if (verdict) out.appendChild(el("p", { "class": "seat-verdict" + (sum >= need ? " yes" : ""), text: verdict }));
-      out.appendChild(el("p", { "class": "seat-note" }, ["Adding up seats is arithmetic only. For what parties have said about working with each other, see ", el("a", { href: "#coalition", text: "Working together after the election" }), "."]));
+      out.appendChild(el("p", { "class": "seat-note", text: "Adding up seats is arithmetic only. It doesn't show which parties are willing to work together." }));
       clearTimeout(liveTimer);
       liveTimer = setTimeout(function () { live.textContent = codes.filter(function (c) { return seats[c]; }).map(function (c) { return NAMES[c] + " " + seats[c]; }).join(", ") + ". " + house + " seats in total. " + verdict; }, 600);
     }
     update();
-  }
-
-  /* ---------- Working together ---------- */
-  function renderCoalition(data) {
-    var list = document.getElementById("coalition-list");
-    partyOrder.forEach(function (party) {
-      var items = data.parties[party] || [];
-      var card = el("article", { "class": "party" }, [el("h3", { text: party })]);
-      var coExtras = [];
-      if (!items.length) card.appendChild(el("p", { "class": "not-covered", text: "No public statement found (checked " + fmtDate(data.checked, { weekday: undefined }) + ")." }));
-      items.forEach(function (it) {
-        var src = el("p", { "class": "co-src" }, [it.who + ", " + fmtDate(it.date, { weekday: undefined }) + (it.date.slice(0, 4) !== "2026" ? " " + it.date.slice(0, 4) : "") + ". ", el("a", { href: it.url, text: it.outlet })]);
-        var item = el("div", { "class": "co-item" }, [
-          el("p", { "class": "co-on", text: it.on }),
-          it.quote ? el("blockquote", { text: "\u201c" + it.quote + "\u201d" }) : el("p", { "class": "co-reported", text: it.reported }),
-          src
-        ]);
-        card.appendChild(item);
-        if (card.querySelectorAll(".co-item").length > 1) coExtras.push(item);
-      });
-      foldExtras(card, coExtras, "statement");
-      list.appendChild(card);
-    });
-    var how = document.getElementById("coalition-how");
-    data.rules.forEach(function (r) { how.appendChild(el("li", { text: r })); });
   }
 
   /* ---------- All parties ---------- */
@@ -645,7 +620,7 @@
 
   Promise.all([
     getJSON("data/dates.json"), getJSON("data/polls.json"), getJSON("data/policies.json"),
-    getJSON("data/debates.json"), getJSON("data/parties.json"), getJSON("data/site.json"), getJSON("data/sources.json"), getJSON("data/glossary.json").catch(function () { return null; }), getJSON("data/coalition.json").catch(function () { return null; }), getJSON("data/updates.json").catch(function () { return null; })
+    getJSON("data/debates.json"), getJSON("data/parties.json"), getJSON("data/site.json"), getJSON("data/sources.json"), getJSON("data/glossary.json").catch(function () { return null; }), null, getJSON("data/updates.json").catch(function () { return null; })
   ]).then(function (r) {
     if (r[7]) {
       setGlossary(r[7]);
@@ -654,7 +629,6 @@
     renderDates(r[0]);
     try { renderPolls(r[1]); } catch (e) { fail(document.getElementById("poll-charts"), "polls"); }
     try { renderSeats(); } catch (e) { fail(document.getElementById("seat-calc"), "seat calculator"); }
-    if (r[8]) renderCoalition(r[8]);
     renderUpdates(r[9]);
     renderPolicies(r[2]);
     renderDebates(r[3]);

@@ -274,14 +274,6 @@ td.who { white-space: normal; min-width: 14rem; text-align: left; color: var(--m
 @media (max-width: 719px) { .bar-foot { flex-direction: column; gap: 0.2rem; } }
 .bar-foot a { white-space: nowrap; }
 
-/* Working together */
-.co-item + .co-item { margin-top: 0.9rem; padding-top: 0.9rem; border-top: 1px solid var(--rule); }
-.co-on { margin: 0 0 0.3rem; font-size: 0.85rem; font-weight: 600; color: var(--muted); }
-.co-item blockquote { margin: 0; padding: 0.55rem 0.8rem; background: var(--accent-soft); border-radius: var(--r-s) var(--r-m) var(--r-m) var(--r-m); }
-.co-reported { margin: 0; padding: 0.55rem 0.8rem; border: 1.5px dashed var(--rule); border-radius: var(--r-m); }
-.co-src { margin: 0.35rem 0 0; font-size: 0.85rem; color: var(--muted); }
-#policies .tool-card { margin-top: 1.5rem; }
-
 /* Debate series (e.g. Māori electorate debates) */
 .d-series { list-style: none; margin: 0.4rem 0 0; padding: 0; font-size: 0.9rem; }
 .debate-list .d-series li { display: block; padding: 0.35rem 0; margin: 0; border: 0; border-top: 1px solid var(--rule); border-radius: 0; background: none; box-shadow: none; }
@@ -362,7 +354,7 @@ td.who { white-space: normal; min-width: 14rem; text-align: left; color: var(--m
 /* Show more */
 .show-more { margin-top: 0.7rem; font: inherit; font-size: 0.92rem; font-weight: 600; min-height: 44px; padding: 0.4rem 1rem; border-radius: 999px; border: 1.5px solid var(--accent); background: transparent; color: var(--accent); cursor: pointer; }
 .show-more:hover { background: var(--accent-soft); }
-.pol[hidden], .co-item[hidden], blockquote[hidden] { display: none; }
+.pol[hidden], blockquote[hidden] { display: none; }
 /* Back to top */
 .to-top { position: fixed; right: 16px; bottom: 16px; z-index: 6; display: inline-flex; align-items: center; gap: 0.3rem; min-height: 44px; padding: 0 1rem; border-radius: 999px; background: var(--night); color: #fff; font-weight: 700; text-decoration: none; box-shadow: 0 6px 18px -6px rgba(0,0,0,0.45); }
 .to-top[hidden] { display: none; }
