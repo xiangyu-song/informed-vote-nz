@@ -475,45 +475,29 @@
   /* ---------- Debates ---------- */
   function renderDebates(data) {
     var list = document.getElementById("debate-list");
-    function nextDate(d) {
-      if (!d.series) return d.date;
-      var n = d.series.filter(function (x) { return x.date >= today; })[0];
-      return n ? n.date : d.series[d.series.length - 1].date;
-    }
-    function isUpcoming(d) { return nextDate(d) >= today; }
-    var upcoming = data.debates.filter(isUpcoming).sort(function (a, b) { return nextDate(a) < nextDate(b) ? -1 : 1; });
-    var held = data.debates.filter(function (d) { return !isUpcoming(d); }).sort(function (a, b) { return nextDate(a) < nextDate(b) ? 1 : -1; });
+    // A series (e.g. the Māori electorate debates) is shown as one entry per debate, like every other debate.
+    var debates = [];
+    data.debates.forEach(function (d) {
+      if (!d.series) { debates.push(d); return; }
+      d.series.forEach(function (x) {
+        var past = x.date < today;
+        debates.push({ date: x.date, time: x.time, name: d.name.split(":")[0] + ": " + x.label + " electorate debate", host: d.host, where: d.where,
+          who: "Candidates in " + x.label, link: d.link,
+          watch: { url: x.url, label: past ? "Watch again on MĀORI+" : "Watch live on MĀORI+" } });
+      });
+    });
+    var upcoming = debates.filter(function (d) { return d.date >= today; }).sort(function (a, b) { return a.date < b.date ? -1 : 1; });
+    var held = debates.filter(function (d) { return d.date < today; }).sort(function (a, b) { return a.date < b.date ? 1 : -1; });
     function item(d, isHeld) {
-      var dt = new Date(toDate(nextDate(d)));
+      var dt = new Date(toDate(d.date));
       var mon = new Intl.DateTimeFormat("en-NZ", { timeZone: "UTC", month: "short" }).format(dt);
-      var when = d.series
-        ? fmtDate(d.series[0].date, { weekday: undefined }) + " to " + fmtDate(d.series[d.series.length - 1].date, { weekday: undefined }) + " (" + d.series.length + " debates)"
-        : fmtDate(d.date) + (d.time ? ", " + d.time : "");
       var parts = [
-        el("span", { "class": "d-meta", text: when }),
+        el("span", { "class": "d-meta", text: fmtDate(d.date) + (d.time ? ", " + d.time : "") }),
         el("a", { "class": "d-name", href: d.link, text: d.name }),
         el("span", { "class": "d-meta", text: d.host + ", on " + d.where }),
         el("span", { "class": "d-meta", text: "Taking part: " + d.who })
       ];
-      if (d.series) {
-        var ul = el("ul", { "class": "d-series" }), pastRows = [];
-        var anyUpcoming = d.series.some(function (x) { return x.date >= today; });
-        d.series.forEach(function (x) {
-          var past = x.date < today;
-          var li = el("li", { "class": past ? "past" : "" });
-          if (past && anyUpcoming) pastRows.push(li);
-          ul.appendChild(li);
-          li.append.apply(li, [
-            el("span", { text: fmtDate(x.date, { weekday: "short" }) + ", " + x.time + ": " }),
-            el("a", { href: x.url, text: x.label + (past ? " (watch again)" : " (watch live)") })
-          ]);
-        });
-        var sbox = el("div", { "class": "d-series-box" }, [ul]);
-        foldExtras(sbox, pastRows, "earlier debate");
-        parts.push(sbox);
-      } else if (d.watch) {
-        parts.push(el("a", { "class": "d-video", href: d.watch.url }, [playIcon(), el("span", { text: d.watch.label })]));
-      }
+      if (d.watch) parts.push(el("a", { "class": "d-video", href: d.watch.url }, [playIcon(), el("span", { text: d.watch.label })]));
       return el("li", { "class": isHeld ? "held" : "" }, [
         el("span", { "class": "cal", "aria-hidden": "true" }, [el("span", { "class": "cal-m", text: mon }), el("span", { "class": "cal-d", text: String(dt.getUTCDate()) })]),
         el("div", null, parts)
