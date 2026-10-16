@@ -316,6 +316,7 @@ td.who { white-space: normal; min-width: 14rem; text-align: left; color: var(--m
 
 /* Seat calculator */
 .visually-hidden { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.seat-head { display: none; }
 .seat-calc { background: var(--surface); border-radius: var(--r-l); padding: 1rem 1.1rem; box-shadow: 0 1px 0 var(--rule); }
 .seat-inputs { display: grid; gap: 0.15rem; }
 .seat-row { display: grid; grid-template-columns: 1fr; gap: 0.2rem 0.8rem; padding: 0.55rem 0; border-bottom: 1px solid var(--rule); }
@@ -552,3 +553,45 @@ td.who { white-space: normal; min-width: 14rem; text-align: left; color: var(--m
 }
 
 .nowrap { white-space: nowrap; }
+
+/* ---------- Seat calculator: compact ---------- */
+.seat-row { padding: 0.3rem 0; }
+.seat-vote input[type=range] { height: 32px; }
+.seat-elec label { min-height: 32px; }
+.seat-num input { padding: 0.2rem 0.4rem; }
+.seat-reset { margin-top: 0.6rem; min-height: 40px; padding: 0.4rem 1rem; }
+.seat-out { margin-top: 0.8rem; }
+.seat-bar { height: 1.8rem; }
+.seat-hint { margin: 0.6rem 0 0.25rem; }
+.seat-list label { min-height: 36px; }
+.seat-note { margin-top: 0.5rem; font-size: 0.85rem; }
+@media (min-width: 960px) {
+  .seat-calc { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); grid-template-areas: "in out" "reset out"; gap: 0 1.6rem; align-items: start; }
+  .seat-inputs { grid-area: in; }
+  .seat-reset { grid-area: reset; justify-self: start; }
+  .seat-out { grid-area: out; margin-top: 0; position: sticky; top: 4.5rem; padding-left: 1.6rem; border-left: 1px solid var(--rule); }
+  .seat-row, .seat-head { display: grid; grid-template-columns: 9.6rem minmax(5rem, 1fr) 5.2rem 7.4rem; gap: 0 0.7rem; align-items: center; }
+  .seat-head { display: grid; padding: 0 0 0.3rem; border-bottom: 1px solid var(--rule); font-size: 0.8rem; font-weight: 700; color: var(--muted); }
+  .seat-head span:nth-child(2) { grid-column: 2 / 4; }
+  .se-text { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .seat-row input[type=range] { width: 100%; }
+  .seat-num input { width: 3.9rem; }
+  .seat-vote { display: contents; }
+  .seat-elec { font-size: 0.85rem; }
+  .seat-list, .seat-list { grid-template-columns: 1fr; gap: 0.2rem; }
+  .seat-list label { min-height: 32px; font-size: 0.92rem; }
+  .seat-total { font-size: 0.95rem; }
+}
+
+/* Phones and tablets: headings once, tick box only */
+@media (max-width: 959px) {
+  .seat-head { display: flex; justify-content: space-between; padding: 0 0 0.3rem; border-bottom: 1px solid var(--rule); font-size: 0.78rem; font-weight: 700; color: var(--muted); }
+  .seat-head span:nth-child(2) { display: none; }
+  .seat-row { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: 'name elec' 'range num'; gap: 0 0.7rem; padding: 0.35rem 0 0.25rem; }
+  .seat-vote { display: contents; }
+  .seat-vote input[type=range] { grid-area: range; height: 30px; width: 100%; }
+  .seat-elec { justify-content: flex-end; }
+  .seat-elec label { min-height: 30px; }
+  .seat-num input { width: 3.9rem; }
+  .se-text { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+}

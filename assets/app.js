@@ -595,6 +595,7 @@
     function reset() { codes.forEach(function (c) { state[c] = { v: pollAverage[c] || 0, e: 0 }; }); }
     reset();
     var rows = {}, form = el("div", { "class": "seat-inputs" });
+    form.appendChild(el("div", { "class": "seat-head", "aria-hidden": "true" }, [el("span", { text: "Party" }), el("span", { text: "Party vote" }), el("span", { text: "Wins electorate" })]));
     codes.forEach(function (c) {
       var id = "sv-" + c;
       var range = el("input", { type: "range", min: "0", max: "50", step: "0.1", id: id, "aria-describedby": id + "-n" });
@@ -610,7 +611,7 @@
       form.appendChild(el("div", { "class": "seat-row", style: "--pc:var(--p-" + c + ")" }, [
         el("label", { "for": id, "class": "seat-name" }, [el("span", { "class": "sw" }), el("span", { text: NAMES[c] })]),
         el("div", { "class": "seat-vote" }, [range, el("span", { "class": "seat-num", id: id + "-n" }, [num, "%"])]),
-        el("div", { "class": "seat-elec" }, [el("label", null, [tick, " Wins electorate"]), count])
+        el("div", { "class": "seat-elec" }, [el("label", null, [tick, el("span", { "class": "se-text", text: " Wins electorate" })]), count])
       ]));
     });
     var resetBtn = el("button", { type: "button", "class": "seat-reset", text: "Reset to the poll average" });
