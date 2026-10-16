@@ -1,8 +1,8 @@
-# Informed Vote NZ: Election 2026
+# Know Your Votes: an independent guide to the 2026 NZ election
 
 Free, neutral, phone-friendly information on the 2026 New Zealand general election: key voting dates, polls, party policies in each party's own words, and debates.
 
-Live site: https://xiangyu-song.github.io/informed-vote-nz/
+Live site: https://xiangyu-song.github.io/know-your-votes/
 
 - Every poll figure and policy quote links to its source.
 - Policies are quoted word for word from each party's own website.

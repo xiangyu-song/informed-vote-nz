@@ -674,3 +674,13 @@ details.more[open] > summary::before, .more-rules[open] > summary::before { tran
 
 /* How to vote box, now in Before you vote */
 #before .howto { margin: 1rem 0 0; }
+
+/* Site name with tagline */
+.site-name { flex-wrap: wrap; row-gap: 0; }
+.site-tag { font-weight: 500; font-size: 0.78rem; color: var(--lilac); opacity: 0.9; }
+.site-tag::before { content: "·"; margin: 0 0.4rem 0 0.1rem; }
+@media (max-width: 719px) {
+  .site-tag { flex-basis: 100%; padding-left: 1.65rem; font-size: 0.72rem; }
+  .site-tag::before { content: none; }
+  .top.compact .site-tag { display: none; }
+}
