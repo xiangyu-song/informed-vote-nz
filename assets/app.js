@@ -229,7 +229,7 @@
     var legend = el("ul", { "class": "trend-legend", "aria-label": "Highlight a party" });
     var focused = null;
     order.forEach(function (c) {
-      var b = el("button", { type: "button", "aria-pressed": "false", style: "--pc:var(--p-" + c + ")" }, [el("span", { "class": "sw" }), POLL_NAMES[c], el("span", { "class": "lv", text: latest[c].v.toFixed(1) + "%" })]);
+      var b = el("button", { type: "button", "aria-pressed": "false", style: "--pc:var(--p-" + c + ")" }, [el("span", { "class": "sw" }), POLL_NAMES[c]]);
       b.addEventListener("click", function () {
         focused = focused === c ? null : c;
         legend.querySelectorAll("button").forEach(function (x) { x.setAttribute("aria-pressed", "false"); });
