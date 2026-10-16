@@ -203,7 +203,7 @@
     });
     var ns = document.getElementById("next-step");
     if (today <= "2026-10-25") {
-      ns.innerHTML = "<strong>Check you're enrolled by Sunday 25 October.</strong> You can't enrol once voting starts. Enrol, check your details and find where to vote at <a href=\"https://vote.nz/\">vote.nz</a>, the Electoral Commission's official site.";
+      ns.innerHTML = "<strong>Check you're enrolled by Sunday 25 October.</strong> You can't enrol once voting starts. Enrol, check your details and find where to vote at <a href=\"https://vote.nz/\">vote.nz</a>, the Electoral Commission's site.";
     } else if (today <= "2026-11-06") {
       ns.innerHTML = "<strong>Voting is open.</strong> You can vote early at any voting place until election day. Find one at <a href=\"https://vote.nz/\">vote.nz</a>.";
     } else if (today === "2026-11-07") {
@@ -360,7 +360,7 @@
     chart.addEventListener("pointerleave", function (e) { if (e.pointerType === "mouse") hide(); });
     document.addEventListener("pointerdown", function (e) { if (!wrap.contains(e.target)) hide(); });
     wrap.appendChild(legend); wrap.appendChild(chart); wrap.appendChild(tip);
-    detail.textContent = "Point to or tap the chart (or use the arrow keys) to see the figures for a date and which polls ended that day, with links to each source.";
+    detail.textContent = "Point to or tap the chart (or use the arrow keys) to see the figures for a date and the polls that ended that day.";
     wrap.insertAdjacentElement("afterend", el("p", { "class": "lede", text: "Te Tai Tokerau Party isn't reported separately in most polls, so it isn't in these charts." }));
 
     var table = document.getElementById("poll-table");
@@ -374,7 +374,7 @@
     table.appendChild(body);
     table.appendChild(el("caption", { "class": "lede", text: "Figures as reported by each pollster. – means not reported separately." + (data.checked ? " Checked for new polls on " + fmtChecked(data.checked) + "." : "") }));
     var tbl = table.parentNode;
-    if (data.average_method) tbl.insertAdjacentElement("afterend", el("p", { "class": "lede", text: data.average_method + " Roy Morgan's fieldwork runs over about four weeks, so it is placed at the date fieldwork ended." }));
+    if (data.average_method) tbl.insertAdjacentElement("afterend", el("p", { "class": "lede", text: data.average_method }));
     if (data.not_included) tbl.insertAdjacentElement("afterend", el("p", { "class": "lede", text: data.not_included + (data.checked ? " (Checked " + fmtChecked(data.checked) + ".)" : "") }));
   }
 
@@ -492,7 +492,6 @@
       var parts = [
         el("span", { "class": "d-meta", text: when }),
         el("a", { "class": "d-name", href: d.link, text: d.name }),
-        isHeld ? el("span", { "class": "held-note", text: " (already held)" }) : null,
         el("span", { "class": "d-meta", text: d.host + ", on " + d.where }),
         el("span", { "class": "d-meta", text: "Taking part: " + d.who })
       ];

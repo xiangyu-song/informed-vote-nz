@@ -178,6 +178,6 @@
     }
   ],
   "not_included": "Not included because we couldn't confirm the figures from a published report we could check: Talbot Mills (August), Anacta (September) and RNZ–Reid Research (August). We'll add them if we can.",
-  "average_method": "Each party's 14-day average is weighted by sample size, so larger polls count for more. It is our own calculation, not a pollster's.",
+  "average_method": "Roy Morgan's fieldwork runs over about four weeks, so it's placed at the date fieldwork ended.",
   "checked": "2026-10-16"
 }

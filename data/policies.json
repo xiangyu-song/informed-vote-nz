@@ -7,15 +7,14 @@
   },
   "how_we_chose": [
     "Parties appear if they have a sitting MP or average 2% or more in recent nationwide polls, and publish policies on their own website.",
-    "For each topic we show up to three quotes per party. Policies are taken in the order the party lists them on its own website. Where a party has fewer than three policies on a topic, we add further commitments from the same pages, in the order they appear, so parties with fewer but broader pages aren't limited to one line. Each policy appears once, under the topic it fits best.",
-    "Each policy is shown as a direct quote from the party's own page, in quotation marks, with a link so you can read the full policy. Quotes are cut at about 20 words; '…' marks a cut, and [square brackets] mark words we added for clarity.",
-    "A tag shows the type of source: a policy page, the 2026 manifesto, a dated announcement, a long-term policy, or a petition.",
-    "Topic order: the four issues New Zealanders rated most important in the Ipsos Issues Monitor (July 2026) come first: cost of living, healthcare, the economy and housing. The rest are in alphabetical order.",
-    "Where topics meet: spending on one service (such as free doctor's visits) stays in that service's topic, and only overall budget plans (debt, surplus, overall spending) go under Tax and government spending. KiwiSaver and retirement savings go under Welfare and superannuation, unless the policy is a tax change. Policies aimed at Māori in a particular service stay in that service's topic; Te Tiriti o Waitangi covers the Treaty relationship itself, such as settlements, the Waitangi Tribunal, constitutional change, Māori representation and te reo. Energy bills go where the party frames them.",
-    "Where a party's policy pages don't cover a topic, we say so. This doesn't mean the party has no view on it.",
-    "Not covered on this site: foreign affairs, defence, agriculture and some social issues. See each party's own policy pages.",
     "Party order is shuffled each time the page loads, so no party is always first.",
-    "Each party's first quote on a topic is shown; tap \"Show more\" for the rest. The same rule applies to every party."
+    "Up to three quotes per party per topic, in the order the party lists its policies. The first is shown; \"Show more\" reveals the rest, for every party alike. If a party has fewer than three policies on a topic, we add further commitments from the same pages, in order. Each policy appears once, under the topic it fits best.",
+    "Quotes are the party's own words, in quotation marks, cut at about 20 words. '…' marks a cut, and [square brackets] mark words we added for clarity.",
+    "A tag shows the type of source: a policy page, the 2026 manifesto, a dated announcement, a long-term policy, or a petition.",
+    "Topic order: the four issues New Zealanders rated most important in the Ipsos Issues Monitor (July 2026) come first: cost of living, healthcare, the economy and housing. The rest are alphabetical.",
+    "Where topics meet: spending on one service (such as free doctor's visits) stays in that service's topic. Tax changes and overall budget plans (debt, surplus, total spending) go under Tax and government spending. KiwiSaver and retirement savings go under Welfare and superannuation, unless the policy is a tax change. Policies for Māori within a service stay in that service's topic; Te Tiriti o Waitangi covers the Treaty relationship itself, such as settlements, the Waitangi Tribunal, constitutional change, Māori representation and te reo. Energy bills go where the party frames them.",
+    "Where a party's policy pages don't cover a topic, we say so. This doesn't mean the party has no view on it.",
+    "Not covered on this site: foreign affairs, defence, agriculture and some social issues. See each party's own policy pages."
   ],
   "parties": [
     "ACT",
@@ -1340,7 +1339,7 @@
     }
   ],
   "recheck": [],
-  "verification": "All quotes checked word for word against the linked policy page on 15 Oct 2026 (20 corrected in the first check). Topics restructured to 11 on 15 Oct; the 17 new quotes were also checked word for word. Re-checked 16 Oct 2026: party policy pages for ACT, Labour, National, NZ First, Opportunity, Te Pāti Māori and Te Tai Tokerau Party; Te Tai Tokerau Party's tax holiday added under Tax and government spending (checked word for word).",
+  "verification": "Every quote was checked word for word against its linked page (first check 15 Oct 2026; 20 corrected). Policy pages are re-checked in the daily update; each \"Not covered\" note shows when that party's pages were last checked.",
   "topic_order_source": "https://www.ipsos.com/en-nz/ipsos-issues-monitor-july-2026",
   "checked_pages": {
     "ACT": "2026-10-16",
