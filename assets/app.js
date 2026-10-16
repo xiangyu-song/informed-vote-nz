@@ -530,67 +530,6 @@
     update();
   }
 
-  /* ---------- My voting plan ---------- */
-  function initPlan() {
-    var form = document.getElementById("plan-form"), out = document.getElementById("plan-out");
-    if (!form) return;
-    var V = "https://vote.nz/2026-general-election/voting-in-the-election/";
-    function link(href, text) { return el("a", { href: href, text: text }); }
-    function ics(events) {
-      var lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Informed Vote NZ//Voting plan//EN", "CALSCALE:GREGORIAN"];
-      events.forEach(function (e, i) {
-        lines.push("BEGIN:VEVENT", "UID:informedvote-" + i + "-" + e.start + "@xiangyu-song.github.io", "DTSTAMP:20261016T000000Z");
-        if (e.allDay) lines.push("DTSTART;VALUE=DATE:" + e.start, "DTEND;VALUE=DATE:" + e.end);
-        else lines.push("DTSTART:" + e.start, "DTEND:" + e.end);
-        function esc(t) { return t.replace(/([,;\\])/g, "\\$1"); }
-        lines.push("SUMMARY:" + esc(e.title), "DESCRIPTION:" + esc(e.desc + " Details: " + e.url), "URL:" + e.url, "END:VEVENT");
-      });
-      lines.push("END:VCALENDAR");
-      return "data:text/calendar;charset=utf-8," + encodeURIComponent(lines.join("\r\n"));
-    }
-    function render() {
-      var f = new FormData(form), en = f.get("enrolled"), wh = f.get("where"), wn = f.get("when");
-      document.getElementById("plan-when").hidden = wh === "overseas";
-      out.innerHTML = "";
-      if (!en || !wh || (wh === "nz" && !wn)) {
-        out.appendChild(el("p", { "class": "plan-hint", text: "Answer the questions above to see your checklist." }));
-        return;
-      }
-      var steps = [], events = [];
-      if (en === "yes") steps.push(["You're enrolled.", ["Your EasyVote card makes voting faster, but you can still vote without it."]]);
-      if (en === "unsure") {
-        steps.push(["Check or update your details by midnight, Sunday 25 October.", ["After that you can't update them. If you've moved and don't update, you may need a special vote, and if you're now in a different electorate only your party vote will count. ", link("https://vote.nz/enrolling/enrol-or-update/enrol-or-update-online", "Check or update online")]]);
-        events.push({ allDay: true, start: "20261025", end: "20261026", title: "Last day to enrol or update details (closes midnight)", desc: "Check or update your enrolment on vote.nz.", url: "https://vote.nz/enrolling/enrol-or-update/enrol-or-update-online" });
-      }
-      if (en === "no") {
-        steps.push(["Enrol by midnight, Sunday 25 October.", ["If you're not enrolled by then, you can't vote in this election. ", link("https://vote.nz/enrolling/enrol-or-update/enrol-or-update-online", "Enrol online")]]);
-        events.push({ allDay: true, start: "20261025", end: "20261026", title: "Last day to enrol (closes midnight)", desc: "Enrol on vote.nz.", url: "https://vote.nz/enrolling/enrol-or-update/enrol-or-update-online" });
-      }
-      if (wh === "overseas") {
-        steps.push(["Vote from overseas between Wednesday 21 October and 7pm NZ time on Saturday 7 November.", ["The easiest way: download your voting papers, fill them in and upload them. You may also be able to vote at an overseas voting place. ", link("https://vote.nz/2026-general-election/overseas/vote-from-overseas", "How to vote from overseas")]]);
-        events.push({ allDay: true, start: "20261021", end: "20261022", title: "Overseas voting opens", desc: "Download, complete and upload your voting papers by 7pm NZ time on 7 November.", url: "https://vote.nz/2026-general-election/overseas/vote-from-overseas" });
-      } else if (wn === "early") {
-        steps.push(["Vote early, from Monday 26 October.", ["You can vote at any voting place in New Zealand. Days and hours vary by voting place, so check before you go. ", link(V + "find-a-voting-place", "Find a voting place")]]);
-        events.push({ allDay: true, start: "20261026", end: "20261027", title: "Advance voting opens", desc: "Vote at any voting place in New Zealand. Check days and hours on vote.nz.", url: V + "find-a-voting-place" });
-      } else if (wn === "day") {
-        steps.push(["Vote on Saturday 7 November, between 9am and 7pm.", ["You can vote at any voting place in New Zealand. Some places are open only before election day, so check which are open on the day. ", link(V + "find-a-voting-place", "Find a voting place")]]);
-        events.push({ start: "20261106T200000Z", end: "20261107T060000Z", title: "Election day: vote between 9am and 7pm", desc: "Vote at any voting place in New Zealand.", url: V + "find-a-voting-place" });
-      } else if (wn === "cant") {
-        steps.push(["Arrange another way to vote.", ["Someone can collect your voting papers with a form you sign. Rest homes arrange voting with the home, and if you're going into hospital, vote early if you can. Telephone dictation is available if you're blind, have low vision or a disability (register by noon on 7 November). ", link(V + "cant-get-to-a-voting-place", "Can't get to a voting place?")]]);
-      }
-      steps.push(["At the voting place.", ["You don't need ID. Tick one party on the left and one candidate on the right, or just one of them. Made a mistake? Ask for a new voting paper. ", link(V + "what-to-do", "What to do")]]);
-      steps.push(["Need help?", ["You can bring a support person. Call the Electoral Commission free on ", el("a", { href: "tel:0800367656", text: "0800 36 76 56" }), "."]]);
-      var ol = el("ol", { "class": "plan-steps" });
-      steps.forEach(function (st) { ol.appendChild(el("li", null, [el("strong", { text: st[0] }), el("span", null, st[1])])); });
-      out.appendChild(el("h3", { text: "Your checklist" }));
-      out.appendChild(ol);
-      if (events.length) out.appendChild(el("a", { "class": "d-video tool-go", href: ics(events), download: "my-voting-plan.ics" }, ["Add " + (events.length > 1 ? "these dates" : "this date") + " to my calendar"]));
-      out.appendChild(el("p", { "class": "plan-note", text: "Dates and rules from vote.nz. If anything differs, the Electoral Commission's site is right." }));
-    }
-    form.addEventListener("change", render);
-    render();
-  }
-
   /* ---------- Working together ---------- */
   function renderCoalition(data) {
     var list = document.getElementById("coalition-list");
@@ -628,7 +567,7 @@
   function renderSources(data) {
     var where = { dates: document.querySelector(".dates-body"), votes: document.getElementById("two-votes"), polls: document.getElementById("polls"),
       policies: document.getElementById("policies"), compare: document.getElementById("compare"), debates: document.getElementById("debates"), parties: document.getElementById("parties"),
-      plan: document.getElementById("plan"), faq: document.getElementById("faq"), seats: document.getElementById("seats") };
+      seats: document.getElementById("seats") };
     Object.keys(data.sections).forEach(function (key) {
       if (!where[key]) return;
       var ol = el("ol");
@@ -661,7 +600,6 @@
     renderPolicies(r[2]);
     renderDebates(r[3]);
     renderParties(r[4]);
-    initPlan();
     renderSources(r[6]);
     markTeReo(document.getElementById("main"));
 

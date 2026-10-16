@@ -317,30 +317,6 @@ td.who { white-space: normal; min-width: 14rem; text-align: left; color: var(--m
 .issue-picker button { max-width: 100%; white-space: normal; text-align: left; }
 .debate-list li > div { min-width: 0; overflow-wrap: anywhere; }
 
-/* My voting plan */
-.plan-form { display: grid; gap: 0.8rem; }
-@media (min-width: 720px) { .plan-form { grid-template-columns: repeat(3, 1fr); } }
-.plan-form fieldset { margin: 0; padding: 0.9rem 1rem; border: 0; border-radius: var(--r-m); background: var(--surface); box-shadow: 0 1px 0 var(--rule); }
-.plan-form fieldset[hidden] { display: none; }
-.plan-form legend { float: left; width: 100%; font-weight: 800; margin-bottom: 0.4rem; }
-.plan-form label { display: flex; align-items: center; gap: 0.6rem; min-height: 44px; padding: 0 0.6rem; margin-top: 0.25rem; border: 1.5px solid var(--rule); border-radius: var(--r-s); cursor: pointer; }
-.plan-form label:has(input:checked) { border-color: var(--accent); background: var(--accent-soft); font-weight: 600; }
-.plan-form input { width: 1.15rem; height: 1.15rem; accent-color: var(--accent); margin: 0; flex: none; }
-.plan-out { margin-top: 1rem; padding: 1.1rem 1.2rem; border-radius: var(--r-l); background: var(--surface); box-shadow: 0 1px 0 var(--rule); }
-.plan-out h3 { margin: 0 0 0.5rem; }
-.plan-hint, .plan-note { color: var(--muted); margin: 0; }
-.plan-note { margin-top: 0.8rem; font-size: 0.88rem; }
-.plan-steps { margin: 0 0 1rem; padding-left: 1.3rem; }
-.plan-steps li { margin: 0 0 0.7rem; }
-.plan-steps strong { display: block; }
-/* Common questions */
-.faq details { background: var(--surface); border-radius: var(--r-m); box-shadow: 0 1px 0 var(--rule); margin: 0 0 0.5rem; }
-.faq summary { cursor: pointer; font-weight: 700; padding: 0.85rem 1rem; min-height: 44px; list-style: none; display: flex; justify-content: space-between; gap: 1rem; align-items: center; }
-.faq summary::-webkit-details-marker { display: none; }
-.faq summary::after { content: "+"; font-size: 1.3rem; line-height: 1; color: var(--accent); flex: none; }
-.faq details[open] summary::after { content: "\2212"; }
-.faq details p { margin: 0; padding: 0 1rem 0.9rem; }
-
 /* Seat calculator */
 .visually-hidden { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .seat-calc { background: var(--surface); border-radius: var(--r-l); padding: 1rem 1.1rem; box-shadow: 0 1px 0 var(--rule); }
