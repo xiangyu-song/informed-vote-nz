@@ -1,4 +1,4 @@
-# Know Your Votes: the 2026 NZ election, explained simply
+# Know Your Votes: Election 2026, explained
 
 Free, neutral, phone-friendly information on the 2026 New Zealand general election: key voting dates, polls, party policies in each party's own words, and debates.
 
