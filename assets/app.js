@@ -41,6 +41,8 @@
   function fmtDate(iso, opts) {
     return new Intl.DateTimeFormat("en-NZ", Object.assign({ timeZone: "UTC", weekday: "long", day: "numeric", month: "long" }, opts || {})).format(new Date(toDate(iso)));
   }
+  // "Checked" dates always show day, short month and year, e.g. "16 Oct 2026".
+  function fmtChecked(iso) { return new Intl.DateTimeFormat("en-NZ", { timeZone: "UTC", day: "numeric", month: "short", year: "numeric" }).format(new Date(toDate(iso))); }
   var GLOSS_RE = null, GLOSS_MAP = {};
   function setGlossary(g) {
     var keys = [];
@@ -220,8 +222,8 @@
     box.appendChild(el("p", { "class": "enrol-head" }, [el("strong", { text: pct.toFixed(2) + "% of eligible people are enrolled." }),
       " That leaves an estimated " + e.not_enrolled.toLocaleString("en-NZ") + " people not yet enrolled."]));
     box.appendChild(el("div", { "class": "enrol-bar", role: "img", "aria-label": pct.toFixed(2) + " percent enrolled" }, [el("span", { style: "width:" + pct + "%" })]));
-    box.appendChild(el("p", { "class": "enrol-src" }, [e.enrolled.toLocaleString("en-NZ") + " enrolled of about " + e.eligible.toLocaleString("en-NZ") + " eligible, as at " + fmtDate(e.as_at, { weekday: undefined }) + ". ",
-      el("a", { href: e.source, text: "Electoral Commission figures" }), ". Checked " + fmtDate(e.checked, { weekday: undefined }) + "."]));
+    box.appendChild(el("p", { "class": "enrol-src" }, [e.enrolled.toLocaleString("en-NZ") + " enrolled of about " + e.eligible.toLocaleString("en-NZ") + " eligible, as at " + fmtChecked(e.as_at) + ". ",
+      el("a", { href: e.source, text: "Electoral Commission figures" }), ". Checked " + fmtChecked(e.checked) + "."]));
   }
 
   /* ---------- Polls ---------- */
@@ -268,7 +270,7 @@
     var newest = polls[polls.length - 1];
     summary.appendChild(el("p", { "class": "bar-foot" }, [
       el("span", { text: "Dashed line: 5% threshold" }),
-      el("span", null, ["Most recent poll in this average: ", el("a", { href: newest.source, text: newest.pollster }), ", ends " + fmtDate(newest.end, { weekday: undefined }) + (data.checked ? ". Checked " + fmtDate(data.checked, { weekday: undefined }) : "")])
+      el("span", null, ["Most recent poll in this average: ", el("a", { href: newest.source, text: newest.pollster }), ", ends " + fmtDate(newest.end, { weekday: undefined }) + (data.checked ? ". Checked " + fmtChecked(data.checked) : "")])
     ]));
 
     // One chart, every party: dots are single polls, lines are 14-day averages.
@@ -370,10 +372,10 @@
         .concat(order.map(function (c) { return el("td", { text: p[c] === null || p[c] === undefined ? "–" : String(p[c]) }); }))));
     });
     table.appendChild(body);
-    table.appendChild(el("caption", { "class": "lede", text: "Figures as reported by each pollster. – means not reported separately." + (data.checked ? " Checked for new polls on " + fmtDate(data.checked, { weekday: undefined }) + "." : "") }));
+    table.appendChild(el("caption", { "class": "lede", text: "Figures as reported by each pollster. – means not reported separately." + (data.checked ? " Checked for new polls on " + fmtChecked(data.checked) + "." : "") }));
     var tbl = table.parentNode;
     if (data.average_method) tbl.insertAdjacentElement("afterend", el("p", { "class": "lede", text: data.average_method + " Roy Morgan's fieldwork runs over about four weeks, so it is placed at the date fieldwork ended." }));
-    if (data.not_included) tbl.insertAdjacentElement("afterend", el("p", { "class": "lede", text: data.not_included + (data.checked ? " (Checked " + fmtDate(data.checked, { weekday: undefined }) + ".)" : "") }));
+    if (data.not_included) tbl.insertAdjacentElement("afterend", el("p", { "class": "lede", text: data.not_included + (data.checked ? " (Checked " + fmtChecked(data.checked) + ".)" : "") }));
   }
 
   /* ---------- Policies ---------- */
@@ -398,7 +400,7 @@
       } else if (!items.length) {
         box.appendChild(el("p", { "class": "not-covered" }, [
           "Not covered on ", el("a", { href: data.policy_pages[party], text: party + "'s 2026 policy pages" }),
-          " (checked " + fmtDate(data.checked, { weekday: undefined }) + ")."
+          " (checked " + fmtChecked((data.checked_pages && data.checked_pages[party]) || data.checked) + ")."
         ]));
       }
       var extras = [];
@@ -709,7 +711,7 @@
       where[key].appendChild(el("details", { "class": "sources" }, [
         el("summary", { text: "Sources (" + data.sections[key].length + ")" }), ol,
         data.methods && data.methods[key] ? el("p", { text: data.methods[key] }) : null,
-        el("p", { "class": "src-for", text: "Checked " + fmtDate((data.checked_sections && data.checked_sections[key]) || data.checked, { weekday: undefined }) + "." })
+        el("p", { "class": "src-for", text: "Checked " + fmtChecked((data.checked_sections && data.checked_sections[key]) || data.checked) + "." })
       ]));
     });
   }
