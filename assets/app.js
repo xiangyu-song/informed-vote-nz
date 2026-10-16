@@ -677,7 +677,10 @@
         if (total > 100.05) target.appendChild(el("p", { "class": "seat-warn", text: "The party votes add up to " + total.toFixed(1) + "%, which is more than 100%. Lower some parties to make the result realistic." }));
         if (elecTotal > 71) target.appendChild(el("p", { "class": "seat-warn", text: "The electorates won add up to " + elecTotal + ", but there are only 71 electorates. Lower some parties to make the result realistic." }));
         var bar = el("div", labelled ? { "class": "seat-bar", role: "img", "aria-label": codes.filter(function (c) { return seats[c]; }).map(function (c) { return NAMES[c] + " " + seats[c]; }).join(", ") + " seats" } : { "class": "seat-bar" });
-        codes.forEach(function (c) { if (seats[c]) bar.appendChild(el("span", { style: "--pc:var(--p-" + c + ");flex:" + seats[c] })); });
+        // Parties ticked in "Add up" go first, so their combined seats can be read against the majority line.
+        var anyPicked = codes.some(function (c) { return picked[c] && seats[c]; });
+        var barOrder = codes.filter(function (c) { return picked[c]; }).concat(codes.filter(function (c) { return !picked[c]; }));
+        barOrder.forEach(function (c) { if (seats[c]) bar.appendChild(el("span", { "class": anyPicked && !picked[c] ? "dim" : "", style: "--pc:var(--p-" + c + ");flex:" + seats[c] })); });
         bar.appendChild(el("span", { "class": "seat-mid", style: "left:" + (need - 0.5) / house * 100 + "%" }));
         target.appendChild(el("p", { "class": "seat-total" }, [el("strong", { text: house + " seats" }), overhang ? " (including " + overhang + " overhang " + (overhang === 1 ? "seat" : "seats") + ")" : "", ". A government needs " + need + " (the dashed line)."]));
         target.appendChild(bar);

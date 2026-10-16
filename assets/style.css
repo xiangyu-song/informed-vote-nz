@@ -650,3 +650,5 @@ td.who { white-space: normal; min-width: 14rem; text-align: left; color: var(--m
   .seat-pick:has(input:disabled) { cursor: default; opacity: 0.4; }
   .seat-row:has(.seat-pick input:checked) { background: var(--accent-soft); }
 }
+
+.seat-bar span.dim { opacity: 0.28; }
