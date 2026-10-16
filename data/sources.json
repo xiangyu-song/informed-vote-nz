@@ -241,6 +241,58 @@
         "url": "https://vote.nz/2026-general-election/voting-in-the-election/candidates",
         "supports": "the candidates in each electorate and every party's list"
       }
+    ],
+    "plan": [
+      {
+        "title": "Enrol by 25 October",
+        "publisher": "Electoral Commission (vote.nz)",
+        "url": "https://vote.nz/2026-general-election/voting-in-the-election/enrol-by-25-october",
+        "supports": "enrolment deadline and what happens if you've moved"
+      },
+      {
+        "title": "What to do",
+        "publisher": "Electoral Commission (vote.nz)",
+        "url": "https://vote.nz/2026-general-election/voting-in-the-election/what-to-do",
+        "supports": "no ID needed, EasyVote card, how to fill in the voting paper, special votes"
+      },
+      {
+        "title": "Find a voting place",
+        "publisher": "Electoral Commission (vote.nz)",
+        "url": "https://vote.nz/2026-general-election/voting-in-the-election/find-a-voting-place",
+        "supports": "vote at any voting place; election day hours"
+      },
+      {
+        "title": "Key dates",
+        "publisher": "Electoral Commission (vote.nz)",
+        "url": "https://vote.nz/2026-general-election/about/key-dates",
+        "supports": "overseas voting from 21 October, advance voting from 26 October, election day hours, results dates"
+      },
+      {
+        "title": "Can't get to a voting place?",
+        "publisher": "Electoral Commission (vote.nz)",
+        "url": "https://vote.nz/2026-general-election/voting-in-the-election/cant-get-to-a-voting-place",
+        "supports": "collecting voting papers, rest homes, hospitals, telephone dictation dates"
+      },
+      {
+        "title": "How to vote from overseas",
+        "publisher": "Electoral Commission (vote.nz)",
+        "url": "https://vote.nz/2026-general-election/overseas/vote-from-overseas",
+        "supports": "overseas voting dates and download/upload service"
+      }
+    ],
+    "faq": [
+      {
+        "title": "What to expect at the voting place",
+        "publisher": "Electoral Commission (vote.nz)",
+        "url": "https://vote.nz/2026-general-election/voting-in-the-election/what-to-expect-at-the-voting-place",
+        "supports": "photos and posting rules on election day"
+      },
+      {
+        "title": "Need help to vote?",
+        "publisher": "Electoral Commission (vote.nz)",
+        "url": "https://vote.nz/2026-general-election/voting-in-the-election/need-help-to-vote",
+        "supports": "support person, telephone dictation, freephone number"
+      }
     ]
   },
   "methods": {

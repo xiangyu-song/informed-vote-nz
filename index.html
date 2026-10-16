@@ -18,12 +18,13 @@
     <p class="site-name"><svg class="mark" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M7 12.5l3.2 3.2L17 8.8"/></svg>Informed Vote NZ</p>
     <nav aria-label="Sections">
       <a href="#dates">Dates</a>
-      <a href="#two-votes">Your two votes</a>
+      <a href="#two-votes">Two votes</a>
+      <a href="#plan">How to vote</a>
       <a href="#polls">Polls</a>
       <a href="#policies">Policies</a>
       <a href="#compare">Vote Compass</a>
       <a href="#debates">Debates</a>
-      <a href="#parties">All parties</a>
+      <a href="#parties">Parties</a>
     </nav>
   </div>
 </header>
@@ -65,6 +66,49 @@
     </div>
     <p class="official">Find your electorate by address on <a href="https://vote.nz/">vote.nz</a>, the Electoral Commission's official site. The Commission also publishes the <a href="https://vote.nz/2026-general-election/voting-in-the-election/candidates">candidates standing in each electorate</a> and <a href="https://vote.nz/2026-general-election/voting-in-the-election/party-lists">every party's list</a> there.</p>
     <a class="d-video tool-go" href="https://vote.nz/maps/find-your-electorate-2026">Find your electorate</a>
+  </section>
+
+  <section id="plan" class="wrap block" aria-labelledby="plan-title">
+    <h2 id="plan-title">My voting plan</h2>
+    <p class="lede">Answer three quick questions to get a short checklist for how you'll vote, with links to the official steps on vote.nz. Nothing you choose is saved or sent anywhere.</p>
+    <form id="plan-form" class="plan-form" onsubmit="return false">
+      <fieldset>
+        <legend>1. Are you enrolled at your current address?</legend>
+        <label><input type="radio" name="enrolled" value="yes"> Yes, I've checked</label>
+        <label><input type="radio" name="enrolled" value="unsure"> Not sure, or I've moved</label>
+        <label><input type="radio" name="enrolled" value="no"> No, not yet</label>
+      </fieldset>
+      <fieldset>
+        <legend>2. Where will you be when voting is open?</legend>
+        <label><input type="radio" name="where" value="nz"> In New Zealand</label>
+        <label><input type="radio" name="where" value="overseas"> Overseas</label>
+      </fieldset>
+      <fieldset id="plan-when">
+        <legend>3. How would you like to vote?</legend>
+        <label><input type="radio" name="when" value="early"> Early, from 26 October</label>
+        <label><input type="radio" name="when" value="day"> On election day, 7 November</label>
+        <label><input type="radio" name="when" value="cant"> I can't get to a voting place</label>
+      </fieldset>
+    </form>
+    <div id="plan-out" class="plan-out" aria-live="polite"></div>
+  </section>
+
+  <section id="faq" class="wrap block" aria-labelledby="faq-title">
+    <h2 id="faq-title">Common questions</h2>
+    <p class="lede">Answers from the Electoral Commission's official site, vote.nz. Tap a question to open it. For anything else, call the Commission free on <a href="tel:0800367656">0800 36 76 56</a>.</p>
+    <div class="faq">
+      <details><summary>Do I need ID to vote?</summary><p>No. You don't need to take ID. Your EasyVote card makes voting faster, but if you don't have it or forget it, you can still vote. <a href="https://vote.nz/2026-general-election/voting-in-the-election/what-to-do">vote.nz: What to do</a></p></details>
+      <details><summary>Can I give my two votes to different parties?</summary><p>Yes. Your party vote and your electorate vote are separate: tick one party on the left side of the voting paper and one candidate on the right. You can also vote for only one of them. It's your choice. <a href="https://vote.nz/2026-general-election/voting-in-the-election/what-to-do">vote.nz: What to do</a></p></details>
+      <details><summary>Can I enrol or update my details on election day?</summary><p>No. You can't enrol or update your details after midnight on Sunday 25 October. If you're not enrolled by then, you can't vote in this election. <a href="https://vote.nz/2026-general-election/voting-in-the-election/enrol-by-25-october">vote.nz: Enrol by 25 October</a></p></details>
+      <details><summary>I've moved house. Can I still vote?</summary><p>Yes, but if you haven't updated your address you may need to make a special vote, and if your new address is in a different electorate, only your party vote will count. Update your address by midnight on 25 October to avoid this. <a href="https://vote.nz/2026-general-election/voting-in-the-election/enrol-by-25-october">vote.nz: Enrol by 25 October</a></p></details>
+      <details><summary>Can I vote anywhere, or only near home?</summary><p>You can vote at any voting place in New Zealand. If you vote away from your home electorate, you'll fill in a short "special declaration vote" form first. Some voting places open only before election day and some only on the day, and hours vary. <a href="https://vote.nz/2026-general-election/voting-in-the-election/find-a-voting-place">vote.nz: Find a voting place</a></p></details>
+      <details><summary>What if I make a mistake on my voting paper?</summary><p>Take the spoilt voting paper back and ask for another one. <a href="https://vote.nz/2026-general-election/voting-in-the-election/what-to-do">vote.nz: What to do</a></p></details>
+      <details><summary>I can't get to a voting place. What can I do?</summary><p>Someone can collect your voting papers for you with a form you sign, and return them before voting closes on election day. If you're in a rest home or care home, voting is arranged with the home. If you're going into hospital, it's best to vote early. If none of these work, your electorate manager can help. <a href="https://vote.nz/2026-general-election/voting-in-the-election/cant-get-to-a-voting-place">vote.nz: Can't get to a voting place?</a></p></details>
+      <details><summary>I'm blind, have low vision or a disability. How can I vote?</summary><p>You can bring a support person (a friend, family member or electoral official) who can go behind the screen with you. You can also vote by phone with the telephone dictation service: register by noon on 7 November (even if you've used it before); phone voting runs from 21 October until 7pm on election day. <a href="https://vote.nz/2026-general-election/voting-in-the-election/need-help-to-vote">vote.nz: Need help to vote?</a></p></details>
+      <details><summary>How do I vote from overseas?</summary><p>Overseas voting starts on Wednesday 21 October. The easiest way is to download your voting papers from vote.nz, fill them in and upload them by 7pm (NZ time) on election day. You may also be able to vote at an overseas voting place. <a href="https://vote.nz/2026-general-election/overseas/vote-from-overseas">vote.nz: Vote from overseas</a></p></details>
+      <details><summary>Can I post a photo or share my vote online?</summary><p>Please don't film or take photos in a voting place. From midnight before election day until 7pm on election day, you can't post or share anything likely to influence how people vote. <a href="https://vote.nz/2026-general-election/voting-in-the-election/what-to-expect-at-the-voting-place">vote.nz: What to expect at the voting place</a></p></details>
+      <details><summary>When will we know the results?</summary><p>Preliminary results are released from 7pm on election night at electionresults.govt.nz. Official results are declared on 27 November. <a href="https://vote.nz/2026-general-election/about/key-dates">vote.nz: Key dates</a></p></details>
+    </div>
   </section>
 
   <section id="polls" class="wrap block" aria-labelledby="polls-title">
