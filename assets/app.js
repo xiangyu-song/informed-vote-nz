@@ -522,8 +522,6 @@
     });
   });
 
-  // Key dates: folded on phones (the countdowns already show the main dates).
-  (function () { var tb = document.querySelector(".timeline-box"); if (tb && window.matchMedia("(max-width: 719px)").matches) tb.removeAttribute("open"); })();
 
   /* ---------- Header: compact on phones after scrolling, and show where you are ---------- */
   (function () {
