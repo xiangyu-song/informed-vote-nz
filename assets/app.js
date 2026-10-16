@@ -173,7 +173,7 @@
     if (days > 2) count.textContent = (days - 1) + " days to go";
     else if (days === 2) count.textContent = "1 day to go";
     else if (days === 1) count.textContent = "That's tomorrow";
-    else if (days === 0) count.textContent = "That's today. Voting places are open 9am to 7pm.";
+    else if (days === 0) count.textContent = "Today is election day";
     else count.textContent = "Voting has closed. Results are at electionresults.govt.nz.";
 
     var list = document.getElementById("timeline");
@@ -195,7 +195,7 @@
     } else if (today <= "2026-11-06") {
       ns.innerHTML = "<strong>Voting is open.</strong> You can vote early at any voting place until election day. Find one at <a href=\"https://vote.nz/\">vote.nz</a>.";
     } else if (today === "2026-11-07") {
-      ns.innerHTML = "<strong>Voting places are open 9am to 7pm today.</strong> Find one at <a href=\"https://vote.nz/\">vote.nz</a>.";
+      ns.innerHTML = "<strong>Voting places are open 9am to 7pm today.</strong> Find one at <a href=\"https://vote.nz/\">vote.nz</a>, the Electoral Commission's official site.";
     } else {
       ns.innerHTML = "Preliminary results are on <a href=\"https://www.electionresults.govt.nz/\">electionresults.govt.nz</a>. Official results are declared on 27 November.";
     }
