@@ -160,7 +160,8 @@
      "label": "Tāmaki Makaurau",
      "url": "https://www.maoriplus.co.nz/show/whakatau-election-2026-tamaki-makaurau"
     }
-   ]
+   ],
+   "live_url": "https://www.maoriplus.co.nz/live"
   },
   {
    "date": "2026-10-27",
@@ -174,7 +175,8 @@
     "url": "https://www.maoriplus.co.nz/show/whakatau-election-2026-anamata-the-future-generations-debate",
     "label": "Watch on MĀORI+",
     "checked": "page opened"
-   }
+   },
+   "live_url": "https://www.maoriplus.co.nz/live"
   },
   {
    "date": "2026-10-28",
@@ -188,9 +190,10 @@
     "url": "https://www.whakaatamaori.co.nz/media-releases/whakatau-2026",
     "label": "Where to watch (Whakaata Māori)",
     "checked": "page opened"
-   }
+   },
+   "live_url": "https://www.maoriplus.co.nz/live"
   }
  ],
  "to_check": "Other outlets (RNZ, Whakaata Māori, regional debates); Te Tai Tokerau Party participation",
- "video_rule": "Watch links go to the broadcaster's own page; videos are never embedded or copied. TVNZ+ may ask you to sign in with a free account."
+ "video_rule": "Watch links go to the broadcaster's own page; videos are never embedded or copied. TVNZ+ may ask you to sign in with a free account. Where a debate has a live_url, the watch link goes there until the debate date has passed, then to its replay page."
 }
