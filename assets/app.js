@@ -167,14 +167,24 @@
 
   /* ---------- Dates ---------- */
   function renderDates(data) {
-    var days = Math.round((toDate("2026-11-07") - toDate(today)) / DAY);
-    var count = document.getElementById("countdown");
-    // Count the full days left before election day (today and election day not counted).
-    if (days > 2) count.textContent = (days - 1) + " days to go";
-    else if (days === 2) count.textContent = "1 day to go";
-    else if (days === 1) count.textContent = "That's tomorrow";
-    else if (days === 0) count.textContent = "Today is election day";
-    else count.textContent = "Voting has closed. Results are at electionresults.govt.nz.";
+    // Countdowns: full days left before each date (today and the date itself not counted).
+    var cds = document.getElementById("countdowns");
+    [["Advance voting", "2026-10-26", "2026-11-06", "Advance voting is open"],
+     ["Election day", "2026-11-07", null, "Today is election day"],
+     ["Official results", "2026-11-27", null, "Official results today"]].forEach(function (c, i) {
+      var d = Math.round((toDate(c[1]) - toDate(today)) / DAY), big, small;
+      if (d > 1) { big = String(d - 1); small = (d - 1 === 1 ? "day" : "days") + " to go"; }
+      else if (d === 1) { big = "Tomorrow"; small = ""; }
+      else if (d === 0) { big = "Today"; small = ""; }
+      else if (c[2] && today <= c[2]) { big = "Open"; small = "until " + fmtDate(c[2], { weekday: undefined, month: "short" }); }
+      else { big = "Done"; small = ""; }
+      cds.appendChild(el("li", { "class": i === 1 ? "main" : "" }, [
+        el("span", { "class": "cd-label", text: c[0] }),
+        el("span", { "class": "cd-big", text: big }),
+        small ? el("span", { "class": "cd-small", text: small }) : null,
+        el("span", { "class": "cd-date", text: (c[0] === "Advance voting" ? "Opens " : "") + fmtDate(c[1], { weekday: undefined, month: "short" }) })
+      ]));
+    });
 
     var list = document.getElementById("timeline");
     var next = null, markerPlaced = false;
@@ -199,6 +209,18 @@
     } else {
       ns.innerHTML = "Preliminary results are on <a href=\"https://www.electionresults.govt.nz/\">electionresults.govt.nz</a>. Official results are declared on 27 November.";
     }
+  }
+
+  /* ---------- Enrolment (official Electoral Commission figures) ---------- */
+  function renderEnrolment(e) {
+    var box = document.getElementById("enrolment");
+    if (!box || !e) return;
+    var pct = e.percent;
+    box.appendChild(el("p", { "class": "enrol-head" }, [el("strong", { text: pct.toFixed(2) + "% of eligible people are enrolled." }),
+      " That leaves an estimated " + e.not_enrolled.toLocaleString("en-NZ") + " people not yet enrolled."]));
+    box.appendChild(el("div", { "class": "enrol-bar", role: "img", "aria-label": pct.toFixed(2) + " percent enrolled" }, [el("span", { style: "width:" + pct + "%" })]));
+    box.appendChild(el("p", { "class": "enrol-src" }, [e.enrolled.toLocaleString("en-NZ") + " enrolled of about " + e.eligible.toLocaleString("en-NZ") + " eligible, as at " + fmtDate(e.as_at, { weekday: undefined }) + ". ",
+      el("a", { href: e.source, text: "Electoral Commission figures" }), ". Checked " + fmtDate(e.checked, { weekday: undefined }) + "."]));
   }
 
   /* ---------- Polls ---------- */
@@ -687,13 +709,14 @@
 
   Promise.all([
     getJSON("data/dates.json"), getJSON("data/polls.json"), getJSON("data/policies.json"),
-    getJSON("data/debates.json"), getJSON("data/parties.json"), getJSON("data/site.json"), getJSON("data/sources.json"), getJSON("data/glossary.json").catch(function () { return null; }), null, getJSON("data/updates.json").catch(function () { return null; })
+    getJSON("data/debates.json"), getJSON("data/parties.json"), getJSON("data/site.json"), getJSON("data/sources.json"), getJSON("data/glossary.json").catch(function () { return null; }), getJSON("data/enrolment.json").catch(function () { return null; }), getJSON("data/updates.json").catch(function () { return null; })
   ]).then(function (r) {
     if (r[7]) {
       setGlossary(r[7]);
     }
     partyOrder = shuffle(r[2].parties);
     renderDates(r[0]);
+    renderEnrolment(r[8]);
     try { renderPolls(r[1]); } catch (e) { fail(document.getElementById("poll-charts"), "polls"); }
     try { renderSeats(); } catch (e) { fail(document.getElementById("seat-calc"), "seat calculator"); }
     renderUpdates(r[9]);

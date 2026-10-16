@@ -31,6 +31,12 @@
         "publisher": "Electoral Commission (vote.nz)",
         "url": "https://vote.nz/2026-general-election/voting-in-the-election/find-a-voting-place",
         "supports": "you can vote at any voting place in New Zealand; election day hours"
+      },
+      {
+        "title": "Enrolment by general electorate (national total)",
+        "publisher": "Electoral Commission",
+        "url": "https://elections.nz/stats-and-research/enrolment-statistics/enrolment-by-general-electorate",
+        "supports": "enrolment figures as at 30 September 2026 (eligible population is a provisional estimate as at 30 June 2025)"
       }
     ],
     "polls": [

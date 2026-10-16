@@ -1,0 +1,10 @@
+{
+ "as_at": "2026-09-30",
+ "enrolled": 3677600,
+ "eligible": 4051640,
+ "percent": 90.77,
+ "not_enrolled": 374040,
+ "source": "https://elections.nz/stats-and-research/enrolment-statistics/enrolment-by-general-electorate",
+ "population_note": "Eligible population is the Electoral Commission's provisional estimate as at 30 June 2025.",
+ "checked": "2026-10-16"
+}

@@ -2,6 +2,10 @@
  "updates": [
   {
    "date": "2026-10-16",
+   "text": "Added countdowns to advance voting, election day and official results, plus the Electoral Commission's latest enrolment figures."
+  },
+  {
+   "date": "2026-10-16",
    "text": "Added the Electoral Commission's 2-minute video explaining MMP to 'Your two votes'."
   },
   {
