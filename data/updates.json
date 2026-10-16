@@ -1,36 +1,40 @@
 {
- "updates": [
-  {
-   "date": "2026-10-16",
-   "text": "Added countdowns to advance voting, election day and official results, plus the Electoral Commission's latest enrolment figures."
-  },
-  {
-   "date": "2026-10-16",
-   "text": "Added the Electoral Commission's 2-minute video explaining MMP to 'Your two votes'."
-  },
-  {
-   "date": "2026-10-16",
-   "text": "Added a seat calculator: change the party votes to see how the 120 seats would be shared."
-  },
-  {
-   "date": "2026-10-16",
-   "text": "Poll charts now use party colours, and all parties are shown together in one trend chart."
-  },
-  {
-   "date": "2026-10-16",
-   "text": "Added the Whakaata Māori debates: the seven Māori electorate debates, Anamata – The Future Generations Debate and the Māori Leaders' Debate."
-  },
-  {
-   "date": "2026-10-16",
-   "text": "Accessibility improvements: better reflow on small screens, clearer headings for screen readers, and te reo Māori words marked for correct pronunciation."
-  },
-  {
-   "date": "2026-10-15",
-   "text": "Policies now show up to three quotes per party per topic, and link to Policy.nz for more detail."
-  },
-  {
-   "date": "2026-10-15",
-   "text": "Latest poll added: 1News–Verian, 8–12 October."
-  }
- ]
+  "updates": [
+    {
+      "date": "2026-10-16",
+      "text": "Re-checked every party's policy page. Te Tai Tokerau Party's tax holiday for new local businesses is now shown under Tax and government spending."
+    },
+    {
+      "date": "2026-10-16",
+      "text": "Added countdowns to advance voting, election day and official results, plus the Electoral Commission's latest enrolment figures."
+    },
+    {
+      "date": "2026-10-16",
+      "text": "Added the Electoral Commission's 2-minute video explaining MMP to 'Your two votes'."
+    },
+    {
+      "date": "2026-10-16",
+      "text": "Added a seat calculator: change the party votes to see how the 120 seats would be shared."
+    },
+    {
+      "date": "2026-10-16",
+      "text": "Poll charts now use party colours, and all parties are shown together in one trend chart."
+    },
+    {
+      "date": "2026-10-16",
+      "text": "Added the Whakaata Māori debates: the seven Māori electorate debates, Anamata – The Future Generations Debate and the Māori Leaders' Debate."
+    },
+    {
+      "date": "2026-10-16",
+      "text": "Accessibility improvements: better reflow on small screens, clearer headings for screen readers, and te reo Māori words marked for correct pronunciation."
+    },
+    {
+      "date": "2026-10-15",
+      "text": "Policies now show up to three quotes per party per topic, and link to Policy.nz for more detail."
+    },
+    {
+      "date": "2026-10-15",
+      "text": "Latest poll added: 1News–Verian, 8–12 October."
+    }
+  ]
 }

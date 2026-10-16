@@ -1,5 +1,5 @@
 {
-  "checked": "2026-10-15",
+  "checked": "2026-10-16",
   "display": {
     "quote_label": "In their words:",
     "not_covered": "Not covered on {party}'s 2026 policy pages (checked {date}).",
@@ -1082,7 +1082,14 @@
             ]
           }
         ],
-        "Te Tai Tokerau Party": []
+        "Te Tai Tokerau Party": [
+          {
+            "name": "Local Business Ruruhau Policy — The 5-Year Innovator Tax Holiday",
+            "quote": "businesses founded, registered, and operating out of the incubators receive a 100% exemption from regional corporate income tax for their first five years, provided local payroll and staffing targets are met.",
+            "source_type": "Policy page",
+            "url": "https://tetaitokerauparty.org.nz/our-policies/"
+          }
+        ]
       }
     },
     {
@@ -1333,16 +1340,16 @@
     }
   ],
   "recheck": [],
-  "verification": "All quotes checked word for word against the linked policy page on 15 Oct 2026 (20 corrected in the first check). Topics restructured to 11 on 15 Oct; the 17 new quotes were also checked word for word.",
+  "verification": "All quotes checked word for word against the linked policy page on 15 Oct 2026 (20 corrected in the first check). Topics restructured to 11 on 15 Oct; the 17 new quotes were also checked word for word. Re-checked 16 Oct 2026: party policy pages for ACT, Labour, National, NZ First, Opportunity, Te Pāti Māori and Te Tai Tokerau Party; Te Tai Tokerau Party's tax holiday added under Tax and government spending (checked word for word).",
   "topic_order_source": "https://www.ipsos.com/en-nz/ipsos-issues-monitor-july-2026",
   "checked_pages": {
-    "ACT": "2026-10-15",
+    "ACT": "2026-10-16",
     "Green": "2026-10-15",
-    "Labour": "2026-10-15",
-    "National": "2026-10-15",
-    "NZ First": "2026-10-15",
+    "Labour": "2026-10-16",
+    "National": "2026-10-16",
+    "NZ First": "2026-10-16",
     "Opportunity": "2026-10-16",
     "Te Pāti Māori": "2026-10-16",
-    "Te Tai Tokerau Party": "2026-10-15"
+    "Te Tai Tokerau Party": "2026-10-16"
   }
 }
