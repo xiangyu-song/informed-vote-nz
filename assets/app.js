@@ -185,7 +185,7 @@
       summary.appendChild(el("div", { "class": "bar-row", role: "img", "aria-label": POLL_NAMES[c] + ": " + v.toFixed(1) + " percent" }, [
         el("span", { "class": "bar-name", text: POLL_NAMES[c] }),
         el("span", { "class": "bar-track" }, [
-          el("span", { "class": "bar-fill", style: "width:" + (v / sMax * 100).toFixed(2) + "%" }),
+          el("span", { "class": "bar-fill p", style: "--pc:var(--p-" + c + ");width:" + (v / sMax * 100).toFixed(2) + "%" }),
           el("span", { "class": "bar-thr", style: "left:" + (5 / sMax * 100) + "%" })
         ]),
         el("span", { "class": "bar-val", text: v.toFixed(1) + "%" })
@@ -197,56 +197,81 @@
       el("span", null, ["Most recent poll in this average: ", el("a", { href: newest.source, text: newest.pollster }), ", ends " + fmtDate(newest.end, { weekday: undefined })])
     ]));
 
-    order.forEach(function (code) {
-      var pts = polls.filter(function (p) { return p[code] !== null && p[code] !== undefined; });
-      var avg = trailing(code); // 14-day average at each poll's end date
-      var last = avg[avg.length - 1];
-
-      var svg = svgEl("svg", { viewBox: "0 0 " + W + " " + H, role: "img", "aria-label": POLL_NAMES[code] + " party vote in polls since August. Latest 14-day average " + last.v.toFixed(1) + " percent." });
-      svg.appendChild(svgEl("line", { "class": "base", x1: L, x2: W - R, y1: sy(0), y2: sy(0) }));
-      svg.appendChild(svgEl("line", { "class": "thr", x1: L, x2: W - R, y1: sy(5), y2: sy(5) }));
-      var tl = svgEl("text", { "class": "thr-label", x: 0, y: sy(5) + 4 }); tl.textContent = "5%"; svg.appendChild(tl);
-      svg.appendChild(svgEl("line", { "class": "base", x1: L, x2: W - R, y1: sy(30), y2: sy(30) }));
-      var g30 = svgEl("text", { "class": "axis", x: 0, y: sy(30) + 4 }); g30.textContent = "30%"; svg.appendChild(g30);
-      [["2026-08-01", "Aug"], ["2026-09-01", "Sep"], ["2026-10-01", "Oct"], ["2026-11-01", "Nov"]].forEach(function (m) {
-        var t = toDate(m[0]); if (t > x1) return;
-        var a = svgEl("text", { "class": "axis", x: sx(t), y: H - 2 }); a.textContent = m[1]; svg.appendChild(a);
-      });
-      var d = avg.map(function (a, i) { return (i ? "L" : "M") + sx(a.t).toFixed(1) + "," + sy(a.v).toFixed(1); }).join("");
-      svg.appendChild(svgEl("path", { "class": "avg", d: d }));
-      var note = el("p", { "class": "mult-note", "aria-live": "polite", hidden: "" });
-      pts.forEach(function (p) {
-        var cx = sx(toDate(p.end)), cy = sy(p[code]);
-        var hit = svgEl("circle", { "class": "hit", cx: cx, cy: cy, r: 10, tabindex: 0, role: "button",
-          "aria-label": p.pollster + ", " + p.fieldwork + ": " + POLL_NAMES[code] + " " + p[code] + "%" });
-        var dot = svgEl("circle", { "class": "dot", cx: cx, cy: cy, r: 4 });
-        function show() {
-          wrap.querySelectorAll(".dot.on").forEach(function (n) { n.classList.remove("on"); });
-          dot.classList.add("on");
-          wrap.querySelectorAll(".mult-note").forEach(function (n) { n.hidden = true; n.innerHTML = ""; });
-          note.hidden = false;
-          note.appendChild(el("span", null, [
-            el("strong", { text: POLL_NAMES[code] + " " + p[code] + "%" }),
-            " in the " + p.pollster + " poll, " + p.fieldwork + (p.sample ? " (" + p.sample.toLocaleString("en-NZ") + " people). " : ". ") + (p.commissioned_by ? p.commissioned_by + ". " : ""),
-            el("a", { href: p.source, text: "Source" })
-          ]));
-        }
-        hit.addEventListener("click", show);
-        hit.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); show(); } });
-        svg.appendChild(hit); svg.appendChild(dot);
-      });
-
-      wrap.appendChild(el("div", { "class": "mult" }, [
-        el("div", { "class": "mult-head" }, [
-          el("span", { "class": "mult-name", text: POLL_NAMES[code] }),
-          el("span", { "class": "mult-value", text: last.v.toFixed(1) + "%" })
-        ]),
-        svg,
-        note
-      ]));
+    // One chart, every party: dots are single polls, lines are 14-day averages.
+    // Size the drawing to the box, so text stays readable on phones.
+    var CW = Math.round(Math.max(300, Math.min(760, (wrap.clientWidth || 640) - 28))), CH = CW < 520 ? 300 : 340, CL = 34, CR = 12, CT = 10, CB = 26, cMax = 35;
+    function cx(t) { return CL + (t - x0) / (x1 - x0) * (CW - CL - CR); }
+    function cy(v) { return CT + (1 - v / cMax) * (CH - CT - CB); }
+    var avgs = {}; order.forEach(function (c) { avgs[c] = trailing(c); });
+    function avgAt(c, t) { var a = avgs[c].filter(function (x) { return x.t <= t; }); return a.length ? a[a.length - 1].v : null; }
+    var chart = svgEl("svg", { viewBox: "0 0 " + CW + " " + CH, role: "img",
+      "aria-label": "Party vote in nationwide polls since August, with each party's 14-day average. Latest averages: " + order.map(function (c) { return POLL_NAMES[c] + " " + latest[c].v.toFixed(1) + "%"; }).join(", ") + ". Every figure is in the table below." });
+    [0, 10, 20, 30].forEach(function (g) {
+      chart.appendChild(svgEl("line", { "class": "grid", x1: CL, x2: CW - CR, y1: cy(g), y2: cy(g) }));
+      var t = svgEl("text", { "class": "axis", x: CL - 6, y: cy(g) + 4, "text-anchor": "end" }); t.textContent = g + "%"; chart.appendChild(t);
     });
-    detail.textContent = "Tap any dot to see that poll and its source just below the chart. The dashed line is the 5% party-vote threshold; a party also gets list seats if it wins an electorate.";
-    wrap.insertAdjacentElement("afterend", el("p", { "class": "lede", text: "Te Tai Tokerau Party isn't reported separately in most polls, so it has no chart." }));
+    chart.appendChild(svgEl("line", { "class": "thr", x1: CL, x2: CW - CR, y1: cy(5), y2: cy(5) }));
+    var t5 = svgEl("text", { "class": "axis", x: CL - 6, y: cy(5) + 4, "text-anchor": "end" }); t5.textContent = "5%"; chart.appendChild(t5);
+    [["2026-08-01", "Aug"], ["2026-09-01", "Sep"], ["2026-10-01", "Oct"], ["2026-11-01", "Nov"]].forEach(function (m) {
+      var t = toDate(m[0]); if (t > x1) return;
+      var a = svgEl("text", { "class": "axis", x: cx(t), y: CH - 6, "text-anchor": t === x0 ? "start" : "middle" }); a.textContent = m[1]; chart.appendChild(a);
+    });
+    var groups = {};
+    order.slice().reverse().forEach(function (c) {
+      var g = svgEl("g", { style: "--pc:var(--p-" + c + ")" });
+      polls.forEach(function (p) { if (p[c] !== null && p[c] !== undefined) g.appendChild(svgEl("circle", { "class": "pdot", cx: cx(toDate(p.end)), cy: cy(p[c]), r: 3.5 })); });
+      g.appendChild(svgEl("path", { "class": "line", d: avgs[c].map(function (a, i) { return (i ? "L" : "M") + cx(a.t).toFixed(1) + "," + cy(a.v).toFixed(1); }).join("") }));
+      groups[c] = g; chart.appendChild(g);
+    });
+    var cross = svgEl("line", { "class": "cross", y1: CT, y2: CH - CB, hidden: "" });
+    chart.appendChild(cross);
+
+    var legend = el("ul", { "class": "trend-legend", "aria-label": "Highlight a party" });
+    var focused = null;
+    order.forEach(function (c) {
+      var b = el("button", { type: "button", "aria-pressed": "false", style: "--pc:var(--p-" + c + ")" }, [el("span", { "class": "sw" }), POLL_NAMES[c], el("span", { "class": "lv", text: latest[c].v.toFixed(1) + "%" })]);
+      b.addEventListener("click", function () {
+        focused = focused === c ? null : c;
+        legend.querySelectorAll("button").forEach(function (x) { x.setAttribute("aria-pressed", "false"); });
+        Object.keys(groups).forEach(function (k) { groups[k].classList.toggle("on", k === focused); });
+        wrap.classList.toggle("focus", !!focused);
+        if (focused) b.setAttribute("aria-pressed", "true");
+      });
+      legend.appendChild(el("li", null, [b]));
+    });
+    var tip = el("div", { "class": "trend-tip", hidden: "" });
+    var ends = polls.map(function (p) { return toDate(p.end); }).filter(function (t, i, a) { return a.indexOf(t) === i; });
+    function showAt(clientX) {
+      var r = chart.getBoundingClientRect();
+      var vx = (clientX - r.left) / r.width * CW;
+      var t = ends.reduce(function (best, e) { return Math.abs(cx(e) - vx) < Math.abs(cx(best) - vx) ? e : best; }, ends[0]);
+      var x = cx(t);
+      cross.setAttribute("x1", x); cross.setAttribute("x2", x); cross.removeAttribute("hidden");
+      var iso = new Date(t).toISOString().slice(0, 10);
+      var rows = order.map(function (c) { return [c, avgAt(c, t)]; }).filter(function (r) { return r[1] !== null; }).sort(function (a, b) { return b[1] - a[1]; });
+      tip.innerHTML = "";
+      tip.appendChild(el("strong", { text: "14-day average, " + fmtDate(iso, { weekday: undefined }) }));
+      var ol = el("ol");
+      rows.forEach(function (r) { ol.appendChild(el("li", { style: "--pc:var(--p-" + r[0] + ")" }, [el("span", null, [el("span", { "class": "sw" }), POLL_NAMES[r[0]]]), el("b", { text: r[1].toFixed(1) + "%" })])); });
+      tip.appendChild(ol);
+      tip.hidden = false;
+      var px = x / CW * r.width, wr = wrap.getBoundingClientRect();
+      var left = px + (r.left - wr.left) + 12;
+      if (left + tip.offsetWidth > wr.width - 8) left = px + (r.left - wr.left) - tip.offsetWidth - 12;
+      tip.style.left = Math.max(8, left) + "px";
+      var ended = polls.filter(function (p) { return p.end === iso; });
+      detail.innerHTML = "";
+      detail.appendChild(el("span", null, [el("strong", { text: "Polls ending " + fmtDate(iso, { weekday: undefined }) + ": " })].concat(
+        ended.reduce(function (acc, p, i) { if (i) acc.push("; "); acc.push(el("a", { href: p.source, text: p.pollster }), " (" + p.fieldwork + (p.commissioned_by ? ". " + p.commissioned_by : "") + ")"); return acc; }, []))));
+    }
+    function hide() { tip.hidden = true; cross.setAttribute("hidden", ""); }
+    chart.addEventListener("pointermove", function (e) { showAt(e.clientX); });
+    chart.addEventListener("pointerdown", function (e) { showAt(e.clientX); });
+    chart.addEventListener("pointerleave", function (e) { if (e.pointerType === "mouse") hide(); });
+    document.addEventListener("pointerdown", function (e) { if (!wrap.contains(e.target)) hide(); });
+    wrap.appendChild(legend); wrap.appendChild(chart); wrap.appendChild(tip);
+    detail.textContent = "Point to or tap the chart to see which polls ended on that date, with links to each source.";
+    wrap.insertAdjacentElement("afterend", el("p", { "class": "lede", text: "Te Tai Tokerau Party isn't reported separately in most polls, so it isn't in these charts." }));
 
     var table = document.getElementById("poll-table");
     var head = el("tr", null, [el("th", { text: "Poll" }), el("th", { text: "Fieldwork" }), el("th", { text: "Commissioned by" })].concat(order.map(function (c) { return el("th", { text: POLL_NAMES[c] }); })));
