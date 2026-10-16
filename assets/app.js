@@ -144,6 +144,7 @@
   var today = nzToday();
   // Same random party order for polls and policies during one visit.
   var partyOrder = null;
+  var pollAverage = null;
 
   /* ---------- Dates ---------- */
   function renderDates(data) {
@@ -203,6 +204,7 @@
     }
     var latest = {};
     codes.forEach(function (c) { var a = trailing(c); latest[c] = a[a.length - 1]; });
+    pollAverage = {}; codes.forEach(function (c) { pollAverage[c] = Math.round(latest[c].v * 10) / 10; });
     // Data order: highest current average first.
     var order = codes.slice().sort(function (a, b) { return latest[b].v - latest[a].v; });
 
@@ -436,6 +438,96 @@
     held.forEach(function (d) { list.appendChild(item(d, true)); });
   }
 
+  /* ---------- Seat calculator (what-if, Sainte-Laguë) ---------- */
+  function sainteLague(votes, seats) {
+    var q = [];
+    Object.keys(votes).forEach(function (c) { for (var k = 0; k < seats; k++) q.push([votes[c] / (2 * k + 1), c]); });
+    q.sort(function (a, b) { return b[0] - a[0]; });
+    var won = {}; Object.keys(votes).forEach(function (c) { won[c] = 0; });
+    q.slice(0, seats).forEach(function (x) { won[x[1]]++; });
+    return won;
+  }
+  function renderSeats() {
+    var box = document.getElementById("seat-calc");
+    if (!box || !pollAverage) return;
+    var NAMES = Object.assign({}, POLL_NAMES, { TTT: "Te Tai Tokerau Party" });
+    var codes = Object.keys(pollAverage).sort(function (a, b) { return pollAverage[b] - pollAverage[a]; }).concat(["TTT"]);
+    var state = {};
+    function reset() { codes.forEach(function (c) { state[c] = { v: pollAverage[c] || 0, e: 0 }; }); }
+    reset();
+    var rows = {}, form = el("div", { "class": "seat-inputs" });
+    codes.forEach(function (c) {
+      var id = "sv-" + c;
+      var range = el("input", { type: "range", min: "0", max: "50", step: "0.1", id: id, "aria-describedby": id + "-n" });
+      var num = el("input", { type: "number", min: "0", max: "100", step: "0.1", inputmode: "decimal", "aria-label": NAMES[c] + " party vote, percent" });
+      var tick = el("input", { type: "checkbox", id: "se-" + c });
+      var count = el("input", { type: "number", min: "1", max: "71", step: "1", inputmode: "numeric", "aria-label": NAMES[c] + ": number of electorates won", hidden: "" });
+      range.addEventListener("input", function () { state[c].v = +range.value; update(); });
+      num.addEventListener("input", function () { var v = parseFloat(num.value); if (!isNaN(v)) { state[c].v = Math.max(0, Math.min(100, v)); update(true); } });
+      tick.addEventListener("change", function () { state[c].e = tick.checked ? Math.max(1, +count.value || 1) : 0; update(); });
+      count.addEventListener("input", function () { var v = parseInt(count.value, 10); if (v >= 1) { state[c].e = v; update(true); } });
+      rows[c] = { range: range, num: num, tick: tick, count: count };
+      form.appendChild(el("div", { "class": "seat-row", style: "--pc:var(--p-" + c + ")" }, [
+        el("label", { "for": id, "class": "seat-name" }, [el("span", { "class": "sw" }), el("span", { text: NAMES[c] })]),
+        el("div", { "class": "seat-vote" }, [range, el("span", { "class": "seat-num", id: id + "-n" }, [num, "%"])]),
+        el("div", { "class": "seat-elec" }, [el("label", null, [tick, " Wins an electorate"]), count])
+      ]));
+    });
+    var resetBtn = el("button", { type: "button", "class": "seat-reset", text: "Reset to the poll average" });
+    resetBtn.addEventListener("click", function () { reset(); update(); });
+    var out = el("div", { "class": "seat-out" });
+    var live = el("p", { "class": "visually-hidden", "aria-live": "polite" });
+    box.appendChild(form); box.appendChild(resetBtn); box.appendChild(out); box.appendChild(live);
+    var picked = {};
+    var liveTimer;
+    function update(fromNumber) {
+      codes.forEach(function (c) {
+        var r = rows[c];
+        r.range.value = Math.min(50, state[c].v);
+        r.range.style.setProperty("--fill", (Math.min(50, state[c].v) / 50 * 100) + "%");
+        if (!fromNumber || document.activeElement !== r.num) r.num.value = state[c].v.toFixed(1);
+        r.tick.checked = state[c].e > 0;
+        r.count.hidden = !(state[c].e > 0);
+        if (state[c].e > 0 && document.activeElement !== r.count) r.count.value = state[c].e;
+      });
+      var total = codes.reduce(function (s, c) { return s + state[c].v; }, 0);
+      var qual = {}; codes.forEach(function (c) { if (state[c].v >= 5 || state[c].e > 0) qual[c] = state[c].v; });
+      var ent = Object.keys(qual).length ? sainteLague(qual, 120) : {};
+      var seats = {}, overhang = 0;
+      codes.forEach(function (c) {
+        var e = ent[c] || 0, el_ = state[c].e;
+        seats[c] = qual[c] !== undefined ? Math.max(e, el_) : 0;
+        if (qual[c] !== undefined && el_ > e) overhang += el_ - e;
+      });
+      var house = 120 + overhang, need = Math.floor(house / 2) + 1;
+      out.innerHTML = "";
+      if (total > 100.05) out.appendChild(el("p", { "class": "seat-warn", text: "The party votes add up to " + total.toFixed(1) + "%, which is more than 100%. Lower some parties to make the result realistic." }));
+      var bar = el("div", { "class": "seat-bar", role: "img", "aria-label": codes.filter(function (c) { return seats[c]; }).map(function (c) { return NAMES[c] + " " + seats[c]; }).join(", ") + " seats" });
+      codes.forEach(function (c) { if (seats[c]) bar.appendChild(el("span", { style: "--pc:var(--p-" + c + ");flex:" + seats[c] })); });
+      bar.appendChild(el("span", { "class": "seat-mid", style: "left:" + (need - 0.5) / house * 100 + "%" }));
+      out.appendChild(el("p", { "class": "seat-total" }, [el("strong", { text: house + " seats" }), overhang ? " (including " + overhang + " overhang " + (overhang === 1 ? "seat" : "seats") + ")" : "", ". A government needs " + need + " (the dashed line)."]));
+      out.appendChild(bar);
+      var list = el("ul", { "class": "seat-list", "aria-label": "Tick parties to add up their seats" });
+      codes.forEach(function (c) {
+        var cb = el("input", { type: "checkbox" }); cb.checked = !!picked[c]; cb.disabled = !seats[c];
+        cb.addEventListener("change", function () { picked[c] = cb.checked; update(); });
+        list.appendChild(el("li", { style: "--pc:var(--p-" + c + ")", "class": seats[c] ? "" : "none" }, [
+          el("label", null, [cb, el("span", { "class": "sw" }), el("span", { "class": "sl-name", text: NAMES[c] }), el("b", { text: String(seats[c]) })])
+        ]));
+      });
+      out.appendChild(el("p", { "class": "seat-hint", text: "Tick parties to add up their seats:" }));
+      out.appendChild(list);
+      var sum = codes.reduce(function (s, c) { return s + (picked[c] && seats[c] ? seats[c] : 0); }, 0);
+      var names = codes.filter(function (c) { return picked[c] && seats[c]; }).map(function (c) { return NAMES[c]; });
+      var verdict = !names.length ? "" : sum >= need ? "Together: " + sum + " seats, enough to govern (" + need + " needed)." : "Together: " + sum + " seats, " + (need - sum) + " short of the " + need + " needed.";
+      if (verdict) out.appendChild(el("p", { "class": "seat-verdict" + (sum >= need ? " yes" : ""), text: verdict }));
+      out.appendChild(el("p", { "class": "seat-note" }, ["Adding up seats is arithmetic only. For what parties have said about working with each other, see ", el("a", { href: "#coalition", text: "Working together after the election" }), "."]));
+      clearTimeout(liveTimer);
+      liveTimer = setTimeout(function () { live.textContent = codes.filter(function (c) { return seats[c]; }).map(function (c) { return NAMES[c] + " " + seats[c]; }).join(", ") + ". " + house + " seats in total. " + verdict; }, 600);
+    }
+    update();
+  }
+
   /* ---------- My voting plan ---------- */
   function initPlan() {
     var form = document.getElementById("plan-form"), out = document.getElementById("plan-out");
@@ -534,7 +626,7 @@
   function renderSources(data) {
     var where = { dates: document.querySelector(".dates-body"), votes: document.getElementById("two-votes"), polls: document.getElementById("polls"),
       policies: document.getElementById("policies"), compare: document.getElementById("compare"), debates: document.getElementById("debates"), parties: document.getElementById("parties"),
-      plan: document.getElementById("plan"), faq: document.getElementById("faq") };
+      plan: document.getElementById("plan"), faq: document.getElementById("faq"), seats: document.getElementById("seats") };
     Object.keys(data.sections).forEach(function (key) {
       if (!where[key]) return;
       var ol = el("ol");
@@ -562,6 +654,7 @@
     partyOrder = shuffle(r[2].parties);
     renderDates(r[0]);
     try { renderPolls(r[1]); } catch (e) { fail(document.getElementById("poll-charts"), "polls"); }
+    try { renderSeats(); } catch (e) { fail(document.getElementById("seat-calc"), "seat calculator"); }
     if (r[8]) renderCoalition(r[8]);
     renderPolicies(r[2]);
     renderDebates(r[3]);

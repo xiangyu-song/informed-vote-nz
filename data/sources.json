@@ -293,6 +293,14 @@
         "url": "https://vote.nz/2026-general-election/voting-in-the-election/need-help-to-vote",
         "supports": "support person, telephone dictation, freephone number"
       }
+    ],
+    "seats": [
+      {
+        "title": "Sainte-Laguë formula explained",
+        "publisher": "Electoral Commission (electionresults.govt.nz)",
+        "url": "https://www.electionresults.govt.nz/sainte_lague.html",
+        "supports": "the 5% or one-electorate threshold, the odd-number divisors, how electorate seats count, and overhang seats"
+      }
     ]
   },
   "methods": {
