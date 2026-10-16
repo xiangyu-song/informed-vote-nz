@@ -732,7 +732,6 @@ details.more[open] > summary::before, .more-rules[open] > summary::before { tran
   /* Current tab: lit pill, bright label, accent bar on top */
   .tabbar a[aria-current] { color: #fff; font-weight: 800; }
   .tabbar a[aria-current] svg { background: var(--lilac); stroke: var(--night); }
-  .tabbar a[aria-current]::before { content: ""; position: absolute; top: 0; left: 22%; right: 22%; height: 3px; border-radius: 0 0 3px 3px; background: var(--lilac); }
   .tabbar svg { transition: background 0.15s; }
   /* "Up next" card at the end of each tab */
   body.tabbed .next-tab.tab-on { display: grid; grid-template-columns: 1fr auto; grid-template-areas: "k a" "t a" "d a"; align-items: center; gap: 0 1rem;
