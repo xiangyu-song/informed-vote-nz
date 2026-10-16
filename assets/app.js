@@ -714,6 +714,61 @@
     });
   }
 
+  /* ---------- Phones: one section at a time, with a tab bar at the bottom ---------- */
+  function initTabs() {
+    var ICON = {
+      dates: '<rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/>',
+      votes: '<rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 12.5l2.7 2.7L16 9.5"/>',
+      policies: '<path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h5M10 16h5"/>',
+      polls: '<path d="M3 20h18M6 20v-8M12 20V5M18 20v-5"/>',
+      debates: '<path d="M4 5h11v8H8.5L4 16.5z"/><path d="M15 9h5v8.5L16.5 15H11v-2"/>',
+      check: '<path d="M10 6.5h10M10 12h10M10 17.5h10"/><path d="M3.5 6.5l1.3 1.3 2.2-2.3M3.5 12l1.3 1.3 2.2-2.3M3.5 17.5l1.3 1.3 2.2-2.3"/>'
+    };
+    var TABS = [
+      { id: "dates", label: "Dates", icon: "dates", parts: ["#dates", ".dates-body"] },
+      { id: "two-votes", label: "Votes", icon: "votes", parts: ["#two-votes"] },
+      { id: "policies", label: "Policies", icon: "policies", parts: ["#policies", "#compare", "#parties"] },
+      { id: "polls", label: "Polls", icon: "polls", parts: ["#polls", "#seats"] },
+      { id: "debates", label: "Debates", icon: "debates", parts: ["#debates"] },
+      { id: "before", label: "Checklist", icon: "check", parts: ["#before"] }
+    ];
+    var main = document.getElementById("main");
+    if (!main) return;
+    TABS.forEach(function (t) { t.parts.forEach(function (sel) { var e = main.querySelector(sel); if (e) e.setAttribute("data-tab", t.id); }); });
+    var bar = el("nav", { "class": "tabbar", "aria-label": "Sections" });
+    TABS.forEach(function (t) {
+      var a = el("a", { href: "#" + t.id, "data-tab-link": t.id }, [el("span", { text: t.label })]);
+      a.insertAdjacentHTML("afterbegin", '<svg viewBox="0 0 24 24" aria-hidden="true">' + ICON[t.icon] + "</svg>");
+      // Tapping the tab you're already on takes you back to its top.
+      a.addEventListener("click", function (e) { if (document.body.classList.contains("tabbed") && location.hash === "#" + t.id) { e.preventDefault(); toTop(); } });
+      bar.appendChild(a);
+    });
+    document.body.appendChild(bar);
+    var phone = window.matchMedia("(max-width: 719px)"), current = null;
+    function toTop() { try { window.scrollTo({ top: 0, behavior: "instant" }); } catch (e) { window.scrollTo(0, 0); } }
+    function tabOf(node) { var s = node && node.closest ? node.closest("[data-tab]") : null; return s ? s.getAttribute("data-tab") : null; }
+    function show(id, target) {
+      current = id;
+      main.querySelectorAll("[data-tab]").forEach(function (s) { s.classList.toggle("tab-on", s.getAttribute("data-tab") === id); });
+      bar.querySelectorAll("a").forEach(function (a) { if (a.getAttribute("data-tab-link") === id) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current"); });
+      if (target && target.id !== id && target !== main) target.scrollIntoView(); else toTop();
+    }
+    function route() {
+      if (!phone.matches) return;
+      var h = location.hash.slice(1), target = null;
+      try { target = h ? document.getElementById(decodeURIComponent(h)) : null; } catch (e) { target = null; }
+      show(tabOf(target) || current || "dates", target);
+    }
+    function apply() {
+      document.body.classList.toggle("tabbed", phone.matches);
+      if (phone.matches) route();
+      window.dispatchEvent(new Event("resize"));
+    }
+    window.addEventListener("hashchange", route);
+    if (phone.addEventListener) phone.addEventListener("change", apply); else if (phone.addListener) phone.addListener(apply);
+    apply();
+  }
+
   Promise.all([
     getJSON("data/dates.json"), getJSON("data/polls.json"), getJSON("data/policies.json"),
     getJSON("data/debates.json"), getJSON("data/parties.json"), getJSON("data/site.json"), getJSON("data/sources.json"), getJSON("data/glossary.json").catch(function () { return null; }), getJSON("data/enrolment.json").catch(function () { return null; }), getJSON("data/updates.json").catch(function () { return null; })
@@ -731,6 +786,7 @@
     renderParties(r[4]);
     renderSources(r[6]);
     markTeReo(document.getElementById("main"));
+    initTabs();
 
     var u = new Date(r[5].updated);
     document.getElementById("updated").textContent = "Last updated " + new Intl.DateTimeFormat("en-NZ", { timeZone: "Pacific/Auckland", dateStyle: "long", timeStyle: "short" }).format(u) + " (NZ time).";

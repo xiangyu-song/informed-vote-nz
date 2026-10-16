@@ -693,3 +693,24 @@ details.more[open] > summary::before, .more-rules[open] > summary::before { tran
 .feedback-actions .d-video { margin-top: 0; padding: 0.5rem 1rem; min-height: 44px; }
 .feedback-actions .d-video.alt { background: transparent; color: var(--accent); border: 1.5px solid var(--accent); }
 .feedback-box .src-for { font-size: 0.85rem; color: var(--muted); }
+
+/* ---------- Phones: tab bar, one section at a time ---------- */
+.tabbar { display: none; }
+@media (max-width: 719px) {
+  body.tabbed main > [data-tab]:not(.tab-on) { display: none; }
+  body.tabbed { padding-bottom: calc(4.1rem + env(safe-area-inset-bottom)); }
+  html:has(body.tabbed) { scroll-padding-top: 4.75rem; }
+  body.tabbed .top nav, body.tabbed .top .menu-btn, body.tabbed .to-top { display: none !important; }
+  body.tabbed .tabbar { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); position: fixed; left: 0; right: 0; bottom: 0; z-index: 6;
+    background: var(--night); border-top: 1px solid rgba(216, 204, 243, 0.18); padding: 0.25rem 0.15rem calc(0.25rem + env(safe-area-inset-bottom)); box-shadow: 0 -6px 18px -12px rgba(0, 0, 0, 0.5); }
+  .tabbar a { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.12rem; min-height: 3.2rem; border-radius: var(--r-s);
+    color: var(--lilac); text-decoration: none; font-size: 0.66rem; font-weight: 600; line-height: 1.1; -webkit-tap-highlight-color: transparent; }
+  .tabbar svg { width: 1.45rem; height: 1.45rem; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; padding: 0.15rem 0.6rem; box-sizing: content-box; border-radius: 999px; }
+  .tabbar a[aria-current] { color: #fff; }
+  .tabbar a[aria-current] svg { background: rgba(216, 204, 243, 0.2); }
+  .tabbar a:focus-visible { outline: 3px solid var(--focus); outline-offset: -3px; }
+}
+@media (max-width: 719px) {
+  /* Fill the space under the footer (behind the tab bar) with the footer colour */
+  body.tabbed .foot { box-shadow: 0 calc(4.1rem + env(safe-area-inset-bottom)) 0 0 var(--night); }
+}
