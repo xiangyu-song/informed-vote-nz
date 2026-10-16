@@ -542,7 +542,10 @@
         if (!c) { top.classList.remove("open"); btn.setAttribute("aria-expanded", "false"); }
       }
     }
+    // Let sticky elements (the seat results strip) sit just below the header, whatever its height.
+    function setHdr() { document.documentElement.style.setProperty("--hdr", Math.round(top.getBoundingClientRect().height) + "px"); }
     window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
+    window.addEventListener("scroll", setHdr, { passive: true }); window.addEventListener("resize", setHdr); setHdr();
     btn.addEventListener("click", function () {
       var open = !top.classList.contains("open");
       top.classList.toggle("open", open); btn.setAttribute("aria-expanded", String(open));
@@ -607,18 +610,29 @@
       tick.addEventListener("change", function () { state[c].e = tick.checked ? Math.max(1, +count.value || 1) : 0; update(); });
       count.addEventListener("input", function () { var v = parseInt(count.value, 10); if (v >= 1) { state[c].e = Math.min(71, v); update(true); } });
       count.addEventListener("change", function () { count.value = state[c].e || 1; });
-      rows[c] = { range: range, num: num, tick: tick, count: count };
-      form.appendChild(el("div", { "class": "seat-row", style: "--pc:var(--p-" + c + ")" }, [
+      var won = el("span", { "class": "seat-won", "aria-hidden": "true" });
+      var elec = el("div", { "class": "seat-elec", style: "--pc:var(--p-" + c + ")" }, [el("label", null, [tick, el("span", { "class": "se-party", text: NAMES[c] }), el("span", { "class": "se-text", text: " Wins electorate" })]), count]);
+      var row = el("div", { "class": "seat-row", style: "--pc:var(--p-" + c + ")" }, [
         el("label", { "for": id, "class": "seat-name" }, [el("span", { "class": "sw" }), el("span", { text: NAMES[c] })]),
+        won,
         el("div", { "class": "seat-vote" }, [range, el("span", { "class": "seat-num", id: id + "-n" }, [num, "%"])]),
-        el("div", { "class": "seat-elec" }, [el("label", null, [tick, el("span", { "class": "se-text", text: " Wins electorate" })]), count])
-      ]));
+        elec
+      ]);
+      rows[c] = { range: range, num: num, tick: tick, count: count, won: won, elec: elec, row: row };
+      form.appendChild(row);
     });
     var resetBtn = el("button", { type: "button", "class": "seat-reset", text: "Reset to the poll average" });
     resetBtn.addEventListener("click", function () { reset(); update(); });
     var out = el("div", { "class": "seat-out" });
     var live = el("p", { "class": "visually-hidden", "aria-live": "polite" });
-    box.appendChild(form); box.appendChild(resetBtn); box.appendChild(out); box.appendChild(live);
+    // Phones: a results strip that stays in view while you move the sliders, and the electorate ticks as one row of chips.
+    var mini = el("div", { "class": "seat-mini", "aria-hidden": "true" });
+    var elecPanel = el("div", { "class": "seat-elec-panel" }, [el("p", { "class": "sep-title", text: "Tick any party you think will win an electorate:" })]);
+    box.appendChild(mini); box.appendChild(form); box.appendChild(elecPanel); box.appendChild(resetBtn); box.appendChild(out); box.appendChild(live);
+    var small = window.matchMedia("(max-width: 959px)");
+    function place() { codes.forEach(function (c) { (small.matches ? elecPanel : rows[c].row).appendChild(rows[c].elec); }); }
+    place();
+    if (small.addEventListener) small.addEventListener("change", place); else if (small.addListener) small.addListener(place);
     var picked = {};
     var liveTimer;
     function update(fromNumber) {
@@ -641,15 +655,20 @@
         if (qual[c] !== undefined && el_ > e) overhang += el_ - e;
       });
       var house = 120 + overhang, need = Math.floor(house / 2) + 1;
-      out.innerHTML = "";
-      if (total > 100.05) out.appendChild(el("p", { "class": "seat-warn", text: "The party votes add up to " + total.toFixed(1) + "%, which is more than 100%. Lower some parties to make the result realistic." }));
+      codes.forEach(function (c) { rows[c].won.textContent = seats[c] + (seats[c] === 1 ? " seat" : " seats"); });
       var elecTotal = codes.reduce(function (s, c) { return s + state[c].e; }, 0);
-      if (elecTotal > 71) out.appendChild(el("p", { "class": "seat-warn", text: "The electorates won add up to " + elecTotal + ", but there are only 71 electorates. Lower some parties to make the result realistic." }));
-      var bar = el("div", { "class": "seat-bar", role: "img", "aria-label": codes.filter(function (c) { return seats[c]; }).map(function (c) { return NAMES[c] + " " + seats[c]; }).join(", ") + " seats" });
-      codes.forEach(function (c) { if (seats[c]) bar.appendChild(el("span", { style: "--pc:var(--p-" + c + ");flex:" + seats[c] })); });
-      bar.appendChild(el("span", { "class": "seat-mid", style: "left:" + (need - 0.5) / house * 100 + "%" }));
-      out.appendChild(el("p", { "class": "seat-total" }, [el("strong", { text: house + " seats" }), overhang ? " (including " + overhang + " overhang " + (overhang === 1 ? "seat" : "seats") + ")" : "", ". A government needs " + need + " (the dashed line)."]));
-      out.appendChild(bar);
+      function head(target, labelled) {
+        target.innerHTML = "";
+        if (total > 100.05) target.appendChild(el("p", { "class": "seat-warn", text: "The party votes add up to " + total.toFixed(1) + "%, which is more than 100%. Lower some parties to make the result realistic." }));
+        if (elecTotal > 71) target.appendChild(el("p", { "class": "seat-warn", text: "The electorates won add up to " + elecTotal + ", but there are only 71 electorates. Lower some parties to make the result realistic." }));
+        var bar = el("div", labelled ? { "class": "seat-bar", role: "img", "aria-label": codes.filter(function (c) { return seats[c]; }).map(function (c) { return NAMES[c] + " " + seats[c]; }).join(", ") + " seats" } : { "class": "seat-bar" });
+        codes.forEach(function (c) { if (seats[c]) bar.appendChild(el("span", { style: "--pc:var(--p-" + c + ");flex:" + seats[c] })); });
+        bar.appendChild(el("span", { "class": "seat-mid", style: "left:" + (need - 0.5) / house * 100 + "%" }));
+        target.appendChild(el("p", { "class": "seat-total" }, [el("strong", { text: house + " seats" }), overhang ? " (including " + overhang + " overhang " + (overhang === 1 ? "seat" : "seats") + ")" : "", ". A government needs " + need + " (the dashed line)."]));
+        target.appendChild(bar);
+      }
+      head(mini, false);
+      head(out, true);
       var list = el("ul", { "class": "seat-list", "aria-label": "Tick parties to add up their seats" });
       codes.forEach(function (c) {
         var cb = el("input", { type: "checkbox" }); cb.checked = !!picked[c]; cb.disabled = !seats[c];
