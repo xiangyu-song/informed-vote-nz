@@ -723,3 +723,31 @@ details.more[open] > summary::before, .more-rules[open] > summary::before { tran
 .foot strong { color: #fff; font-weight: 700; }
 .foot .sep { opacity: 0.6; }
 #updated { white-space: nowrap; }
+
+/* ---------- Tab bar: clear current tab, gentle invitation to explore ---------- */
+.next-tab { display: none; }
+@media (max-width: 719px) {
+  body.tabbed .tabbar { padding-top: 0; }
+  .tabbar a { position: relative; color: rgba(216, 204, 243, 0.72); transition: color 0.15s; }
+  /* Current tab: lit pill, bright label, accent bar on top */
+  .tabbar a[aria-current] { color: #fff; font-weight: 800; }
+  .tabbar a[aria-current] svg { background: var(--lilac); stroke: var(--night); }
+  .tabbar a[aria-current]::before { content: ""; position: absolute; top: 0; left: 22%; right: 22%; height: 3px; border-radius: 0 0 3px 3px; background: var(--lilac); }
+  .tabbar svg { transition: background 0.15s; }
+  /* Not opened yet in this visit: a small dot */
+  .tabbar a.unseen::after { content: ""; position: absolute; top: 0.38rem; left: calc(50% + 0.62rem); width: 0.5rem; height: 0.5rem; border-radius: 50%; background: #ffcf5a; box-shadow: 0 0 0 2px var(--night); }
+  @media (prefers-reduced-motion: no-preference) {
+    .tabbar a.unseen::after { animation: tab-dot 2.4s ease-in-out 1.2s 3; }
+    @keyframes tab-dot { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.35); } }
+  }
+  /* "Up next" card at the end of each tab */
+  body.tabbed .next-tab.tab-on { display: grid; grid-template-columns: 1fr auto; grid-template-areas: "k a" "t a" "d a"; align-items: center; gap: 0 1rem;
+    margin: 2rem 16px 0; padding: 1rem 1.1rem; border-radius: var(--r-l); background: var(--night); color: #fff; text-decoration: none; box-shadow: 0 10px 24px -14px rgba(42, 29, 67, 0.6); }
+  .next-tab .nt-kicker { grid-area: k; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: #ffcf5a; }
+  .next-tab .nt-title { grid-area: t; font-size: 1.25rem; font-weight: 800; line-height: 1.2; margin-top: 0.15rem; }
+  .next-tab .nt-desc { grid-area: d; font-size: 0.88rem; color: var(--lilac); margin-top: 0.2rem; }
+  .next-tab .nt-arrow { grid-area: a; display: grid; place-items: center; width: 2.6rem; height: 2.6rem; border-radius: 50%; background: var(--lilac); color: var(--night); font-size: 1.3rem; font-weight: 800; }
+  .next-tab:active { transform: scale(0.99); }
+  .next-tab:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+}
+@media (max-width: 719px) { body.tabbed .next-tab.tab-on { border: 1.5px solid rgba(216, 204, 243, 0.35); } }

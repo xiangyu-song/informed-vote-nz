@@ -541,7 +541,7 @@
     reserve(); window.addEventListener("resize", reserve);
     var phone = window.matchMedia("(max-width: 719px)");
     function onScroll() {
-      var c = phone.matches && window.scrollY > 260;
+      var c = phone.matches && !document.body.classList.contains("tabbed") && window.scrollY > 260;
       if (c !== top.classList.contains("compact")) {
         top.classList.toggle("compact", c);
         if (!c) { top.classList.remove("open"); btn.setAttribute("aria-expanded", "false"); }
@@ -747,6 +747,33 @@
       bar.appendChild(a);
     });
     document.body.appendChild(bar);
+    // "Up next" card at the end of each tab, so people keep exploring.
+    var NEXT = {
+      "dates": "How your party vote and electorate vote work",
+      "two-votes": "What each party says, in its own words",
+      "policies": "The latest polls and the seat calculator",
+      "polls": "Upcoming debates and where to watch",
+      "debates": "Five quick steps before you vote"
+    };
+    TABS.forEach(function (t, i) {
+      var nx = TABS[i + 1]; if (!nx) return;
+      var last = main.querySelectorAll('[data-tab="' + t.id + '"]'); last = last[last.length - 1];
+      var card = el("a", { "class": "next-tab", href: "#" + nx.id, "data-tab": t.id }, [
+        el("span", { "class": "nt-kicker", text: "Up next" }),
+        el("span", { "class": "nt-title", text: nx.label === "Checklist" ? "Before you vote" : nx.label === "Votes" ? "Your two votes" : nx.label }),
+        el("span", { "class": "nt-desc", text: NEXT[t.id] }),
+        el("span", { "class": "nt-arrow", "aria-hidden": "true", text: "\u2192" })
+      ]);
+      last.insertAdjacentElement("afterend", card);
+    });
+    // A small dot marks tabs not yet opened in this visit.
+    var seen = {};
+    try { seen = JSON.parse(sessionStorage.getItem("kyv-seen") || "{}"); } catch (e) { seen = {}; }
+    function markSeen(id) {
+      seen[id] = 1;
+      try { sessionStorage.setItem("kyv-seen", JSON.stringify(seen)); } catch (e) {}
+      bar.querySelectorAll("a").forEach(function (a) { a.classList.toggle("unseen", !seen[a.getAttribute("data-tab-link")]); });
+    }
     var phone = window.matchMedia("(max-width: 719px)"), current = null;
     function toTop() { try { window.scrollTo({ top: 0, behavior: "instant" }); } catch (e) { window.scrollTo(0, 0); } }
     function tabOf(node) { var s = node && node.closest ? node.closest("[data-tab]") : null; return s ? s.getAttribute("data-tab") : null; }
@@ -754,6 +781,7 @@
       current = id;
       main.querySelectorAll("[data-tab]").forEach(function (s) { s.classList.toggle("tab-on", s.getAttribute("data-tab") === id); });
       bar.querySelectorAll("a").forEach(function (a) { if (a.getAttribute("data-tab-link") === id) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current"); });
+      markSeen(id);
       if (target && target.id !== id && target !== main) target.scrollIntoView(); else toTop();
     }
     function route() {
@@ -764,6 +792,8 @@
     }
     function apply() {
       document.body.classList.toggle("tabbed", phone.matches);
+      var hdr = document.querySelector(".top");
+      if (hdr && phone.matches) hdr.classList.remove("compact", "open");
       if (phone.matches) route();
       window.dispatchEvent(new Event("resize"));
     }
