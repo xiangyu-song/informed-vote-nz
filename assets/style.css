@@ -762,3 +762,31 @@ details.more[open] > summary::before, .more-rules[open] > summary::before { tran
   }
   .next-tab .nt-kicker { color: var(--lilac); opacity: 0.85; }
 }
+
+/* Unopened tabs: a short "pop and sparkle" wave across the bar, a few times, then still */
+@media (max-width: 719px) {
+  .tabbar a.unseen svg { animation: none; }
+  .tabbar a.unseen::after { content: none; }
+}
+@media (max-width: 719px) and (prefers-reduced-motion: no-preference) {
+  .tabbar a.unseen svg { animation: tab-pop 3.4s cubic-bezier(.34, 1.56, .64, 1) calc(0.9s + var(--i) * 0.14s) 4 both; transform-origin: 50% 70%; }
+  .tabbar a.unseen::after { content: "\2726"; position: absolute; top: 0.05rem; left: calc(50% + 0.75rem); font-size: 0.7rem; line-height: 1; color: var(--lilac); text-shadow: 0 0 6px rgba(216, 204, 243, 0.9);
+    opacity: 0; pointer-events: none; animation: tab-sparkle 3.4s ease-out calc(1.05s + var(--i) * 0.14s) 4 both; }
+  .tabbar.settled a svg, .tabbar.settled a::after { animation: none !important; }
+  .tabbar.settled a.unseen::after { opacity: 0; }
+  @keyframes tab-pop {
+    0%, 22%, 100% { transform: translateY(0) scale(1); }
+    6% { transform: translateY(-4px) scale(1.16); }
+    12% { transform: translateY(0) scale(0.95); }
+    17% { transform: translateY(-1px) scale(1.03); }
+  }
+  @keyframes tab-sparkle {
+    0%, 4% { opacity: 0; transform: scale(0.3) rotate(0deg); }
+    10% { opacity: 1; transform: scale(1.15) rotate(25deg); }
+    20% { opacity: 0.9; transform: scale(0.9) rotate(45deg); }
+    30%, 100% { opacity: 0; transform: scale(0.4) rotate(70deg); }
+  }
+}
+@media (max-width: 719px) and (prefers-reduced-motion: no-preference) {
+  .tabbar a.unseen::after { background: none; width: auto; height: auto; border-radius: 0; box-shadow: none; }
+}
