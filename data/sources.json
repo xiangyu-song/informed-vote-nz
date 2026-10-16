@@ -21,12 +21,6 @@
         "supports": "Enrolment deadline (midnight, 25 October) and that you can't enrol once voting starts"
       },
       {
-        "title": "What to do",
-        "publisher": "Electoral Commission (vote.nz)",
-        "url": "https://vote.nz/2026-general-election/voting-in-the-election/what-to-do",
-        "supports": "no ID needed, the EasyVote card, and the form for voting away from home"
-      },
-      {
         "title": "Find a voting place",
         "publisher": "Electoral Commission (vote.nz)",
         "url": "https://vote.nz/2026-general-election/voting-in-the-election/find-a-voting-place",
@@ -291,7 +285,13 @@
         "title": "What to do",
         "publisher": "Electoral Commission (vote.nz)",
         "url": "https://vote.nz/voting/how-to-vote/what-to-do/",
-        "supports": "how to fill in the voting paper: tick one party on the left and one candidate on the right; you can vote for only one"
+        "supports": "no ID needed, the EasyVote card, the form for voting away from home, and how to fill in the voting paper (tick one party on the left and one candidate on the right; you can vote for only one)"
+      },
+      {
+        "title": "Find a voting place",
+        "publisher": "Electoral Commission (vote.nz)",
+        "url": "https://vote.nz/2026-general-election/voting-in-the-election/find-a-voting-place",
+        "supports": "you can vote at any voting place in New Zealand; voting hours on election day"
       },
       {
         "title": "Information in accessible formats",

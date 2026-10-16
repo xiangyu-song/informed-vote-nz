@@ -576,15 +576,6 @@
     window.addEventListener("scroll", function () { var s2 = window.scrollY > window.innerHeight * 1.5; if (s2 !== shown) { shown = s2; b.hidden = !s2; } }, { passive: true });
   })();
 
-  /* ---------- What's new ---------- */
-  function renderUpdates(data) {
-    var ul = document.getElementById("updates-list");
-    if (!ul || !data) return;
-    data.updates.slice(0, 12).forEach(function (u) {
-      ul.appendChild(el("li", null, [el("strong", { text: fmtDate(u.date, { weekday: undefined }) + ": " }), u.text]));
-    });
-  }
-
   /* ---------- Seat calculator (what-if, Sainte-Laguë) ---------- */
   function sainteLague(votes, seats) {
     var q = [];
@@ -735,7 +726,6 @@
     renderEnrolment(r[8]);
     try { renderPolls(r[1]); } catch (e) { fail(document.getElementById("poll-charts"), "polls"); }
     try { renderSeats(); } catch (e) { fail(document.getElementById("seat-calc"), "seat calculator"); }
-    renderUpdates(r[9]);
     renderPolicies(r[2]);
     renderDebates(r[3]);
     renderParties(r[4]);

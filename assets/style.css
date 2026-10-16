@@ -486,7 +486,7 @@ td.who { white-space: normal; min-width: 14rem; text-align: left; color: var(--m
   .cd-small, .cd-date { font-size: 0.85rem; }
   .dates-body { display: grid; grid-template-columns: 1.1fr 1fr; gap: 1rem; align-items: stretch; }
   .dates-body > * { grid-column: 1 / -1; }
-  .dates-body > .next-step, .dates-body > .howto { grid-column: auto; margin: 0 0 1.75rem; }
+  .dates-body > .next-step { margin: 0 0 1.75rem; }
   .next-step { font-size: 1.02rem; display: flex; flex-direction: column; }
   .next-step > p { margin-bottom: 0.8rem; }
   .howto { border: 0; box-shadow: 0 1px 0 var(--rule), 0 10px 28px -14px rgba(42, 29, 67, 0.35); padding: 1.1rem 1.25rem; }
@@ -671,3 +671,6 @@ details.more[open] > summary::before, .more-rules[open] > summary::before { tran
 .more-rules > summary { justify-content: flex-start; }
 .more-rules > summary::after { content: none; }
 @media (prefers-reduced-motion: reduce) { details.more > summary::before, .more-rules > summary::before, .sources summary::before { transition: none; } }
+
+/* How to vote box, now in Before you vote */
+#before .howto { margin: 1rem 0 0; }
