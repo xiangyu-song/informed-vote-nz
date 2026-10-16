@@ -34,9 +34,9 @@
     <nav aria-label="Sections">
       <a href="#dates">Dates</a>
       <a href="#two-votes">Your two votes</a>
-      <a href="#polls">Polls</a>
       <a href="#policies">Policies</a>
       <a href="#compare">Vote Compass</a>
+      <a href="#polls">Polls</a>
       <a href="#debates">Debates</a>
       <a href="#parties">All parties</a>
     </nav>
@@ -98,38 +98,6 @@
     <a class="d-video tool-go" href="https://vote.nz/maps/find-your-electorate-2026">Find your electorate</a>
   </section>
 
-  <section id="polls" class="wrap block" aria-labelledby="polls-title">
-    <h2 id="polls-title">Polls</h2>
-    <p class="lede">Average party vote across nationwide polls finishing in the last 14 days, weighted by sample size. Polls are estimates and usually have a margin of error of about 3 points either way.</p>
-    <div id="poll-summary" class="poll-summary"></div>
-    <p class="seats-note">This chart shows party vote, not seats. A party below 5% still gets seats in Parliament if it wins an electorate. To turn votes into seats, try the <a href="#seats">seat calculator</a>.</p>
-    <h3 class="sub">How each party has moved since August</h3>
-    <p class="lede">Each dot is one poll; each line is that party's 14-day average. Point to or tap the chart to see the figures for a date, and tap a party below to highlight its line.</p>
-    <div id="poll-charts" class="trend"></div>
-    <p id="poll-detail" class="poll-detail" aria-live="polite"></p>
-    <details class="more">
-      <summary>See every poll with its source</summary>
-      <div class="table-scroll"><table id="poll-table"></table></div>
-    </details>
-  </section>
-
-  <section id="seats" class="wrap block" aria-labelledby="seats-title">
-    <h2 id="seats-title">Seat calculator</h2>
-    <p class="lede">A what-if tool, not a forecast. It starts from the 14-day poll average. Change the party votes, or tick the parties you think will win an electorate, to see how the 120 seats in Parliament would be shared, using the Electoral Commission's counting method.</p>
-    <p class="seat-tip"><strong>Try it:</strong> move a slider and watch the seats change. A party below 5% still gets seats if it wins an electorate, so tick <em>Wins electorate</em> for any party you think will win one. Nothing is ticked to start with.</p>
-    <div id="seat-calc" class="seat-calc"></div>
-    <details class="more">
-      <summary>How the seats are worked out</summary>
-      <ul>
-        <li>A party gets seats only if it wins at least 5% of the party vote or at least one electorate.</li>
-        <li>Votes for parties that don't qualify are left out, and the 120 seats are shared among the rest using the Sainte-Laguë formula: each party's vote is divided by 1, 3, 5, 7 and so on, and the 120 highest results win seats.</li>
-        <li>A party's electorate MPs count towards its share; list MPs fill the rest. If a party wins more electorates than its share, it keeps them and Parliament grows by those extra "overhang" seats.</li>
-        <li>To govern, a party or group of parties needs more than half of all seats: 61 of 120, or more if there are overhang seats.</li>
-        <li>This calculator rounds to what you enter. Real results use exact vote counts, so they can differ by a seat or two.</li>
-      </ul>
-    </details>
-  </section>
-
   <section id="policies" class="wrap block" aria-labelledby="policies-title">
     <h2 id="policies-title">Policies, in each party's own words</h2>
     <p class="lede">Pick a topic to compare parties side by side, or switch to Party to see everything one party says. Every policy is quoted directly from the party's website, with a link to read the full policy. Point to or tap a dotted-underlined word for a plain explanation. Parties appear in a random order that changes each time the page loads. Each party's first quote is shown; tap "Show more" for the rest.</p>
@@ -163,6 +131,39 @@
       <a class="d-video tool-go" href="https://votecompass.tvnz.co.nz/">Open Vote Compass</a>
     </div>
   </section>
+
+  <section id="polls" class="wrap block" aria-labelledby="polls-title">
+    <h2 id="polls-title">Polls</h2>
+    <p class="lede">Average party vote across nationwide polls finishing in the last 14 days, weighted by sample size. Polls are estimates and usually have a margin of error of about 3 points either way.</p>
+    <div id="poll-summary" class="poll-summary"></div>
+    <p class="seats-note">This chart shows party vote, not seats. A party below 5% still gets seats in Parliament if it wins an electorate. To turn votes into seats, try the <a href="#seats">seat calculator</a>.</p>
+    <h3 class="sub">How each party has moved since August</h3>
+    <p class="lede">Each dot is one poll; each line is that party's 14-day average. Point to or tap the chart to see the figures for a date, and tap a party below to highlight its line.</p>
+    <div id="poll-charts" class="trend"></div>
+    <p id="poll-detail" class="poll-detail" aria-live="polite"></p>
+    <details class="more">
+      <summary>See every poll with its source</summary>
+      <div class="table-scroll"><table id="poll-table"></table></div>
+    </details>
+  </section>
+
+  <section id="seats" class="wrap block" aria-labelledby="seats-title">
+    <h2 id="seats-title">Seat calculator</h2>
+    <p class="lede">A what-if tool, not a forecast. It starts from the 14-day poll average. Change the party votes, or tick the parties you think will win an electorate, to see how the 120 seats in Parliament would be shared, using the Electoral Commission's counting method.</p>
+    <p class="seat-tip"><strong>Try it:</strong> move a slider and watch the seats change. A party below 5% still gets seats if it wins an electorate, so tick <em>Wins electorate</em> for any party you think will win one. Nothing is ticked to start with.</p>
+    <div id="seat-calc" class="seat-calc"></div>
+    <details class="more">
+      <summary>How the seats are worked out</summary>
+      <ul>
+        <li>A party gets seats only if it wins at least 5% of the party vote or at least one electorate.</li>
+        <li>Votes for parties that don't qualify are left out, and the 120 seats are shared among the rest using the Sainte-Laguë formula: each party's vote is divided by 1, 3, 5, 7 and so on, and the 120 highest results win seats.</li>
+        <li>A party's electorate MPs count towards its share; list MPs fill the rest. If a party wins more electorates than its share, it keeps them and Parliament grows by those extra "overhang" seats.</li>
+        <li>To govern, a party or group of parties needs more than half of all seats: 61 of 120, or more if there are overhang seats.</li>
+        <li>This calculator rounds to what you enter. Real results use exact vote counts, so they can differ by a seat or two.</li>
+      </ul>
+    </details>
+  </section>
+
 
   <section id="debates" class="wrap block" aria-labelledby="debates-title">
     <h2 id="debates-title">Debates</h2>
