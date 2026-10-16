@@ -629,7 +629,7 @@
     var live = el("p", { "class": "visually-hidden", "aria-live": "polite" });
     // Phones: a results strip that stays in view while you change the votes, and the electorate ticks as one row of chips.
     var mini = el("div", { "class": "seat-mini", "aria-hidden": "true" });
-    var elecPanel = el("div", { "class": "seat-elec-panel" }, [el("p", { "class": "sep-title", text: "Tick any party you think will win an electorate:" })]);
+    var elecPanel = el("div", { "class": "seat-elec-panel" }, [el("p", { "class": "sep-title", text: "Wins an electorate" })]);
     box.appendChild(mini); box.appendChild(form); box.appendChild(elecPanel); box.appendChild(resetBtn); box.appendChild(out); box.appendChild(live);
     var small = window.matchMedia("(max-width: 959px)");
     function place() {
@@ -691,12 +691,14 @@
           el("label", null, [cb, el("span", { "class": "sw" }), el("span", { "class": "sl-name", text: NAMES[c] }), el("b", { text: String(seats[c]) })])
         ]));
       });
-      out.appendChild(el("p", { "class": "seat-hint", text: "Tick parties to add up their seats:" }));
+      out.appendChild(el("p", { "class": "seat-hint", text: "Add up seats" }));
       out.appendChild(list);
       var sum = codes.reduce(function (s, c) { return s + (picked[c] && seats[c] ? seats[c] : 0); }, 0);
       var names = codes.filter(function (c) { return picked[c] && seats[c]; }).map(function (c) { return NAMES[c]; });
       var verdict = !names.length ? "" : sum >= need ? "Together: " + sum + " seats, enough to govern (" + need + " needed)." : "Together: " + sum + " seats, " + (need - sum) + " short of the " + need + " needed.";
-      if (verdict) out.appendChild(el("p", { "class": "seat-verdict" + (sum >= need ? " yes" : ""), text: verdict }));
+      // Keep the result line in a fixed place, with a hint until parties are ticked, so the table doesn't jump.
+      out.appendChild(verdict ? el("p", { "class": "seat-verdict" + (sum >= need ? " yes" : ""), text: verdict })
+        : el("p", { "class": "seat-verdict empty", text: "Tick “Add up” for any parties to see whether together they reach " + need + "." }));
       out.appendChild(el("p", { "class": "seat-note", text: "Adding up seats is arithmetic only. It doesn't show which parties are willing to work together." }));
       clearTimeout(liveTimer);
       liveTimer = setTimeout(function () { live.textContent = codes.filter(function (c) { return seats[c]; }).map(function (c) { return NAMES[c] + " " + seats[c]; }).join(", ") + ". " + house + " seats in total. " + verdict; }, 600);

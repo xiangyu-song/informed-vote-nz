@@ -664,3 +664,37 @@ td.who { white-space: normal; min-width: 14rem; text-align: left; color: var(--m
   .seat-row { padding: 0.25rem 0; }
   .seat-num input { width: 4.6rem; padding: 0.3rem 0.45rem; }
 }
+
+/* ---------- Seat calculator: spacing pass (8px rhythm) ---------- */
+.seat-verdict.empty { font-weight: 400; color: var(--muted); border-style: dashed; }
+.seat-row { border-radius: var(--r-s); }
+@media (min-width: 960px) {
+  .seat-calc { padding: 1.5rem 1.75rem; }
+  .seat-out > .seat-total { margin: 0 0 0.5rem; }
+  .seat-out > .seat-bar { margin: 0; height: 2rem; }
+  .seat-out > .seat-verdict { margin: 0.75rem 0 0; padding: 0.5rem 0.75rem; font-size: 0.95rem; }
+  .seat-inputs { margin-top: 1.5rem; }
+  .seat-head, .seat-row { grid-template-columns: minmax(12rem, 1fr) 7.5rem 9.5rem 4.5rem 4.5rem; gap: 0 1.25rem; }
+  .seat-head { padding: 0 0.5rem 0.5rem; margin: 0 0 0.25rem; }
+  .seat-row { padding: 0.25rem 0.5rem; }
+  .seat-won { padding-right: 0.25rem; }
+  .seat-reset { margin-top: 1.25rem; }
+  .seat-out > .seat-note { margin: 0.75rem 0 0; }
+}
+@media (max-width: 959px) {
+  .seat-calc { display: flex; flex-direction: column; padding: 0 1rem 1.25rem; }
+  .seat-mini { order: 1; margin: 0 -1rem 0.5rem; padding: 0.75rem 1rem; border-radius: var(--r-l) var(--r-l) 0 0; }
+  .seat-inputs { order: 2; }
+  .seat-elec-panel { order: 3; margin-top: 1.5rem; gap: 0.5rem; }
+  .seat-out { display: contents; }
+  .seat-out > .seat-hint { order: 4; margin: 1.5rem 0 0.5rem; }
+  .seat-out > .seat-list { order: 5; gap: 0.5rem; }
+  .seat-out > .seat-verdict { order: 6; margin: 0.75rem 0 0; padding: 0.5rem 0.75rem; font-size: 0.92rem; }
+  .seat-out > .seat-verdict.empty { display: none; }
+  .seat-reset { order: 7; margin-top: 1.25rem; align-self: flex-start; }
+  .seat-out > .seat-note { order: 8; margin: 0.75rem 0 0; }
+  .sep-title, .seat-out > .seat-hint { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.02em; text-transform: uppercase; color: var(--muted); }
+  .sep-title { margin: 0 0 0; }
+  .seat-head { padding: 0.25rem 0 0.5rem; margin-bottom: 0.25rem; }
+  .seat-row { padding: 0.4rem 0; }
+}
