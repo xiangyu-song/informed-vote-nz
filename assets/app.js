@@ -740,12 +740,10 @@
     TABS.forEach(function (t) { t.parts.forEach(function (sel) { var e = main.querySelector(sel); if (e) e.setAttribute("data-tab", t.id); }); });
     var bar = el("nav", { "class": "tabbar", "aria-label": "Sections" });
     TABS.forEach(function (t) {
-      var a = el("a", { href: "#" + t.id, "data-tab-link": t.id, style: "--i:" + TABS.indexOf(t) }, [el("span", { text: t.label })]);
+      var a = el("a", { href: "#" + t.id, "data-tab-link": t.id }, [el("span", { text: t.label })]);
       a.insertAdjacentHTML("afterbegin", '<svg viewBox="0 0 24 24" aria-hidden="true">' + ICON[t.icon] + "</svg>");
       // Tapping the tab you're already on takes you back to its top.
       a.addEventListener("click", function (e) { if (document.body.classList.contains("tabbed") && location.hash === "#" + t.id) { e.preventDefault(); toTop(); } });
-      // Once someone taps a tab, the attention animation has done its job.
-      a.addEventListener("click", function () { bar.classList.add("settled"); });
       bar.appendChild(a);
     });
     document.body.appendChild(bar);

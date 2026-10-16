@@ -734,16 +734,10 @@ details.more[open] > summary::before, .more-rules[open] > summary::before { tran
   .tabbar a[aria-current] svg { background: var(--lilac); stroke: var(--night); }
   .tabbar a[aria-current]::before { content: ""; position: absolute; top: 0; left: 22%; right: 22%; height: 3px; border-radius: 0 0 3px 3px; background: var(--lilac); }
   .tabbar svg { transition: background 0.15s; }
-  /* Not opened yet in this visit: a small dot */
-  .tabbar a.unseen::after { content: ""; position: absolute; top: 0.38rem; left: calc(50% + 0.62rem); width: 0.5rem; height: 0.5rem; border-radius: 50%; background: #ffcf5a; box-shadow: 0 0 0 2px var(--night); }
-  @media (prefers-reduced-motion: no-preference) {
-    .tabbar a.unseen::after { animation: tab-dot 2.4s ease-in-out 1.2s 3; }
-    @keyframes tab-dot { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.35); } }
-  }
   /* "Up next" card at the end of each tab */
   body.tabbed .next-tab.tab-on { display: grid; grid-template-columns: 1fr auto; grid-template-areas: "k a" "t a" "d a"; align-items: center; gap: 0 1rem;
     margin: 2rem 16px 0; padding: 1rem 1.1rem; border-radius: var(--r-l); background: var(--night); color: #fff; text-decoration: none; box-shadow: 0 10px 24px -14px rgba(42, 29, 67, 0.6); }
-  .next-tab .nt-kicker { grid-area: k; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: #ffcf5a; }
+  .next-tab .nt-kicker { grid-area: k; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--lilac); opacity: 0.85; }
   .next-tab .nt-title { grid-area: t; font-size: 1.25rem; font-weight: 800; line-height: 1.2; margin-top: 0.15rem; }
   .next-tab .nt-desc { grid-area: d; font-size: 0.88rem; color: var(--lilac); margin-top: 0.2rem; }
   .next-tab .nt-arrow { grid-area: a; display: grid; place-items: center; width: 2.6rem; height: 2.6rem; border-radius: 50%; background: var(--lilac); color: var(--night); font-size: 1.3rem; font-weight: 800; }
@@ -752,41 +746,7 @@ details.more[open] > summary::before, .more-rules[open] > summary::before { tran
 }
 @media (max-width: 719px) { body.tabbed .next-tab.tab-on { border: 1.5px solid rgba(216, 204, 243, 0.35); } }
 
-/* Unopened tabs: a soft lilac outline around the icon (replaces the yellow dot) */
+/* Unread tabs: a small still dot, nothing else */
 @media (max-width: 719px) {
-  .tabbar a.unseen::after { content: none; animation: none; }
-  .tabbar a.unseen svg { box-shadow: inset 0 0 0 1.5px rgba(216, 204, 243, 0.85); }
-  @media (prefers-reduced-motion: no-preference) {
-    .tabbar a.unseen svg { animation: tab-ring 2.6s ease-in-out 1.2s 3; }
-    @keyframes tab-ring { 0%, 100% { box-shadow: inset 0 0 0 1.5px rgba(216, 204, 243, 0.85), 0 0 0 0 rgba(216, 204, 243, 0); } 50% { box-shadow: inset 0 0 0 1.5px rgba(216, 204, 243, 1), 0 0 0 4px rgba(216, 204, 243, 0.22); } }
-  }
-  .next-tab .nt-kicker { color: var(--lilac); opacity: 0.85; }
-}
-
-/* Unopened tabs: a short "pop and sparkle" wave across the bar, a few times, then still */
-@media (max-width: 719px) {
-  .tabbar a.unseen svg { animation: none; }
-  .tabbar a.unseen::after { content: none; }
-}
-@media (max-width: 719px) and (prefers-reduced-motion: no-preference) {
-  .tabbar a.unseen svg { animation: tab-pop 3.4s cubic-bezier(.34, 1.56, .64, 1) calc(0.9s + var(--i) * 0.14s) 4 both; transform-origin: 50% 70%; }
-  .tabbar a.unseen::after { content: "\2726"; position: absolute; top: 0.05rem; left: calc(50% + 0.75rem); font-size: 0.7rem; line-height: 1; color: var(--lilac); text-shadow: 0 0 6px rgba(216, 204, 243, 0.9);
-    opacity: 0; pointer-events: none; animation: tab-sparkle 3.4s ease-out calc(1.05s + var(--i) * 0.14s) 4 both; }
-  .tabbar.settled a svg, .tabbar.settled a::after { animation: none !important; }
-  .tabbar.settled a.unseen::after { opacity: 0; }
-  @keyframes tab-pop {
-    0%, 22%, 100% { transform: translateY(0) scale(1); }
-    6% { transform: translateY(-4px) scale(1.16); }
-    12% { transform: translateY(0) scale(0.95); }
-    17% { transform: translateY(-1px) scale(1.03); }
-  }
-  @keyframes tab-sparkle {
-    0%, 4% { opacity: 0; transform: scale(0.3) rotate(0deg); }
-    10% { opacity: 1; transform: scale(1.15) rotate(25deg); }
-    20% { opacity: 0.9; transform: scale(0.9) rotate(45deg); }
-    30%, 100% { opacity: 0; transform: scale(0.4) rotate(70deg); }
-  }
-}
-@media (max-width: 719px) and (prefers-reduced-motion: no-preference) {
-  .tabbar a.unseen::after { background: none; width: auto; height: auto; border-radius: 0; box-shadow: none; }
+  .tabbar a.unseen::after { content: ""; position: absolute; top: 0.4rem; left: calc(50% + 0.7rem); width: 0.45rem; height: 0.45rem; border-radius: 50%; background: var(--lilac); box-shadow: 0 0 0 2px var(--night); }
 }
