@@ -684,3 +684,12 @@ details.more[open] > summary::before, .more-rules[open] > summary::before { tran
   .site-tag::before { content: none; }
   .top.compact .site-tag { display: none; }
 }
+
+/* ---------- Feedback ---------- */
+.feedback-box { padding: 1rem 1.1rem; background: var(--surface); border-radius: var(--r-m); box-shadow: 0 1px 0 var(--rule); }
+.feedback-box p { margin: 0 0 0.6rem; }
+.feedback-box p:last-child { margin: 0; }
+.feedback-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.feedback-actions .d-video { margin-top: 0; padding: 0.5rem 1rem; min-height: 44px; }
+.feedback-actions .d-video.alt { background: transparent; color: var(--accent); border: 1.5px solid var(--accent); }
+.feedback-box .src-for { font-size: 0.85rem; color: var(--muted); }
