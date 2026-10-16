@@ -221,7 +221,7 @@
     box.appendChild(el("p", { "class": "enrol-head" }, [el("strong", { text: e.percent.toFixed(2) + "% of eligible people are enrolled" }),
       "; about " + e.not_enrolled.toLocaleString("en-NZ") + " aren't yet."]));
     box.appendChild(el("p", { "class": "enrol-src" }, ["As at " + fmtChecked(e.as_at) + ", ",
-      el("a", { href: e.source, text: "Electoral Commission" }), ". Checked " + fmtChecked(e.checked) + "."]));
+      el("a", { href: e.source, text: "Electoral Commission" }), ". ", el("span", { "class": "nowrap", text: "Checked " + fmtChecked(e.checked) + "." })]));
   }
 
   /* ---------- Polls ---------- */
