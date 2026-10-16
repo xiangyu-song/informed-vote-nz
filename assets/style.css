@@ -565,24 +565,6 @@ td.who { white-space: normal; min-width: 14rem; text-align: left; color: var(--m
 .seat-hint { margin: 0.6rem 0 0.25rem; }
 .seat-list label { min-height: 36px; }
 .seat-note { margin-top: 0.5rem; font-size: 0.85rem; }
-@media (min-width: 960px) {
-  .seat-calc { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); grid-template-areas: "in out" "reset out"; gap: 0 1.6rem; align-items: start; }
-  .seat-inputs { grid-area: in; }
-  .seat-reset { grid-area: reset; justify-self: start; }
-  .seat-out { grid-area: out; margin-top: 0; position: sticky; top: 4.5rem; padding-left: 1.6rem; border-left: 1px solid var(--rule); }
-  .seat-row, .seat-head { display: grid; grid-template-columns: 9.6rem minmax(5rem, 1fr) 5.2rem 7.4rem; gap: 0 0.7rem; align-items: center; }
-  .seat-head { display: grid; padding: 0 0 0.3rem; border-bottom: 1px solid var(--rule); font-size: 0.8rem; font-weight: 700; color: var(--muted); }
-  .seat-head span:nth-child(2) { grid-column: 2 / 4; }
-  .se-text { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-  .seat-row input[type=range] { width: 100%; }
-  .seat-num input { width: 3.9rem; }
-  .seat-vote { display: contents; }
-  .seat-elec { font-size: 0.85rem; }
-  .seat-list, .seat-list { grid-template-columns: 1fr; gap: 0.2rem; }
-  .seat-list label { min-height: 32px; font-size: 0.92rem; }
-  .seat-total { font-size: 0.95rem; }
-}
-
 /* ---------- Seat calculator on phones and tablets ---------- */
 .seat-mini, .seat-elec-panel, .seat-won { display: none; }
 .se-party { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
@@ -636,4 +618,35 @@ td.who { white-space: normal; min-width: 14rem; text-align: left; color: var(--m
 @media (min-width: 600px) and (max-width: 959px) {
   .seat-head, .seat-row { grid-template-columns: 10rem minmax(0, 1fr) auto; }
   .seat-head { grid-template-columns: 10rem minmax(0, 1fr); }
+}
+
+/* ---------- Seat calculator on desktop: result on top, one table below ---------- */
+.sh-seats, .sh-add { display: none; }
+@media (min-width: 960px) {
+  .seat-calc { display: flex; flex-direction: column; padding: 1.1rem 1.4rem 1.2rem; }
+  .seat-out { display: contents; }
+  .seat-out > .seat-warn { order: 1; }
+  .seat-out > .seat-total { order: 2; margin: 0 0 0.45rem; font-size: 1rem; }
+  .seat-out > .seat-bar { order: 3; height: 2.2rem; margin: 0.3rem 0 0.2rem; }
+  .seat-out > .seat-verdict { order: 4; margin: 0.6rem 0 0; }
+  .seat-inputs { order: 5; margin-top: 1.1rem; }
+  .seat-reset { order: 6; align-self: flex-start; }
+  .seat-out > .seat-note { order: 7; }
+  .seat-out > .seat-hint, .seat-out > .seat-list { display: none; }
+  .seat-head, .seat-row { display: grid; grid-template-columns: 10rem minmax(6rem, 1fr) 5.2rem 8rem 4.2rem 3.6rem; gap: 0 0.8rem; align-items: center; }
+  .seat-head { padding: 0 0 0.35rem; border-bottom: 1px solid var(--rule); font-size: 0.8rem; font-weight: 700; color: var(--muted); }
+  .seat-head span:nth-child(2) { grid-column: 2 / 4; }
+  .sh-seats { display: block; text-align: right; }
+  .sh-add { display: block; text-align: center; }
+  .seat-vote { display: contents; }
+  .seat-row input[type=range] { width: 100%; }
+  .seat-num input { width: 3.9rem; }
+  .seat-elec { font-size: 0.85rem; }
+  .se-text { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .seat-won { display: block; text-align: right; font-size: 1.15rem; font-variant-numeric: tabular-nums; }
+  .won-unit { display: none; }
+  .seat-pick { display: flex; justify-content: center; align-items: center; min-height: 36px; cursor: pointer; }
+  .seat-pick input { width: 1.15rem; height: 1.15rem; accent-color: var(--accent); }
+  .seat-pick:has(input:disabled) { cursor: default; opacity: 0.4; }
+  .seat-row:has(.seat-pick input:checked) { background: var(--accent-soft); }
 }
