@@ -245,7 +245,7 @@
     var newest = polls[polls.length - 1];
     summary.appendChild(el("p", { "class": "bar-foot" }, [
       el("span", { text: "Dashed line: 5% threshold" }),
-      el("span", null, ["Most recent poll in this average: ", el("a", { href: newest.source, text: newest.pollster }), ", ends " + fmtDate(newest.end, { weekday: undefined })])
+      el("span", null, ["Most recent poll in this average: ", el("a", { href: newest.source, text: newest.pollster }), ", ends " + fmtDate(newest.end, { weekday: undefined }) + (data.checked ? ". Checked " + fmtDate(data.checked, { weekday: undefined }) : "")])
     ]));
 
     // One chart, every party: dots are single polls, lines are 14-day averages.
@@ -347,10 +347,10 @@
         .concat(order.map(function (c) { return el("td", { text: p[c] === null || p[c] === undefined ? "–" : String(p[c]) }); }))));
     });
     table.appendChild(body);
-    table.appendChild(el("caption", { "class": "lede", text: "Figures as reported by each pollster. – means not reported separately." }));
+    table.appendChild(el("caption", { "class": "lede", text: "Figures as reported by each pollster. – means not reported separately." + (data.checked ? " Checked for new polls on " + fmtDate(data.checked, { weekday: undefined }) + "." : "") }));
     var tbl = table.parentNode;
     if (data.average_method) tbl.insertAdjacentElement("afterend", el("p", { "class": "lede", text: data.average_method + " Roy Morgan's fieldwork runs over about four weeks, so it is placed at the date fieldwork ended." }));
-    if (data.not_included) tbl.insertAdjacentElement("afterend", el("p", { "class": "lede", text: data.not_included }));
+    if (data.not_included) tbl.insertAdjacentElement("afterend", el("p", { "class": "lede", text: data.not_included + (data.checked ? " (Checked " + fmtDate(data.checked, { weekday: undefined }) + ".)" : "") }));
   }
 
   /* ---------- Policies ---------- */
@@ -636,7 +636,7 @@
       where[key].appendChild(el("details", { "class": "sources" }, [
         el("summary", { text: "Sources (" + data.sections[key].length + ")" }), ol,
         data.methods && data.methods[key] ? el("p", { text: data.methods[key] }) : null,
-        el("p", { "class": "src-for", text: "Checked " + fmtDate(data.checked, { weekday: undefined }) + "." })
+        el("p", { "class": "src-for", text: "Checked " + fmtDate((data.checked_sections && data.checked_sections[key]) || data.checked, { weekday: undefined }) + "." })
       ]));
     });
   }

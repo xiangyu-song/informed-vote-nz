@@ -1,5 +1,5 @@
 {
-  "checked": "2026-10-15",
+  "checked": "2026-10-16",
   "sections": {
     "dates": [
       {
@@ -253,5 +253,15 @@
   },
   "methods": {
     "polls": "How the 14-day average is worked out: an average of every poll whose fieldwork finished in the 14 days up to and including each date, weighted by sample size (1,000 assumed if not reported). This is our own calculation from the figures in the poll table, not a pollster's."
+  },
+  "checked_sections": {
+    "dates": "2026-10-15",
+    "votes": "2026-10-15",
+    "polls": "2026-10-16",
+    "seats": "2026-10-16",
+    "policies": "2026-10-16",
+    "compare": "2026-10-15",
+    "debates": "2026-10-16",
+    "parties": "2026-10-15"
   }
 }
