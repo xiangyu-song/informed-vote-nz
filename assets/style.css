@@ -714,3 +714,9 @@ details.more[open] > summary::before, .more-rules[open] > summary::before { tran
   /* Fill the space under the footer (behind the tab bar) with the footer colour */
   body.tabbed .foot { box-shadow: 0 calc(4.1rem + env(safe-area-inset-bottom)) 0 0 var(--night); }
 }
+
+/* Compact footer */
+.foot { margin-top: 3rem; padding: 1.5rem 0 2rem; font-size: 0.8rem; line-height: 1.5; }
+.foot p { margin: 0 0 0.5rem; }
+.foot p:last-child { margin-bottom: 0; }
+#updated { opacity: 0.8; }
