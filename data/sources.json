@@ -56,19 +56,25 @@
         "title": "RNZ–Reid Research poll, 24 Sep – 1 Oct 2026 (margin of error ±3.1 points)",
         "publisher": "interest.co.nz",
         "url": "https://www.interest.co.nz/public-policy/140557/national-slumps-259-rnz-reid-research-poll-labour-greens-and-opportunity-edge",
-        "supports": "Typical margin of error of about 3 points"
+        "supports": "the margin of error: about 3 points at most (it is largest for parties near 50% and smaller for parties polling lower)"
       },
       {
         "title": "Taxpayers' Union–Curia poll, 1–5 Oct 2026 (maximum margin of error ±3.1%)",
         "publisher": "interest.co.nz",
         "url": "https://www.interest.co.nz/public-policy/140605/major-parties-under-30-while-nz-first-surges-giving-current-coalition-enough",
-        "supports": "Typical margin of error of about 3 points"
+        "supports": "the margin of error: about 3 points at most (it is largest for parties near 50% and smaller for parties polling lower)"
       },
       {
         "title": "Opinion polling for the 2026 New Zealand general election",
         "publisher": "Wikipedia",
         "url": "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2026_New_Zealand_general_election",
         "supports": "Fieldwork dates and sample size for The Post–Freshwater Strategy poll only"
+      },
+      {
+        "title": "Election countdown: How to read the polls (2 August 2023)",
+        "publisher": "University of Auckland (Satherley, Sporle and Greaves)",
+        "url": "https://www.auckland.ac.nz/en/news/2023/08/02/election-countdown--how-to-read-the-polls.html",
+        "supports": "the margin of error is largest for a party near 50% and smaller for parties polling lower, such as around 5%"
       }
     ],
     "policies": [
@@ -279,6 +285,38 @@
         "url": "https://www.electionresults.govt.nz/sainte_lague.html",
         "supports": "the 5% or one-electorate threshold, the odd-number divisors, how electorate seats count, and overhang seats"
       }
+    ],
+    "before": [
+      {
+        "title": "What to do",
+        "publisher": "Electoral Commission (vote.nz)",
+        "url": "https://vote.nz/voting/how-to-vote/what-to-do/",
+        "supports": "how to fill in the voting paper: tick one party on the left and one candidate on the right; you can vote for only one"
+      },
+      {
+        "title": "Information in accessible formats",
+        "publisher": "Electoral Commission (vote.nz)",
+        "url": "https://vote.nz/2026-general-election/resources/information-in-accessible-formats",
+        "supports": "Easy Read, large print, audio, Braille and NZSL information for the 2026 General Election"
+      },
+      {
+        "title": "Information in te reo Māori",
+        "publisher": "Electoral Commission (vote.nz)",
+        "url": "https://vote.nz/2026-general-election/resources/information-in-te-reo-maori",
+        "supports": "information in te reo Māori"
+      },
+      {
+        "title": "Information in multiple languages",
+        "publisher": "Electoral Commission (vote.nz)",
+        "url": "https://vote.nz/2026-general-election/resources/information-in-multiple-languages",
+        "supports": "information in other languages"
+      },
+      {
+        "title": "Voting places (accessible)",
+        "publisher": "Electoral Commission (map.vote.nz)",
+        "url": "https://map.vote.nz/voting-places/accessible",
+        "supports": "finding an accessible voting place"
+      }
     ]
   },
   "methods": {
@@ -292,6 +330,7 @@
     "policies": "2026-10-16",
     "compare": "2026-10-16",
     "debates": "2026-10-16",
-    "parties": "2026-10-16"
+    "parties": "2026-10-16",
+    "before": "2026-10-16"
   }
 }

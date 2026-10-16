@@ -458,8 +458,9 @@ td.who { white-space: normal; min-width: 14rem; text-align: left; color: var(--m
 #policy-list .show-more { border-color: var(--rule); color: var(--ink); }
 #policy-list .show-more:hover { border-color: var(--pc, var(--accent)); background: transparent; }
 @media (min-width: 720px) {
-  .policy-list { display: block; columns: 2; column-gap: 0.9rem; }
-  .policy-list .party { break-inside: avoid; margin: 0 0 0.9rem; display: inline-block; width: 100%; }
+  /* Row by row, left to right (matches reading order); cards in a row share a height */
+  .policy-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.9rem; align-items: stretch; }
+  .policy-list .party { margin: 0; }
 }
 .w-short { display: none; }
 @media (max-width: 719px) {
@@ -640,3 +641,33 @@ td.who { white-space: normal; min-width: 14rem; text-align: left; color: var(--m
 }
 @media (min-width: 960px) { .debate-list > li > .cal { align-self: start; } }
 @media (min-width: 960px) { .debate-list > li > div > span.d-meta:last-of-type { margin-bottom: 0.6rem; } }
+
+/* ---------- Before you vote: checklist ---------- */
+.checklist { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem; counter-reset: step; }
+.checklist li { position: relative; padding: 0.85rem 1rem 0.85rem 3.1rem; background: var(--surface); border-radius: var(--r-m); box-shadow: 0 1px 0 var(--rule); counter-increment: step; line-height: 1.5; }
+.checklist li::before { content: counter(step); position: absolute; left: 0.9rem; top: 0.85rem; width: 1.5rem; height: 1.5rem; border-radius: 50%; background: var(--accent); color: var(--paper); font-weight: 800; font-size: 0.85rem; display: grid; place-items: center; line-height: 1; }
+.checklist li strong { font-weight: 800; }
+.checklist a { font-weight: 600; }
+
+.help-box { margin-top: 1rem; padding: 0.85rem 1rem; border-radius: var(--r-m); border: 1.5px solid var(--rule); }
+.help-box p { margin: 0; }
+.help-title { font-weight: 800; margin-bottom: 0.3rem !important; }
+.help-box a { font-weight: 600; }
+
+.timeline li > span { min-width: 0; overflow-wrap: anywhere; }
+@media (min-width: 720px) {
+  #policy-list .party { display: flex; flex-direction: column; }
+  #policy-list .party > .show-more { margin-top: auto; align-self: flex-start; }
+  #policy-list .party > .pol + .show-more, #policy-list .party > .pol:last-of-type { margin-bottom: 0; }
+}
+.back-topics { margin: 0.9rem 0 0; }
+.back-topics a { font-weight: 600; }
+
+/* ---------- One fold-out marker everywhere: a chevron that turns when opened ---------- */
+details.more > summary, .more-rules > summary { list-style: none; display: flex; align-items: center; gap: 0.5rem; }
+details.more > summary::-webkit-details-marker, .more-rules > summary::-webkit-details-marker { display: none; }
+details.more > summary::before, .more-rules > summary::before { content: ""; flex: none; width: 0.45em; height: 0.45em; border-right: 2px solid var(--accent); border-bottom: 2px solid var(--accent); transform: rotate(-45deg); transition: transform 0.15s; }
+details.more[open] > summary::before, .more-rules[open] > summary::before { transform: rotate(45deg); }
+.more-rules > summary { justify-content: flex-start; }
+.more-rules > summary::after { content: none; }
+@media (prefers-reduced-motion: reduce) { details.more > summary::before, .more-rules > summary::before, .sources summary::before { transition: none; } }

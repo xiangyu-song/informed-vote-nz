@@ -324,7 +324,8 @@
       var iso = new Date(t).toISOString().slice(0, 10);
       var rows = order.map(function (c) { return [c, avgAt(c, t)]; }).filter(function (r) { return r[1] !== null; }).sort(function (a, b) { return b[1] - a[1]; });
       tip.innerHTML = "";
-      tip.appendChild(el("strong", { text: "14-day average, " + fmtDate(iso, { weekday: undefined }) }));
+      var nPolls = polls.filter(function (q) { var u = toDate(q.end); return u <= t && u > t - 14 * DAY; }).length;
+      tip.appendChild(el("strong", { text: "14-day average, " + fmtDate(iso, { weekday: undefined }) + " (" + nPolls + (nPolls === 1 ? " poll)" : " polls)") }));
       var ol = el("ol");
       rows.forEach(function (r) { ol.appendChild(el("li", { style: "--pc:var(--p-" + r[0] + ")" }, [el("span", null, [el("span", { "class": "sw" }), POLL_NAMES[r[0]]]), el("b", { text: r[1].toFixed(1) + "%" })])); });
       tip.appendChild(ol);
@@ -358,7 +359,10 @@
     chart.addEventListener("pointerleave", function (e) { if (e.pointerType === "mouse") hide(); });
     document.addEventListener("pointerdown", function (e) { if (!wrap.contains(e.target)) hide(); });
     var key = el("p", { "class": "trend-key" }, [el("span", { "class": "k-item" }, [el("span", { "class": "k-dot", "aria-hidden": "true" }), "Dot: one poll"]), el("span", { "class": "k-item" }, [el("span", { "class": "k-line", "aria-hidden": "true" }), "Line: 14-day average of the polls"])]);
-    var note = el("p", { "class": "trend-note", text: "Why dots sit above or below the lines: each poll is a separate estimate, and pollsters often differ by a few points. The line averages all polls from the past 14 days, so it smooths out those differences instead of joining the dots." });
+    // Say so when some points rest on only one or two polls (checked from the data, so it stays true as polls are added).
+    var thin = ends.some(function (t) { return polls.filter(function (q) { var u = toDate(q.end); return u <= t && u > t - 14 * DAY; }).length <= 2; });
+    var note = el("p", { "class": "trend-note", text: "Why dots sit above or below the lines: each poll is a separate estimate, and pollsters often differ by a few points. The line averages all polls from the past 14 days, so it smooths out those differences instead of joining the dots." +
+      (thin ? " Where only one or two polls fall in the 14 days, a single poll can move the line noticeably; point to the chart to see how many polls each point uses." : "") });
     wrap.appendChild(legend); wrap.appendChild(chart); wrap.appendChild(key); wrap.appendChild(note); wrap.appendChild(tip);
     detail.textContent = "Point to or tap the chart (or use the arrow keys) to see the figures for a date and the polls that ended that day.";
     wrap.insertAdjacentElement("afterend", el("p", { "class": "lede", text: "Te Tai Tokerau Party isn't reported separately in most polls, so it isn't in these charts." }));
@@ -513,6 +517,9 @@
     }
   }
 
+  // Checklist items with a deadline disappear once it has passed (e.g. enrolment after 25 October).
+  document.querySelectorAll("[data-until]").forEach(function (li) { if (today > li.getAttribute("data-until")) li.remove(); });
+
   /* ---------- Video: load YouTube only when someone presses play ---------- */
   document.querySelectorAll(".video-facade").forEach(function (b) {
     b.addEventListener("click", function () {
@@ -665,7 +672,7 @@
         var barOrder = codes.filter(function (c) { return picked[c]; }).concat(codes.filter(function (c) { return !picked[c]; }));
         barOrder.forEach(function (c) { if (seats[c]) bar.appendChild(el("span", { "class": anyPicked && !picked[c] ? "dim" : "", style: "--pc:var(--p-" + c + ");flex:" + seats[c] })); });
         bar.appendChild(el("span", { "class": "seat-mid", style: "left:" + (need - 0.5) / house * 100 + "%" }));
-        target.appendChild(el("p", { "class": "seat-total" }, [el("strong", { text: house + " seats" }), overhang ? " (including " + overhang + " overhang " + (overhang === 1 ? "seat" : "seats") + ")" : "", ". A government needs " + need + " (the dashed line)."]));
+        target.appendChild(el("p", { "class": "seat-total" }, [el("strong", { text: house + " seats" }), overhang ? " (including " + overhang + " overhang " + (overhang === 1 ? "seat" : "seats") + ": any party that wins more electorates than its party vote earns keeps them, and Parliament grows)" : "", ". A government needs " + need + " (the dashed line)."]));
         target.appendChild(bar);
       }
       head(out, true);
@@ -698,7 +705,7 @@
   function renderSources(data) {
     var where = { dates: document.querySelector(".dates-body"), votes: document.getElementById("two-votes"), polls: document.getElementById("polls"),
       policies: document.getElementById("policies"), compare: document.getElementById("compare"), debates: document.getElementById("debates"), parties: document.getElementById("parties"),
-      seats: document.getElementById("seats") };
+      seats: document.getElementById("seats"), before: document.getElementById("before") };
     Object.keys(data.sections).forEach(function (key) {
       if (!where[key]) return;
       var ol = el("ol");

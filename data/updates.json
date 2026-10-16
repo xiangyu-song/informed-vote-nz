@@ -2,6 +2,14 @@
   "updates": [
     {
       "date": "2026-10-16",
+      "text": "Added a 'Before you vote' checklist, with how to fill in the voting paper and links to information in accessible formats and other languages."
+    },
+    {
+      "date": "2026-10-16",
+      "text": "Clearer notes on polls (the margin of error is smaller for parties polling lower, and how many polls each point uses) and on the seat calculator's starting point. Policy cards now read left to right."
+    },
+    {
+      "date": "2026-10-16",
       "text": "Each Māori electorate debate is now listed separately by date, with its own watch link."
     },
     {

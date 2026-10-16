@@ -9,6 +9,7 @@
     "Parties appear if they have a sitting MP or average 2% or more in recent nationwide polls, and publish policies on their own website.",
     "Party order is shuffled each time the page loads, so no party is always first.",
     "Up to three quotes per party per topic, in the order the party lists its policies. The first is shown; \"Show more\" reveals the rest, for every party alike. If a party has fewer than three policies on a topic, we add further commitments from the same pages, in order. Each policy appears once, under the topic it fits best.",
+    "Parties publish different amounts of policy detail: some have dozens of separate policy pages, others one longer page. Showing up to three quotes each keeps the comparison even, but it doesn't show how much each party has published; their own policy pages do.",
     "Quotes are the party's own words, in quotation marks, cut at about 20 words. '…' marks a cut, and [square brackets] mark words we added for clarity.",
     "A tag shows the type of source: a policy page, the 2026 manifesto, a dated announcement, a long-term policy, or a petition.",
     "Topic order: the four issues New Zealanders rated most important in the Ipsos Issues Monitor (July 2026) come first: cost of living, healthcare, the economy and housing. The rest are alphabetical.",

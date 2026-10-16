@@ -40,6 +40,7 @@
       <a href="#polls">Polls</a>
       <a href="#debates">Debates</a>
       <a href="#parties">All parties</a>
+      <a href="#before">Before you vote</a>
     </nav>
   </div>
 </header>
@@ -104,7 +105,7 @@
   <section id="policies" class="wrap block" aria-labelledby="policies-title">
     <h2 id="policies-title">Policies, in each party's own words</h2>
     <p class="lede">Pick a topic to compare the parties, or switch to Party to see everything one party says. Every quote is from the party's own website and links to the full policy. Tap a dotted-underlined word for its meaning.</p>
-    <div class="mode" role="group" aria-label="View policies by">
+    <div class="mode" id="policy-controls" role="group" aria-label="View policies by">
       <span class="mode-label">View by</span>
       <button type="button" id="mode-topic" aria-pressed="true">Topic</button>
       <button type="button" id="mode-party" aria-pressed="false">Party</button>
@@ -112,6 +113,7 @@
     <div id="issue-picker" class="issue-picker" role="tablist" aria-label="Topics"></div>
     <p id="policy-showing" class="policy-showing" aria-live="polite"></p>
     <div id="policy-list" class="policy-list"></div>
+    <p class="back-topics"><a href="#policy-controls">↑ Choose another topic or party</a></p>
     <div class="tool-card">
       <h3>Want more detail? Policy.nz</h3>
       <p>Policy.nz summarises party policies topic by topic in plain, consistent language, with links to the original sources. It also lists each electorate's candidates, and can hide which party wrote each policy so you judge the idea first.</p>
@@ -138,7 +140,7 @@
 
   <section id="polls" class="wrap block" aria-labelledby="polls-title">
     <h2 id="polls-title">Polls</h2>
-    <p class="lede">Average party vote in nationwide polls from the last 14 days. Polls are estimates, with a margin of error of about 3 points either way.</p>
+    <p class="lede">Average party vote in nationwide polls from the last 14 days. Polls are estimates: the margin of error is about 3 points either way for the larger parties, and smaller for parties polling lower.</p>
     <div id="poll-summary" class="poll-summary"></div>
     <p class="seats-note">This shows party vote, not seats. A party below 5% still gets seats if it wins an electorate. To turn votes into seats, try the <a href="#seats">seat calculator</a>.</p>
     <h3 class="sub">How each party has moved since August</h3>
@@ -153,7 +155,7 @@
 
   <section id="seats" class="wrap block" aria-labelledby="seats-title">
     <h2 id="seats-title">Seat calculator</h2>
-    <p class="lede">A what-if tool, not a forecast, using the Electoral Commission's counting method. It starts from the 14-day poll average. A party under 5% still gets seats if it wins an electorate, so tick <em>Wins electorate</em> if you think it will.</p>
+    <p class="lede">A what-if tool, not a forecast, using the Electoral Commission's counting method. It starts from the 14-day poll average. A party under 5% still gets seats if it wins an electorate. No electorates are ticked to start with, so a party under 5% shows 0 seats until you tick <em>Wins electorate</em>. That is not a prediction.</p>
     <div id="seat-calc" class="seat-calc"></div>
     <details class="more">
       <summary>How the seats are worked out</summary>
@@ -178,6 +180,22 @@
     <h2 id="parties-title">Every party on the ballot</h2>
     <p class="lede">All 17 registered parties, as listed on the <a href="https://elections.nz/democracy-in-nz/political-parties-in-new-zealand/register-of-political-parties">Electoral Commission's register</a>. Links go to each party's own website.</p>
     <ul id="party-list" class="party-list"></ul>
+  </section>
+
+  <section id="before" class="wrap block" aria-labelledby="before-title">
+    <h2 id="before-title">Before you vote</h2>
+    <p class="lede">A quick checklist. Each link goes to the Electoral Commission's official site, vote.nz, unless it says otherwise.</p>
+    <ol class="checklist">
+      <li data-until="2026-10-25"><strong>Check you're enrolled</strong> by Sunday 25 October. You can't enrol once voting starts. <a href="https://vote.nz/">Enrol or check your details</a></li>
+      <li><strong>See who's standing where you live.</strong> <a href="https://vote.nz/maps/find-your-electorate-2026">Find your electorate</a>, then see its <a href="https://vote.nz/2026-general-election/voting-in-the-election/candidates">candidates and every party's list</a>.</li>
+      <li><strong>Compare the parties</strong> in their own words in <a href="#policies">Policies</a>, or try <a href="#compare">Vote Compass</a>.</li>
+      <li><strong>Know the voting paper.</strong> Tick one party on the left (your party vote) and one candidate on the right (your electorate vote). You can vote for just one if you prefer. <a href="https://vote.nz/voting/how-to-vote/what-to-do/">How to fill it in</a></li>
+      <li><strong>Pick when and where.</strong> Vote early from Monday 26 October, or on Saturday 7 November, 9am–7pm. <a href="https://vote.nz/2026-general-election/voting-in-the-election/find-a-voting-place">Find a voting place</a> or an <a href="https://map.vote.nz/voting-places/accessible">accessible voting place</a>.</li>
+    </ol>
+    <div class="help-box">
+      <p class="help-title">Information in other formats and languages</p>
+      <p><a href="https://vote.nz/2026-general-election/resources/information-in-accessible-formats">Easy Read, large print, audio, Braille and NZSL</a> · <a href="https://vote.nz/2026-general-election/resources/information-in-te-reo-maori">Te reo Māori</a> · <a href="https://vote.nz/2026-general-election/resources/information-in-multiple-languages">Other languages</a></p>
+    </div>
   </section>
 </main>
 
