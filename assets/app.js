@@ -359,7 +359,8 @@
     chart.addEventListener("pointerdown", function (e) { showAt(e.clientX); });
     chart.addEventListener("pointerleave", function (e) { if (e.pointerType === "mouse") hide(); });
     document.addEventListener("pointerdown", function (e) { if (!wrap.contains(e.target)) hide(); });
-    wrap.appendChild(legend); wrap.appendChild(chart); wrap.appendChild(tip);
+    var key = el("p", { "class": "trend-key" }, [el("span", { "class": "k-item" }, [el("span", { "class": "k-dot", "aria-hidden": "true" }), "Dot: one poll"]), el("span", { "class": "k-item" }, [el("span", { "class": "k-line", "aria-hidden": "true" }), "Line: 14-day average of the polls"])]);
+    wrap.appendChild(legend); wrap.appendChild(chart); wrap.appendChild(key); wrap.appendChild(tip);
     detail.textContent = "Point to or tap the chart (or use the arrow keys) to see the figures for a date and the polls that ended that day.";
     wrap.insertAdjacentElement("afterend", el("p", { "class": "lede", text: "Te Tai Tokerau Party isn't reported separately in most polls, so it isn't in these charts." }));
 
