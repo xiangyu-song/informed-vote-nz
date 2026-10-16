@@ -193,7 +193,7 @@
     data.dates.forEach(function (d) {
       var state = d.date < today ? "past" : (d.date === today ? "next" : "future");
       if (!markerPlaced && d.date > today) {
-        list.appendChild(el("li", { "class": "today-marker", text: "Today, " + fmtDate(today, { weekday: undefined }) }));
+        list.appendChild(el("li", { "class": "today-marker", text: "Today · " + fmtDate(today, { weekday: "short", month: "short" }) }));
         markerPlaced = true;
       }
       if (!next && d.date >= today) { next = d; state = "next"; }
