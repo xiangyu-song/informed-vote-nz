@@ -200,13 +200,31 @@
       <p class="help-title">Information in other formats and languages</p>
       <p><a href="https://vote.nz/2026-general-election/resources/information-in-accessible-formats">Easy Read, large print, audio, Braille and NZSL</a> · <a href="https://vote.nz/2026-general-election/resources/information-in-te-reo-maori">Te reo Māori</a> · <a href="https://vote.nz/2026-general-election/resources/information-in-multiple-languages">Other languages</a></p>
     </div>
-    <details class="more homescreen">
-      <summary>Save this site to your home screen</summary>
-      <ul>
-        <li><strong>iPhone (Safari):</strong> tap Share (on newer iPhones it's under the ⋯ button), then “Add to Home Screen”.</li>
-        <li><strong>Android (Chrome):</strong> tap the ⋮ menu, then “Add to home screen” or “Install app”.</li>
-      </ul>
-    </details>
+    <div class="a2hs" id="a2hs">
+      <div class="a2hs-head">
+        <img src="assets/img/apple-touch-icon.png" alt="" width="52" height="52" class="a2hs-icon">
+        <div>
+          <p class="a2hs-title">Add it to your home screen</p>
+          <p class="a2hs-sub">Open Know Your Votes like an app, in one tap.</p>
+        </div>
+      </div>
+      <div class="a2hs-switch" role="group" aria-label="Choose your phone">
+        <button type="button" data-os="ios" aria-pressed="true">iPhone</button>
+        <button type="button" data-os="android" aria-pressed="false">Android</button>
+      </div>
+      <ol class="a2hs-steps" data-os="ios">
+        <li>In Safari, tap <span class="a2hs-key">Share <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V3M8 7l4-4 4 4M7 11H5v10h14V11h-2"/></svg></span>. It's at the bottom of the screen. On newer iPhones, tap <span class="a2hs-key">⋯</span> first.</li>
+        <li>Scroll down and tap <span class="a2hs-key">Add to Home Screen <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M12 8v8M8 12h8"/></svg></span>.</li>
+        <li>Tap <span class="a2hs-key">Add</span>.</li>
+      </ol>
+      <ol class="a2hs-steps" data-os="android" hidden>
+        <li>In Chrome, tap the <span class="a2hs-key">⋮</span> menu at the top right.</li>
+        <li>Tap <span class="a2hs-key">Add to home screen</span> or <span class="a2hs-key">Install app</span>.</li>
+        <li>Tap <span class="a2hs-key">Install</span> or <span class="a2hs-key">Add</span>.</li>
+      </ol>
+      <p class="a2hs-note" data-os="ios">Using an iPad? Share is at the top right.</p>
+      <p class="a2hs-note" data-os="android" hidden>Samsung Internet: tap <span class="a2hs-key">☰</span>, then “Add page to” and “Home screen”.</p>
+    </div>
   </section>
 </main>
 <p class="mini-foot">Independent and neutral · not affiliated with any party or the Electoral Commission</p>

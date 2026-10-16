@@ -757,7 +757,21 @@ details.more[open] > summary::before, .more-rules[open] > summary::before { tran
   body.tabbed:not([data-tab="before"]) .mini-foot { display: block; margin: 1.5rem 16px 0; padding: 0 0 1rem; text-align: center; font-size: 0.75rem; line-height: 1.5; color: var(--muted); }
 }
 
-/* Home screen tip: phones only, hidden once opened from the home screen */
-details.homescreen { margin: 1rem 0 0; }
-@media (min-width: 720px) { details.homescreen { display: none; } }
-@media (display-mode: standalone) { details.homescreen { display: none; } }
+/* Home screen card: phones only, hidden once opened from the home screen */
+.a2hs { margin: 1.25rem 0 0; padding: 1rem 1rem 1.05rem; border-radius: var(--r-l); background: var(--night); color: var(--lilac); border: 1px solid rgba(216, 204, 243, 0.14); }
+.a2hs-head { display: flex; gap: 0.8rem; align-items: center; }
+.a2hs-icon { flex: none; width: 3rem; height: 3rem; border-radius: 22%; box-shadow: 0 0 0 1px rgba(216, 204, 243, 0.25); }
+.a2hs-title { margin: 0; font-weight: 800; color: #fff; line-height: 1.3; }
+.a2hs-sub { margin: 0.15rem 0 0; font-size: 0.85rem; color: var(--lilac-dim); }
+.a2hs-switch { display: flex; gap: 0.25rem; margin: 0.9rem 0 0.6rem; padding: 0.2rem; border-radius: 999px; background: var(--night-2); }
+.a2hs-switch button { flex: 1; font: inherit; font-size: 0.85rem; font-weight: 700; padding: 0.4rem 0.5rem; border: 0; border-radius: 999px; background: transparent; color: var(--lilac); cursor: pointer; }
+.a2hs-switch button[aria-pressed="true"] { background: var(--lilac); color: #2a1d43; }
+.a2hs-steps { margin: 0; padding-left: 1.3rem; font-size: 0.93rem; line-height: 1.5; color: #fff; }
+.a2hs-steps li { margin: 0.4rem 0; padding-left: 0.15rem; }
+.a2hs-steps li::marker { color: var(--lilac); font-weight: 800; }
+.a2hs-key { display: inline-flex; align-items: center; gap: 0.25rem; padding: 0 0.4rem; border-radius: 0.35rem; background: var(--night-2); font-weight: 700; white-space: nowrap; }
+.a2hs-key svg { width: 0.95em; height: 0.95em; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.a2hs-note { margin: 0.6rem 0 0; font-size: 0.8rem; color: var(--lilac-dim); }
+.a2hs [hidden] { display: none; }
+@media (min-width: 720px) { .a2hs { display: none; } }
+@media (display-mode: standalone) { .a2hs { display: none; } }

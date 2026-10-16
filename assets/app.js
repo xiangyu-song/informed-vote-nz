@@ -828,3 +828,19 @@
     fail(document.getElementById("main"), "election information");
   });
 })();
+
+// Home screen card: show the steps for the visitor's phone, with a switch for the other
+(function () {
+  var box = document.getElementById("a2hs");
+  if (!box) return;
+  var ua = navigator.userAgent || "";
+  var samsung = /SamsungBrowser/i.test(ua);
+  function pick(os) {
+    box.querySelectorAll("button[data-os]").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-os") === os)); });
+    box.querySelectorAll(".a2hs-steps, .a2hs-note").forEach(function (el) { el.hidden = el.getAttribute("data-os") !== os; });
+  }
+  box.querySelectorAll("button[data-os]").forEach(function (b) {
+    b.addEventListener("click", function () { pick(b.getAttribute("data-os")); });
+  });
+  pick(/Android/i.test(ua) || samsung ? "android" : "ios");
+})();
