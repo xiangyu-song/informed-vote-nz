@@ -108,6 +108,34 @@
     frag.appendChild(document.createTextNode(text.slice(last)));
     return frag;
   }
+  // Mark te reo Māori words and names so screen readers pronounce them correctly.
+  var MI_WORDS = ["Te Pāti Māori", "Te Tai Tokerau", "Te Tai Tonga", "Te Tai Hauāuru", "Ikaroa-Rāwhiti", "Tāmaki Makaurau", "Hauraki-Waikato", "Waiariki",
+    "Whakaata Māori", "MĀORI+", "Whakatau", "Anamata", "Te Ao Mārama", "Te Ao Māori", "Te Ao", "Kāinga Ora", "Te Tiriti o Waitangi", "Te Tiriti", "te reo Māori", "te reo",
+    "Aotearoa", "Māori", "whānau", "kaumātua", "mātauranga", "rangatahi", "kaupapa", "tikanga", "tangata whenua", "mana whenua", "mana motuhake", "whenua",
+    "marae", "iwi", "hapū", "kai", "kaitiaki", "moana", "mokopuna", "Waitangi", "Pōneke", "Wheako"];
+  var MI_RE = new RegExp("(^|[^\\p{L}])(" + MI_WORDS.slice().sort(function (a, b) { return b.length - a.length; }).map(function (w) { return w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); }).join("|") + ")(?![\\p{L}])", "gu");
+  function markTeReo(root) {
+    if (!root) return;
+    var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, { acceptNode: function (n) {
+      var p = n.parentElement;
+      if (!p || p.closest("script, style, svg, [lang=mi]")) return NodeFilter.FILTER_REJECT;
+      MI_RE.lastIndex = 0;
+      return MI_RE.test(n.nodeValue) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+    } });
+    var nodes = []; while (walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(function (n) {
+      var text = n.nodeValue, frag = document.createDocumentFragment(), last = 0, m;
+      MI_RE.lastIndex = 0;
+      while ((m = MI_RE.exec(text))) {
+        var start = m.index + m[1].length;
+        frag.appendChild(document.createTextNode(text.slice(last, start)));
+        frag.appendChild(el("span", { lang: "mi", text: m[2] }));
+        last = start + m[2].length;
+      }
+      frag.appendChild(document.createTextNode(text.slice(last)));
+      n.parentNode.replaceChild(frag, n);
+    });
+  }
   function getJSON(path) { return fetch(path, { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error(path); return r.json(); }); }
   function fail(container, what) {
     container.appendChild(el("p", { "class": "error", text: "The " + what + " couldn't load. Refresh the page to try again." }));
@@ -334,12 +362,14 @@
       partyOrder.forEach(function (party) {
         list.appendChild(fillBox(el("article", { "class": "party" }, [el("h3", { text: party })]), issue, party));
       });
+      markTeReo(list);
     }
     function showParty(party, btn) {
       select(btn);
       data.issues.forEach(function (issue) {
         list.appendChild(fillBox(el("article", { "class": "party" }, [el("h3", { text: issue.name })]), issue, party));
       });
+      markTeReo(list);
     }
     function buildPicker(mode) {
       picker.innerHTML = "";
@@ -475,6 +505,8 @@
     renderDebates(r[3]);
     renderParties(r[4]);
     renderSources(r[6]);
+    markTeReo(document.getElementById("main"));
+
     var u = new Date(r[5].updated);
     document.getElementById("updated").textContent = "Last updated " + new Intl.DateTimeFormat("en-NZ", { timeZone: "Pacific/Auckland", dateStyle: "long", timeStyle: "short" }).format(u) + " (NZ time). Every poll figure and policy quote links to its source.";
   }).catch(function () {
