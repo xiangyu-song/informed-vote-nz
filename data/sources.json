@@ -174,6 +174,24 @@
         "publisher": "TVNZ+",
         "url": "https://www.tvnz.co.nz/tvseries/qa-the-peoples-debate",
         "supports": "Date, time and format of the People's Debate"
+      },
+      {
+        "title": "Whakatau 2026 election coverage",
+        "publisher": "Whakaata Māori",
+        "url": "https://www.whakaatamaori.co.nz/media-releases/whakatau-2026",
+        "supports": "Māori electorate debates from 29 September and the Māori Leaders' Debate on 28 October at 7pm, and where to watch"
+      },
+      {
+        "title": "Whakatau Election 2026 show pages",
+        "publisher": "MĀORI+",
+        "url": "https://www.maoriplus.co.nz/show/whakatau-election-2026-te-tai-tokerau",
+        "supports": "date and time of each Māori electorate debate and the Anamata debate, and watch links"
+      },
+      {
+        "title": "Maiki Sherman and Julian Wilcox to host Whakaata Māori election debates",
+        "publisher": "Te Ao Māori News",
+        "url": "https://www.teaonews.co.nz/2026/08/31/maiki-sherman-and-julian-wilcox-to-host-whakaata-maori-election-debates/",
+        "supports": "who takes part in the Māori Leaders' Debate"
       }
     ],
     "parties": [

@@ -338,21 +338,43 @@
   /* ---------- Debates ---------- */
   function renderDebates(data) {
     var list = document.getElementById("debate-list");
-    var upcoming = data.debates.filter(function (d) { return d.date >= today; });
-    var held = data.debates.filter(function (d) { return d.date < today; }).reverse();
+    function nextDate(d) {
+      if (!d.series) return d.date;
+      var n = d.series.filter(function (x) { return x.date >= today; })[0];
+      return n ? n.date : d.series[d.series.length - 1].date;
+    }
+    function isUpcoming(d) { return nextDate(d) >= today; }
+    var upcoming = data.debates.filter(isUpcoming).sort(function (a, b) { return nextDate(a) < nextDate(b) ? -1 : 1; });
+    var held = data.debates.filter(function (d) { return !isUpcoming(d); }).sort(function (a, b) { return nextDate(a) < nextDate(b) ? 1 : -1; });
     function item(d, isHeld) {
-      var dt = new Date(toDate(d.date));
+      var dt = new Date(toDate(nextDate(d)));
       var mon = new Intl.DateTimeFormat("en-NZ", { timeZone: "UTC", month: "short" }).format(dt);
+      var when = d.series
+        ? fmtDate(d.series[0].date, { weekday: undefined }) + " to " + fmtDate(d.series[d.series.length - 1].date, { weekday: undefined }) + " (" + d.series.length + " debates)"
+        : fmtDate(d.date) + (d.time ? ", " + d.time : "");
+      var parts = [
+        el("span", { "class": "d-meta", text: when }),
+        el("a", { "class": "d-name", href: d.link, text: d.name }),
+        isHeld ? el("span", { "class": "held-note", text: " (already held)" }) : null,
+        el("span", { "class": "d-meta", text: d.host + ", on " + d.where }),
+        el("span", { "class": "d-meta", text: "Taking part: " + d.who })
+      ];
+      if (d.series) {
+        var ul = el("ul", { "class": "d-series" });
+        d.series.forEach(function (x) {
+          var past = x.date < today;
+          ul.appendChild(el("li", { "class": past ? "past" : "" }, [
+            el("span", { text: fmtDate(x.date, { weekday: "short" }) + ", " + x.time + ": " }),
+            el("a", { href: x.url, text: x.label + (past ? " (watch again)" : " (watch live)") })
+          ]));
+        });
+        parts.push(ul);
+      } else if (d.watch) {
+        parts.push(el("a", { "class": "d-video", href: d.watch.url }, [playIcon(), d.watch.label]));
+      }
       return el("li", { "class": isHeld ? "held" : "" }, [
         el("span", { "class": "cal", "aria-hidden": "true" }, [el("span", { "class": "cal-m", text: mon }), el("span", { "class": "cal-d", text: String(dt.getUTCDate()) })]),
-        el("div", null, [
-          el("span", { "class": "d-meta", text: fmtDate(d.date) + (d.time ? ", " + d.time : "") }),
-          el("a", { "class": "d-name", href: d.link, text: d.name }),
-          isHeld ? el("span", { "class": "held-note", text: " (already held)" }) : null,
-          el("span", { "class": "d-meta", text: d.host + ", on " + d.where }),
-          el("span", { "class": "d-meta", text: "Taking part: " + d.who }),
-          d.watch ? el("a", { "class": "d-video", href: d.watch.url }, [playIcon(), d.watch.label]) : null
-        ])
+        el("div", null, parts)
       ]);
     }
     upcoming.forEach(function (d) { list.appendChild(item(d, false)); });
