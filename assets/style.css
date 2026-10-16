@@ -399,3 +399,22 @@ td.who { white-space: normal; min-width: 14rem; text-align: left; color: var(--m
   .party-list a.in-table { padding: calc(0.35rem - 1.5px) calc(0.7rem - 1.5px); }
   .timeline li { padding-bottom: 0.7rem; }
 }
+
+/* Video (Electoral Commission MMP explainer) */
+.video { margin: 0 0 1rem; }
+.video-facade, .video iframe { display: block; width: 100%; aspect-ratio: 16 / 9; border: 0; border-radius: var(--r-l); overflow: hidden; background: var(--night); }
+.video-facade { position: relative; padding: 0; cursor: pointer; }
+.video-facade img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.video-play { position: absolute; inset: 0; margin: auto; width: 4.2rem; height: 4.2rem; border-radius: 50%; background: var(--accent); display: grid; place-items: center; box-shadow: 0 6px 20px -6px rgba(0,0,0,0.5); }
+.video-play svg { width: 2rem; height: 2rem; fill: #fff; margin-left: 0.2rem; }
+.video-facade:hover .video-play, .video-facade:focus-visible .video-play { transform: scale(1.06); }
+.video-facade:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+.video figcaption { margin-top: 0.5rem; font-size: 0.9rem; color: var(--muted); }
+@media (min-width: 720px) { .video { max-width: 40rem; } }
+/* Folded "How votes become seats" */
+.more-rules summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem; min-height: 44px; }
+.more-rules summary::-webkit-details-marker { display: none; }
+.more-rules summary h3 { margin: 0; }
+.more-rules summary::after { content: "+"; font-size: 1.4rem; color: var(--accent); }
+.more-rules[open] summary::after { content: "\2212"; }
+.more-rules[open] summary { margin-bottom: 0.5rem; }

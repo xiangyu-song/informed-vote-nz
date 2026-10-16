@@ -2,6 +2,10 @@
  "updates": [
   {
    "date": "2026-10-16",
+   "text": "Added the Electoral Commission's 2-minute video explaining MMP to 'Your two votes'."
+  },
+  {
+   "date": "2026-10-16",
    "text": "Added a seat calculator: change the party votes to see how the 120 seats would be shared."
   },
   {

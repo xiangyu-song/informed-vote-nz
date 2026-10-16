@@ -500,6 +500,15 @@
     }
   }
 
+  /* ---------- Video: load YouTube only when someone presses play ---------- */
+  document.querySelectorAll(".video-facade").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var f = el("iframe", { src: "https://www.youtube-nocookie.com/embed/" + b.getAttribute("data-id") + "?autoplay=1&rel=0&cc_load_policy=1",
+        title: "MMP (Mixed Member Proportional), from the Electoral Commission", allow: "autoplay; encrypted-media; picture-in-picture; fullscreen", allowfullscreen: "", referrerpolicy: "strict-origin-when-cross-origin" });
+      b.replaceWith(f); f.focus();
+    });
+  });
+
   /* ---------- Back to top ---------- */
   (function () {
     var b = el("a", { href: "#main", "class": "to-top", "aria-label": "Back to top", hidden: "" }, [el("span", { "aria-hidden": "true", text: "\u2191" }), " Top"]);
