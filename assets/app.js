@@ -203,7 +203,7 @@
     });
     var ns = document.getElementById("next-step");
     if (today <= "2026-10-25") {
-      ns.innerHTML = "<strong>Check you're enrolled by Sunday 25 October.</strong> You can't enrol once voting starts. Enrol, check your details and find where to vote at <a href=\"https://vote.nz/\">vote.nz</a>, the Electoral Commission's site.";
+      ns.innerHTML = "<strong>Enrol or check your details by Sunday 25 October</strong> at <a href=\"https://vote.nz/\">vote.nz</a>. You can't enrol once voting starts.";
     } else if (today <= "2026-11-06") {
       ns.innerHTML = "<strong>Voting is open.</strong> You can vote early at any voting place until election day. Find one at <a href=\"https://vote.nz/\">vote.nz</a>.";
     } else if (today === "2026-11-07") {
@@ -218,12 +218,10 @@
     var box = document.getElementById("enrolment");
     if (!box || !e) return;
     if (today > "2026-10-25") { box.remove(); return; }
-    var pct = e.percent;
-    box.appendChild(el("p", { "class": "enrol-head" }, [el("strong", { text: pct.toFixed(2) + "% of eligible people are enrolled." }),
-      " That leaves an estimated " + e.not_enrolled.toLocaleString("en-NZ") + " people not yet enrolled."]));
-    box.appendChild(el("div", { "class": "enrol-bar", role: "img", "aria-label": pct.toFixed(2) + " percent enrolled" }, [el("span", { style: "width:" + pct + "%" })]));
-    box.appendChild(el("p", { "class": "enrol-src" }, [e.enrolled.toLocaleString("en-NZ") + " enrolled of about " + e.eligible.toLocaleString("en-NZ") + " eligible, as at " + fmtChecked(e.as_at) + ". ",
-      el("a", { href: e.source, text: "Electoral Commission figures" }), ". Checked " + fmtChecked(e.checked) + "."]));
+    box.appendChild(el("p", { "class": "enrol-head" }, [el("strong", { text: e.percent.toFixed(2) + "% of eligible people are enrolled" }),
+      "; about " + e.not_enrolled.toLocaleString("en-NZ") + " aren't yet."]));
+    box.appendChild(el("p", { "class": "enrol-src" }, ["As at " + fmtChecked(e.as_at) + ", ",
+      el("a", { href: e.source, text: "Electoral Commission" }), ". Checked " + fmtChecked(e.checked) + "."]));
   }
 
   /* ---------- Polls ---------- */
