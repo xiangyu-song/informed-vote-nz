@@ -619,7 +619,8 @@
       range.addEventListener("input", function () { state[c].v = +range.value; update(); });
       num.addEventListener("input", function () { var v = parseFloat(num.value); if (!isNaN(v)) { state[c].v = Math.max(0, Math.min(100, v)); update(true); } });
       tick.addEventListener("change", function () { state[c].e = tick.checked ? Math.max(1, +count.value || 1) : 0; update(); });
-      count.addEventListener("input", function () { var v = parseInt(count.value, 10); if (v >= 1) { state[c].e = v; update(true); } });
+      count.addEventListener("input", function () { var v = parseInt(count.value, 10); if (v >= 1) { state[c].e = Math.min(71, v); update(true); } });
+      count.addEventListener("change", function () { count.value = state[c].e || 1; });
       rows[c] = { range: range, num: num, tick: tick, count: count };
       form.appendChild(el("div", { "class": "seat-row", style: "--pc:var(--p-" + c + ")" }, [
         el("label", { "for": id, "class": "seat-name" }, [el("span", { "class": "sw" }), el("span", { text: NAMES[c] })]),
@@ -656,6 +657,8 @@
       var house = 120 + overhang, need = Math.floor(house / 2) + 1;
       out.innerHTML = "";
       if (total > 100.05) out.appendChild(el("p", { "class": "seat-warn", text: "The party votes add up to " + total.toFixed(1) + "%, which is more than 100%. Lower some parties to make the result realistic." }));
+      var elecTotal = codes.reduce(function (s, c) { return s + state[c].e; }, 0);
+      if (elecTotal > 71) out.appendChild(el("p", { "class": "seat-warn", text: "The electorates won add up to " + elecTotal + ", but there are only 71 electorates. Lower some parties to make the result realistic." }));
       var bar = el("div", { "class": "seat-bar", role: "img", "aria-label": codes.filter(function (c) { return seats[c]; }).map(function (c) { return NAMES[c] + " " + seats[c]; }).join(", ") + " seats" });
       codes.forEach(function (c) { if (seats[c]) bar.appendChild(el("span", { style: "--pc:var(--p-" + c + ");flex:" + seats[c] })); });
       bar.appendChild(el("span", { "class": "seat-mid", style: "left:" + (need - 0.5) / house * 100 + "%" }));
