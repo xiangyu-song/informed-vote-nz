@@ -765,6 +765,9 @@ details.more[open] > summary::before, .more-rules[open] > summary::before { tran
 .a2hs-sub { margin: 0.15rem 0 0; font-size: 0.85rem; color: var(--lilac-dim); }
 .a2hs-switch { display: flex; gap: 0.25rem; margin: 0.9rem 0 0.6rem; padding: 0.2rem; border-radius: 999px; background: var(--night-2); }
 .a2hs-switch button { flex: 1; font: inherit; font-size: 0.85rem; font-weight: 700; padding: 0.4rem 0.5rem; border: 0; border-radius: 999px; background: transparent; color: var(--lilac); cursor: pointer; }
+.a2hs-switch button { -webkit-tap-highlight-color: transparent; touch-action: manipulation; transition: background-color 0.15s, color 0.15s; }
+.a2hs-switch button:focus { outline: none; }
+.a2hs-switch button:focus-visible { outline: 2px solid var(--lilac); outline-offset: 2px; }
 .a2hs-switch button[aria-pressed="true"] { background: var(--lilac); color: #2a1d43; }
 .a2hs-steps { margin: 0; padding-left: 1.3rem; font-size: 0.93rem; line-height: 1.5; color: #fff; }
 .a2hs-steps li { margin: 0.4rem 0; padding-left: 0.15rem; }
