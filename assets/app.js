@@ -150,7 +150,9 @@
   function renderDates(data) {
     var days = Math.round((toDate("2026-11-07") - toDate(today)) / DAY);
     var count = document.getElementById("countdown");
-    if (days > 1) count.textContent = days + " days to go";
+    // Count the full days left before election day (today and election day not counted).
+    if (days > 2) count.textContent = (days - 1) + " days to go";
+    else if (days === 2) count.textContent = "1 day to go";
     else if (days === 1) count.textContent = "That's tomorrow";
     else if (days === 0) count.textContent = "That's today. Voting places are open 9am to 7pm.";
     else count.textContent = "Voting has closed. Results are at electionresults.govt.nz.";
