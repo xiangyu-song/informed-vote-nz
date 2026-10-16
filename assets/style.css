@@ -131,7 +131,7 @@ details.more li { margin: 0.45rem 0; }
 
 /* ---------- Polls ---------- */
 .poll-summary { background: var(--surface); border-radius: var(--r-l); padding: 1.1rem 1.1rem 0.6rem; box-shadow: 0 1px 0 var(--rule); }
-.bar-row { display: grid; grid-template-columns: 1fr auto; grid-template-areas: 'name val' 'track track'; align-items: baseline; gap: 0.15rem 0.6rem; padding: 0.35rem 0; }
+.bar-row { display: grid; grid-template-columns: 6.6rem 1fr 3.2rem; grid-template-areas: 'name track val'; align-items: center; gap: 0.15rem 0.6rem; padding: 0.35rem 0; }
 .bar-name { grid-area: name; } .bar-val { grid-area: val; } .bar-track { grid-area: track; }
 @media (min-width: 640px) { .bar-row { grid-template-columns: 8rem 1fr 3.6rem; grid-template-areas: 'name track val'; align-items: center; } }
 .bar-name { font-weight: 600; font-size: 0.95rem; line-height: 1.2; }
@@ -363,3 +363,39 @@ td.who { white-space: normal; min-width: 14rem; text-align: left; color: var(--m
 /* What's new */
 .updates-list { padding-left: 1.2rem; color: var(--ink); }
 .updates-list li { margin: 0.4rem 0; }
+
+/* ---------- Compact phone layout ---------- */
+.debate-list .d-series li[hidden] { display: none; }
+.d-series-box .show-more { margin-top: 0.4rem; }
+.past-debates { margin-top: 1rem; }
+.past-debates > .debate-list { margin-top: 0.6rem; }
+.picker-select { display: none; }
+.picker-select select { font: inherit; font-weight: 600; width: 100%; min-height: 48px; padding: 0.5rem 2.4rem 0.5rem 0.9rem; border-radius: var(--r-m); border: 1.5px solid var(--accent); background: var(--surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9'%3E%3Cpath d='M1 1l6 6 6-6' fill='none' stroke='%237b5cd6' stroke-width='2'/%3E%3C/svg%3E") no-repeat right 0.9rem center; color: var(--ink); -webkit-appearance: none; appearance: none; }
+@media (max-width: 719px) {
+  .picker-select { display: grid; gap: 0.3rem; margin: 0 0 1rem; font-size: 0.9rem; color: var(--muted); }
+  .issue-picker { display: none; }
+  .block { padding-top: 2.1rem; }
+  h2 { font-size: clamp(1.5rem, 6.5vw, 1.9rem); }
+  .lede { margin-bottom: 0.8rem; }
+  .party { padding: 0.9rem 0.95rem 0.3rem; }
+  .policy-list { gap: 0.7rem; }
+  .ballot, .tool-card, .rules { padding: 0.95rem 1rem; }
+  .sources { margin-top: 1.1rem; }
+  /* Seat calculator: two lines per party */
+  .seat-row { grid-template-columns: 1fr auto; grid-template-areas: 'name num' 'range elec'; align-items: center; gap: 0 0.6rem; padding: 0.35rem 0; }
+  .seat-name { grid-area: name; }
+  .seat-vote { display: contents; }
+  .seat-vote input[type=range] { grid-area: range; height: 36px; }
+  .seat-num { grid-area: num; }
+  .seat-elec { grid-area: elec; font-size: 0.85rem; }
+  .seat-elec label { min-height: 36px; }
+  .seat-num input { width: 4.2rem; padding: 0.25rem 0.4rem; }
+  .seat-list { grid-template-columns: 1fr 1fr; }
+  .seat-list label { padding: 0 0.5rem; gap: 0.35rem; font-size: 0.9rem; }
+  .debate-list li { grid-template-columns: 3rem 1fr; gap: 0.7rem; padding: 0.7rem; }
+  .debate-list .d-meta { font-size: 0.9rem; }
+  .party-list { gap: 0.35rem; }
+  .party-list a { padding: 0.35rem 0.7rem; font-size: 0.88rem; }
+  .party-list a.in-table { padding: calc(0.35rem - 1.5px) calc(0.7rem - 1.5px); }
+  .timeline li { padding-bottom: 0.7rem; }
+}

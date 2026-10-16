@@ -133,6 +133,9 @@
         last = start + m[2].length;
       }
       frag.appendChild(document.createTextNode(text.slice(last)));
+      // In flex or grid boxes, keep the text together as one item.
+      var disp = getComputedStyle(n.parentNode).display;
+      if (/flex|grid/.test(disp)) { var w = el("span"); w.appendChild(frag); frag = w; }
       n.parentNode.replaceChild(frag, n);
     });
   }
@@ -356,6 +359,9 @@
     var list = document.getElementById("policy-list");
     var how = document.getElementById("how-list");
     var modeTopic = document.getElementById("mode-topic"), modeParty = document.getElementById("mode-party");
+    var sel = el("select", { id: "picker-select" });
+    var selLabel = el("label", { "class": "picker-select", "for": "picker-select" }, [el("span", { text: "Topic" }), sel]);
+    picker.insertAdjacentElement("beforebegin", selLabel);
     data.how_we_chose.forEach(function (t) { how.appendChild(el("li", { text: t })); });
     how.appendChild(el("li", { text: data.verification }));
 
@@ -418,13 +424,20 @@
       modeParty.setAttribute("aria-pressed", mode === "party" ? "true" : "false");
       picker.setAttribute("aria-label", mode === "topic" ? "Topics" : "Parties");
       var items = mode === "topic" ? data.issues : partyOrder;
+      // On phones a drop-down replaces the rows of buttons (same choices, same order).
+      selLabel.firstChild.textContent = mode === "topic" ? "Topic" : "Party";
+      sel.innerHTML = "";
+      var btns = [];
       items.forEach(function (x, i) {
         var label = mode === "topic" ? x.name : x;
         var b = el("button", { type: "button", role: "tab", "aria-selected": "false", text: label });
-        b.addEventListener("click", function () { mode === "topic" ? showTopic(x, b) : showParty(x, b); });
-        picker.appendChild(b);
+        b.addEventListener("click", function () { sel.value = String(i); mode === "topic" ? showTopic(x, b) : showParty(x, b); });
+        picker.appendChild(b); btns.push(b);
+        sel.appendChild(el("option", { value: String(i), text: label }));
         if (i === 0) { mode === "topic" ? showTopic(x, b) : showParty(x, b); }
       });
+      sel.onchange = function () { btns[+sel.value].click(); };
+      sel.value = "0";
     }
     modeTopic.addEventListener("click", function () { buildPicker("topic"); });
     modeParty.addEventListener("click", function () { buildPicker("party"); });
@@ -456,17 +469,23 @@
         el("span", { "class": "d-meta", text: "Taking part: " + d.who })
       ];
       if (d.series) {
-        var ul = el("ul", { "class": "d-series" });
+        var ul = el("ul", { "class": "d-series" }), pastRows = [];
+        var anyUpcoming = d.series.some(function (x) { return x.date >= today; });
         d.series.forEach(function (x) {
           var past = x.date < today;
-          ul.appendChild(el("li", { "class": past ? "past" : "" }, [
+          var li = el("li", { "class": past ? "past" : "" });
+          if (past && anyUpcoming) pastRows.push(li);
+          ul.appendChild(li);
+          li.append.apply(li, [
             el("span", { text: fmtDate(x.date, { weekday: "short" }) + ", " + x.time + ": " }),
             el("a", { href: x.url, text: x.label + (past ? " (watch again)" : " (watch live)") })
-          ]));
+          ]);
         });
-        parts.push(ul);
+        var sbox = el("div", { "class": "d-series-box" }, [ul]);
+        foldExtras(sbox, pastRows, "earlier debate");
+        parts.push(sbox);
       } else if (d.watch) {
-        parts.push(el("a", { "class": "d-video", href: d.watch.url }, [playIcon(), d.watch.label]));
+        parts.push(el("a", { "class": "d-video", href: d.watch.url }, [playIcon(), el("span", { text: d.watch.label })]));
       }
       return el("li", { "class": isHeld ? "held" : "" }, [
         el("span", { "class": "cal", "aria-hidden": "true" }, [el("span", { "class": "cal-m", text: mon }), el("span", { "class": "cal-d", text: String(dt.getUTCDate()) })]),
@@ -474,7 +493,11 @@
       ]);
     }
     upcoming.forEach(function (d) { list.appendChild(item(d, false)); });
-    held.forEach(function (d) { list.appendChild(item(d, true)); });
+    if (held.length) {
+      var pastList = el("ul", { "class": "debate-list" });
+      held.forEach(function (d) { pastList.appendChild(item(d, true)); });
+      list.insertAdjacentElement("afterend", el("details", { "class": "more past-debates" }, [el("summary", { text: "Past debates: watch again (" + held.length + ")" }), pastList]));
+    }
   }
 
   /* ---------- Back to top ---------- */
@@ -526,7 +549,7 @@
       form.appendChild(el("div", { "class": "seat-row", style: "--pc:var(--p-" + c + ")" }, [
         el("label", { "for": id, "class": "seat-name" }, [el("span", { "class": "sw" }), el("span", { text: NAMES[c] })]),
         el("div", { "class": "seat-vote" }, [range, el("span", { "class": "seat-num", id: id + "-n" }, [num, "%"])]),
-        el("div", { "class": "seat-elec" }, [el("label", null, [tick, " Wins an electorate"]), count])
+        el("div", { "class": "seat-elec" }, [el("label", null, [tick, " Wins electorate"]), count])
       ]));
     });
     var resetBtn = el("button", { type: "button", "class": "seat-reset", text: "Reset to the poll average" });
