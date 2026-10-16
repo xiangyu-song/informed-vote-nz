@@ -509,6 +509,41 @@
     });
   });
 
+  /* ---------- Header: compact on phones after scrolling, and show where you are ---------- */
+  (function () {
+    var top = document.querySelector(".top"), nav = document.getElementById("site-nav"), btn = top && top.querySelector(".menu-btn");
+    if (!top || !nav || !btn) return;
+    var links = [].slice.call(nav.querySelectorAll("a"));
+    var now = btn.querySelector(".menu-now");
+    // Keep the page from jumping when the header shrinks: reserve the full header height once.
+    function reserve() { if (!top.classList.contains("compact")) document.body.style.paddingTop = top.offsetHeight + "px"; }
+    reserve(); window.addEventListener("resize", reserve);
+    var phone = window.matchMedia("(max-width: 719px)");
+    function onScroll() {
+      var c = phone.matches && window.scrollY > 260;
+      if (c !== top.classList.contains("compact")) {
+        top.classList.toggle("compact", c);
+        if (!c) { top.classList.remove("open"); btn.setAttribute("aria-expanded", "false"); }
+      }
+    }
+    window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
+    btn.addEventListener("click", function () {
+      var open = !top.classList.contains("open");
+      top.classList.toggle("open", open); btn.setAttribute("aria-expanded", String(open));
+    });
+    links.forEach(function (a) { a.addEventListener("click", function () { top.classList.remove("open"); btn.setAttribute("aria-expanded", "false"); }); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape" && top.classList.contains("open")) { top.classList.remove("open"); btn.setAttribute("aria-expanded", "false"); btn.focus(); } });
+    // Highlight the section on screen.
+    var targets = links.map(function (a) { return document.querySelector(a.getAttribute("href")); });
+    function mark() {
+      var line = Math.max(top.offsetHeight + 40, 180), current = null;
+      targets.forEach(function (t, i) { if (t && t.getBoundingClientRect().top <= line) current = i; });
+      links.forEach(function (a, i) { if (i === current) a.setAttribute("aria-current", "location"); else a.removeAttribute("aria-current"); });
+      now.textContent = current === null ? "Sections" : links[current].textContent;
+    }
+    window.addEventListener("scroll", mark, { passive: true }); mark();
+  })();
+
   /* ---------- Back to top ---------- */
   (function () {
     var b = el("a", { href: "#main", "class": "to-top", "aria-label": "Back to top", hidden: "" }, [el("span", { "aria-hidden": "true", text: "\u2191" }), " Top"]);
