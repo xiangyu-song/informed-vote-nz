@@ -652,3 +652,5 @@ td.who { white-space: normal; min-width: 14rem; text-align: left; color: var(--m
 }
 
 .seat-bar span.dim { opacity: 0.28; }
+
+.seat-row { border-bottom: 0; }
