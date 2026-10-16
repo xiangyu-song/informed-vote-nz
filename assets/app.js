@@ -792,7 +792,7 @@
     initTabs();
 
     var u = new Date(r[5].updated);
-    document.getElementById("updated").textContent = "Last updated " + new Intl.DateTimeFormat("en-NZ", { timeZone: "Pacific/Auckland", dateStyle: "long", timeStyle: "short" }).format(u) + " (NZ time).";
+    document.getElementById("updated").textContent = "Updated " + new Intl.DateTimeFormat("en-NZ", { timeZone: "Pacific/Auckland", day: "numeric", month: "short", year: "numeric", hour: "numeric", minute: "2-digit" }).format(u) + " (NZ time)";
   }).catch(function () {
     fail(document.getElementById("main"), "election information");
   });

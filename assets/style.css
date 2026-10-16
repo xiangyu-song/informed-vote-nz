@@ -720,3 +720,6 @@ details.more[open] > summary::before, .more-rules[open] > summary::before { tran
 .foot p { margin: 0 0 0.5rem; }
 .foot p:last-child { margin-bottom: 0; }
 #updated { opacity: 0.8; }
+.foot strong { color: #fff; font-weight: 700; }
+.foot .sep { opacity: 0.6; }
+#updated { white-space: nowrap; }
