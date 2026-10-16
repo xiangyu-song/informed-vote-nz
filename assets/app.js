@@ -598,7 +598,7 @@
     function reset() { codes.forEach(function (c) { state[c] = { v: pollAverage[c] || 0, e: 0 }; }); }
     reset();
     var rows = {}, picked = {}, form = el("div", { "class": "seat-inputs" });
-    form.appendChild(el("div", { "class": "seat-head", "aria-hidden": "true" }, [el("span", { text: "Party" }), el("span", { text: "Party vote" }), el("span", { text: "Wins electorate" }), el("span", { "class": "sh-seats", text: "Seats" }), el("span", { "class": "sh-add", text: "Add up" })]));
+    form.appendChild(el("div", { "class": "seat-head", "aria-hidden": "true" }, [el("span", { text: "Party" }), el("span", { text: "Party vote" }), el("span", { text: "Wins elec\u00ADtorate" }), el("span", { "class": "sh-seats", text: "Seats" }), el("span", { "class": "sh-add", text: "Add up" })]));
     codes.forEach(function (c) {
       var id = "sv-" + c;
       var num = el("input", { type: "number", id: id, min: "0", max: "100", step: "0.1", inputmode: "decimal", "aria-label": NAMES[c] + " party vote, percent" });
@@ -627,20 +627,9 @@
     resetBtn.addEventListener("click", function () { reset(); update(); });
     var out = el("div", { "class": "seat-out" });
     var live = el("p", { "class": "visually-hidden", "aria-live": "polite" });
-    // Phones: a results strip that stays in view while you change the votes, and the electorate ticks as one row of chips.
-    var mini = el("div", { "class": "seat-mini", "aria-hidden": "true" });
-    var elecPanel = el("div", { "class": "seat-elec-panel" }, [el("p", { "class": "sep-title", text: "Wins an electorate" })]);
-    box.appendChild(mini); box.appendChild(form); box.appendChild(elecPanel); box.appendChild(resetBtn); box.appendChild(out); box.appendChild(live);
-    var small = window.matchMedia("(max-width: 959px)");
-    function place() {
-      codes.forEach(function (c) {
-        var r = rows[c];
-        if (small.matches) { elecPanel.appendChild(r.elec); r.row.insertBefore(r.won, r.row.children[1]); if (r.pickCell.parentNode) r.pickCell.remove(); }
-        else { r.row.appendChild(r.elec); r.row.appendChild(r.won); r.row.appendChild(r.pickCell); }
-      });
-    }
-    place();
-    if (small.addEventListener) small.addEventListener("change", place); else if (small.addListener) small.addListener(place);
+    // One table on every screen: party, party vote, wins electorate, seats, add up.
+    codes.forEach(function (c) { var r = rows[c]; r.row.appendChild(r.elec); r.row.appendChild(r.won); r.row.appendChild(r.pickCell); });
+    box.appendChild(form); box.appendChild(resetBtn); box.appendChild(out); box.appendChild(live);
     var liveTimer;
     function update(fromNumber) {
       codes.forEach(function (c) {
@@ -681,24 +670,13 @@
         target.appendChild(el("p", { "class": "seat-total" }, [el("strong", { text: house + " seats" }), overhang ? " (including " + overhang + " overhang " + (overhang === 1 ? "seat" : "seats") + ")" : "", ". A government needs " + need + " (the dashed line)."]));
         target.appendChild(bar);
       }
-      head(mini, false);
       head(out, true);
-      var list = el("ul", { "class": "seat-list", "aria-label": "Tick parties to add up their seats" });
-      codes.forEach(function (c) {
-        var cb = el("input", { type: "checkbox" }); cb.checked = !!picked[c]; cb.disabled = !seats[c];
-        cb.addEventListener("change", function () { picked[c] = cb.checked; update(); });
-        list.appendChild(el("li", { style: "--pc:var(--p-" + c + ")", "class": seats[c] ? "" : "none" }, [
-          el("label", null, [cb, el("span", { "class": "sw" }), el("span", { "class": "sl-name", text: NAMES[c] }), el("b", { text: String(seats[c]) })])
-        ]));
-      });
-      out.appendChild(el("p", { "class": "seat-hint", text: "Add up seats" }));
-      out.appendChild(list);
       var sum = codes.reduce(function (s, c) { return s + (picked[c] && seats[c] ? seats[c] : 0); }, 0);
       var names = codes.filter(function (c) { return picked[c] && seats[c]; }).map(function (c) { return NAMES[c]; });
       var verdict = !names.length ? "" : sum >= need ? "Together: " + sum + " seats, enough to govern (" + need + " needed)." : "Together: " + sum + " seats, " + (need - sum) + " short of the " + need + " needed.";
       // Keep the result line in a fixed place, with a hint until parties are ticked, so the table doesn't jump.
       out.appendChild(verdict ? el("p", { "class": "seat-verdict" + (sum >= need ? " yes" : ""), text: verdict })
-        : el("p", { "class": "seat-verdict empty", text: "Tick “Add up” for any parties to see whether together they reach " + need + "." }));
+        : el("p", { "class": "seat-verdict empty", text: "Tick “Add up” to see if parties together reach " + need + "." }));
       out.appendChild(el("p", { "class": "seat-note", text: "Adding up seats is arithmetic only. It doesn't show which parties are willing to work together." }));
       clearTimeout(liveTimer);
       liveTimer = setTimeout(function () { live.textContent = codes.filter(function (c) { return seats[c]; }).map(function (c) { return NAMES[c] + " " + seats[c]; }).join(", ") + ". " + house + " seats in total. " + verdict; }, 600);

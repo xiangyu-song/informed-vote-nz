@@ -315,47 +315,6 @@ td.who { white-space: normal; min-width: 14rem; text-align: left; color: var(--m
 .debate-list li > div { min-width: 0; overflow-wrap: anywhere; }
 
 /* Seat calculator */
-.visually-hidden { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-.seat-head { display: none; }
-.seat-calc { background: var(--surface); border-radius: var(--r-l); padding: 1rem 1.1rem; box-shadow: 0 1px 0 var(--rule); }
-.seat-inputs { display: grid; gap: 0.15rem; }
-.seat-row { display: grid; grid-template-columns: 1fr; gap: 0.2rem 0.8rem; padding: 0.55rem 0; border-bottom: 1px solid var(--rule); }
-@media (min-width: 720px) { .seat-row { grid-template-columns: 11rem 1fr 13rem; align-items: center; } }
-.seat-name { font-weight: 700; display: inline-flex; align-items: center; gap: 0.45rem; }
-.sw { display: inline-block; width: 0.9rem; height: 0.9rem; border-radius: 3px; background: var(--pc); flex: none; }
-.seat-vote { display: flex; align-items: center; gap: 0.6rem; }
-.seat-vote input[type=range] { flex: 1; min-width: 0; height: 44px; margin: 0; background: transparent; -webkit-appearance: none; appearance: none; cursor: pointer; }
-.seat-vote input[type=range]::-webkit-slider-runnable-track { height: 6px; border-radius: 3px; background: linear-gradient(to right, var(--pc) var(--fill, 0%), var(--rule) var(--fill, 0%)); }
-.seat-vote input[type=range]::-moz-range-track { height: 6px; border-radius: 3px; background: linear-gradient(to right, var(--pc) var(--fill, 0%), var(--rule) var(--fill, 0%)); }
-.seat-vote input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 22px; height: 22px; margin-top: -8px; border-radius: 50%; background: var(--pc); border: 3px solid var(--surface); box-shadow: 0 0 0 1.5px var(--pc); }
-.seat-vote input[type=range]::-moz-range-thumb { width: 18px; height: 18px; border-radius: 50%; background: var(--pc); border: 3px solid var(--surface); box-shadow: 0 0 0 1.5px var(--pc); }
-.seat-vote input[type=range]:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; border-radius: 4px; }
-.seat-num { display: inline-flex; align-items: center; gap: 0.15rem; font-variant-numeric: tabular-nums; }
-.seat-num input { width: 4.6rem; font: inherit; padding: 0.35rem 0.4rem; border: 1.5px solid var(--rule); border-radius: var(--r-s); background: var(--paper); color: var(--ink); text-align: right; }
-.seat-elec { display: flex; align-items: center; gap: 0.5rem; font-size: 0.92rem; }
-.seat-elec label { display: inline-flex; align-items: center; gap: 0.4rem; min-height: 44px; cursor: pointer; }
-.seat-elec input[type=checkbox], .seat-list input { width: 1.1rem; height: 1.1rem; accent-color: var(--accent); }
-.seat-elec input[type=number] { width: 3.6rem; font: inherit; padding: 0.3rem 0.4rem; border: 1.5px solid var(--rule); border-radius: var(--r-s); background: var(--paper); color: var(--ink); }
-.seat-elec input[hidden] { display: none; }
-.seat-reset { margin: 0.9rem 0 0; font: inherit; font-weight: 600; padding: 0.55rem 1rem; min-height: 44px; border-radius: 999px; border: 1.5px solid var(--accent); background: transparent; color: var(--accent); cursor: pointer; }
-.seat-out { margin-top: 1.1rem; }
-.seat-total { margin: 0 0 0.5rem; }
-.seat-bar { position: relative; display: flex; gap: 2px; height: 2.2rem; margin: 0.5rem 0; }
-.seat-bar span:first-child { border-radius: 6px 0 0 6px; } .seat-bar span:nth-last-child(2) { border-radius: 0 6px 6px 0; }
-.seat-bar span { background: var(--pc); }
-.seat-bar .seat-mid { position: absolute; top: -7px; bottom: -7px; width: 0; border-left: 2px dashed var(--ink); background: none; box-shadow: 0 0 0 1.5px var(--surface); }
-.seat-hint { margin: 0.9rem 0 0.3rem; color: var(--muted); font-size: 0.92rem; }
-.seat-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: 0.3rem; }
-@media (min-width: 640px) { .seat-list { grid-template-columns: 1fr 1fr; } }
-.seat-list label { display: flex; align-items: center; gap: 0.5rem; min-height: 44px; padding: 0 0.7rem; border: 1.5px solid var(--rule); border-radius: var(--r-s); cursor: pointer; }
-.seat-list label:has(input:checked) { border-color: var(--accent); background: var(--accent-soft); }
-.seat-list .sl-name { flex: 1; }
-.seat-list b { font-variant-numeric: tabular-nums; }
-.seat-list li.none label { opacity: 0.55; cursor: default; }
-.seat-verdict { margin: 0.7rem 0 0; padding: 0.6rem 0.8rem; border-radius: var(--r-s); border: 1.5px solid var(--rule); font-weight: 700; }
-.seat-verdict.yes { border-color: var(--accent); background: var(--accent-soft); }
-.seat-warn { margin: 0 0 0.6rem; padding: 0.6rem 0.8rem; border-radius: var(--r-s); border: 1.5px dashed var(--muted); }
-.seat-note { margin: 0.8rem 0 0; color: var(--muted); font-size: 0.9rem; }
 
 /* Show more */
 .show-more { margin-top: 0.7rem; font: inherit; font-size: 0.92rem; font-weight: 600; min-height: 44px; padding: 0.4rem 1rem; border-radius: 999px; border: 1.5px solid var(--accent); background: transparent; color: var(--accent); cursor: pointer; }
@@ -387,23 +346,6 @@ td.who { white-space: normal; min-width: 14rem; text-align: left; color: var(--m
   .policy-list { gap: 0.7rem; }
   .ballot, .tool-card, .rules { padding: 0.95rem 1rem; }
   .sources { margin-top: 1.1rem; }
-  /* Seat calculator: two lines per party */
-  .seat-row { grid-template-columns: 1fr auto; grid-template-areas: 'name num' 'range elec'; align-items: center; gap: 0 0.6rem; padding: 0.35rem 0; }
-  .seat-name { grid-area: name; }
-  .seat-vote { display: contents; }
-  .seat-vote input[type=range] { grid-area: range; height: 36px; }
-  .seat-num { grid-area: num; }
-  .seat-elec { grid-area: elec; font-size: 0.85rem; }
-  .seat-elec label { min-height: 36px; }
-  .seat-elec { gap: 0.35rem; }
-  .seat-elec input[type=number] { width: 3.1rem; }
-  .seat-num input { width: 4.2rem; padding: 0.25rem 0.4rem; }
-  .seat-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .seat-list .sl-name { min-width: 0; overflow-wrap: normal; hyphens: none; line-height: 1.2; }
-  .seat-list label { padding: 0.2rem 0.4rem; gap: 0.3rem; font-size: 0.85rem; border-left: 5px solid var(--pc); }
-  .seat-list b { flex: none; min-width: 1.3em; text-align: right; }
-  @media (max-width: 413px) { .seat-list { grid-template-columns: 1fr; gap: 0.25rem; } .seat-list label { min-height: 40px; font-size: 0.9rem; } }
-  .seat-list .sw { display: none; }
   .debate-list li { grid-template-columns: 3rem 1fr; gap: 0.7rem; padding: 0.7rem; }
   .debate-list .d-meta { font-size: 0.9rem; }
   .party-list { gap: 0.35rem; }
@@ -554,147 +496,136 @@ td.who { white-space: normal; min-width: 14rem; text-align: left; color: var(--m
 
 .nowrap { white-space: nowrap; }
 
-/* ---------- Seat calculator: compact ---------- */
-.seat-row { padding: 0.3rem 0; }
-.seat-vote input[type=range] { height: 32px; }
-.seat-elec label { min-height: 32px; }
-.seat-num input { padding: 0.2rem 0.4rem; }
-.seat-reset { margin-top: 0.6rem; min-height: 40px; padding: 0.4rem 1rem; }
-.seat-out { margin-top: 0.8rem; }
-.seat-bar { height: 1.8rem; }
-.seat-hint { margin: 0.6rem 0 0.25rem; }
-.seat-list label { min-height: 36px; }
-.seat-note { margin-top: 0.5rem; font-size: 0.85rem; }
-/* ---------- Seat calculator on phones and tablets ---------- */
-.seat-mini, .seat-elec-panel, .seat-won { display: none; }
-.se-party { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-@media (max-width: 959px) {
-  .seat-calc { padding: 0.6rem 0.85rem 0.9rem; }
-  /* Results strip: stays in view while the sliders scroll */
-  .seat-mini { display: block; position: sticky; top: var(--hdr, 3.25rem); z-index: 2; margin: 0 -0.85rem 0.3rem; padding: 0.55rem 0.85rem 0.6rem; background: var(--surface); border-bottom: 1px solid var(--rule); box-shadow: 0 8px 12px -12px rgba(42, 29, 67, 0.45); }
-  .seat-mini .seat-total { margin: 0 0 0.35rem; font-size: 0.85rem; line-height: 1.3; }
-  .seat-mini .seat-bar { height: 1.4rem; margin: 0.4rem 0 0.15rem; }
-  .seat-mini .seat-warn { margin: 0 0 0.4rem; padding: 0.35rem 0.55rem; font-size: 0.82rem; }
-  .seat-out > .seat-total, .seat-out > .seat-bar, .seat-out > .seat-warn { display: none; }
-  .seat-out { margin-top: 0.6rem; }
-  .seat-out .seat-hint { margin-top: 0; }
-  /* One line per party: name and seats, slider, percent */
-  .seat-head { display: grid; grid-template-columns: 6.6rem minmax(0, 1fr); gap: 0 0.6rem; padding: 0.35rem 0 0.25rem; border-bottom: 1px solid var(--rule); font-size: 0.75rem; font-weight: 700; color: var(--muted); }
-  .seat-head span:nth-child(1)::after { content: " · seats"; }
-  .seat-head span:nth-child(3) { display: none; }
-  .seat-row { grid-template-columns: 6.6rem minmax(0, 1fr) auto; grid-template-areas: 'name range num' 'won range num'; gap: 0 0.6rem; align-items: center; padding: 0.3rem 0; }
-  .seat-vote { display: contents; }
-  .seat-name { grid-area: name; font-size: 0.88rem; line-height: 1.15; align-self: end; }
-  .seat-name .sw { width: 0.7rem; height: 0.7rem; }
-  .seat-won { display: block; grid-area: won; font-size: 0.78rem; color: var(--muted); font-variant-numeric: tabular-nums; padding-left: 1.15rem; align-self: start; }
-  .seat-vote input[type=range] { grid-area: range; height: 32px; width: 100%; }
-  .seat-num { grid-area: num; }
-  .seat-num input { width: 4.1rem; padding: 0.2rem 0.3rem; font-size: 0.95rem; }
-  /* Electorate ticks as chips */
-  .seat-elec-panel { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.7rem; }
-  .sep-title { flex-basis: 100%; margin: 0 0 0.1rem; font-size: 0.82rem; font-weight: 700; color: var(--muted); }
-  .seat-elec { display: inline-flex; align-items: center; gap: 0.3rem; padding: 0 0.5rem 0 0.45rem; border: 1.5px solid var(--rule); border-left: 4px solid var(--pc); border-radius: var(--r-s); font-size: 0.85rem; }
-  .seat-elec:has(input:checked) { border-color: var(--accent); border-left-color: var(--pc); background: var(--accent-soft); }
-  .seat-elec label { min-height: 34px; gap: 0.35rem; }
-  .seat-elec input[type=number] { width: 2.8rem; padding: 0.1rem 0.3rem; }
-  .se-party { position: static; width: auto; height: auto; overflow: visible; clip: auto; }
-  .se-text { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-  /* Add-up list as wrapping chips */
-  .seat-list { display: flex; flex-wrap: wrap; gap: 0.35rem; }
-  .seat-list li { flex: 0 1 auto; }
-  .seat-list label { min-height: 34px; padding: 0 0.55rem; gap: 0.35rem; font-size: 0.85rem; border-left: 4px solid var(--pc); }
-  .seat-list .sw { display: none; }
-  .seat-list .sl-name { flex: none; white-space: nowrap; }
-  .seat-list b { min-width: 0; margin-left: 0.15rem; }
-  .seat-reset { margin-top: 0.7rem; }
-}
-}
-@media (min-width: 600px) and (max-width: 959px) {
-  .seat-head, .seat-row { grid-template-columns: 10rem minmax(0, 1fr) auto; }
-  .seat-head { grid-template-columns: 10rem minmax(0, 1fr); }
-}
 
-/* ---------- Seat calculator on desktop: result on top, one table below ---------- */
-.sh-seats, .sh-add { display: none; }
-@media (min-width: 960px) {
-  .seat-calc { display: flex; flex-direction: column; padding: 1.1rem 1.4rem 1.2rem; }
-  .seat-out { display: contents; }
-  .seat-out > .seat-warn { order: 1; }
-  .seat-out > .seat-total { order: 2; margin: 0 0 0.45rem; font-size: 1rem; }
-  .seat-out > .seat-bar { order: 3; height: 2.2rem; margin: 0.3rem 0 0.2rem; }
-  .seat-out > .seat-verdict { order: 4; margin: 0.6rem 0 0; }
-  .seat-inputs { order: 5; margin-top: 1.1rem; }
-  .seat-reset { order: 6; align-self: flex-start; }
-  .seat-out > .seat-note { order: 7; }
-  .seat-out > .seat-hint, .seat-out > .seat-list { display: none; }
-  .seat-head, .seat-row { display: grid; grid-template-columns: 10rem minmax(6rem, 1fr) 5.2rem 8rem 4.2rem 3.6rem; gap: 0 0.8rem; align-items: center; }
-  .seat-head { padding: 0 0 0.35rem; border-bottom: 1px solid var(--rule); font-size: 0.8rem; font-weight: 700; color: var(--muted); }
-  .seat-head span:nth-child(2) { grid-column: 2 / 4; }
-  .sh-seats { display: block; text-align: right; }
-  .sh-add { display: block; text-align: center; }
-  .seat-vote { display: contents; }
-  .seat-row input[type=range] { width: 100%; }
-  .seat-num input { width: 3.9rem; }
-  .seat-elec { font-size: 0.85rem; }
-  .se-text { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-  .seat-won { display: block; text-align: right; font-size: 1.15rem; font-variant-numeric: tabular-nums; }
-  .won-unit { display: none; }
-  .seat-pick { display: flex; justify-content: center; align-items: center; min-height: 36px; cursor: pointer; }
-  .seat-pick input { width: 1.15rem; height: 1.15rem; accent-color: var(--accent); }
-  .seat-pick:has(input:disabled) { cursor: default; opacity: 0.4; }
-  .seat-row:has(.seat-pick input:checked) { background: var(--accent-soft); }
-}
+.visually-hidden { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.sw { display: inline-block; width: 0.9rem; height: 0.9rem; border-radius: 3px; background: var(--pc); flex: none; }
 
+/* ---------- Seat calculator: one table on every screen ---------- */
+.seat-calc { display: flex; flex-direction: column; background: var(--surface); border-radius: var(--r-l); padding: 1rem 0.85rem 1.1rem; box-shadow: 0 1px 0 var(--rule); }
+.seat-out { display: contents; }
+.seat-out > .seat-warn { order: 1; }
+.seat-out > .seat-total { order: 2; }
+.seat-out > .seat-bar { order: 3; }
+.seat-out > .seat-verdict { order: 4; }
+.seat-inputs { order: 5; }
+.seat-reset { order: 6; }
+.seat-out > .seat-note { order: 7; }
+.seat-warn { margin: 0 0 0.6rem; padding: 0.5rem 0.75rem; border-radius: var(--r-s); border: 1.5px dashed var(--muted); font-size: 0.9rem; }
+.seat-total { margin: 0 0 0.5rem; font-size: 0.92rem; line-height: 1.35; }
+.seat-bar { position: relative; display: flex; gap: 2px; height: 1.75rem; margin: 0; }
+.seat-bar span { background: var(--pc); }
 .seat-bar span.dim { opacity: 0.28; }
-
-.seat-row { border-bottom: 0; }
-
-/* ---------- Seat calculator without sliders: type the party vote ---------- */
-.seat-num input { font-size: 1rem; text-align: right; }
-@media (max-width: 959px) {
-  .seat-head, .seat-row { grid-template-columns: minmax(0, 1fr) auto; }
-  .seat-head { display: grid; }
-  .seat-head span:nth-child(2) { display: block; text-align: right; padding-right: 1.1rem; }
-  .seat-row { grid-template-areas: 'name num' 'won num'; padding: 0.35rem 0; }
-  .seat-num input { width: 4.6rem; padding: 0.35rem 0.45rem; }
-}
-@media (min-width: 960px) {
-  .seat-head, .seat-row { grid-template-columns: minmax(10rem, 1fr) 7rem 10rem 5rem 4.5rem; }
-  .seat-head span:nth-child(2) { grid-column: auto; }
-  .seat-row { padding: 0.25rem 0; }
-  .seat-num input { width: 4.6rem; padding: 0.3rem 0.45rem; }
-}
-
-/* ---------- Seat calculator: spacing pass (8px rhythm) ---------- */
+.seat-bar span:first-child { border-radius: 6px 0 0 6px; } .seat-bar span:nth-last-child(2) { border-radius: 0 6px 6px 0; }
+.seat-bar .seat-mid { position: absolute; top: -6px; bottom: -6px; width: 0; border-left: 2px dashed var(--ink); background: none; box-shadow: 0 0 0 1.5px var(--surface); }
+.seat-verdict { margin: 0.75rem 0 0; padding: 0.45rem 0.7rem; border-radius: var(--r-s); border: 1.5px solid var(--rule); font-weight: 700; font-size: 0.9rem; }
+.seat-verdict.yes { border-color: var(--accent); background: var(--accent-soft); }
 .seat-verdict.empty { font-weight: 400; color: var(--muted); border-style: dashed; }
-.seat-row { border-radius: var(--r-s); }
-@media (min-width: 960px) {
+.seat-inputs { display: grid; gap: 0.1rem; margin-top: 1rem; }
+/* Columns: party, party vote, wins electorate, seats, add up */
+.seat-head, .seat-row { display: grid; grid-template-columns: minmax(0, 1fr) 3.8rem 2.6rem 1.9rem 2.2rem; gap: 0 0.3rem; align-items: center; }
+.seat-head { padding: 0 0.35rem 0.4rem; margin-bottom: 0.15rem; border-bottom: 1px solid var(--rule); font-size: 0.7rem; font-weight: 700; line-height: 1.2; color: var(--muted); }
+.seat-head span:nth-child(3), .seat-head span:nth-child(5) { text-align: center; }
+.seat-head span:nth-child(4) { text-align: right; }
+.seat-row { padding: 0.15rem 0.35rem; min-height: 2.6rem; border-radius: var(--r-s); }
+.seat-row:has(.seat-pick input:checked) { background: var(--accent-soft); }
+.seat-vote { display: contents; }
+.seat-name { display: inline-flex; align-items: center; gap: 0.4rem; min-width: 0; font-weight: 700; font-size: 0.88rem; line-height: 1.15; }
+.seat-name .sw { width: 0.65rem; height: 0.65rem; }
+.seat-num { display: inline-flex; align-items: center; gap: 0.15rem; font-variant-numeric: tabular-nums; font-size: 0.85rem; }
+.seat-num input { width: 3rem; font: inherit; font-size: 0.9rem; padding: 0.3rem 0.3rem; border: 1.5px solid var(--rule); border-radius: var(--r-s); background: var(--paper); color: var(--ink); text-align: right; }
+.seat-elec { display: flex; flex-direction: column; align-items: center; gap: 0.2rem; }
+.seat-elec label { display: inline-flex; align-items: center; justify-content: center; min-height: 2.25rem; min-width: 2.25rem; cursor: pointer; }
+.seat-elec input[type=checkbox], .seat-pick input { width: 1.15rem; height: 1.15rem; accent-color: var(--accent); }
+.seat-elec input[type=number] { width: 2.5rem; font: inherit; font-size: 0.85rem; padding: 0.15rem 0.3rem; border: 1.5px solid var(--rule); border-radius: var(--r-s); background: var(--paper); color: var(--ink); text-align: right; }
+.seat-elec input[hidden] { display: none; }
+.se-text, .se-party { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.seat-won { text-align: right; font-weight: 800; font-size: 1rem; font-variant-numeric: tabular-nums; }
+.won-unit { display: none; }
+.seat-pick { display: flex; justify-content: center; align-items: center; min-height: 2.25rem; cursor: pointer; }
+.seat-pick:has(input:disabled) { cursor: default; opacity: 0.4; }
+.seat-reset { align-self: flex-start; margin: 1rem 0 0; font: inherit; font-weight: 600; font-size: 0.92rem; padding: 0.4rem 0.95rem; min-height: 40px; border-radius: 999px; border: 1.5px solid var(--accent); background: transparent; color: var(--accent); cursor: pointer; }
+.seat-note { margin: 0.6rem 0 0; color: var(--muted); font-size: 0.82rem; }
+@media (max-width: 374px) {
+  .seat-calc { padding: 0.85rem 0.6rem 1rem; }
+  .seat-head, .seat-row { grid-template-columns: minmax(0, 1fr) 3.5rem 2.3rem 1.7rem 2rem; gap: 0 0.25rem; }
+  .seat-row, .seat-head { padding-left: 0.25rem; padding-right: 0.25rem; }
+  .seat-name { font-size: 0.8rem; gap: 0.3rem; }
+  .seat-name .sw { width: 0.55rem; height: 0.55rem; }
+  .seat-num input { width: 2.75rem; font-size: 0.85rem; }
+  .seat-head { font-size: 0.62rem; }
+}
+@media (min-width: 720px) {
   .seat-calc { padding: 1.5rem 1.75rem; }
-  .seat-out > .seat-total { margin: 0 0 0.5rem; }
-  .seat-out > .seat-bar { margin: 0; height: 2rem; }
-  .seat-out > .seat-verdict { margin: 0.75rem 0 0; padding: 0.5rem 0.75rem; font-size: 0.95rem; }
+  .seat-total { font-size: 1rem; }
+  .seat-bar { height: 2rem; }
+  .seat-verdict { font-size: 0.95rem; padding: 0.5rem 0.75rem; }
   .seat-inputs { margin-top: 1.5rem; }
-  .seat-head, .seat-row { grid-template-columns: minmax(12rem, 1fr) 7.5rem 9.5rem 4.5rem 4.5rem; gap: 0 1.25rem; }
-  .seat-head { padding: 0 0.5rem 0.5rem; margin: 0 0 0.25rem; }
+  .seat-head, .seat-row { grid-template-columns: minmax(10rem, 1fr) 6.5rem 7.5rem 3.5rem 4rem; gap: 0 1.25rem; }
+  .seat-head { padding: 0 0.5rem 0.5rem; margin-bottom: 0.25rem; font-size: 0.8rem; }
+  .seat-head span:nth-child(3) { text-align: left; }
   .seat-row { padding: 0.25rem 0.5rem; }
-  .seat-won { padding-right: 0.25rem; }
-  .seat-reset { margin-top: 1.25rem; }
-  .seat-out > .seat-note { margin: 0.75rem 0 0; }
+  .seat-name { font-size: 1rem; gap: 0.5rem; }
+  .seat-name .sw { width: 0.85rem; height: 0.85rem; }
+  .seat-num { font-size: 1rem; }
+  .seat-num input { width: 4.4rem; font-size: 1rem; }
+  .seat-elec { flex-direction: row; justify-content: flex-start; gap: 0.5rem; }
+  .seat-elec label { justify-content: flex-start; min-width: 0; }
+  .seat-won { font-size: 1.15rem; }
+  .seat-reset { margin-top: 1.25rem; font-size: 1rem; }
+  .seat-note { margin-top: 0.75rem; font-size: 0.85rem; }
 }
-@media (max-width: 959px) {
-  .seat-calc { display: flex; flex-direction: column; padding: 0 1rem 1.25rem; }
-  .seat-mini { order: 1; margin: 0 -1rem 0.5rem; padding: 0.75rem 1rem; border-radius: var(--r-l) var(--r-l) 0 0; }
-  .seat-inputs { order: 2; }
-  .seat-elec-panel { order: 3; margin-top: 1.5rem; gap: 0.5rem; }
-  .seat-out { display: contents; }
-  .seat-out > .seat-hint { order: 4; margin: 1.5rem 0 0.5rem; }
-  .seat-out > .seat-list { order: 5; gap: 0.5rem; }
-  .seat-out > .seat-verdict { order: 6; margin: 0.75rem 0 0; padding: 0.5rem 0.75rem; font-size: 0.92rem; }
-  .seat-out > .seat-verdict.empty { display: none; }
-  .seat-reset { order: 7; margin-top: 1.25rem; align-self: flex-start; }
-  .seat-out > .seat-note { order: 8; margin: 0.75rem 0 0; }
-  .sep-title, .seat-out > .seat-hint { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.02em; text-transform: uppercase; color: var(--muted); }
-  .sep-title { margin: 0 0 0; }
-  .seat-head { padding: 0.25rem 0 0.5rem; margin-bottom: 0.25rem; }
-  .seat-row { padding: 0.4rem 0; }
+
+/* Number boxes: no spinner arrows (they hide the digits on phones); typing and arrow keys still work */
+.seat-calc input[type=number] { -moz-appearance: textfield; appearance: textfield; }
+.seat-calc input[type=number]::-webkit-inner-spin-button, .seat-calc input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+@media (max-width: 719px) {
+  .seat-head, .seat-row { grid-template-columns: minmax(0, 1fr) 3.5rem 2.6rem 1.8rem 2.1rem; }
+  .seat-num { gap: 0.1rem; }
+  .seat-num input { width: 2.7rem; }
+  .seat-row { min-height: 2.35rem; padding-top: 0.1rem; padding-bottom: 0.1rem; }
+  .seat-elec label, .seat-pick { min-height: 2.1rem; }
 }
+@media (max-width: 374px) {
+  .seat-head, .seat-row { grid-template-columns: minmax(0, 1fr) 3.2rem 2.2rem 1.6rem 1.9rem; }
+  .seat-num input { width: 2.45rem; }
+}
+@media (max-width: 389px) {
+  .seat-name { font-size: 0.8rem; gap: 0.3rem; }
+  .seat-name .sw { width: 0.55rem; height: 0.55rem; }
+  .seat-total { font-size: 0.85rem; }
+  .seat-verdict { font-size: 0.82rem; }
+  .seat-note { font-size: 0.78rem; }
+}
+@media (max-width: 389px) {
+  .seat-head, .seat-row { gap: 0 0.25rem; }
+  .seat-name { gap: 0.25rem; }
+}
+@media (max-width: 374px) {
+  .seat-name .sw { display: none; }
+  .seat-row { box-shadow: inset 3px 0 0 var(--pc); padding-left: 0.45rem; }
+  .seat-name { font-size: 0.78rem; }
+}
+@media (max-width: 374px) {
+  .seat-head, .seat-row { grid-template-columns: minmax(0, 1fr) 3.2rem 2rem 1.6rem 1.7rem; }
+}
+@media (min-width: 720px) {
+  .seat-head, .seat-row { grid-template-columns: minmax(10rem, 1fr) 6.5rem 7rem 3.5rem 4rem; }
+  .seat-head span:nth-child(3) { text-align: center; }
+  .seat-elec { justify-content: center; }
+}
+@media (max-width: 374px) {
+  .seat-num input { width: 2.55rem; padding-left: 0.2rem; padding-right: 0.2rem; }
+}
+.sh-seats, .sh-add { display: block; }
+.seat-head span { min-width: 0; hyphens: manual; }
+.seat-head span:nth-child(4) { white-space: nowrap; }
+@media (max-width: 719px) {
+  .seat-head, .seat-row { grid-template-columns: minmax(0, 1fr) 3.5rem 2.5rem 2.1rem 2rem; }
+}
+@media (max-width: 374px) {
+  .seat-head, .seat-row { grid-template-columns: minmax(0, 1fr) 3.2rem 2rem 1.9rem 1.6rem; }
+}
+@media (max-width: 719px) { .seat-name { font-size: 0.85rem; } }
+@media (max-width: 389px) { .seat-name { font-size: 0.8rem; } }
+@media (max-width: 374px) { .seat-name { font-size: 0.76rem; } }
+@media (max-width: 374px) { .seat-name { font-size: 0.74rem; } .seat-row { min-height: 2.25rem; } }
