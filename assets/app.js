@@ -601,11 +601,9 @@
     form.appendChild(el("div", { "class": "seat-head", "aria-hidden": "true" }, [el("span", { text: "Party" }), el("span", { text: "Party vote" }), el("span", { text: "Wins electorate" }), el("span", { "class": "sh-seats", text: "Seats" }), el("span", { "class": "sh-add", text: "Add up" })]));
     codes.forEach(function (c) {
       var id = "sv-" + c;
-      var range = el("input", { type: "range", min: "0", max: "50", step: "0.1", id: id, "aria-describedby": id + "-n" });
-      var num = el("input", { type: "number", min: "0", max: "100", step: "0.1", inputmode: "decimal", "aria-label": NAMES[c] + " party vote, percent" });
+      var num = el("input", { type: "number", id: id, min: "0", max: "100", step: "0.1", inputmode: "decimal", "aria-label": NAMES[c] + " party vote, percent" });
       var tick = el("input", { type: "checkbox", id: "se-" + c });
       var count = el("input", { type: "number", min: "1", max: "71", step: "1", inputmode: "numeric", "aria-label": NAMES[c] + ": number of electorates won", hidden: "" });
-      range.addEventListener("input", function () { state[c].v = +range.value; update(); });
       num.addEventListener("input", function () { var v = parseFloat(num.value); if (!isNaN(v)) { state[c].v = Math.max(0, Math.min(100, v)); update(true); } });
       tick.addEventListener("change", function () { state[c].e = tick.checked ? Math.max(1, +count.value || 1) : 0; update(); });
       count.addEventListener("input", function () { var v = parseInt(count.value, 10); if (v >= 1) { state[c].e = Math.min(71, v); update(true); } });
@@ -619,17 +617,17 @@
       var row = el("div", { "class": "seat-row", style: "--pc:var(--p-" + c + ")" }, [
         el("label", { "for": id, "class": "seat-name" }, [el("span", { "class": "sw" }), el("span", { text: NAMES[c] })]),
         won,
-        el("div", { "class": "seat-vote" }, [range, el("span", { "class": "seat-num", id: id + "-n" }, [num, "%"])]),
+        el("div", { "class": "seat-vote" }, [el("span", { "class": "seat-num" }, [num, "%"])]),
         elec
       ]);
-      rows[c] = { range: range, num: num, tick: tick, count: count, won: won, elec: elec, row: row, pick: pick, pickCell: pickCell };
+      rows[c] = { num: num, tick: tick, count: count, won: won, elec: elec, row: row, pick: pick, pickCell: pickCell };
       form.appendChild(row);
     });
     var resetBtn = el("button", { type: "button", "class": "seat-reset", text: "Reset to the poll average" });
     resetBtn.addEventListener("click", function () { reset(); update(); });
     var out = el("div", { "class": "seat-out" });
     var live = el("p", { "class": "visually-hidden", "aria-live": "polite" });
-    // Phones: a results strip that stays in view while you move the sliders, and the electorate ticks as one row of chips.
+    // Phones: a results strip that stays in view while you change the votes, and the electorate ticks as one row of chips.
     var mini = el("div", { "class": "seat-mini", "aria-hidden": "true" });
     var elecPanel = el("div", { "class": "seat-elec-panel" }, [el("p", { "class": "sep-title", text: "Tick any party you think will win an electorate:" })]);
     box.appendChild(mini); box.appendChild(form); box.appendChild(elecPanel); box.appendChild(resetBtn); box.appendChild(out); box.appendChild(live);
@@ -647,8 +645,6 @@
     function update(fromNumber) {
       codes.forEach(function (c) {
         var r = rows[c];
-        r.range.value = Math.min(50, state[c].v);
-        r.range.style.setProperty("--fill", (Math.min(50, state[c].v) / 50 * 100) + "%");
         if (!fromNumber || document.activeElement !== r.num) r.num.value = state[c].v.toFixed(1);
         r.tick.checked = state[c].e > 0;
         r.count.hidden = !(state[c].e > 0);
