@@ -164,25 +164,25 @@
   // Same random party order for polls and policies during one visit.
   var partyOrder = null;
   var pollAverage = null;
+  var PARTY_CODE = { "ACT": "ACT", "Green": "GRN", "Labour": "LAB", "National": "NAT", "NZ First": "NZF", "Opportunity": "OPP", "Te Pāti Māori": "TPM", "Te Tai Tokerau Party": "TTT" };
 
   /* ---------- Dates ---------- */
   function renderDates(data) {
     // Countdowns: full days left before each date (today and the date itself not counted).
     var cds = document.getElementById("countdowns");
-    [["Advance voting", "2026-10-26", "2026-11-06", "Advance voting is open"],
+    [["Advance voting opens", "2026-10-26", "2026-11-06", "Advance voting is open"],
      ["Election day", "2026-11-07", null, "Today is election day"],
      ["Official results", "2026-11-27", null, "Official results today"]].forEach(function (c, i) {
       var d = Math.round((toDate(c[1]) - toDate(today)) / DAY), big, small;
       if (d > 1) { big = String(d - 1); small = (d - 1 === 1 ? "day" : "days") + " to go"; }
       else if (d === 1) { big = "Tomorrow"; small = ""; }
       else if (d === 0) { big = "Today"; small = ""; }
-      else if (c[2] && today <= c[2]) { big = "Open"; small = "until " + fmtDate(c[2], { weekday: undefined, month: "short" }); }
+      else if (c[2] && today <= c[2]) { big = "Open now"; small = "until " + fmtDate(c[2], { weekday: undefined }); }
       else { big = "Done"; small = ""; }
       cds.appendChild(el("li", { "class": i === 1 ? "main" : "" }, [
         el("span", { "class": "cd-label", text: c[0] }),
-        el("span", { "class": "cd-big", text: big }),
-        small ? el("span", { "class": "cd-small", text: small }) : null,
-        el("span", { "class": "cd-date", text: (c[0] === "Advance voting" ? "Opens " : "") + fmtDate(c[1], { weekday: undefined, month: "short" }) })
+        el("span", { "class": "cd-num" }, [el("span", { "class": "cd-big", text: big }), small ? el("span", { "class": "cd-small", text: small }) : null]),
+        el("span", { "class": "cd-date", text: fmtDate(c[1], { weekday: undefined }) })
       ]));
     });
 
@@ -195,7 +195,7 @@
         markerPlaced = true;
       }
       if (!next && d.date >= today) { next = d; state = "next"; }
-      var when = el("span", { "class": "when", text: fmtDate(d.date) });
+      var when = el("span", { "class": "when" }, [el("span", { "class": "w-long", text: fmtDate(d.date) }), el("span", { "class": "w-short", text: fmtDate(d.date, { weekday: "short", month: "short" }) })]);
       if (state === "next") when.appendChild(el("span", { "class": "badge", text: d.date === today ? "Today" : "Next" }));
       list.appendChild(el("li", { "class": state }, [when, el("span", { text: d.label })]));
     });
@@ -215,6 +215,7 @@
   function renderEnrolment(e) {
     var box = document.getElementById("enrolment");
     if (!box || !e) return;
+    if (today > "2026-10-25") { box.remove(); return; }
     var pct = e.percent;
     box.appendChild(el("p", { "class": "enrol-head" }, [el("strong", { text: pct.toFixed(2) + "% of eligible people are enrolled." }),
       " That leaves an estimated " + e.not_enrolled.toLocaleString("en-NZ") + " people not yet enrolled."]));
@@ -381,6 +382,7 @@
     var list = document.getElementById("policy-list");
     var how = document.getElementById("how-list");
     var modeTopic = document.getElementById("mode-topic"), modeParty = document.getElementById("mode-party");
+    var showing = document.getElementById("policy-showing");
     var sel = el("select", { id: "picker-select" });
     var selLabel = el("label", { "class": "picker-select", "for": "picker-select" }, [el("span", { text: "Topic" }), sel]);
     picker.insertAdjacentElement("beforebegin", selLabel);
@@ -429,15 +431,17 @@
     function showTopic(issue, btn) {
       select(btn);
       partyOrder.forEach(function (party) {
-        list.appendChild(fillBox(el("article", { "class": "party" }, [el("h3", { text: party })]), issue, party));
+        list.appendChild(fillBox(el("article", { "class": "party", style: "--pc:var(--p-" + PARTY_CODE[party] + ")" }, [el("h3", null, [el("span", { "class": "pdot", "aria-hidden": "true" }), el("span", { text: party })])]), issue, party));
       });
+      showing.textContent = "Showing " + issue.name + ": " + partyOrder.length + " parties, in random order.";
       markTeReo(list);
     }
     function showParty(party, btn) {
       select(btn);
       data.issues.forEach(function (issue) {
-        list.appendChild(fillBox(el("article", { "class": "party" }, [el("h3", { text: issue.name })]), issue, party));
+        list.appendChild(fillBox(el("article", { "class": "party", style: "--pc:var(--p-" + PARTY_CODE[party] + ")" }, [el("h3", null, [el("span", { "class": "pdot", "aria-hidden": "true" }), el("span", { text: issue.name })])]), issue, party));
       });
+      showing.innerHTML = ""; showing.appendChild(el("span", { "class": "pdot", "aria-hidden": "true", style: "--pc:var(--p-" + PARTY_CODE[party] + ")" })); showing.appendChild(document.createTextNode(" Showing everything " + party + " says, across " + data.issues.length + " topics."));
       markTeReo(list);
     }
     function buildPicker(mode) {
@@ -452,7 +456,7 @@
       var btns = [];
       items.forEach(function (x, i) {
         var label = mode === "topic" ? x.name : x;
-        var b = el("button", { type: "button", role: "tab", "aria-selected": "false", text: label });
+        var b = el("button", { type: "button", role: "tab", "aria-selected": "false" }, mode === "party" ? [el("span", { "class": "pdot", "aria-hidden": "true", style: "--pc:var(--p-" + PARTY_CODE[x] + ")" }), label] : [label]);
         b.addEventListener("click", function () { sel.value = String(i); mode === "topic" ? showTopic(x, b) : showParty(x, b); });
         picker.appendChild(b); btns.push(b);
         sel.appendChild(el("option", { value: String(i), text: label }));
@@ -530,6 +534,9 @@
       b.replaceWith(f); f.focus();
     });
   });
+
+  // Key dates: folded on phones (the countdowns already show the main dates).
+  (function () { var tb = document.querySelector(".timeline-box"); if (tb && window.matchMedia("(max-width: 719px)").matches) tb.removeAttribute("open"); })();
 
   /* ---------- Header: compact on phones after scrolling, and show where you are ---------- */
   (function () {

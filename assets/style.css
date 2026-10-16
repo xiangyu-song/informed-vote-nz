@@ -456,3 +456,66 @@ td.who { white-space: normal; min-width: 14rem; text-align: left; color: var(--m
 .enrol-bar { height: 0.9rem; border-radius: 999px; background: var(--rule); overflow: hidden; }
 .enrol-bar span { display: block; height: 100%; background: var(--accent); border-radius: 999px 0 0 999px; }
 .enrol-src { margin: 0.5rem 0 0; font-size: 0.85rem; color: var(--muted); }
+
+/* ---------- Compact first sections ---------- */
+.next-step > p { margin: 0; }
+.next-step .enrolment { margin: 0.8rem 0 0; padding: 0.75rem 0 0; border-top: 1px solid var(--rule); border-radius: 0; background: none; box-shadow: none; }
+.enrol-head { font-size: 0.95rem; }
+.find-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem 1rem; }
+.find-row .tool-go { margin: 0; flex: none; }
+.find-row span { flex: 1 1 16rem; font-size: 0.92rem; }
+.ballot { border-top-width: 4px; }
+/* Countdown tiles: number and "days to go" together */
+.cd-num { display: flex; align-items: baseline; gap: 0.35rem; flex-wrap: wrap; }
+@media (max-width: 719px) {
+  .hero { padding: 1.6rem 0 3.6rem; }
+  .hero-day { margin-top: 0.35rem; }
+  .hero-tick { width: 10rem; height: 10rem; top: -0.5rem; }
+  /* Countdowns become three compact rows */
+  .countdowns { grid-template-columns: 1fr; gap: 0.35rem; margin-top: 0.9rem; max-width: none; }
+  .countdowns li { display: grid; grid-template-columns: 1fr auto; grid-template-areas: "label num" "date num"; align-items: center; padding: 0.45rem 0.75rem; gap: 0 0.6rem; }
+  .cd-label { grid-area: label; font-size: 0.85rem; }
+  .cd-date { grid-area: date; font-size: 0.8rem; }
+  .cd-num { grid-area: num; justify-content: flex-end; }
+  .cd-big { font-size: 1.6rem; }
+  .cd-small { font-size: 0.8rem; }
+  .next-step { padding: 0.95rem 1rem; margin-bottom: 1rem; }
+  .howto { padding: 0.75rem 0.95rem; margin-bottom: 1rem; }
+  .howto li { font-size: 0.93rem; margin: 0.15rem 0; }
+  .timeline li { display: grid; grid-template-columns: 8.2rem 1fr; gap: 0.6rem; padding: 0.3rem 0 0.3rem 2rem; font-size: 0.93rem; }
+  .timeline li::before { top: 0.45rem; width: 0.9rem; height: 0.9rem; }
+  .timeline .badge { display: none; }
+  .timeline li.today-marker { display: block; padding: 0.1rem 0 0.1rem 2rem; }
+  .timeline li.today-marker::before { top: 0.4rem; }
+  .ballots { gap: 0.5rem; }
+  .ballot { padding: 0.75rem 0.9rem; }
+  .ballot h3 { font-size: 1.05rem; }
+  .ballot p { font-size: 0.95rem; }
+  .video { margin-bottom: 0.7rem; }
+}
+/* ---------- Policies: colour-coded party cards ---------- */
+.policy-showing { margin: 0 0 0.8rem; color: var(--muted); font-size: 0.92rem; display: flex; align-items: center; gap: 0.4rem; }
+.pdot { display: inline-block; width: 0.8rem; height: 0.8rem; border-radius: 50%; background: var(--pc, var(--accent)); flex: none; }
+#policy-list .party { position: relative; border-top: 5px solid var(--pc, var(--accent)); padding-top: 0.9rem; }
+#policy-list .party h3 { display: flex; align-items: center; gap: 0.5rem; font-size: 1.15rem; margin-bottom: 0.7rem; padding-bottom: 0.55rem; }
+#policy-list .party h3 span:last-child { color: var(--ink); }
+#policy-list .pol-name { display: inline; font-weight: 700; line-height: 1.35; }
+#policy-list .pol blockquote { background: var(--paper); border-left: 3px solid var(--pc, var(--accent)); border-radius: 0 var(--r-m) var(--r-m) 0; padding: 0.55rem 0.8rem; margin-top: 0.45rem; }
+#policy-list .tag { background: transparent; border: 1px solid var(--rule); }
+#policy-list .show-more { border-color: var(--rule); color: var(--ink); }
+#policy-list .show-more:hover { border-color: var(--pc, var(--accent)); background: transparent; }
+@media (min-width: 720px) {
+  .policy-list { display: block; columns: 2; column-gap: 0.9rem; }
+  .policy-list .party { break-inside: avoid; margin: 0 0 0.9rem; display: inline-block; width: 100%; }
+}
+.w-short { display: none; }
+@media (max-width: 719px) {
+  .w-long { display: none; } .w-short { display: inline; }
+  .timeline li { grid-template-columns: 6.6rem 1fr; }
+  .next-step { font-size: 1rem; }
+}
+
+.timeline-box > summary { cursor: pointer; font-weight: 700; color: var(--accent); padding: 0.4rem 0; min-height: 44px; display: flex; align-items: center; }
+@media (min-width: 720px) { .timeline-box > summary { display: none; } }
+.issue-picker button .pdot { margin-right: 0.4rem; vertical-align: -0.05em; }
+.issue-picker button[aria-selected="true"] .pdot { box-shadow: 0 0 0 2px #fff; }
