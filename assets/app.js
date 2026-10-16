@@ -779,6 +779,7 @@
     function tabOf(node) { var s = node && node.closest ? node.closest("[data-tab]") : null; return s ? s.getAttribute("data-tab") : null; }
     function show(id, target) {
       current = id;
+      document.body.setAttribute("data-tab", id);
       main.querySelectorAll("[data-tab]").forEach(function (s) { s.classList.toggle("tab-on", s.getAttribute("data-tab") === id); });
       bar.querySelectorAll("a").forEach(function (a) { if (a.getAttribute("data-tab-link") === id) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current"); });
       markSeen(id);
