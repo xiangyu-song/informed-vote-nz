@@ -136,6 +136,22 @@
       n.parentNode.replaceChild(frag, n);
     });
   }
+  // Show the first item and fold the rest behind a "Show more" button (same rule for every party).
+  function foldExtras(box, extras, noun, count) {
+    if (!extras.length) return;
+    count = count || extras.length;
+    extras.forEach(function (x) { x.hidden = true; });
+    var btn = el("button", { type: "button", "class": "show-more", "aria-expanded": "false" });
+    function label(open) { btn.textContent = open ? "Show less" : "Show " + count + " more " + noun + (count > 1 ? "s" : ""); }
+    label(false);
+    btn.addEventListener("click", function () {
+      var open = btn.getAttribute("aria-expanded") !== "true";
+      extras.forEach(function (x) { x.hidden = !open; });
+      btn.setAttribute("aria-expanded", String(open)); label(open);
+      if (!open) box.scrollIntoView({ block: "nearest" });
+    });
+    box.appendChild(btn);
+  }
   function getJSON(path) { return fetch(path, { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error(path); return r.json(); }); }
   function fail(container, what) {
     container.appendChild(el("p", { "class": "error", text: "The " + what + " couldn't load. Refresh the page to try again." }));
@@ -297,12 +313,26 @@
         ended.reduce(function (acc, p, i) { if (i) acc.push("; "); acc.push(el("a", { href: p.source, text: p.pollster }), " (" + p.fieldwork + (p.commissioned_by ? ". " + p.commissioned_by : "") + ")"); return acc; }, []))));
     }
     function hide() { tip.hidden = true; cross.setAttribute("hidden", ""); }
+    // Keyboard: focus the chart, then use the left and right arrow keys to step through poll dates.
+    chart.setAttribute("tabindex", "0");
+    chart.setAttribute("aria-describedby", "poll-detail");
+    var kIdx = ends.length - 1;
+    function showIdx(i) { kIdx = Math.max(0, Math.min(ends.length - 1, i)); var r = chart.getBoundingClientRect(); showAt(r.left + cx(ends[kIdx]) / CW * r.width); }
+    chart.addEventListener("focus", function () { showIdx(kIdx); });
+    chart.addEventListener("blur", hide);
+    chart.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowLeft") { e.preventDefault(); showIdx(kIdx - 1); }
+      else if (e.key === "ArrowRight") { e.preventDefault(); showIdx(kIdx + 1); }
+      else if (e.key === "Home") { e.preventDefault(); showIdx(0); }
+      else if (e.key === "End") { e.preventDefault(); showIdx(ends.length - 1); }
+      else if (e.key === "Escape") hide();
+    });
     chart.addEventListener("pointermove", function (e) { showAt(e.clientX); });
     chart.addEventListener("pointerdown", function (e) { showAt(e.clientX); });
     chart.addEventListener("pointerleave", function (e) { if (e.pointerType === "mouse") hide(); });
     document.addEventListener("pointerdown", function (e) { if (!wrap.contains(e.target)) hide(); });
     wrap.appendChild(legend); wrap.appendChild(chart); wrap.appendChild(tip);
-    detail.textContent = "Point to or tap the chart to see which polls ended on that date, with links to each source.";
+    detail.textContent = "Point to or tap the chart (or use the arrow keys) to see the figures for a date and which polls ended that day, with links to each source.";
     wrap.insertAdjacentElement("afterend", el("p", { "class": "lede", text: "Te Tai Tokerau Party isn't reported separately in most polls, so it isn't in these charts." }));
 
     var table = document.getElementById("poll-table");
@@ -341,19 +371,26 @@
           " (checked " + fmtDate(data.checked, { weekday: undefined }) + ")."
         ]));
       }
-      items.forEach(function (it) {
+      var extras = [];
+      items.forEach(function (it, i) {
         var quotes = el("div");
         [it.quote].concat(it.more || []).forEach(function (q, n) {
           var bq = el("blockquote", n ? { "class": "also" } : null, ["“"]);
           bq.appendChild(annotate(q)); bq.appendChild(document.createTextNode("”"));
           quotes.appendChild(bq);
+          if (i === 0 && n > 0) extras.push(bq);
+          if (i > 0) extras.push(bq);
         });
-        box.appendChild(el("div", { "class": "pol" }, [
+        var pol = el("div", { "class": "pol" }, [
           el("a", { "class": "pol-name", href: it.url, text: "“" + it.name + "”" }),
           el("span", { "class": "tag", text: it.source_type }),
           quotes
-        ]));
+        ]);
+        if (i > 0) { extras = extras.filter(function (x) { return !pol.contains(x); }); extras.push(pol); }
+        box.appendChild(pol);
       });
+      var nq = items.reduce(function (n, it) { return n + 1 + (it.more || []).length; }, 0);
+      foldExtras(box, extras, "quote", nq - 1);
       return box;
     }
     function select(btn) {
@@ -438,6 +475,23 @@
     }
     upcoming.forEach(function (d) { list.appendChild(item(d, false)); });
     held.forEach(function (d) { list.appendChild(item(d, true)); });
+  }
+
+  /* ---------- Back to top ---------- */
+  (function () {
+    var b = el("a", { href: "#main", "class": "to-top", "aria-label": "Back to top", hidden: "" }, [el("span", { "aria-hidden": "true", text: "\u2191" }), " Top"]);
+    document.body.appendChild(b);
+    var shown = false;
+    window.addEventListener("scroll", function () { var s2 = window.scrollY > window.innerHeight * 1.5; if (s2 !== shown) { shown = s2; b.hidden = !s2; } }, { passive: true });
+  })();
+
+  /* ---------- What's new ---------- */
+  function renderUpdates(data) {
+    var ul = document.getElementById("updates-list");
+    if (!ul || !data) return;
+    data.updates.slice(0, 12).forEach(function (u) {
+      ul.appendChild(el("li", null, [el("strong", { text: fmtDate(u.date, { weekday: undefined }) + ": " }), u.text]));
+    });
   }
 
   /* ---------- Seat calculator (what-if, Sainte-Laguë) ---------- */
@@ -536,15 +590,19 @@
     partyOrder.forEach(function (party) {
       var items = data.parties[party] || [];
       var card = el("article", { "class": "party" }, [el("h3", { text: party })]);
+      var coExtras = [];
       if (!items.length) card.appendChild(el("p", { "class": "not-covered", text: "No public statement found (checked " + fmtDate(data.checked, { weekday: undefined }) + ")." }));
       items.forEach(function (it) {
         var src = el("p", { "class": "co-src" }, [it.who + ", " + fmtDate(it.date, { weekday: undefined }) + (it.date.slice(0, 4) !== "2026" ? " " + it.date.slice(0, 4) : "") + ". ", el("a", { href: it.url, text: it.outlet })]);
-        card.appendChild(el("div", { "class": "co-item" }, [
+        var item = el("div", { "class": "co-item" }, [
           el("p", { "class": "co-on", text: it.on }),
           it.quote ? el("blockquote", { text: "\u201c" + it.quote + "\u201d" }) : el("p", { "class": "co-reported", text: it.reported }),
           src
-        ]));
+        ]);
+        card.appendChild(item);
+        if (card.querySelectorAll(".co-item").length > 1) coExtras.push(item);
       });
+      foldExtras(card, coExtras, "statement");
       list.appendChild(card);
     });
     var how = document.getElementById("coalition-how");
@@ -587,7 +645,7 @@
 
   Promise.all([
     getJSON("data/dates.json"), getJSON("data/polls.json"), getJSON("data/policies.json"),
-    getJSON("data/debates.json"), getJSON("data/parties.json"), getJSON("data/site.json"), getJSON("data/sources.json"), getJSON("data/glossary.json").catch(function () { return null; }), getJSON("data/coalition.json").catch(function () { return null; })
+    getJSON("data/debates.json"), getJSON("data/parties.json"), getJSON("data/site.json"), getJSON("data/sources.json"), getJSON("data/glossary.json").catch(function () { return null; }), getJSON("data/coalition.json").catch(function () { return null; }), getJSON("data/updates.json").catch(function () { return null; })
   ]).then(function (r) {
     if (r[7]) {
       setGlossary(r[7]);
@@ -597,6 +655,7 @@
     try { renderPolls(r[1]); } catch (e) { fail(document.getElementById("poll-charts"), "polls"); }
     try { renderSeats(); } catch (e) { fail(document.getElementById("seat-calc"), "seat calculator"); }
     if (r[8]) renderCoalition(r[8]);
+    renderUpdates(r[9]);
     renderPolicies(r[2]);
     renderDebates(r[3]);
     renderParties(r[4]);
