@@ -22,6 +22,7 @@
   --focus: #7b5cd6;
   --r-s: 6px; --r-m: 14px; --r-l: 22px;
   --p-NAT: #00529F; --p-LAB: #D82A20; --p-GRN: #098137; --p-ACT: #9E8400; --p-NZF: #4D4D4D; --p-TPM: #9E1B4F; --p-OPP: #178A7D; --p-TTT: #6B6280;
+  /* party colours for text: 4.5:1+ */ --t-NAT: #00529F; --t-LAB: #C4251B; --t-GRN: #097733; --t-ACT: #766400; --t-NZF: #4D4D4D; --t-TPM: #9E1B4F; --t-OPP: #117265; --t-TTT: #6B6280;
   font-size: 112.5%;
   color-scheme: light;
 }
@@ -31,6 +32,7 @@
     --paper: #131019; --surface: #1d1828; --ink: #ece8f4; --muted: #a9a2bb; --rule: #332b45;
     --accent: #c2b0f0; --accent-soft: #2a2140; --mark: #cfc6e2; --threshold: #6f6787; --field: #7a7292; --focus: #c2b0f0;
     --p-NAT: #4A8FE0; --p-LAB: #F0504A; --p-GRN: #2FA85A; --p-ACT: #D9B400; --p-NZF: #B0B0B0; --p-TPM: #D2507F; --p-OPP: #2FC4B2; --p-TTT: #A69CBE;
+    --t-NAT: #4E92E1; --t-LAB: #F05F59; --t-GRN: #2FA85A; --t-ACT: #D9B400; --t-NZF: #B0B0B0; --t-TPM: #D96C94; --t-OPP: #2FC4B2; --t-TTT: #A69CBE;
     color-scheme: dark;
   }
 }
@@ -39,6 +41,7 @@
   --paper: #131019; --surface: #1d1828; --ink: #ece8f4; --muted: #a9a2bb; --rule: #332b45;
   --accent: #c2b0f0; --accent-soft: #2a2140; --mark: #cfc6e2; --threshold: #6f6787; --field: #7a7292; --focus: #c2b0f0;
   --p-NAT: #4A8FE0; --p-LAB: #F0504A; --p-GRN: #2FA85A; --p-ACT: #D9B400; --p-NZF: #B0B0B0; --p-TPM: #D2507F; --p-OPP: #2FC4B2; --p-TTT: #A69CBE;
+  --t-NAT: #4E92E1; --t-LAB: #F05F59; --t-GRN: #2FA85A; --t-ACT: #D9B400; --t-NZF: #B0B0B0; --t-TPM: #D96C94; --t-OPP: #2FC4B2; --t-TTT: #A69CBE;
   color-scheme: dark;
 }
 
@@ -539,7 +542,8 @@ td.who { white-space: normal; min-width: 14rem; text-align: left; color: var(--m
 .seat-row { padding: 0.15rem 0.35rem; min-height: 2.6rem; border-radius: var(--r-s); }
 .seat-row:has(.seat-pick input:checked) { background: var(--accent-soft); }
 .seat-vote { display: contents; }
-.seat-name { display: inline-flex; align-items: center; gap: 0.4rem; min-width: 0; font-weight: 700; font-size: 0.88rem; line-height: 1.15; }
+.seat-name { display: inline-flex; align-items: center; gap: 0.4rem; min-width: 0; font-weight: 700; font-size: 0.88rem; line-height: 1.15; color: var(--tc, var(--ink)); }
+.seat-name .sw { display: none !important; }
 .seat-name .sw { width: 0.65rem; height: 0.65rem; }
 .seat-num { display: inline-flex; align-items: center; gap: 0.15rem; font-variant-numeric: tabular-nums; font-size: 0.85rem; }
 .seat-num input { width: 3rem; font: inherit; font-size: 0.9rem; padding: 0.3rem 0.3rem; border: 1.5px solid var(--field); border-radius: var(--r-s); background: var(--paper); color: var(--ink); text-align: right; }
@@ -611,8 +615,6 @@ td.who { white-space: normal; min-width: 14rem; text-align: left; color: var(--m
   .seat-name { gap: 0.25rem; }
 }
 @media (max-width: 374px) {
-  .seat-name .sw { display: none; }
-  .seat-row { box-shadow: inset 3px 0 0 var(--pc); padding-left: 0.45rem; }
   .seat-name { font-size: 0.78rem; }
 }
 @media (max-width: 374px) {

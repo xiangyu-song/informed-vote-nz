@@ -610,7 +610,7 @@
       pick.addEventListener("change", function () { picked[c] = pick.checked; update(); });
       var pickCell = el("label", { "class": "seat-pick" }, [pick]);
       var elec = el("div", { "class": "seat-elec", style: "--pc:var(--p-" + c + ")" }, [el("label", null, [tick, el("span", { "class": "se-party", text: NAMES[c] }), el("span", { "class": "se-text", text: " Wins electorate" })]), count]);
-      var row = el("div", { "class": "seat-row", style: "--pc:var(--p-" + c + ")" }, [
+      var row = el("div", { "class": "seat-row", style: "--pc:var(--p-" + c + ");--tc:var(--t-" + c + ")" }, [
         el("label", { "for": id, "class": "seat-name" }, [el("span", { "class": "sw" }), el("span", { text: NAMES[c] })]),
         won,
         el("div", { "class": "seat-vote" }, [el("span", { "class": "seat-num" }, [num, "%"])]),
