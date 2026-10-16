@@ -714,6 +714,9 @@
     });
   }
 
+  // No automatic "Install app" pop-up: people can still add the site to their home screen from the browser menu.
+  window.addEventListener("beforeinstallprompt", function (e) { e.preventDefault(); });
+
   /* ---------- Phones: one section at a time, with a tab bar at the bottom ---------- */
   function initTabs() {
     var ICON = {
