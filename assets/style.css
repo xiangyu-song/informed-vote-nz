@@ -756,3 +756,8 @@ details.more[open] > summary::before, .more-rules[open] > summary::before { tran
   body.tabbed:not([data-tab="before"]) .foot { display: none; }
   body.tabbed:not([data-tab="before"]) .mini-foot { display: block; margin: 1.5rem 16px 0; padding: 0 0 1rem; text-align: center; font-size: 0.75rem; line-height: 1.5; color: var(--muted); }
 }
+
+/* Home screen tip: phones only, hidden once opened from the home screen */
+details.homescreen { margin: 1rem 0 0; }
+@media (min-width: 720px) { details.homescreen { display: none; } }
+@media (display-mode: standalone) { details.homescreen { display: none; } }
