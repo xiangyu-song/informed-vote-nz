@@ -203,7 +203,7 @@
     });
     var ns = document.getElementById("next-step");
     if (today <= "2026-10-25") {
-      ns.innerHTML = "<strong>Enrol or check your details by Sunday 25 October</strong> at <a href=\"https://vote.nz/\">vote.nz</a>. You can't enrol once voting starts.";
+      ns.innerHTML = "<strong>Enrol or check your details by Sunday 25 October</strong> at <a href=\"https://vote.nz/\">vote.nz</a>. Enrolment closes at midnight that day.";
     } else if (today <= "2026-11-06") {
       ns.innerHTML = "<strong>Voting is open.</strong> You can vote early at any voting place until election day. Find one at <a href=\"https://vote.nz/\">vote.nz</a>.";
     } else if (today === "2026-11-07") {
