@@ -266,9 +266,18 @@
       ]));
     });
     var newest = polls[polls.length - 1];
+    // The bars use the 14 days up to the most recent poll's last day of fieldwork (not up to today).
+    var tNew = toDate(newest.end);
+    var inWin = polls.filter(function (p) { var u = toDate(p.end); return u <= tNew && u > tNew - 14 * DAY; });
+    var short = { weekday: undefined, month: "short" };
+    var range = fmtDate(newest.end, short);
+    if (inWin.length > 1 && inWin[0].end !== newest.end) {
+      range = (inWin[0].end.slice(0, 7) === newest.end.slice(0, 7) ? fmtDate(inWin[0].end, { weekday: undefined, month: undefined }) + "–" : fmtDate(inWin[0].end, short) + " – ") + range;
+    }
     summary.appendChild(el("p", { "class": "bar-foot" }, [
       el("span", { text: "Dashed line: 5% threshold" }),
-      el("span", null, ["Most recent poll in this average: ", el("a", { href: newest.source, text: newest.pollster }), ", ends " + fmtDate(newest.end, { weekday: undefined }) + (data.checked ? ". Checked " + fmtChecked(data.checked) : "")])
+      el("span", { text: "Average of " + inWin.length + (inWin.length === 1 ? " poll" : " polls") + " whose fieldwork ended " + range + " (the 14 days up to the most recent poll), weighted by sample size." }),
+      el("span", null, ["Most recent: ", el("a", { href: newest.source, text: newest.pollster }), ", ends " + fmtDate(newest.end, short) + (data.checked ? ". Checked for newer polls " + fmtChecked(data.checked) : "") + "."])
     ]));
 
     // One chart, every party: dots are single polls, lines are 14-day averages.
@@ -361,7 +370,7 @@
     var key = el("p", { "class": "trend-key" }, [el("span", { "class": "k-item" }, [el("span", { "class": "k-dot", "aria-hidden": "true" }), "Dot: one poll"]), el("span", { "class": "k-item" }, [el("span", { "class": "k-line", "aria-hidden": "true" }), "Line: 14-day average of the polls"])]);
     // Say so when some points rest on only one or two polls (checked from the data, so it stays true as polls are added).
     var thin = ends.some(function (t) { return polls.filter(function (q) { var u = toDate(q.end); return u <= t && u > t - 14 * DAY; }).length <= 2; });
-    var note = el("p", { "class": "trend-note", text: "Why dots sit above or below the lines: each poll is a separate estimate, and pollsters often differ by a few points. The line averages all polls from the past 14 days, so it smooths out those differences instead of joining the dots." +
+    var note = el("p", { "class": "trend-note", text: "Why dots sit above or below the lines: each poll is a separate estimate, and pollsters often differ by a few points. Each point on the line averages the polls whose fieldwork ended in the 14 days up to that date, so it smooths out those differences instead of joining the dots." +
       (thin ? " Where only one or two polls fall in the 14 days, a single poll can move the line noticeably; point to the chart to see how many polls each point uses." : "") });
     wrap.appendChild(legend); wrap.appendChild(chart); wrap.appendChild(key); wrap.appendChild(note); wrap.appendChild(tip);
     detail.textContent = "Point to or tap the chart (or use the arrow keys) to see the figures for a date and the polls that ended that day.";
