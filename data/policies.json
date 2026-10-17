@@ -10,7 +10,7 @@
     "Party order is shuffled each time the page loads, so no party is always first.",
     "Up to three quotes per party per topic, in the order the party lists its policies. The first is shown; \"Show more\" reveals the rest, for every party alike. If a party has fewer than three policies on a topic, we add further commitments from the same pages, in order. Each policy appears once, under the topic it fits best.",
     "Parties publish different amounts of policy detail: some have dozens of separate policy pages, others one longer page. Showing up to three quotes each keeps the comparison even, but it doesn't show how much each party has published; their own policy pages do.",
-    "Quotes are the party's own words, in quotation marks, cut at about 20 words. '…' marks a cut, and [square brackets] mark words we added for clarity.",
+    "Quotes are the party's own words, in quotation marks, taken from the text you can see on the linked page. Where a page has a specific commitment, we quote it rather than a general statement. Quotes are cut at about 20 words, but any condition, eligibility rule or start date stays in, even if that makes the quote longer. '…' marks a cut, and [square brackets] mark words we added for clarity.",
     "A tag shows the type of source: a policy page, the 2026 manifesto, a dated announcement, a long-term policy, or a petition.",
     "Topic order: the four issues New Zealanders rated most important in the Ipsos Issues Monitor (July 2026) come first: cost of living, healthcare, the economy and housing. The rest are alphabetical.",
     "Where topics meet: spending on one service (such as free doctor's visits) stays in that service's topic. Tax changes and overall budget plans (debt, surplus, total spending) go under Tax and government spending. KiwiSaver and retirement savings go under Welfare and superannuation, unless the policy is a tax change. Policies for Māori within a service stay in that service's topic; Te Tiriti o Waitangi covers the Treaty relationship itself, such as settlements, the Waitangi Tribunal, constitutional change, Māori representation and te reo. Energy bills go where the party frames them.",
@@ -203,7 +203,7 @@
           },
           {
             "name": "Free Maternity Scans",
-            "quote": "Labour will make maternity scans free everywhere in New Zealand with the Medicard.",
+            "quote": "From July 2028, Labour will make maternity scans free everywhere in New Zealand with the Medicard.",
             "source_type": "Policy page",
             "url": "https://www.labour.org.nz/maternityscans"
           }
@@ -328,7 +328,7 @@
           },
           {
             "name": "AI in New Zealand's Interests",
-            "quote": "protect what matters, unlock New Zealand's potential, and lead on our own terms",
+            "quote": "A new Office of AI within DPMC, and an online safety regulator",
             "source_type": "Policy page",
             "url": "https://www.labour.org.nz/ai-for-new-zealand"
           },
@@ -464,7 +464,7 @@
         "National": [
           {
             "name": "Giving more Kiwis access to 5% first home deposits",
-            "quote": "We will make it easier to get a house deposit through the First Home Loan scheme",
+            "quote": "National's changes mean that all first home buyers earning up to $300,000 will be able to access the scheme…",
             "source_type": "Policy page",
             "url": "https://www.national.org.nz/policies/backing-first-home-buyers",
             "more": [
@@ -582,7 +582,7 @@
         "National": [
           {
             "name": "Home Energy Fund",
-            "quote": "We will help Kiwis become more energy independent and cut power bills",
+            "quote": "Loans from the Home Energy Fund will be available to ratepayers with at least 20% equity in their property.",
             "source_type": "Policy page",
             "url": "https://www.national.org.nz/policies/solar"
           },
@@ -721,13 +721,13 @@
         "National": [
           {
             "name": "Modernise Sexual Consent Laws",
-            "quote": "We will modernise consent laws to require an explicit 'yes' rather than silence, ensuring clearer protection and understanding.",
+            "quote": "National will change the law to specify that consent must be actively given, meaning there must be a 'yes'…",
             "source_type": "Policy page",
             "url": "https://www.national.org.nz/policies/consent-laws"
           },
           {
             "name": "Tougher Sentences for Sexual Offending",
-            "quote": "We will ensure there are real consequences for crime by removing good character assessments from sentencing for all sexual…",
+            "quote": "National will continue to ensure there are real consequences for crime by abolishing good character assessments…",
             "source_type": "Policy page",
             "url": "https://www.national.org.nz/policies/tougher-sentences"
           },
@@ -1268,7 +1268,7 @@
         "National": [
           {
             "name": "Modernising Paid Parental Leave",
-            "quote": "We will modernise Paid Parental Leave long-term, giving new mums and dads greater financial flexibility and support.",
+            "quote": "From 26 to 30 weeks in three stages over the next term",
             "source_type": "Policy page",
             "url": "https://www.national.org.nz/policies/paid-parental-leave"
           },
@@ -1340,7 +1340,7 @@
     }
   ],
   "recheck": [],
-  "verification": "Every quote was checked word for word against its linked page (first check 15 Oct 2026; 20 corrected). Policy pages are re-checked in the daily update; each \"Not covered\" note shows when that party's pages were last checked.",
+  "verification": "Every quote was checked word for word against its linked page (first check 15 Oct 2026; 20 corrected. 17 Oct: 7 quotes replaced with wording visible on the page, including start dates and conditions). Policy pages are re-checked in the daily update; each \"Not covered\" note shows when that party's pages were last checked.",
   "topic_order_source": "https://www.ipsos.com/en-nz/ipsos-issues-monitor-july-2026",
   "checked_pages": {
     "ACT": "2026-10-16",
