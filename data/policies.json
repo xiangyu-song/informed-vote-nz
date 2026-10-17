@@ -45,7 +45,7 @@
         "ACT": [
           {
             "name": "Open the Door to Supermarket Competition",
-            "quote": "ACT will make it easier for new supermarkets to open and grow, so shoppers have more places to take their business.",
+            "quote": "ACT will make it easier for new supermarkets to open and grow, s[o] shoppers have more places to take their business.",
             "source_type": "Policy page",
             "url": "https://www.act.org.nz/open-the-door-to-supermarket-competition",
             "more": [
@@ -642,7 +642,7 @@
         "Te Pāti Māori": [
           {
             "name": "Energy Sovereignty",
-            "quote": "Establish a $1 Billion Energy Sovereignty Fund",
+            "quote": "Establish a $1 Billion Energy Sovereignty Fun[d]",
             "source_type": "Policy page",
             "url": "https://www.maoriparty.org.nz/energy_sovereignty"
           },
@@ -1161,7 +1161,7 @@
           },
           {
             "name": "Ending the Waitangi Make-Work Industry",
-            "quote": "New Zealand First will table legislation within the first 100 days after the next election to immediately abolish [the Waitangi Tribunal]…",
+            "quote": "New Zealand First will table legislation within the first 100 days after the next election to immediately abolish the Waitangi Tribunal…",
             "source_type": "Policy page",
             "url": "https://www.nzfirst.nz/ending_the_waitangi_makework_industry"
           }
