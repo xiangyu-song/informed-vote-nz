@@ -24,10 +24,11 @@
    "who": "National (Christopher Luxon), Labour (Chris Hipkins)",
    "link": "https://www.1news.co.nz/2026/10/06/leaders-debate-luxon-hipkins-square-off-a-month-out-from-election/",
    "watch": {
-    "url": "https://www.tvnz.co.nz/tvseries/1-news-leaders-debate",
-    "label": "Watch again on TVNZ+",
-    "checked": "page opened"
-   }
+    "url": "https://www.1news.co.nz/2026/10/06/watch-again-tvnz-leaders-debate-chris-hipkins-v-christopher-luxon/",
+    "label": "Watch again (1News)",
+    "checked": "page opened 17 Oct; TVNZ+ page says the debate isn't available to watch right now"
+   },
+   "time": "7pm"
   },
   {
    "date": "2026-10-13",
