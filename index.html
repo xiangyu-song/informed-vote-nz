@@ -28,7 +28,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;600;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css?v=20261017h">
+<link rel="stylesheet" href="assets/style.css?v=20261017i">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -151,7 +151,7 @@
 
   <section id="seats" class="wrap block" aria-labelledby="seats-title">
     <h2 id="seats-title">Seat calculator</h2>
-    <p class="lede">A what-if tool, not a forecast, using the Electoral Commission's counting method. It starts from the 14-day poll average. A party under 5% still gets seats if it wins an electorate. No electorates are ticked to start with, so a party under 5% shows 0 seats until you tick <em>Wins electorate</em>. That is not a prediction.</p>
+    <p class="lede">A what-if tool, not a forecast, using the Electoral Commission's counting method. It starts from the 14-day poll average, with no electorates ticked. A party under 5% still gets seats if it wins an electorate.</p>
     <div id="seat-calc" class="seat-calc"></div>
     <details class="more">
       <summary>How the seats are worked out</summary>
@@ -161,6 +161,14 @@
         <li>A party's electorate MPs count towards its share; list MPs fill the rest. If a party wins more electorates than its share, it keeps them and Parliament grows by those extra "overhang" seats.</li>
         <li>To govern, a party or group of parties needs more than half of all seats: 61 of 120, or more if there are overhang seats.</li>
         <li>This calculator rounds to what you enter. Real results use exact vote counts, so they can differ by a seat or two.</li>
+      </ul>
+    </details>
+    <details class="more">
+      <summary>How a government is formed</summary>
+      <ul>
+        <li>A government needs the support of more than half the MPs in Parliament.</li>
+        <li>If no party has that on its own, parties negotiate after the election. They can form a coalition, or a party can govern with another party's agreement to support it on key votes, called a confidence and supply agreement.</li>
+        <li>The seat calculator only adds up numbers. It can't show which parties would agree to work together. <a href="https://elections.nz/democracy-in-nz/what-is-new-zealands-system-of-government/what-is-mmp/">More on MMP from the Electoral Commission</a></li>
       </ul>
     </details>
   </section>
@@ -236,6 +244,6 @@
   </div>
 </footer>
 
-<script src="assets/app.js?v=20261017h"></script>
+<script src="assets/app.js?v=20261017i"></script>
 </body>
 </html>

@@ -164,7 +164,7 @@
 
   var today = nzToday();
   // Same random party order for polls and policies during one visit.
-  var partyOrder = null;
+  var partyOrder = null, randomOrder = null, orderAZ = false;
   var pollAverage = null;
   var PARTY_CODE = { "ACT": "ACT", "Green": "GRN", "Labour": "LAB", "National": "NAT", "NZ First": "NZF", "Opportunity": "OPP", "Te Pāti Māori": "TPM", "Te Tai Tokerau Party": "TTT" };
 
@@ -203,7 +203,7 @@
     });
     var ns = document.getElementById("next-step");
     if (today <= "2026-10-25") {
-      ns.innerHTML = "<strong>Enrol or check your details by Sunday 25 October</strong> at <a href=\"https://vote.nz/\">vote.nz</a>. Enrolment closes at midnight that day.";
+      ns.innerHTML = "<strong>Enrol or check your details by Sunday 25 October</strong> at <a href=\"https://vote.nz/\">vote.nz</a>. Enrolment closes at midnight that day." + (today <= "2026-10-20" ? " Enrolling with a paper form? Post it by Tuesday 20 October." : "");
     } else if (today <= "2026-11-06") {
       ns.innerHTML = "<strong>Voting is open.</strong> You can vote early at any voting place until election day. Find one at <a href=\"https://vote.nz/\">vote.nz</a>.";
     } else if (today === "2026-11-07") {
@@ -381,7 +381,7 @@
     table.appendChild(el("thead", null, [head]));
     var body = el("tbody");
     polls.slice().reverse().forEach(function (p) {
-      body.appendChild(el("tr", null, [el("td", null, [el("a", { href: p.source, text: p.pollster })]), el("td", { text: p.fieldwork }), el("td", { "class": "who", text: p.commissioned_by || "" })]
+      body.appendChild(el("tr", null, [el("td", null, [el("a", { href: p.source, text: p.pollster })]), el("td", null, [p.fieldwork, p.note ? el("span", { "class": "poll-note", text: " " + p.note }) : null]), el("td", { "class": "who", text: p.commissioned_by || "" })]
         .concat(order.map(function (c) { return el("td", { text: p[c] === null || p[c] === undefined ? "–" : String(p[c]) }); }))));
     });
     table.appendChild(body);
@@ -445,22 +445,44 @@
       list.innerHTML = "";
     }
     function showTopic(issue, btn) {
+      current.mode = "topic"; current.issue = issue;
       select(btn);
       partyOrder.forEach(function (party) {
         list.appendChild(fillBox(el("article", { "class": "party", style: "--pc:var(--p-" + PARTY_CODE[party] + ")" }, [el("h3", null, [el("span", { "class": "pdot", "aria-hidden": "true" }), el("span", { text: party })])]), issue, party));
       });
-      showing.textContent = "Showing " + issue.name + ": " + partyOrder.length + " parties, in random order.";
+      showing.innerHTML = "";
+      showing.appendChild(document.createTextNode("Showing " + issue.name + ": " + partyOrder.length + " parties, " + (orderAZ ? "A to Z." : "in random order (the same for your whole visit).") + " "));
+      showing.appendChild(orderToggle());
       markTeReo(list);
     }
+    // Lets visitors switch between the random order and A–Z. Both are the same for every party.
+    var current = { mode: "topic", issue: null, party: null };
+    function orderToggle() {
+      var b = el("button", { type: "button", "class": "order-toggle", text: orderAZ ? "Show in random order" : "Show A–Z" });
+      b.addEventListener("click", function () {
+        orderAZ = !orderAZ;
+        partyOrder = orderAZ ? randomOrder.slice().sort(function (a, c) { return a.localeCompare(c, "en-NZ"); }) : randomOrder;
+        if (current.mode === "topic") {
+          var btn = picker.querySelector('button[aria-selected="true"]');
+          showTopic(current.issue, btn);
+        } else {
+          buildPicker("party", current.party);
+        }
+        var t = showing.querySelector(".order-toggle"); if (t) t.focus();
+      });
+      return b;
+    }
     function showParty(party, btn) {
+      current.mode = "party"; current.party = party;
       select(btn);
       data.issues.forEach(function (issue) {
         list.appendChild(fillBox(el("article", { "class": "party", style: "--pc:var(--p-" + PARTY_CODE[party] + ")" }, [el("h3", null, [el("span", { "class": "pdot", "aria-hidden": "true" }), el("span", { text: issue.name })])]), issue, party));
       });
-      showing.innerHTML = ""; showing.appendChild(el("span", { "class": "pdot", "aria-hidden": "true", style: "--pc:var(--p-" + PARTY_CODE[party] + ")" })); showing.appendChild(document.createTextNode(" Showing everything " + party + " says, across " + data.issues.length + " topics."));
+      showing.innerHTML = ""; showing.appendChild(el("span", { "class": "pdot", "aria-hidden": "true", style: "--pc:var(--p-" + PARTY_CODE[party] + ")" })); showing.appendChild(document.createTextNode(" Showing everything " + party + " says, across " + data.issues.length + " topics. Parties are listed " + (orderAZ ? "A to Z." : "in random order (the same for your whole visit).") + " "));
+      showing.appendChild(orderToggle());
       markTeReo(list);
     }
-    function buildPicker(mode) {
+    function buildPicker(mode, keep) {
       picker.innerHTML = "";
       modeTopic.setAttribute("aria-pressed", mode === "topic" ? "true" : "false");
       modeParty.setAttribute("aria-pressed", mode === "party" ? "true" : "false");
@@ -476,10 +498,11 @@
         b.addEventListener("click", function () { sel.value = String(i); mode === "topic" ? showTopic(x, b) : showParty(x, b); });
         picker.appendChild(b); btns.push(b);
         sel.appendChild(el("option", { value: String(i), text: label }));
-        if (i === 0) { mode === "topic" ? showTopic(x, b) : showParty(x, b); }
       });
+      var start = keep ? Math.max(0, items.indexOf(keep)) : 0;
       sel.onchange = function () { btns[+sel.value].click(); };
-      sel.value = "0";
+      btns[start].click();
+      sel.value = String(start);
     }
     modeTopic.addEventListener("click", function () { buildPicker("topic"); });
     modeParty.addEventListener("click", function () { buildPicker("party"); });
@@ -683,6 +706,9 @@
       // Keep the result line in a fixed place, with a hint until parties are ticked, so the table doesn't jump.
       out.appendChild(verdict ? el("p", { "class": "seat-verdict" + (sum >= need ? " yes" : ""), text: verdict })
         : el("p", { "class": "seat-verdict empty", text: "Tick “Add up” to see if parties together reach " + need + "." }));
+      // Say why a party shows 0 seats, right under the result.
+      var zero = codes.filter(function (c) { return !seats[c]; }).map(function (c) { return NAMES[c]; });
+      if (zero.length) out.appendChild(el("p", { "class": "seat-zero", text: "0 seats: " + zero.join(", ") + (zero.length === 1 ? " is" : " are") + " under 5% of the party vote with no electorate ticked. Tick Wins electorate to see what changes." }));
       out.appendChild(el("p", { "class": "seat-note", text: "Adding up seats is arithmetic only. It doesn't show which parties are willing to work together." }));
       clearTimeout(liveTimer);
       liveTimer = setTimeout(function () { live.textContent = codes.filter(function (c) { return seats[c]; }).map(function (c) { return NAMES[c] + " " + seats[c]; }).join(", ") + ". " + house + " seats in total. " + verdict; }, 600);
@@ -820,7 +846,13 @@
     if (r[7]) {
       setGlossary(r[7]);
     }
-    partyOrder = shuffle(r[2].parties);
+    // Random party order, kept the same for this visit (this browser tab) so the page doesn't reshuffle on reload.
+    var saved = null;
+    try { saved = JSON.parse(sessionStorage.getItem("kyv-order") || "null"); } catch (e) { saved = null; }
+    var same = saved && saved.length === r[2].parties.length && r[2].parties.every(function (x) { return saved.indexOf(x) !== -1; });
+    randomOrder = same ? saved : shuffle(r[2].parties);
+    try { sessionStorage.setItem("kyv-order", JSON.stringify(randomOrder)); } catch (e) {}
+    partyOrder = randomOrder;
     renderDates(r[0]);
     renderEnrolment(r[8]);
     try { renderPolls(r[1]); } catch (e) { fail(document.getElementById("poll-charts"), "polls"); }

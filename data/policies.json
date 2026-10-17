@@ -3,11 +3,11 @@
   "display": {
     "quote_label": "In their words:",
     "not_covered": "Not covered on {party}'s 2026 policy pages (checked {date}).",
-    "party_order": "shuffled on each visit"
+    "party_order": "random for each visit, or A to Z"
   },
   "how_we_chose": [
     "Parties appear if they have a sitting MP or average 2% or more in recent nationwide polls, and publish policies on their own website.",
-    "Party order is shuffled each time the page loads, so no party is always first.",
+    "Parties are shown in a random order, so no party is always first. The order stays the same for your whole visit, and you can switch to A to Z.",
     "Up to three quotes per party per topic, in the order the party lists its policies. The first is shown; \"Show more\" reveals the rest, for every party alike. If a party has fewer than three policies on a topic, we add further commitments from the same pages, in order. Each policy appears once, under the topic it fits best. If a line on a party's page clearly speaks to a second topic, it can also be shown there, marked \"Also under [topic]\".",
     "Parties publish different amounts of policy detail: some have dozens of separate policy pages, others one longer page. Showing up to three quotes each keeps the comparison even, but it doesn't show how much each party has published; their own policy pages do.",
     "Quotes are the party's own words, in quotation marks, taken from the text you can see on the linked page. Where a page has a specific commitment, we quote it rather than a general statement. Quotes are cut at about 20 words, but any condition, eligibility rule or start date stays in, even if that makes the quote longer. '…' marks a cut, and [square brackets] mark words we added for clarity.",
