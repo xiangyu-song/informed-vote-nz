@@ -428,7 +428,8 @@
         });
         var pol = el("div", { "class": "pol" }, [
           el("a", { "class": "pol-name", href: it.url, text: "“" + it.name + "”" }),
-          el("span", { "class": "tag", text: it.source_type }),
+          // No tag for ordinary policy pages; other source types (manifesto, announcement…) keep a tag.
+          it.source_type && it.source_type !== "Policy page" ? el("span", { "class": "tag", text: it.source_type }) : null,
           it.also_under ? el("span", { "class": "tag", text: "Also under " + it.also_under }) : null,
           quotes
         ]);
