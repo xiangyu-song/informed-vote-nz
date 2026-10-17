@@ -644,11 +644,11 @@
       var id = "sv-" + c;
       var num = el("input", { type: "number", id: id, min: "0", max: "100", step: "0.1", inputmode: "decimal", "aria-label": NAMES[c] + " party vote, percent" });
       var tick = el("input", { type: "checkbox", id: "se-" + c });
-      var count = el("input", { type: "number", min: "1", max: "71", step: "1", inputmode: "numeric", "aria-label": NAMES[c] + ": number of electorates won", hidden: "" });
+      var count = el("input", { type: "number", min: "0", max: "71", step: "1", inputmode: "numeric", "aria-label": NAMES[c] + ": number of electorates won (0 to clear)", title: "Electorates won (0 to clear)", hidden: "" });
       num.addEventListener("input", function () { var v = parseFloat(num.value); if (!isNaN(v)) { state[c].v = Math.max(0, Math.min(100, v)); update(true); } });
       tick.addEventListener("change", function () { state[c].e = tick.checked ? Math.max(1, +count.value || 1) : 0; update(); });
-      count.addEventListener("input", function () { var v = parseInt(count.value, 10); if (v >= 1) { state[c].e = Math.min(71, v); update(true); } });
-      count.addEventListener("change", function () { count.value = state[c].e || 1; });
+      count.addEventListener("input", function () { var v = parseInt(count.value, 10); if (v >= 1) { state[c].e = Math.min(71, v); update(true); } else if (v === 0) { state[c].e = 0; update(); tick.focus(); } });
+      count.addEventListener("change", function () { if (state[c].e) count.value = state[c].e; });
       var won = el("span", { "class": "seat-won", "aria-hidden": "true" });
       // Desktop: tick to add this party's seats to a possible government (phones use the chips below instead).
       var pick = el("input", { type: "checkbox", "aria-label": "Add up " + NAMES[c] + "'s seats" });
@@ -708,7 +708,7 @@
         var barOrder = codes.filter(function (c) { return picked[c]; }).concat(codes.filter(function (c) { return !picked[c]; }));
         barOrder.forEach(function (c) { if (seats[c]) bar.appendChild(el("span", { "class": anyPicked && !picked[c] ? "dim" : "", style: "--pc:var(--p-" + c + ");flex:" + seats[c] })); });
         bar.appendChild(el("span", { "class": "seat-mid", style: "left:" + (need - 0.5) / house * 100 + "%" }));
-        target.appendChild(el("p", { "class": "seat-total" }, [el("strong", { text: house + " seats" }), overhang ? " (including " + overhang + " overhang " + (overhang === 1 ? "seat" : "seats") + ": any party that wins more electorates than its party vote earns keeps them, and Parliament grows)" : "", ". A government needs " + need + " (the dashed line)."]));
+        target.appendChild(el("p", { "class": "seat-total" }, [el("strong", { text: house + " seats" }), overhang ? " (" + overhang + " overhang)" : "", ". " + need + " to govern (dashed line)."]));
         target.appendChild(bar);
       }
       head(out, true);
@@ -717,8 +717,9 @@
       var verdict = !names.length ? "" : sum >= need ? "Together: " + sum + " seats, enough to govern (" + need + " needed)." : "Together: " + sum + " seats, " + (need - sum) + " short of the " + need + " needed.";
       // Keep the result line in a fixed place, with a hint until parties are ticked, so the table doesn't jump.
       out.appendChild(verdict ? el("p", { "class": "seat-verdict" + (sum >= need ? " yes" : ""), text: verdict })
-        : el("p", { "class": "seat-verdict empty", text: "Tick “Add up” to see if parties together reach " + need + "." }));
+        : el("p", { "class": "seat-verdict empty", text: "Tick “Add up” to combine seats." }));
       // Say why a party shows 0 seats, right under the result.
+      if (overhang) out.appendChild(el("p", { "class": "seat-zero", text: "Overhang: a party that wins more electorates than its party vote earns keeps those seats, and Parliament grows above 120." }));
       if (codes.some(function (c) { return !seats[c]; })) out.appendChild(el("p", { "class": "seat-zero", text: "0 seats: the party is under 5% of the party vote with no electorate ticked. Tick Wins electorate to see what changes." }));
       out.appendChild(el("p", { "class": "seat-note", text: "Adding up seats is arithmetic only. It doesn't show which parties are willing to work together." }));
       clearTimeout(liveTimer);
