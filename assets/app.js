@@ -716,7 +716,7 @@
         var barOrder = codes.filter(function (c) { return picked[c]; }).concat(codes.filter(function (c) { return !picked[c]; }));
         barOrder.forEach(function (c) { if (seats[c]) bar.appendChild(el("span", { "class": anyPicked && !picked[c] ? "dim" : "", style: "--pc:var(--p-" + c + ");flex:" + seats[c] })); });
         bar.appendChild(el("span", { "class": "seat-mid", style: "left:" + (need - 0.5) / house * 100 + "%" }));
-        target.appendChild(el("p", { "class": "seat-total" }, [el("strong", { text: house + " seats" }), overhang ? " (" + overhang + " overhang)" : "", ". " + need + " to govern (dashed line)."]));
+        target.appendChild(el("p", { "class": "seat-total" }, [el("strong", { text: house + " seats" }), overhang ? " incl. " + overhang + " overhang · " + need + " to govern." : " · " + need + " to govern (dashed line)."]));
         target.appendChild(bar);
       }
       head(out, true);
@@ -725,7 +725,7 @@
       var verdict = !names.length ? "" : sum >= need ? "Together: " + sum + " seats, enough to govern (" + need + " needed)." : "Together: " + sum + " seats, " + (need - sum) + " short of the " + need + " needed.";
       // Keep the result line in a fixed place, with a hint until parties are ticked, so the table doesn't jump.
       out.appendChild(verdict ? el("p", { "class": "seat-verdict" + (sum >= need ? " yes" : ""), text: verdict })
-        : el("p", { "class": "seat-verdict empty", text: "Tick “Add up” to combine seats." }));
+        : el("p", { "class": "seat-verdict empty", text: "Tick “Add up” to see if parties reach " + need + "." }));
       // Say why a party shows 0 seats, right under the result.
       if (overhang) out.appendChild(el("p", { "class": "seat-zero", text: "Overhang: a party that wins more electorates than its party vote earns keeps those seats, and Parliament grows above 120." }));
       if (codes.some(function (c) { return !seats[c]; })) out.appendChild(el("p", { "class": "seat-zero", text: "0 seats: the party is under 5% of the party vote with no electorate ticked. Tick Wins electorate to see what changes." }));
