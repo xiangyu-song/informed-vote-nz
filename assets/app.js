@@ -334,9 +334,9 @@
       var rows = order.map(function (c) { return [c, avgAt(c, t)]; }).filter(function (r) { return r[1] !== null; }).sort(function (a, b) { return b[1] - a[1]; });
       tip.innerHTML = "";
       var nPolls = polls.filter(function (q) { var u = toDate(q.end); return u <= t && u > t - 14 * DAY; }).length;
-      tip.appendChild(el("strong", { text: "14-day average, " + fmtDate(iso, { weekday: undefined }) + " (" + nPolls + (nPolls === 1 ? " poll)" : " polls)") }));
+      tip.appendChild(el("strong", { text: "14-day average, " + fmtDate(iso, { weekday: undefined, month: "short" }) + " (" + nPolls + (nPolls === 1 ? " poll)" : " polls)") }));
       var ol = el("ol");
-      rows.forEach(function (r) { ol.appendChild(el("li", { style: "--pc:var(--p-" + r[0] + ")" }, [el("span", null, [el("span", { "class": "sw" }), POLL_NAMES[r[0]]]), el("b", { text: r[1].toFixed(1) + "%" })])); });
+      rows.forEach(function (r) { ol.appendChild(el("li", { style: "--tc:var(--t-" + r[0] + ")" }, [el("span", { text: POLL_NAMES[r[0]] }), el("b", { text: r[1].toFixed(1) + "%" })])); });
       tip.appendChild(ol);
       // Phones: the floating box would cover the chart, so the figures go in the details strip under it instead.
       var narrow = window.matchMedia("(max-width: 719px)").matches;
@@ -349,7 +349,7 @@
       detail.innerHTML = "";
       if (narrow) {
         var avgList = el("ol", { "class": "detail-avg" });
-        rows.forEach(function (r) { avgList.appendChild(el("li", { style: "--pc:var(--p-" + r[0] + ")" }, [el("span", { "class": "sw" }), POLL_NAMES[r[0]] + " ", el("b", { text: r[1].toFixed(1) + "%" })])); });
+        rows.forEach(function (r) { avgList.appendChild(el("li", { style: "--tc:var(--t-" + r[0] + ")" }, [el("span", { text: POLL_NAMES[r[0]] }), el("b", { text: r[1].toFixed(1) + "%" })])); });
         detail.appendChild(el("strong", { "class": "detail-head", text: "14-day average, " + fmtDate(iso, { weekday: undefined, month: "short" }) + " (" + nPolls + (nPolls === 1 ? " poll)" : " polls)") }));
         detail.appendChild(avgList);
       }
