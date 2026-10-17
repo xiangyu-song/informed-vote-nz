@@ -707,8 +707,7 @@
       out.appendChild(verdict ? el("p", { "class": "seat-verdict" + (sum >= need ? " yes" : ""), text: verdict })
         : el("p", { "class": "seat-verdict empty", text: "Tick “Add up” to see if parties together reach " + need + "." }));
       // Say why a party shows 0 seats, right under the result.
-      var zero = codes.filter(function (c) { return !seats[c]; }).map(function (c) { return NAMES[c]; });
-      if (zero.length) out.appendChild(el("p", { "class": "seat-zero", text: "0 seats: " + zero.join(", ") + (zero.length === 1 ? " is" : " are") + " under 5% of the party vote with no electorate ticked. Tick Wins electorate to see what changes." }));
+      if (codes.some(function (c) { return !seats[c]; })) out.appendChild(el("p", { "class": "seat-zero", text: "0 seats: the party is under 5% of the party vote with no electorate ticked. Tick Wins electorate to see what changes." }));
       out.appendChild(el("p", { "class": "seat-note", text: "Adding up seats is arithmetic only. It doesn't show which parties are willing to work together." }));
       clearTimeout(liveTimer);
       liveTimer = setTimeout(function () { live.textContent = codes.filter(function (c) { return seats[c]; }).map(function (c) { return NAMES[c] + " " + seats[c]; }).join(", ") + ". " + house + " seats in total. " + verdict; }, 600);
