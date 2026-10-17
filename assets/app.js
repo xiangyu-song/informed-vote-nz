@@ -282,7 +282,7 @@
 
     // One chart, every party: dots are single polls, lines are 14-day averages.
     // Size the drawing to the box, so text stays readable on phones.
-    var CW = Math.round(Math.max(300, Math.min(760, (wrap.clientWidth || 640) - 28))), CH = CW < 520 ? 300 : 340, CL = 34, CR = 12, CT = 10, CB = 26, cMax = 35;
+    var CW = Math.round(Math.max(300, Math.min(760, (wrap.clientWidth || 640) - 28))), CH = CW < 520 ? 225 : 320, CL = 34, CR = 12, CT = 10, CB = 26, cMax = CW < 520 ? 33 : 35;
     function cx(t) { return CL + (t - x0) / (x1 - x0) * (CW - CL - CR); }
     function cy(v) { return CT + (1 - v / cMax) * (CH - CT - CB); }
     var avgs = {}; order.forEach(function (c) { avgs[c] = trailing(c); });
@@ -338,13 +338,21 @@
       var ol = el("ol");
       rows.forEach(function (r) { ol.appendChild(el("li", { style: "--pc:var(--p-" + r[0] + ")" }, [el("span", null, [el("span", { "class": "sw" }), POLL_NAMES[r[0]]]), el("b", { text: r[1].toFixed(1) + "%" })])); });
       tip.appendChild(ol);
-      tip.hidden = false;
+      // Phones: the floating box would cover the chart, so the figures go in the details strip under it instead.
+      var narrow = window.matchMedia("(max-width: 719px)").matches;
+      tip.hidden = narrow;
       var px = x / CW * r.width, wr = wrap.getBoundingClientRect();
       var left = px + (r.left - wr.left) + 12;
       if (left + tip.offsetWidth > wr.width - 8) left = px + (r.left - wr.left) - tip.offsetWidth - 12;
       tip.style.left = Math.max(8, left) + "px";
       var ended = polls.filter(function (p) { return p.end === iso; });
       detail.innerHTML = "";
+      if (narrow) {
+        var avgList = el("ol", { "class": "detail-avg" });
+        rows.forEach(function (r) { avgList.appendChild(el("li", { style: "--pc:var(--p-" + r[0] + ")" }, [el("span", { "class": "sw" }), POLL_NAMES[r[0]] + " ", el("b", { text: r[1].toFixed(1) + "%" })])); });
+        detail.appendChild(el("strong", { "class": "detail-head", text: "14-day average, " + fmtDate(iso, { weekday: undefined, month: "short" }) + " (" + nPolls + (nPolls === 1 ? " poll)" : " polls)") }));
+        detail.appendChild(avgList);
+      }
       detail.appendChild(el("span", null, [el("strong", { text: "Polls ending " + fmtDate(iso, { weekday: undefined }) + ": " })].concat(
         ended.reduce(function (acc, p, i) { if (i) acc.push("; "); acc.push(el("a", { href: p.source, text: p.pollster }), " (" + p.fieldwork + (p.commissioned_by ? ". " + p.commissioned_by : "") + ")"); return acc; }, []))));
     }
@@ -367,14 +375,17 @@
     chart.addEventListener("pointerdown", function (e) { showAt(e.clientX); });
     chart.addEventListener("pointerleave", function (e) { if (e.pointerType === "mouse") hide(); });
     document.addEventListener("pointerdown", function (e) { if (!wrap.contains(e.target)) hide(); });
-    var key = el("p", { "class": "trend-key" }, [el("span", { "class": "k-item" }, [el("span", { "class": "k-dot", "aria-hidden": "true" }), "Dot: one poll"]), el("span", { "class": "k-item" }, [el("span", { "class": "k-line", "aria-hidden": "true" }), "Line: 14-day average of the polls"])]);
+    var key = el("p", { "class": "trend-key" }, [el("span", { "class": "k-item" }, [el("span", { "class": "k-dot", "aria-hidden": "true" }), "Dot: one poll"]), el("span", { "class": "k-item" }, [el("span", { "class": "k-line", "aria-hidden": "true" }), "Line: 14-day average"])]);
     // Say so when some points rest on only one or two polls (checked from the data, so it stays true as polls are added).
     var thin = ends.some(function (t) { return polls.filter(function (q) { var u = toDate(q.end); return u <= t && u > t - 14 * DAY; }).length <= 2; });
     var note = el("p", { "class": "trend-note", text: "Why dots sit above or below the lines: each poll is a separate estimate, and pollsters often differ by a few points. Each point on the line averages the polls whose fieldwork ended in the 14 days up to that date, so it smooths out those differences instead of joining the dots." +
       (thin ? " Where only one or two polls fall in the 14 days, a single poll can move the line noticeably; point to the chart to see how many polls each point uses." : "") });
-    wrap.appendChild(legend); wrap.appendChild(chart); wrap.appendChild(key); wrap.appendChild(note); wrap.appendChild(tip);
+    // The poll details sit inside the chart card, right under it, so the chart and the details can be read together.
+    wrap.appendChild(legend); wrap.appendChild(chart); wrap.appendChild(key); wrap.appendChild(detail); wrap.appendChild(tip);
     detail.textContent = "Point to or tap the chart (or use the arrow keys) to see the figures for a date and the polls that ended that day.";
-    wrap.insertAdjacentElement("afterend", el("p", { "class": "lede", text: "Te Tai Tokerau Party isn't reported separately in most polls, so it isn't in these charts." }));
+    // Explanations go below the card, as notes.
+    var notes = el("div", { "class": "trend-notes" }, [note, el("p", { "class": "trend-note", text: "Te Tai Tokerau Party isn't reported separately in most polls, so it isn't in these charts." })]);
+    wrap.insertAdjacentElement("afterend", notes);
 
     var table = document.getElementById("poll-table");
     var head = el("tr", null, [el("th", { text: "Poll" }), el("th", { text: "Fieldwork" }), el("th", { text: "Commissioned by" })].concat(order.map(function (c) { return el("th", { text: POLL_NAMES[c] }); })));
