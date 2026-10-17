@@ -429,6 +429,7 @@
         var pol = el("div", { "class": "pol" }, [
           el("a", { "class": "pol-name", href: it.url, text: "“" + it.name + "”" }),
           el("span", { "class": "tag", text: it.source_type }),
+          it.also_under ? el("span", { "class": "tag", text: "Also under " + it.also_under }) : null,
           quotes
         ]);
         if (i > 0) { extras = extras.filter(function (x) { return !pol.contains(x); }); extras.push(pol); }

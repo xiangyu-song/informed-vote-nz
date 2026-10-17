@@ -1,5 +1,5 @@
 {
-  "checked": "2026-10-16",
+  "checked": "2026-10-17",
   "display": {
     "quote_label": "In their words:",
     "not_covered": "Not covered on {party}'s 2026 policy pages (checked {date}).",
@@ -8,7 +8,7 @@
   "how_we_chose": [
     "Parties appear if they have a sitting MP or average 2% or more in recent nationwide polls, and publish policies on their own website.",
     "Party order is shuffled each time the page loads, so no party is always first.",
-    "Up to three quotes per party per topic, in the order the party lists its policies. The first is shown; \"Show more\" reveals the rest, for every party alike. If a party has fewer than three policies on a topic, we add further commitments from the same pages, in order. Each policy appears once, under the topic it fits best.",
+    "Up to three quotes per party per topic, in the order the party lists its policies. The first is shown; \"Show more\" reveals the rest, for every party alike. If a party has fewer than three policies on a topic, we add further commitments from the same pages, in order. Each policy appears once, under the topic it fits best. If a line on a party's page clearly speaks to a second topic, it can also be shown there, marked \"Also under [topic]\".",
     "Parties publish different amounts of policy detail: some have dozens of separate policy pages, others one longer page. Showing up to three quotes each keeps the comparison even, but it doesn't show how much each party has published; their own policy pages do.",
     "Quotes are the party's own words, in quotation marks, taken from the text you can see on the linked page. Where a page has a specific commitment, we quote it rather than a general statement. Quotes are cut at about 20 words, but any condition, eligibility rule or start date stays in, even if that makes the quote longer. '…' marks a cut, and [square brackets] mark words we added for clarity.",
     "A tag shows the type of source: a policy page, the 2026 manifesto, a dated announcement, a long-term policy, or a petition.",
@@ -86,7 +86,7 @@
           },
           {
             "name": "Fairer Grocery Prices",
-            "quote": "Labour will take tough action on the supermarket giants to get you a better deal at the checkout.",
+            "quote": "Two new independently run wholesalers will be created: Foodstuffs Wholesale and Woolworths Wholesale",
             "source_type": "Policy page",
             "url": "https://www.labour.org.nz/fairer-grocery-prices"
           }
@@ -197,7 +197,7 @@
           },
           {
             "name": "Free Prescriptions",
-            "quote": "Labour will remove the $5 fee on prescriptions to make them free for every New Zealander",
+            "quote": "From 1 July 2027, Labour will remove the $5 fee on prescriptions to make them free for every New Zealander who is entitled to free public healthcare.",
             "source_type": "Policy page",
             "url": "https://www.labour.org.nz/prescriptions"
           },
@@ -288,13 +288,13 @@
           },
           {
             "name": "Backing Small Business",
-            "quote": "This package goes further so the people who build businesses and those who work for them can get ahead",
+            "quote": "Freeze the adult minimum wage for three years, giving employers certainty…",
             "source_type": "Policy page",
             "url": "https://www.act.org.nz/backing-small-business"
           },
           {
             "name": "Keep New Zealand Moving",
-            "quote": "New Zealanders pay at the pump, through road-user charges, rates and tolls.",
+            "quote": "Require major projects to publish the lowest-cost safe option alongside the preferred option…",
             "source_type": "Policy page",
             "url": "https://www.act.org.nz/keep-new-zealand-moving"
           }
@@ -334,7 +334,7 @@
           },
           {
             "name": "Apprenticeship Boost",
-            "quote": "Labour will support more tradies and young people into work and to gain a qualification, so they can earn more.",
+            "quote": "Employer payments extended from one year to two years at $500 a month, effective 1 July 2028",
             "source_type": "Policy page",
             "url": "https://www.labour.org.nz/apprenticeshipboost"
           }
@@ -342,19 +342,19 @@
         "National": [
           {
             "name": "Building the Future: National's Economic Plan",
-            "quote": "To ensure hardworking New Zealanders can keep more of what they earn, get ahead, and build a more secure future.",
+            "quote": "Responsibly managing the books: a surplus in 2028/29 and debt below 40% of GDP over time",
             "source_type": "Policy page",
             "url": "https://www.national.org.nz/policies/nationals-eco-plan"
           },
           {
             "name": "National's plan to support Small Businesses",
-            "quote": "We will grow the economy, back small businesses, spend sensibly and reduce debt without new taxes to create jobs.",
+            "quote": "Delivering a Tell Government Once service",
             "source_type": "Policy page",
             "url": "https://www.national.org.nz/policies/47-point-plan-small-businesses"
           },
           {
             "name": "New Zealand's Next Billion Customers",
-            "quote": "National is committed to growing New Zealand's economy by helping Kiwi businesses sell more to the world.",
+            "quote": "Prioritising new trade deals with European, South American, African and Asian countries",
             "source_type": "Policy page",
             "url": "https://www.national.org.nz/policies/new-trade"
           }
@@ -382,19 +382,19 @@
         "Opportunity": [
           {
             "name": "Breakthrough Economy",
-            "quote": "Opportunity will fund science, stand up for fairness and back small businesses to take a generational leap forward.",
+            "quote": "We'll lift research & development spending to at least 2% of GDP…",
             "source_type": "Policy page",
             "url": "https://www.opportunity.org.nz/breakthrough-economy"
           },
           {
             "name": "Digital Future",
-            "quote": "Shaping AI, before it shapes us.",
+            "quote": "Support people through technology transitions with a Citizen’s Income.",
             "source_type": "Policy page",
             "url": "https://www.opportunity.org.nz/digital-future"
           },
           {
             "name": "Inter-Generational Infrastructure",
-            "quote": "A hospital lasts fifty years. A government lasts three. Let’s plan for the hospital.",
+            "quote": "Put the 30-year Plan into law, so no incoming government can quietly dump it.",
             "source_type": "Policy page",
             "url": "https://www.opportunity.org.nz/intergenerational_infrastructure"
           }
@@ -437,7 +437,14 @@
       "id": "housing",
       "name": "Housing",
       "parties": {
-        "ACT": [],
+        "ACT": [
+          {
+            "name": "Housing & Infrastructure",
+            "quote": "ACT believes people should be free to build on their property unless they cause material harm…",
+            "source_type": "Policy page",
+            "url": "https://www.act.org.nz/policies/infrastructure"
+          }
+        ],
         "Green": [
           {
             "name": "Housing",
@@ -550,19 +557,19 @@
         "Green": [
           {
             "name": "Power for all of us",
-            "quote": "Our plan will fundamentally change our energy system in Aotearoa New Zealand.",
+            "quote": "Establish a government-backed loan scheme to enable zero-interest clean energy loans for up to 90% of homeowners.",
             "source_type": "Policy page",
             "url": "https://www.greens.org.nz/power_for_all_of_us"
           },
           {
             "name": "Fast, frequent, affordable public transport for all of us",
-            "quote": "Our plan will provide fast, frequent and affordable public transport that saves people time and money.",
+            "quote": "The Green Party will provide free bus and train fares for children, students, Community Service Card holders…",
             "source_type": "Policy page",
             "url": "https://www.greens.org.nz/connect_aotearoa"
           },
           {
             "name": "Drink, Swim, Fish",
-            "quote": "The Green Party will fix the rules so all of us can drink, swim, and fish in the places we love.",
+            "quote": "Set strong, science-based national standards for freshwater…",
             "source_type": "Policy page",
             "url": "https://www.greens.org.nz/drink_swim_fish"
           }
@@ -622,19 +629,19 @@
         "Opportunity": [
           {
             "name": "Abundant Energy",
-            "quote": "Abundant Energy is a circuit breaker for an energy system that has been underfunded for decades.",
+            "quote": "secure cross-party agreement to a 30GW total capacity target for 2050",
             "source_type": "Policy page",
             "url": "https://www.opportunity.org.nz/abundant-energy"
           },
           {
             "name": "Climate Action",
-            "quote": "The decisions we make today will shape our kid's lives tomorrow.",
+            "quote": "Opportunity will work across political lines to lock in policies that fix our carbon market and set enduring evidence-backed emissions targets.",
             "source_type": "Policy page",
             "url": "https://www.opportunity.org.nz/climate_action"
           },
           {
             "name": "Healthy Land & Water",
-            "quote": "Restore our land, clean up our rivers and treat nature as critical national infrastructure.",
+            "quote": "Increase conservation funding and support landowners to protect Significant Natural Areas…",
             "source_type": "Policy page",
             "url": "https://www.opportunity.org.nz/healthy_land"
           }
@@ -837,7 +844,7 @@
         "Labour": [
           {
             "name": "Cutting Student Debt",
-            "quote": "A 10% cut to eligible student loan balances - now for existing borrowers, or after three years in NZ for future graduates.",
+            "quote": "Labour will cut 10% off eligible student loan balances, so graduates who study, work and stay here can pay off…",
             "source_type": "Policy page",
             "url": "https://www.labour.org.nz/cutting-student-debt",
             "more": [
@@ -968,7 +975,7 @@
           },
           {
             "name": "Citizen's Only Voting",
-            "quote": "Voting in general elections should be reserved for those who have made the full legal and civic commitment to this country.",
+            "quote": "…we will be campaigning to change the electoral law to ensure that only citizens have the right to vote.",
             "source_type": "Policy page",
             "url": "https://www.nzfirst.nz/citizens_only_voting"
           }
@@ -991,7 +998,7 @@
           },
           {
             "name": "No Tax on KiwiSaver Earnings",
-            "quote": "ACT will reward saving by letting you keep those earnings.",
+            "quote": "Remove tax on qualifying investment earnings inside KiwiSaver funds, allowing your returns to stay invested…",
             "source_type": "Policy page",
             "url": "https://www.act.org.nz/no-tax-on-kiwisaver-earnings"
           },
@@ -1034,13 +1041,13 @@
         "National": [
           {
             "name": "No new taxes under National",
-            "quote": "No new taxes means you can keep more of what you earn",
+            "quote": "National is committing to no new taxes if re-elected on November 7.",
             "source_type": "Policy page",
             "url": "https://www.national.org.nz/policies/no-new-taxes"
           },
           {
             "name": "International Visitor Levy reset to keep taxes low",
-            "quote": "We're helping regions invest in the services they need to keep up with tourism growth",
+            "quote": "Direct more International Visitor Levy funding to conservation",
             "source_type": "Policy page",
             "url": "https://www.national.org.nz/policies/international-visitor-levy"
           },
@@ -1054,7 +1061,7 @@
         "NZ First": [
           {
             "name": "Lowering Tax Rate for SMEs to 20%",
-            "quote": "New Zealand First will campaign on lowering the company tax rate for SMEs to 20%",
+            "quote": "New Zealand First will campaign on lowering the company tax rate for SMEs to 20% for companies with turnover under $30million…",
             "source_type": "Policy page",
             "url": "https://www.nzfirst.nz/20_tax_rate_for_smes"
           }
@@ -1116,9 +1123,9 @@
         "Green": [
           {
             "name": "Te Tiriti o Waitangi",
-            "quote": "The Green Party is committed to upholding Te Tiriti in everything we do, so no one is left behind.",
-            "source_type": "Policy page",
-            "url": "https://www.greens.org.nz/te_tiriti_o_waitangi"
+            "quote": "Amend the Treaty of Waitangi Act to recognise that Te Tiriti is the authoritative text…",
+            "source_type": "2026 manifesto",
+            "url": "https://www.greens.org.nz/manifesto_2026_te_tiriti_o_waitangi"
           },
           {
             "name": "Te Waonui a Tāne",
@@ -1248,7 +1255,7 @@
           },
           {
             "name": "Seniors",
-            "quote": "The Green Party will uphold the mana of seniors by prioritising the support that enables equitable and fulfilling lives.",
+            "quote": "Launch a dedicated long-term strategy for the needs of an ageing population…",
             "source_type": "2026 manifesto",
             "url": "https://www.greens.org.nz/manifesto_2026_seniors"
           }
@@ -1274,13 +1281,13 @@
           },
           {
             "name": "Enhancing KiwiSaver for Everyone",
-            "quote": "Retire with more under our proposed KiwiSaver changes",
+            "quote": "From 1 July 2028, National will make contributions to KiwiSaver (or an equivalent scheme) compulsory for all workers.",
             "source_type": "Policy page",
             "url": "https://www.national.org.nz/policies/kiwisaver"
           },
           {
             "name": "A firm, fair and affordable welfare system",
-            "quote": "We will prioritise employment within the welfare system while ensuring it remains fair, sustainable and affordable…",
+            "quote": "National will provide more intensive, work focused support for 30,000 work-ready jobseekers…",
             "source_type": "Policy page",
             "url": "https://www.national.org.nz/policies/walfare"
           }
@@ -1288,7 +1295,7 @@
         "NZ First": [
           {
             "name": "Establishing a KiwiSaver Generation",
-            "quote": "KiwiSaver enrolment compulsory at birth and there will be an automatic immediate Crown contribution of $1000",
+            "quote": "New Zealand First is going to make KiwiSaver enrolment compulsory at birth and there will be an automatic immediate Crown contribution of $1000 for New Zealand citizens only.",
             "source_type": "Policy page",
             "url": "https://www.nzfirst.nz/establishing_a_kiwisaver_generation"
           },
@@ -1306,7 +1313,15 @@
           }
         ],
         "Opportunity": [],
-        "Te Pāti Māori": [],
+        "Te Pāti Māori": [
+          {
+            "name": "Cost of living",
+            "quote": "Strengthen welfare so whānau aren’t punished for being poor.",
+            "source_type": "Policy page",
+            "url": "https://www.maoriparty.org.nz/cost_of_living",
+            "also_under": "Cost of living"
+          }
+        ],
         "Te Tai Tokerau Party": [
           {
             "name": "Ōranga Whānau — “Clean Slate” & Universal Whānau Allowance",
@@ -1330,26 +1345,21 @@
           "text": "Opportunity's Citizen's Income, which would replace most benefits, is part of its “Tax Reset”, shown under Tax and government spending.",
           "url": "https://www.opportunity.org.nz/tax-reset",
           "crossref": true
-        },
-        "Te Pāti Māori": {
-          "text": "Te Pāti Māori's welfare commitments are on its “Cost of living” page, shown under Cost of living.",
-          "url": "https://www.maoriparty.org.nz/cost_of_living",
-          "crossref": true
         }
       }
     }
   ],
   "recheck": [],
-  "verification": "Every quote was checked word for word against its linked page (first check 15 Oct 2026; 20 corrected. 17 Oct: 7 quotes replaced with wording visible on the page, including start dates and conditions). Policy pages are re-checked in the daily update; each \"Not covered\" note shows when that party's pages were last checked.",
+  "verification": "Every quote was checked word for word against its linked page (first check 15 Oct 2026; 20 corrected. 17 Oct: every quote re-checked against the visible page; 35 replaced with visible wording, specific commitments, start dates and conditions). Policy pages are re-checked regularly; each \"Not covered\" note shows when that party's pages were last checked.",
   "topic_order_source": "https://www.ipsos.com/en-nz/ipsos-issues-monitor-july-2026",
   "checked_pages": {
-    "ACT": "2026-10-16",
-    "Green": "2026-10-15",
+    "ACT": "2026-10-17",
+    "Green": "2026-10-17",
     "Labour": "2026-10-17",
     "National": "2026-10-17",
     "NZ First": "2026-10-17",
     "Opportunity": "2026-10-17",
-    "Te Pāti Māori": "2026-10-16",
+    "Te Pāti Māori": "2026-10-17",
     "Te Tai Tokerau Party": "2026-10-17"
   }
 }
